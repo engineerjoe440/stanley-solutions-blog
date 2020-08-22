@@ -43,7 +43,7 @@ jobs:
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/html/
+          publish_dir: output/
 
 
 # This action probably does everything for you:
