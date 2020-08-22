@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requires.txt
-      - name: Build Sphinx docs
+      - name: Build Pelican Pages
         if: success()
         run: |
           pelican -s pelicanconf.py
