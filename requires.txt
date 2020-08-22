@@ -1,2 +1,2 @@
 pelican
-"https://github.com/nairobilug/pelican-alchemy/tarball/master"
+https://github.com/nairobilug/pelican-alchemy/tarball/master
