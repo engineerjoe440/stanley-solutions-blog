@@ -3,7 +3,7 @@
 
 AUTHOR = 'Joe Stanley'
 SITENAME = 'Stanley Solutions Blog'
-SITEURL = ''
+SITEURL = 'https://engineerjoe440.github.io/'
 
 import alchemy
 THEME = alchemy.path()
