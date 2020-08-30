@@ -21,7 +21,7 @@ STATIC_PATHS = ['images',
 EXTRA_PATH_METADATA = {
     #'extra/custom.css': {'path': 'custom.css'},
     #'extra/robots.txt': {'path': 'robots.txt'},
-    'extra/favicon.ico': {'path': 'favicon.ico'},  # and this
+    'extra/favicon.ico': {'path': '{attach}/extra/favicon.ico'},  # and this
     #'extra/logo.png':    {'path': 'logo.png'}
     #'extra/CNAME': {'path': 'CNAME'},
     #'extra/LICENSE': {'path': 'LICENSE'},
@@ -33,8 +33,9 @@ TIMEZONE = 'America/Los_Angeles'
 DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
+FEED_ALL_RSS = 'feeds/all.rss.xml'
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
+CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
@@ -42,7 +43,8 @@ AUTHOR_FEED_RSS = None
 # Blogroll
 LINKS = (('Joe On GitHub', 'https://github.com/engineerjoe440/'),
          ('ElectricPy Project', 'https://engineerjoe440.github.io/ElectricPy/'),
-         ('KRNC Project', 'https://github.com/engineerjoe440/KRNCApps/'),)
+         ('KRNC Project', 'https://github.com/engineerjoe440/KRNCApps/'),
+         ('RSS', 'feeds/all.rss.xml'),)
 
 # Social widget
 SOCIAL = (('You can add links in your config file', '#'),
