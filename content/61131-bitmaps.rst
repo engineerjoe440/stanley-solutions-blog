@@ -49,7 +49,7 @@ a technical paper written titled "Numerical model framework of power quality eve
 Rodney Tan and Vigna Ramachandaramurthy; the full paper's linked below, so take a look if
 you're so inclined!
 
-.. image:: {attach}power-system-fault.png
+.. image:: {attach}/images/power-system-fault.png
 
 `Tan, Rodney & Ramachandaramurthy, Vigna K.. (2010). Numerical model framework of power
 quality events. 43. 30-47.`_
