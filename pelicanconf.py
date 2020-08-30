@@ -21,7 +21,7 @@ STATIC_PATHS = ['images',
 EXTRA_PATH_METADATA = {
     #'extra/custom.css': {'path': 'custom.css'},
     #'extra/robots.txt': {'path': 'robots.txt'},
-    'extra/favicon.ico': {'path': '{attach}/extra/favicon.ico'},  # and this
+    '{attach}/extra/favicon.ico': {'path': 'favicon.ico'},  # and this
     #'extra/logo.png':    {'path': 'logo.png'}
     #'extra/CNAME': {'path': 'CNAME'},
     #'extra/LICENSE': {'path': 'LICENSE'},
@@ -44,7 +44,7 @@ AUTHOR_FEED_RSS = None
 LINKS = (('Joe On GitHub', 'https://github.com/engineerjoe440/'),
          ('ElectricPy Project', 'https://engineerjoe440.github.io/ElectricPy/'),
          ('KRNC Project', 'https://github.com/engineerjoe440/KRNCApps/'),
-         ('RSS', 'feeds/all.rss.xml'),)
+         ('RSS Feed', 'feeds/all.rss.xml'),)
 
 # Social widget
 SOCIAL = (('You can add links in your config file', '#'),
