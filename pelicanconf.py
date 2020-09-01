@@ -21,7 +21,8 @@ STATIC_PATHS = ['images',
 EXTRA_PATH_METADATA = {
     #'extra/custom.css': {'path': 'custom.css'},
     #'extra/robots.txt': {'path': 'robots.txt'},
-    '{attach}/extra/favicon.ico': {'path': 'favicon.ico'},  # and this
+    'extra/favicon.ico': {'path': 'favicon.ico'},  # and this
+    'extra/google3f0012ecef33265f.html': {'path': 'google3f0012ecef33265f.html'},
     #'extra/logo.png':    {'path': 'logo.png'}
     #'extra/CNAME': {'path': 'CNAME'},
     #'extra/LICENSE': {'path': 'LICENSE'},
