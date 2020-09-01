@@ -14,21 +14,26 @@ DESCRIPTION = ('Electrical Engineering blog by Joe Stanley - Python,' +
     'Python3, IEC 61131-3, Industrial Controllers, Real-Time Control')
 
 PATH = 'content'
-STATIC_PATHS = ['images',
-                'pdfs',
-                'extra',
-                'html']
+STATIC_PATHS = [
+    'images',
+    'pdfs',
+    'extra',
+    'html',
+]
 
 EXTRA_PATH_METADATA = {
-    #'extra/custom.css': {'path': 'custom.css'},
-    #'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/custom.css': {'path': 'custom.css'},
+    'extra/robots.txt': {'path': 'robots.txt'},
     'extra/favicon.ico': {'path': 'favicon.ico'},  # and this
+    'extra/logo.png':    {'path': 'logo.png'},
+    'extra/CNAME': {'path': 'CNAME'},
+    'extra/LICENSE': {'path': 'LICENSE'},
+    'extra/README': {'path': 'README'},
     'html/google3f0012ecef33265f.html': {'path': 'google3f0012ecef33265f.html'},
-    #'extra/logo.png':    {'path': 'logo.png'}
-    #'extra/CNAME': {'path': 'CNAME'},
-    #'extra/LICENSE': {'path': 'LICENSE'},
-    #'extra/README': {'path': 'README'},
 }
+ARTICLE_EXCLUDES = [
+    'html'
+]
 
 TIMEZONE = 'America/Los_Angeles'
 
@@ -37,7 +42,7 @@ DEFAULT_LANG = 'en'
 # Feed generation is usually not desired when developing
 FEED_ALL_RSS = 'feeds/all.rss.xml'
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
-CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
+CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None

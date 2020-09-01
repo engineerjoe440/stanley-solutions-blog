@@ -50,6 +50,7 @@ Rodney Tan and Vigna Ramachandaramurthy; the full paper's linked below, so take 
 you're so inclined!
 
 .. image:: {attach}/images/power-system-fault.png
+   :alt: An example power system fault "Event Record".
 
 `Tan, Rodney & Ramachandaramurthy, Vigna K.. (2010). Numerical model framework of power
 quality events. 43. 30-47.`_
