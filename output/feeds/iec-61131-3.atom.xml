@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - IEC-61131-3</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/iec-61131-3.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-09-01T11:42:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>A Picture is Worth a Thousand Words</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/making-bitmap-images-from-bytes.html" rel="alternate"></link><published>2020-08-21T08:49:00-07:00</published><updated>2020-09-01T11:42:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-08-21:/stanley-solutions-blog/making-bitmap-images-from-bytes.html</id><summary type="html">&lt;p class="first last"&gt;Making images and plotting might just be possible in real-time-controllers.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - IEC-61131-3</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/iec-61131-3.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-09-01T23:00:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>IEC 61131-3 Syntax Highlighting with highlight.js</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/iec-61131-syntax-highlighting.html" rel="alternate"></link><published>2020-09-01T23:00:00-07:00</published><updated>2020-09-01T23:00:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-09-01:/stanley-solutions-blog/iec-61131-syntax-highlighting.html</id><summary type="html">&lt;p class="first last"&gt;Adding context to 61131 code snippets with &lt;cite&gt;highlight.js&lt;/cite&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I've been investigating some new resources for high-level documentation, including
+automated presentation builders, and along the way, a question arose.&lt;/p&gt;
+&lt;p&gt;If I want to demonstrate code examples for IEC 61131-3, is there a way that I can provide
+syntax highlighting so that readers will be able to understand the material more clearly?&lt;/p&gt;
+&lt;p&gt;So what is syntax highlighting anyway? Well, for code snippets, syntax highlighting uses
+various colors and fonts to isolate the unique keywords, operators, and other items that
+are standard in that particular programming language. I'll show an example here momentarily.
+This is very useful because it allows readers to quickly interpret what the code is
+intentionally doing.&lt;/p&gt;
+&lt;p&gt;I was fortunate enough that I was able to find a project that was already providing syntax
+highlighting for IEC 61131-3 in the &lt;cite&gt;highlight.js&lt;/cite&gt; project framework (though not natively)
+and thus, I could leverage existing work! Trouble is, since it's not already a native
+&amp;quot;language&amp;quot; it comes with its own set of challenges. The source of this highlighter comes
+from the &lt;a class="reference external" href="https://github.com/highlightjs/highlightjs-structured-text"&gt;GitHub highlightjs Project&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;My challenge was identifying an effective way of declaring the language so that I could
+use it with &lt;a class="reference external" href="https://github.com/marp-team/marpit"&gt;Marpit&lt;/a&gt; which is part of the Marp project; a system built to convert
+markdown files to HTML or PPTX presentations. (Be on the lookout for an upcoming article
+on this topic.)&lt;/p&gt;
+&lt;div class="section" id="solution"&gt;
+&lt;h2&gt;Solution&lt;/h2&gt;
+&lt;p&gt;After much trial and tribulation, I finally realized a solution. Since I was using
+&lt;cite&gt;highlight.js&lt;/cite&gt; as a required module in the marp framework, I could simply add the language
+definition and register it accordingly. Here are the steps I took to modify my installation
+to make it work as I wished.&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Locate existing highlight.js installation location by finding dependent module (in my
+case marp). Then open directory (since I'm using Windows, I can use
+&lt;cite&gt;Explorer &amp;lt;path/to/marp/directory&amp;gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;img alt="Identify the install location." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/61131-highlighting/cmd-view.png" /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Navigate to the directory containing the module of interest, then navigate to the
+&lt;cite&gt;node_modules/highlight.js&lt;/cite&gt; folder underneath the desired module. In my case, since
+I'm using marp-cli, I navigated to
+&lt;cite&gt;node_modules/&amp;#64;marp-team/marp-cli/node_modules/highlight.js/lib&lt;/cite&gt;&lt;/p&gt;
+&lt;img alt="Locate the `index.js` file for modification." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/61131-highlighting/explorer-view.png" /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Open the &lt;cite&gt;index.js&lt;/cite&gt; file in a text editor and add a new line to register the &lt;cite&gt;iecst&lt;/cite&gt;
+language.&lt;/p&gt;
+&lt;img alt="Registering the new language." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/61131-highlighting/register-language.png" /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Finally, navigate to the languages folder and add the &lt;cite&gt;iecst.js&lt;/cite&gt; file. Here, for my
+application, I had to make some modifications (which I documented fully in an &lt;a class="reference external" href="https://github.com/highlightjs/highlightjs-structured-text/issues/9#issuecomment-685266264"&gt;issue&lt;/a&gt;
+and &lt;a class="reference external" href="https://github.com/highlightjs/highlightjs-structured-text/pull/10"&gt;pull request&lt;/a&gt; on the source repository).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;To make this long story longer, I'll be writing more later to document how my Marp
+integration comes along. For the meantime, here's the takeaway:&lt;/p&gt;
+&lt;p&gt;Syntax highlighting &lt;em&gt;does&lt;/em&gt; exist for IEC 61131-3, and it'll become easier to implement
+going forward!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="IEC-61131-3"></category><category term="iec-61131-3"></category><category term="documentation"></category></entry><entry><title>A Picture is Worth a Thousand Words</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/making-bitmap-images-from-bytes.html" rel="alternate"></link><published>2020-08-21T08:49:00-07:00</published><updated>2020-09-01T11:42:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-08-21:/stanley-solutions-blog/making-bitmap-images-from-bytes.html</id><summary type="html">&lt;p class="first last"&gt;Making images and plotting might just be possible in real-time-controllers.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;I was introduced to a very nice gentleman about a year ago who was demonstrating some
 logic that created a .PNG file to demonstrate fault currents easily, and could be
 attached in-line as part of an email body. What was so interesting to me is that this
