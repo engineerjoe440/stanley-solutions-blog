@@ -13,6 +13,24 @@ SITEIMAGE = 'logo.png'
 DESCRIPTION = ('Electrical Engineering blog by Joe Stanley - Python,' + 
     'Python3, IEC 61131-3, Industrial Controllers, Real-Time Control')
 
+PLUGINS=[
+    'sitemap',
+]
+
+SITEMAP = {
+    "format": "xml",
+    "priorities": {
+        "articles": 0.5,
+        "indexes": 0.5,
+        "pages": 0.5
+    },
+    "changefreqs": {
+        "articles": "monthly",
+        "indexes": "daily",
+        "pages": "monthly"
+    }
+}
+
 PATH = 'content'
 STATIC_PATHS = [
     'images',
