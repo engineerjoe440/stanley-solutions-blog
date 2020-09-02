@@ -2,7 +2,7 @@ IEC 61131-3 Syntax Highlighting with highlight.js
 #################################################
 
 :date: 2020-09-01 23:00
-:modified: 2020-09-01 23:00
+:modified: 2020-09-01 23:38
 :tags: iec-61131-3, documentation
 :category: IEC-61131-3
 :slug: iec-61131-syntax-highlighting
@@ -79,3 +79,10 @@ integration comes along. For the meantime, here's the takeaway:
 Syntax highlighting *does* exist for IEC 61131-3, and it'll become easier to implement
 going forward!
 
+
+Oh, and how about what that syntax-highlighted code? What does it look like anyway?
+
+Have a look for yourself!
+
+.. image:: {attach}/images/61131-highlighting/61131example.png
+   :alt: An example of (nonsense) syntax-highlighted 61131 code.
