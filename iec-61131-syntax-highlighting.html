@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  IEC 61131-3 Syntax Highlighting with highlight.js | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/iec-61131-syntax-highlighting.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/default.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/iec-61131-3.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/iec-61131-3.rss.xml">  
+  <meta name="description" content="Adding context to 61131 code snippets with highlight.js.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  IEC 61131-3 Syntax Highlighting with highlight.js
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2020-09-01T23:00:00-07:00">
+          <i class="fas fa-clock"></i>
+          Tue 01 September 2020
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/iec-61131-3.html">IEC-61131-3</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/iec-61131-3.html">#iec-61131-3</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/documentation.html">#documentation</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>I've been investigating some new resources for high-level documentation, including
+automated presentation builders, and along the way, a question arose.</p>
+<p>If I want to demonstrate code examples for IEC 61131-3, is there a way that I can provide
+syntax highlighting so that readers will be able to understand the material more clearly?</p>
+<p>So what is syntax highlighting anyway? Well, for code snippets, syntax highlighting uses
+various colors and fonts to isolate the unique keywords, operators, and other items that
+are standard in that particular programming language. I'll show an example here momentarily.
+This is very useful because it allows readers to quickly interpret what the code is
+intentionally doing.</p>
+<p>I was fortunate enough that I was able to find a project that was already providing syntax
+highlighting for IEC 61131-3 in the <cite>highlight.js</cite> project framework (though not natively)
+and thus, I could leverage existing work! Trouble is, since it's not already a native
+&quot;language&quot; it comes with its own set of challenges. The source of this highlighter comes
+from the <a class="reference external" href="https://github.com/highlightjs/highlightjs-structured-text">GitHub highlightjs Project</a></p>
+<p>My challenge was identifying an effective way of declaring the language so that I could
+use it with <a class="reference external" href="https://github.com/marp-team/marpit">Marpit</a> which is part of the Marp project; a system built to convert
+markdown files to HTML or PPTX presentations. (Be on the lookout for an upcoming article
+on this topic.)</p>
+<div class="section" id="solution">
+<h2>Solution</h2>
+<p>After much trial and tribulation, I finally realized a solution. Since I was using
+<cite>highlight.js</cite> as a required module in the marp framework, I could simply add the language
+definition and register it accordingly. Here are the steps I took to modify my installation
+to make it work as I wished.</p>
+<ol class="arabic">
+<li><p class="first">Locate existing highlight.js installation location by finding dependent module (in my
+case marp). Then open directory (since I'm using Windows, I can use
+<cite>Explorer &lt;path/to/marp/directory&gt;</cite></p>
+<img alt="Identify the install location." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/61131-highlighting/cmd-view.png" />
+</li>
+<li><p class="first">Navigate to the directory containing the module of interest, then navigate to the
+<cite>node_modules/highlight.js</cite> folder underneath the desired module. In my case, since
+I'm using marp-cli, I navigated to
+<cite>node_modules/&#64;marp-team/marp-cli/node_modules/highlight.js/lib</cite></p>
+<img alt="Locate the `index.js` file for modification." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/61131-highlighting/explorer-view.png" />
+</li>
+<li><p class="first">Open the <cite>index.js</cite> file in a text editor and add a new line to register the <cite>iecst</cite>
+language.</p>
+<img alt="Registering the new language." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/61131-highlighting/register-language.png" />
+</li>
+<li><p class="first">Finally, navigate to the languages folder and add the <cite>iecst.js</cite> file. Here, for my
+application, I had to make some modifications (which I documented fully in an <a class="reference external" href="https://github.com/highlightjs/highlightjs-structured-text/issues/9#issuecomment-685266264">issue</a>
+and <a class="reference external" href="https://github.com/highlightjs/highlightjs-structured-text/pull/10">pull request</a> on the source repository).</p>
+</li>
+</ol>
+</div>
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>To make this long story longer, I'll be writing more later to document how my Marp
+integration comes along. For the meantime, here's the takeaway:</p>
+<p>Syntax highlighting <em>does</em> exist for IEC 61131-3, and it'll become easier to implement
+going forward!</p>
+</div>
+
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
