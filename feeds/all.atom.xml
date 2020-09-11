@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-09-01T23:38:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>IEC 61131-3 Syntax Highlighting with highlight.js</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/iec-61131-syntax-highlighting.html" rel="alternate"></link><published>2020-09-01T23:00:00-07:00</published><updated>2020-09-01T23:38:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-09-01:/stanley-solutions-blog/iec-61131-syntax-highlighting.html</id><summary type="html">&lt;p class="first last"&gt;Adding context to 61131 code snippets with &lt;cite&gt;highlight.js&lt;/cite&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-09-10T20:39:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Wildfire Prevention with Sound</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/detecting-fires-with-sound.html" rel="alternate"></link><published>2020-09-10T20:39:00-07:00</published><updated>2020-09-10T20:39:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-09-10:/stanley-solutions-blog/detecting-fires-with-sound.html</id><summary type="html">&lt;p class="first last"&gt;&amp;quot;Where there's smoke, there's fire...&amp;quot; Right? What about if sound were a part of it too?&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I'm very pleased to say that I'm helping to support some really exciting research at
+the &lt;a class="reference external" href="https://uidaho.edu"&gt;University of Idaho&lt;/a&gt; this year.&lt;/p&gt;
+&lt;p&gt;A few years ago, a couple of my classmates worked on
+a truly exciting project that utilized some relatively new sensory technology in conjunction
+with some wireless network technology (Zigbee radios) to communicate infrasound (below the
+audible range for humans) signatures back for scientists to analyze. These signatures will
+inform scientists and firefighters, alike, when (and where) a wildfire has started!&lt;/p&gt;
+&lt;p&gt;Now, this was all well and good, but the &lt;a class="reference external" href="http://mindworks.shoutwiki.com/wiki/Infrasound_in_wildfire"&gt;project&lt;/a&gt; lost funding. Yep. Just like that.&lt;/p&gt;
+&lt;p&gt;That's why I'm so excited to be getting involved. We've already got a team of four fantastic
+engineers. A mechanical engineer, two electrical engineers, and a computer scientist. With
+luck the group will be able to start some fantastic research that could eventually lead to a
+truly exciting product that may help wildland firefighters around the country (and around the
+world) find fires &lt;em&gt;faster&lt;/em&gt; and with greater accuracy.&lt;/p&gt;
+&lt;p&gt;The group is just getting started, but I'm very excited to see where things go.&lt;/p&gt;
+&lt;div class="section" id="the-techy-side"&gt;
+&lt;h2&gt;The Techy Side&lt;/h2&gt;
+&lt;p&gt;So how is this supposed to work anyway?&lt;/p&gt;
+&lt;p&gt;Well, we've all heard stories about how animals can sense an impending natural disaster, and
+in fact, that's quite true with wildfire. Most wild game (and many domesticated species too)
+have much more astute hearing sense. In fact, they can hear the low-frequency sounds that
+we're unable to hear.&lt;/p&gt;
+&lt;p&gt;The sensors we're hoping to utilize will allow our digital system to detect the low-frequency
+rumble of wild fire, then with digital signal processing, we'll aim to identify audio
+signatures unique to wildfire. With this, we'll be able to detect fire!&lt;/p&gt;
+&lt;p&gt;Further, the goal will be to create a mesh-network of devices covering the forest floor in
+areas such that devices will be able to communicate amongst themselves to precisely locate
+the fire, and to report it to the authorities quickly!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="capstone"></category><category term="sound"></category><category term="audio"></category><category term="wildfire"></category><category term="protection"></category></entry><entry><title>IEC 61131-3 Syntax Highlighting with highlight.js</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/iec-61131-syntax-highlighting.html" rel="alternate"></link><published>2020-09-01T23:00:00-07:00</published><updated>2020-09-01T23:38:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-09-01:/stanley-solutions-blog/iec-61131-syntax-highlighting.html</id><summary type="html">&lt;p class="first last"&gt;Adding context to 61131 code snippets with &lt;cite&gt;highlight.js&lt;/cite&gt;.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;I've been investigating some new resources for high-level documentation, including
 automated presentation builders, and along the way, a question arose.&lt;/p&gt;
 &lt;p&gt;If I want to demonstrate code examples for IEC 61131-3, is there a way that I can provide
