@@ -22,13 +22,23 @@ except:
 
 keymap = {}
 
+def tagerizer():
+    global keymap
+    tags = re.split(r', ?',keymap['tags'])
+    for i,tag in enumerate(tags):
+        if not tag.isupper():
+            tags[i] = tag.title()
+        else:
+            tags[i] = tag
+    return ', '.join(tags)
+
 def slugerizer():
     global keymap
     return keymap['slug'].replace(' ','-')
 
 prompts = [
     ['title',       "What will the new article's title be? ",                       None],
-    ['tags',        "What tags should the new article include? (comma separated) ", None],
+    ['tags',        "What tags should the new article include? (comma separated) ", tagerizer],
     ['category',    "What category should the article associate with? ",            None],
     ['slug',        "What should the slug be? ",                                    slugerizer],
     ['author',      "Who is the author?{} ".format(usr_callback(prompt=True)),      usr_callback],
@@ -94,6 +104,7 @@ def main( parser, keymap ):
     filename = filename.replace('\\','/')
     filename = re.sub(r'-{2,}', '-', filename)
     filename = re.sub(r'\.{2,}', '.', filename)
+    filename = filename.replace('`','')
     print("——————————————————————————————————————————————————————")
     if 'content/' not in filename:
         filename = './content/' + os.path.basename(filename)
@@ -105,10 +116,10 @@ def main( parser, keymap ):
         response = ''
         while response.upper() not in ['Y','N']:
             response = input("Would you like to start writing now? [Y,n]  ")
-        if response.upper() = 'Y':
+        if response.upper() == 'Y':
             openafter = True
     if openafter:
-        os.startfile(filename)
+        os.startfile(filename.replace('./',os.getcwd()+'/'))
 
 
 if __name__ == '__main__':
