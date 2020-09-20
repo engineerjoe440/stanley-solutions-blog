@@ -6,6 +6,7 @@ Simple Python script to get a user started with writing a new Pelican blog post.
 """
 
 import os
+import re
 import time
 import argparse
 
@@ -89,7 +90,10 @@ def main( parser, keymap ):
     # Determine Filename
     if filename in ['', None]:
         filename = keymap['title'].lower().replace(' ','-') + '.rst'
+    # Clean Filename
     filename = filename.replace('\\','/')
+    filename = re.sub(r'-{2,}', '-', filename)
+    filename = re.sub(r'\.{2,}', '.', filename)
     print("——————————————————————————————————————————————————————")
     if 'content/' not in filename:
         filename = './content/' + os.path.basename(filename)
@@ -97,6 +101,12 @@ def main( parser, keymap ):
     print("Writing contents to:", filename)
     with open(filename, 'w') as fObj:
         fObj.write( rst_format.format(**keymap) )
+    if not openafter:
+        response = ''
+        while response.upper() not in ['Y','N']:
+            response = input("Would you like to start writing now? [Y,n]  ")
+        if response.upper() = 'Y':
+            openafter = True
     if openafter:
         os.startfile(filename)
 
