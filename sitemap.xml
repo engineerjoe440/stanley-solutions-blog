@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2020-09-20T18:22:02-00:00</lastmod>
+<lastmod>2020-10-01T02:46:13-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/sel-protocol-coming-to-python.html</loc>
-<lastmod>2020-09-20T11:07:00-07:00</lastmod>
+<lastmod>2020-09-30T15:45:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -82,28 +82,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html</loc>
-<lastmod>2020-09-20T11:07:00-07:53</lastmod>
+<lastmod>2020-09-30T15:45:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html</loc>
-<lastmod>2020-09-20T11:07:00-07:53</lastmod>
+<lastmod>2020-09-30T15:45:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/protocols.html</loc>
-<lastmod>2020-09-20T11:07:00-07:53</lastmod>
+<lastmod>2020-09-30T15:45:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/sel.html</loc>
-<lastmod>2020-09-20T11:07:00-07:53</lastmod>
+<lastmod>2020-09-30T15:45:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -180,7 +180,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2020-09-20T11:07:00-07:53</lastmod>
+<lastmod>2020-09-30T15:45:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
