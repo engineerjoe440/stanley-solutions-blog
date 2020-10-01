@@ -2,7 +2,7 @@ Introducing `selprotopy`
 ########################
 
 :date: 2020-09-20 11:07
-:modified: 2020-09-20 11:07
+:modified: 2020-09-30 15:45
 :tags: Python, Protocols, SEL
 :category: Python
 :slug: sel-protocol-coming-to-python
@@ -15,6 +15,9 @@ Introducing `selprotopy`
 
 
 SEL Protocol is finally coming for Python. That's right, you've heard correctly; it's coming.
+
+.. image:: https://raw.githubusercontent.com/engineerjoe440/sel-proto-py/master/logo/selprotopy.png
+      :alt: The new... `selprotopy`!
 
 But, what is SEL Protocol anyway?
 
