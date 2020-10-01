@@ -17,7 +17,8 @@ Introducing `selprotopy`
 SEL Protocol is finally coming for Python. That's right, you've heard correctly; it's coming.
 
 .. image:: https://raw.githubusercontent.com/engineerjoe440/sel-proto-py/master/logo/selprotopy.png
-      :alt: The new... `selprotopy`!
+   :alt: The new... `selprotopy`!
+   :width: 350 px
 
 But, what is SEL Protocol anyway?
 
