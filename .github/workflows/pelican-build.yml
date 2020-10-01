@@ -44,6 +44,7 @@ jobs:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: output/
+          cname: blog.stanleysolutionsnw.com
 
 
 # This action probably does everything for you:
