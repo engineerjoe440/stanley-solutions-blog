@@ -47,7 +47,7 @@ EXTRA_PATH_METADATA = {
     'extra/CNAME': {'path': 'CNAME'},
     'extra/LICENSE': {'path': 'LICENSE'},
     'extra/README': {'path': 'README'},
-    'html/google3f0012ecef33265f.html': {'path': 'google3f0012ecef33265f.html'},
+    'html/google307ea14d75106813.html': {'path': 'google307ea14d75106813.html'},
 }
 ARTICLE_EXCLUDES = [
     'html'
