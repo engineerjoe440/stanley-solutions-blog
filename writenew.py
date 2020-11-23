@@ -10,17 +10,32 @@ import re
 import time
 import argparse
 
+keymap = {}
+
 try:
     import win32api
     def usr_callback(prompt=False):
+        global keymap
         usr = win32api.GetUserName()
         usr_str = ' [{}]'.format(usr)
-        return usr_str if prompt else usr
+        if prompt:
+            return usr_str
+        elif keymap['author'] == '':
+            return usr
+        else:
+            return keymap['author']
 except:
+    import pwd
     def usr_callback(prompt=False):
-        return ''
-
-keymap = {}
+        global keymap
+        usr = pwd.getpwuid(os.getuid())[4].replace(',','')
+        usr_str = ' [{}]'.format(usr)
+        if prompt:
+            return usr_str
+        elif keymap['author'] == '':
+            return usr
+        else:
+            return keymap['author']
 
 def tagerizer():
     global keymap
