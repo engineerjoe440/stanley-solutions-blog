@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Smart Christmas Trains for a Smart Home? | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/esp32-controlling-lionel-trains.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/default.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/esp32.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/esp32.rss.xml">  
+  <meta name="description" content="Finally, with my own home, I think I can return to my goal of having a Lionel train surround my Christmas tree, but perhaps I need to consider how I'm going to automate it...">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Smart Christmas Trains for a Smart Home?
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2020-11-22T19:32:00-08:00">
+          <i class="fas fa-clock"></i>
+          Sun 22 November 2020
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/esp32.html">ESP32</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/esp32.html">#ESP32</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/iot.html">#IOT</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/smart-home.html">#Smart-Home</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/automation.html">#Automation</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/wifi.html">#WIFI</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/lionel.html">#Lionel</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/vintage.html">#Vintage</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/variac.html">#Variac</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>For any railfans, a train surrounding a Christmas tree is something of a given. But I recently
+came up with a conundrum...</p>
+<p>See, my house is becoming more and more of a &quot;smart home,&quot; and I'd like the Christmas holiday
+to be much of the same. Now, that's pretty easy when it comes to the lights. Throw a smart-plug
+running <a class="reference external" href="https://tasmota.github.io/docs/">Tasmota</a> firmware (a free and open source alternative to the proprietary solutions) at
+those lights, and let the magic commence. But for toy trains around the tree? That's a bit of a
+different story.</p>
+<div class="section" id="the-problem">
+<h2>The problem:</h2>
+<p>So, why couldn't I just throw another smart plug at my toy trains?</p>
+<p>Well, I guess I <em>could</em>, but I don't really think that's the greatest idea. Reason being that
+turning the trains on and off in a binary fashion (all or nothing) might not be great on them,
+and wouldn't be the most pleasant sound either. I guess I could look at some of the solutions
+that Lionel markets like their <a class="reference external" href="http://www.lionel.com/brands/legacy/">Legacy</a> or TMCC options, but that would mean a lot of new
+purchases, research, and maybe some other annoyances that I'm just not too excited to deal with.
+So, needless to say, that option's off the list too. Perhaps one of Lionel's new bluetooth
+options? I guess, but that's kind of boring, don't you think? And to boot, if I were to follow
+that route, I'd certainly need to buy a new locomotive, and I'd likely need to hack the remote.
+Another option that I'm just not thrilled about.</p>
+<p>Hmm... well, what's left? My pickyness hasn't left me with many options, but I think there's
+still <em>got to be something</em>.</p>
+</div>
+<div class="section" id="think-think-think">
+<h2>Think. Think. Think.</h2>
+<p>I spent some time thinking about my alternatives today, and well, let me just walk you through
+that.</p>
+<p>I started out thinking about the toy train transformer itself. That's all it really is, a
+transformer; well, <em>variac</em> specifically. A variac is just a variable transformer, essentially
+a graphine brush that moves across the windings on the secondary side of a transformer. This
+varying motion provides the variable &quot;tap&quot; on the transformer, and allows it to acheive a
+voltage that can be varied and controlled to change the speed of the connected trains.</p>
+<p>It's pretty simple really, Lionel and others pioneered this practice for the model and toy scene
+nearly a century ago. Trouble is, the transformers (in my case, a Lionel ZW transformer) aren't
+exactly built for modification, and like I mentioned earlier, I don't exactly idolize the thought
+of tearing apart my toy train controls just to make them &quot;smarter.&quot;</p>
+<img alt="Here's what a variac looks like..." src="https://images-na.ssl-images-amazon.com/images/I/91SL6j6kkNL._AC_SX425_.jpg" style="width: 350px;" />
+<p>I spent some time looking around for a cheap (I'd like to stay under $100 since I need to buy gifts,
+too!) variac that is digitally controlled. No dice.</p>
+<p>I guess I could buy a big variac and hook up a motor and...</p>
+<p>No.</p>
+<p>Not gonna fly.</p>
+<p>Hmm... well, what else?</p>
+<p>Another option is a rheostat. For those of us who either forgot or skipped electrical machines in
+college; a rheostat is basically a variable resistor. Similar to a variac, rheostats are typically
+made from some form of wound wire that has a varying resistance as the user employs a sweeper to
+move from one end to the other. That's really the big difference, and the reason it's not just
+called a variable resistor, or even a potentiometer. Rheostats are basically &quot;variable resistors
+on steroids,&quot; built for high-energy systems.</p>
+<img alt="And this is a rheostat..." src="https://cdn.images.fecom-media.com/A49116.jpg" style="width: 350px;" />
+<p>So... yours truly started poking around online looking (once again) for a cheap electrical
+device beefy enough to run toy trains, but not so big that it would break the bank. I bummed around
+through Amazon with no luck, but after a quick search on eBay, I found something pretty enticing...</p>
+<p>Guess which toy train company just happened to make rheostats way back in the day?</p>
+<p>That's right! Lionel rheostats!</p>
+<img alt="A Lionel rheostat!" src="https://image.invaluable.com/housePhotos/SeymourAuctions/95/563895/H4246-L72135272.jpg" style="width: 450px;" />
+</div>
+<div class="section" id="a-solution">
+<h2>A solution?</h2>
+<p>So, is that it? Just like that? Problem solved?</p>
+<p>Well, yes; but also, no.</p>
+<p>Lionel rheostats seem to be running about $10 and about as much in shipping on eBay at the time of
+writing, so that's really good news. Not to mention the fact that they were built <em>specifically
+for toy trains</em> (score!).</p>
+<p>But what about the fact that it's mechanical, not digital?</p>
+<p>I knew you'd ask that...</p>
+<p>Well, here, the big difference is the form factor. These rheostats are significantly easier to
+interface with. Since they're linear, a single piece of all-thread-rod and a little stepper motor
+could quite easily do just what I need. I could connect a little stepper motor to an ESP32/ESP8266
+and hook that up to a Lionel rheostat via all-thread and a moving nut with a sweeper attached.</p>
+<p>Easy-peasy! Well, sort-of.</p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>Well, there's still quite a bit left on this one, and a good chance I won't actually do anything
+about it this Christmas. Still, it's an exciting idea, and I'm definitely going to pursue it!</p>
+<p>That's all for now, but stay tuned!</p>
+<p>Who knows, maybe I'll even throw a whistle control on there!!!</p>
+</div>
+
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>

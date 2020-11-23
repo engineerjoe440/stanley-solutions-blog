@@ -1,5 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-09-30T15:45:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Introducing selprotopy</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/sel-protocol-coming-to-python.html" rel="alternate"></link><published>2020-09-20T11:07:00-07:00</published><updated>2020-09-30T15:45:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-09-20:/stanley-solutions-blog/sel-protocol-coming-to-python.html</id><summary type="html">&lt;p class="first last"&gt;The SEL Protocol binding suite for Python is finally coming...&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-11-22T19:32:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Smart Christmas Trains for a Smart Home?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/esp32-controlling-lionel-trains.html" rel="alternate"></link><published>2020-11-22T19:32:00-08:00</published><updated>2020-11-22T19:32:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-11-22:/stanley-solutions-blog/esp32-controlling-lionel-trains.html</id><summary type="html">&lt;p class="first last"&gt;Finally, with my own home, I think I can return to my goal of having a Lionel train surround my Christmas tree, but perhaps I need to consider how I'm going to automate it...&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;For any railfans, a train surrounding a Christmas tree is something of a given. But I recently
+came up with a conundrum...&lt;/p&gt;
+&lt;p&gt;See, my house is becoming more and more of a &amp;quot;smart home,&amp;quot; and I'd like the Christmas holiday
+to be much of the same. Now, that's pretty easy when it comes to the lights. Throw a smart-plug
+running &lt;a class="reference external" href="https://tasmota.github.io/docs/"&gt;Tasmota&lt;/a&gt; firmware (a free and open source alternative to the proprietary solutions) at
+those lights, and let the magic commence. But for toy trains around the tree? That's a bit of a
+different story.&lt;/p&gt;
+&lt;div class="section" id="the-problem"&gt;
+&lt;h2&gt;The problem:&lt;/h2&gt;
+&lt;p&gt;So, why couldn't I just throw another smart plug at my toy trains?&lt;/p&gt;
+&lt;p&gt;Well, I guess I &lt;em&gt;could&lt;/em&gt;, but I don't really think that's the greatest idea. Reason being that
+turning the trains on and off in a binary fashion (all or nothing) might not be great on them,
+and wouldn't be the most pleasant sound either. I guess I could look at some of the solutions
+that Lionel markets like their &lt;a class="reference external" href="http://www.lionel.com/brands/legacy/"&gt;Legacy&lt;/a&gt; or TMCC options, but that would mean a lot of new
+purchases, research, and maybe some other annoyances that I'm just not too excited to deal with.
+So, needless to say, that option's off the list too. Perhaps one of Lionel's new bluetooth
+options? I guess, but that's kind of boring, don't you think? And to boot, if I were to follow
+that route, I'd certainly need to buy a new locomotive, and I'd likely need to hack the remote.
+Another option that I'm just not thrilled about.&lt;/p&gt;
+&lt;p&gt;Hmm... well, what's left? My pickyness hasn't left me with many options, but I think there's
+still &lt;em&gt;got to be something&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="think-think-think"&gt;
+&lt;h2&gt;Think. Think. Think.&lt;/h2&gt;
+&lt;p&gt;I spent some time thinking about my alternatives today, and well, let me just walk you through
+that.&lt;/p&gt;
+&lt;p&gt;I started out thinking about the toy train transformer itself. That's all it really is, a
+transformer; well, &lt;em&gt;variac&lt;/em&gt; specifically. A variac is just a variable transformer, essentially
+a graphine brush that moves across the windings on the secondary side of a transformer. This
+varying motion provides the variable &amp;quot;tap&amp;quot; on the transformer, and allows it to acheive a
+voltage that can be varied and controlled to change the speed of the connected trains.&lt;/p&gt;
+&lt;p&gt;It's pretty simple really, Lionel and others pioneered this practice for the model and toy scene
+nearly a century ago. Trouble is, the transformers (in my case, a Lionel ZW transformer) aren't
+exactly built for modification, and like I mentioned earlier, I don't exactly idolize the thought
+of tearing apart my toy train controls just to make them &amp;quot;smarter.&amp;quot;&lt;/p&gt;
+&lt;img alt="Here's what a variac looks like..." src="https://images-na.ssl-images-amazon.com/images/I/91SL6j6kkNL._AC_SX425_.jpg" style="width: 350px;" /&gt;
+&lt;p&gt;I spent some time looking around for a cheap (I'd like to stay under $100 since I need to buy gifts,
+too!) variac that is digitally controlled. No dice.&lt;/p&gt;
+&lt;p&gt;I guess I could buy a big variac and hook up a motor and...&lt;/p&gt;
+&lt;p&gt;No.&lt;/p&gt;
+&lt;p&gt;Not gonna fly.&lt;/p&gt;
+&lt;p&gt;Hmm... well, what else?&lt;/p&gt;
+&lt;p&gt;Another option is a rheostat. For those of us who either forgot or skipped electrical machines in
+college; a rheostat is basically a variable resistor. Similar to a variac, rheostats are typically
+made from some form of wound wire that has a varying resistance as the user employs a sweeper to
+move from one end to the other. That's really the big difference, and the reason it's not just
+called a variable resistor, or even a potentiometer. Rheostats are basically &amp;quot;variable resistors
+on steroids,&amp;quot; built for high-energy systems.&lt;/p&gt;
+&lt;img alt="And this is a rheostat..." src="https://cdn.images.fecom-media.com/A49116.jpg" style="width: 350px;" /&gt;
+&lt;p&gt;So... yours truly started poking around online looking (once again) for a cheap electrical
+device beefy enough to run toy trains, but not so big that it would break the bank. I bummed around
+through Amazon with no luck, but after a quick search on eBay, I found something pretty enticing...&lt;/p&gt;
+&lt;p&gt;Guess which toy train company just happened to make rheostats way back in the day?&lt;/p&gt;
+&lt;p&gt;That's right! Lionel rheostats!&lt;/p&gt;
+&lt;img alt="A Lionel rheostat!" src="https://image.invaluable.com/housePhotos/SeymourAuctions/95/563895/H4246-L72135272.jpg" style="width: 450px;" /&gt;
+&lt;/div&gt;
+&lt;div class="section" id="a-solution"&gt;
+&lt;h2&gt;A solution?&lt;/h2&gt;
+&lt;p&gt;So, is that it? Just like that? Problem solved?&lt;/p&gt;
+&lt;p&gt;Well, yes; but also, no.&lt;/p&gt;
+&lt;p&gt;Lionel rheostats seem to be running about $10 and about as much in shipping on eBay at the time of
+writing, so that's really good news. Not to mention the fact that they were built &lt;em&gt;specifically
+for toy trains&lt;/em&gt; (score!).&lt;/p&gt;
+&lt;p&gt;But what about the fact that it's mechanical, not digital?&lt;/p&gt;
+&lt;p&gt;I knew you'd ask that...&lt;/p&gt;
+&lt;p&gt;Well, here, the big difference is the form factor. These rheostats are significantly easier to
+interface with. Since they're linear, a single piece of all-thread-rod and a little stepper motor
+could quite easily do just what I need. I could connect a little stepper motor to an ESP32/ESP8266
+and hook that up to a Lionel rheostat via all-thread and a moving nut with a sweeper attached.&lt;/p&gt;
+&lt;p&gt;Easy-peasy! Well, sort-of.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-s-next"&gt;
+&lt;h2&gt;What's next?&lt;/h2&gt;
+&lt;p&gt;Well, there's still quite a bit left on this one, and a good chance I won't actually do anything
+about it this Christmas. Still, it's an exciting idea, and I'm definitely going to pursue it!&lt;/p&gt;
+&lt;p&gt;That's all for now, but stay tuned!&lt;/p&gt;
+&lt;p&gt;Who knows, maybe I'll even throw a whistle control on there!!!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="ESP32"></category><category term="ESP32"></category><category term="IOT"></category><category term="Smart-Home"></category><category term="Automation"></category><category term="WIFI"></category><category term="Lionel"></category><category term="Vintage"></category><category term="Variac"></category></entry><entry><title>Introducing selprotopy</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/sel-protocol-coming-to-python.html" rel="alternate"></link><published>2020-09-20T11:07:00-07:00</published><updated>2020-09-30T15:45:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-09-20:/stanley-solutions-blog/sel-protocol-coming-to-python.html</id><summary type="html">&lt;p class="first last"&gt;The SEL Protocol binding suite for Python is finally coming...&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;SEL Protocol is finally coming for Python. That's right, you've heard correctly; it's coming.&lt;/p&gt;
 &lt;img alt="The new... `selprotopy`!" src="https://raw.githubusercontent.com/engineerjoe440/sel-proto-py/master/logo/selprotopy.png" style="width: 350px;" /&gt;
 &lt;p&gt;But, what is SEL Protocol anyway?&lt;/p&gt;
