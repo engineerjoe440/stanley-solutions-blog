@@ -78,7 +78,42 @@ about it this Christmas. Still, it's an exciting idea, and I'm definitely going 
 &lt;p&gt;That's all for now, but stay tuned!&lt;/p&gt;
 &lt;p&gt;Who knows, maybe I'll even throw a whistle control on there!!!&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="ESP32"></category><category term="ESP32"></category><category term="IOT"></category><category term="Smart-Home"></category><category term="Automation"></category><category term="WIFI"></category><category term="Lionel"></category><category term="Vintage"></category><category term="Variac"></category></entry><entry><title>Introducing selprotopy</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/sel-protocol-coming-to-python.html" rel="alternate"></link><published>2020-09-20T11:07:00-07:00</published><updated>2020-09-30T15:45:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-09-20:/stanley-solutions-blog/sel-protocol-coming-to-python.html</id><summary type="html">&lt;p class="first last"&gt;The SEL Protocol binding suite for Python is finally coming...&lt;/p&gt;
+</content><category term="ESP32"></category><category term="ESP32"></category><category term="IOT"></category><category term="Smart-Home"></category><category term="Automation"></category><category term="WIFI"></category><category term="Lionel"></category><category term="Vintage"></category><category term="Variac"></category></entry><entry><title>Reading Data with SELPROTOPY</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/reading-data-with-selprotopy.html" rel="alternate"></link><published>2020-11-22T19:02:00-08:00</published><updated>2020-11-22T19:02:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-11-22:/stanley-solutions-blog/reading-data-with-selprotopy.html</id><summary type="html">&lt;p class="first last"&gt;Finally reading some data from SEL relays using Python! Now to get the controls working...&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Still deep in the process of getting a fully functional SEL protocol binding suite in Python, but,
+hey! At least I can write a little update on what's been going on!&lt;/p&gt;
+&lt;p&gt;(if you haven't read my article on what &lt;cite&gt;selprotopy&lt;/cite&gt; is, take a look &lt;a class="reference external" href="https://blog.stanleysolutionsnw.com/sel-protocol-coming-to-python.html"&gt;here&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;In the past month of so, I've been able to really &amp;quot;whack out&amp;quot; some reasonable functionality. In
+fact, I've been able to poll an SEL-351 for both digital and analog data. For those of you who
+are a little familiar with SEL protocol, that means that I've been able to create a parser for
+the relay definition block, and the various fast-meter blocks in addition to the DNA definition.
+To boot, I've even tested (albeit breifly) on an SEL-751 and saw pretty promissing results.&lt;/p&gt;
+&lt;p&gt;That's all pretty good, but the eventual goal (well, &lt;em&gt;my&lt;/em&gt; eventual goal) is to be able to poll
+regularly and send commands/controls as needed. I'd also like to be able to read CEV reports
+(more on that in the future) and perhaps the relay's SER (Sequential Event Recorder). So, is any
+of the control functionality working yet? Not really...&lt;/p&gt;
+&lt;p&gt;I've gotten to the point where the commands &lt;em&gt;should&lt;/em&gt; be configured and sent correctly to the
+relay, but no dice.&lt;/p&gt;
+&lt;p&gt;Somewhere along the lines, I've clearly &amp;quot;bugged&amp;quot; something up. So now, it's really just a matter
+of doing some additional debugging. Hmm... will need to get started on that. Trouble is, I've got
+lots of other fun projects to work on too!!!&lt;/p&gt;
+&lt;div class="section" id="c-mon-joe-wrap-this-thing-up"&gt;
+&lt;h2&gt;C'mon, Joe; wrap this thing up...&lt;/h2&gt;
+&lt;p&gt;Okay, so I'm rambling; at this point, I'm pretty excited to say that I've got some polling working
+with &lt;cite&gt;selprotopy&lt;/cite&gt;, but there's clearly some more to work on. I'm hoping that I can get commands
+working here pretty soon, and then I've got a handful of options as the next step.&lt;/p&gt;
+&lt;div class="section" id="i-could"&gt;
+&lt;h3&gt;I could:&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;create a system to read the SER&lt;/li&gt;
+&lt;li&gt;get the CEV reading figured out&lt;/li&gt;
+&lt;li&gt;start testing on a variety of SEL relays (but this would require testing a FOSS project at SEL,
+so I'm still not sure about this one)&lt;/li&gt;
+&lt;li&gt;get an automated test suite built on my local GitLab instance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Clearly some more work coming, so stay tuned!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="python"></category><category term="Protocols"></category><category term="SEL"></category><category term="Python"></category><category term="Communications"></category><category term="Metering"></category></entry><entry><title>Introducing selprotopy</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/sel-protocol-coming-to-python.html" rel="alternate"></link><published>2020-09-20T11:07:00-07:00</published><updated>2020-09-30T15:45:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-09-20:/stanley-solutions-blog/sel-protocol-coming-to-python.html</id><summary type="html">&lt;p class="first last"&gt;The SEL Protocol binding suite for Python is finally coming...&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;SEL Protocol is finally coming for Python. That's right, you've heard correctly; it's coming.&lt;/p&gt;
 &lt;img alt="The new... `selprotopy`!" src="https://raw.githubusercontent.com/engineerjoe440/sel-proto-py/master/logo/selprotopy.png" style="width: 350px;" /&gt;
 &lt;p&gt;But, what is SEL Protocol anyway?&lt;/p&gt;

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Reading Data with SELPROTOPY | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/reading-data-with-selprotopy.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/default.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="Finally reading some data from SEL relays using Python! Now to get the controls working...">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Reading Data with SELPROTOPY
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2020-11-22T19:02:00-08:00">
+          <i class="fas fa-clock"></i>
+          Sun 22 November 2020
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/protocols.html">#Protocols</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sel.html">#SEL</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/communications.html">#Communications</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/metering.html">#Metering</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>Still deep in the process of getting a fully functional SEL protocol binding suite in Python, but,
+hey! At least I can write a little update on what's been going on!</p>
+<p>(if you haven't read my article on what <cite>selprotopy</cite> is, take a look <a class="reference external" href="https://blog.stanleysolutionsnw.com/sel-protocol-coming-to-python.html">here</a>)</p>
+<p>In the past month of so, I've been able to really &quot;whack out&quot; some reasonable functionality. In
+fact, I've been able to poll an SEL-351 for both digital and analog data. For those of you who
+are a little familiar with SEL protocol, that means that I've been able to create a parser for
+the relay definition block, and the various fast-meter blocks in addition to the DNA definition.
+To boot, I've even tested (albeit breifly) on an SEL-751 and saw pretty promissing results.</p>
+<p>That's all pretty good, but the eventual goal (well, <em>my</em> eventual goal) is to be able to poll
+regularly and send commands/controls as needed. I'd also like to be able to read CEV reports
+(more on that in the future) and perhaps the relay's SER (Sequential Event Recorder). So, is any
+of the control functionality working yet? Not really...</p>
+<p>I've gotten to the point where the commands <em>should</em> be configured and sent correctly to the
+relay, but no dice.</p>
+<p>Somewhere along the lines, I've clearly &quot;bugged&quot; something up. So now, it's really just a matter
+of doing some additional debugging. Hmm... will need to get started on that. Trouble is, I've got
+lots of other fun projects to work on too!!!</p>
+<div class="section" id="c-mon-joe-wrap-this-thing-up">
+<h2>C'mon, Joe; wrap this thing up...</h2>
+<p>Okay, so I'm rambling; at this point, I'm pretty excited to say that I've got some polling working
+with <cite>selprotopy</cite>, but there's clearly some more to work on. I'm hoping that I can get commands
+working here pretty soon, and then I've got a handful of options as the next step.</p>
+<div class="section" id="i-could">
+<h3>I could:</h3>
+<ul class="simple">
+<li>create a system to read the SER</li>
+<li>get the CEV reading figured out</li>
+<li>start testing on a variety of SEL relays (but this would require testing a FOSS project at SEL,
+so I'm still not sure about this one)</li>
+<li>get an automated test suite built on my local GitLab instance</li>
+</ul>
+<p>Clearly some more work coming, so stay tuned!</p>
+</div>
+</div>
+
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
