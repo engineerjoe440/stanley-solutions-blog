@@ -48,7 +48,7 @@ I could:
 - create a system to read the SER
 - get the CEV reading figured out
 - start testing on a variety of SEL relays (but this would require testing a FOSS project at SEL,
-so I'm still not sure about this one)
+  so I'm still not sure about this one)
 - get an automated test suite built on my local GitLab instance
 
 Clearly some more work coming, so stay tuned!
