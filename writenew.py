@@ -115,6 +115,11 @@ def main( parser, keymap ):
     # Determine Filename
     if filename in ['', None]:
         filename = keymap['title'].lower().replace(' ','-') + '.rst'
+        # Clean Filename
+        filename = filename.replace('?','')
+        filename = filename.replace('!','')
+        filename = filename.replace('/','-')
+        filename = filename.replace('\\','-')
     # Clean Filename
     filename = filename.replace('\\','/')
     filename = re.sub(r'-{2,}', '-', filename)
@@ -139,3 +144,5 @@ def main( parser, keymap ):
 
 if __name__ == '__main__':
     main( parser, keymap )
+
+# END

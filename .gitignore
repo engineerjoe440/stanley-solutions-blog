@@ -1,2 +1,7 @@
 # Ignore ini files
 *.ini
+
+# Ignore VSCode
+.vscode/
+
+__pycache__/
