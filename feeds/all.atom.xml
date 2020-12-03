@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-11-22T19:32:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Smart Christmas Trains for a Smart Home?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/esp32-controlling-lionel-trains.html" rel="alternate"></link><published>2020-11-22T19:32:00-08:00</published><updated>2020-11-22T19:32:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-11-22:/stanley-solutions-blog/esp32-controlling-lionel-trains.html</id><summary type="html">&lt;p class="first last"&gt;Finally, with my own home, I think I can return to my goal of having a Lionel train surround my Christmas tree, but perhaps I need to consider how I'm going to automate it...&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-12-02T19:45:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Sustainability in the News...</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/sustainability-in-the-news-december-2020.html" rel="alternate"></link><published>2020-12-02T19:45:00-08:00</published><updated>2020-12-02T19:45:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-12-02:/stanley-solutions-blog/sustainability-in-the-news-december-2020.html</id><summary type="html">&lt;p class="first last"&gt;Recycled concrete and herbicide detecting transistors? Bring on the new sustainability-focused tech!&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;I want to get in the habit of writing up some brief articles more regularly to talk about
+some of the more interesting articles and news that I've heard recently in the realm of
+sustainability. Now, I'll grant, that I typically do my own sort of exploration(s) into
+different sustainability projects and research, but I want to keep these articles focused
+on what I hear is happening outside of my little pocket on Earth.&lt;/p&gt;
+&lt;p&gt;Anyway... Here's what I've heard about new sustainability topics!&lt;/p&gt;
+&lt;div class="section" id="recycled-concrete"&gt;
+&lt;h2&gt;Recycled Concrete&lt;/h2&gt;
+&lt;p&gt;Long has old concrete been a challenge for construction and demolition workers. Long has
+the question arisen as: &amp;quot;So, now that we've torn it down; what do we do with it?&amp;quot; Well,
+it turns out there might just be a solution! I was introduced to this brief article which
+came from a scientific paper describing some research findings. You can look at the
+&lt;a class="reference external" href="https://www.sciencedaily.com/releases/2020/11/201130150358.htm"&gt;recycled concrete article&lt;/a&gt; and see for yourself. For me, this is most exciting since it
+means that &lt;em&gt;enormous&lt;/em&gt; amounts of waste concrete can be kept out of the landfill! Not to
+mention that fewer resources may need to be used to maintain high-wear concrete surfaces
+such as sidewalks for longer periods of time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="transistors-detecting-herbicides"&gt;
+&lt;h2&gt;Transistors Detecting Herbicides&lt;/h2&gt;
+&lt;p&gt;Okay, now this one is really interesting; not that concrete &lt;em&gt;isn't&lt;/em&gt; interesting, it's just
+that this one seems to fit into my area of expertise a little more (you know, electricity).&lt;/p&gt;
+&lt;p&gt;This article on &lt;a class="reference external" href="https://www.sciencedaily.com/releases/2020/12/201201124142.htm"&gt;herbicide sensing transistors&lt;/a&gt; describes a scientific article that details
+a new technology that's still being researched that would allow specific transistors to be
+immersed in water or wastewater to detect certain levels of herbicides. Why is this
+important? Well, research is continuing to show that significant levels of herbicides can
+be dangerous to marine life including everything from flora to fauna. Both plants and
+animals can suffer from high levels of herbicides. With this emerging tech, we could see
+improved water and wastewater management such that industrial facilities and municipalities
+may be able to monitor their output, and make more informed decisions to adapt their systems.&lt;/p&gt;
+&lt;p&gt;Well, that's it for this go-around, but hopefully I can keep talking about some new
+and emerging tech!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Sustainability"></category><category term="Concrete"></category><category term="Transistor"></category><category term="Recycle"></category><category term="Herbicide"></category><category term="Sustainability"></category></entry><entry><title>Smart Christmas Trains for a Smart Home?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/esp32-controlling-lionel-trains.html" rel="alternate"></link><published>2020-11-22T19:32:00-08:00</published><updated>2020-11-22T19:32:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-11-22:/stanley-solutions-blog/esp32-controlling-lionel-trains.html</id><summary type="html">&lt;p class="first last"&gt;Finally, with my own home, I think I can return to my goal of having a Lionel train surround my Christmas tree, but perhaps I need to consider how I'm going to automate it...&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;For any railfans, a train surrounding a Christmas tree is something of a given. But I recently
 came up with a conundrum...&lt;/p&gt;
 &lt;p&gt;See, my house is becoming more and more of a &amp;quot;smart home,&amp;quot; and I'd like the Christmas holiday
@@ -78,7 +111,7 @@ about it this Christmas. Still, it's an exciting idea, and I'm definitely going 
 &lt;p&gt;That's all for now, but stay tuned!&lt;/p&gt;
 &lt;p&gt;Who knows, maybe I'll even throw a whistle control on there!!!&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="ESP32"></category><category term="ESP32"></category><category term="IOT"></category><category term="Smart-Home"></category><category term="Automation"></category><category term="WIFI"></category><category term="Lionel"></category><category term="Vintage"></category><category term="Variac"></category></entry><entry><title>Reading Data with SELPROTOPY</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/reading-data-with-selprotopy.html" rel="alternate"></link><published>2020-11-22T19:02:00-08:00</published><updated>2020-11-22T19:02:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-11-22:/stanley-solutions-blog/reading-data-with-selprotopy.html</id><summary type="html">&lt;p class="first last"&gt;Finally reading some data from SEL relays using Python! Now to get the controls working...&lt;/p&gt;
+</content><category term="ESP32"></category><category term="ESP32"></category><category term="IOT"></category><category term="Smart-Home"></category><category term="Automation"></category><category term="WIFI"></category><category term="Lionel"></category><category term="Vintage"></category><category term="Variac"></category></entry><entry><title>Reading Data with selprotopy</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/reading-data-with-selprotopy.html" rel="alternate"></link><published>2020-11-22T19:02:00-08:00</published><updated>2020-11-22T19:02:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-11-22:/stanley-solutions-blog/reading-data-with-selprotopy.html</id><summary type="html">&lt;p class="first last"&gt;Finally reading some data from SEL relays using Python! Now to get the controls working...&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Still deep in the process of getting a fully functional SEL protocol binding suite in Python, but,
 hey! At least I can write a little update on what's been going on!&lt;/p&gt;
 &lt;p&gt;(if you haven't read my article on what &lt;cite&gt;selprotopy&lt;/cite&gt; is, take a look &lt;a class="reference external" href="https://blog.stanleysolutionsnw.com/sel-protocol-coming-to-python.html"&gt;here&lt;/a&gt;)&lt;/p&gt;
@@ -113,7 +146,7 @@ so I'm still not sure about this one)&lt;/li&gt;
 &lt;p&gt;Clearly some more work coming, so stay tuned!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="python"></category><category term="Protocols"></category><category term="SEL"></category><category term="Python"></category><category term="Communications"></category><category term="Metering"></category></entry><entry><title>Introducing selprotopy</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/sel-protocol-coming-to-python.html" rel="alternate"></link><published>2020-09-20T11:07:00-07:00</published><updated>2020-09-30T15:45:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-09-20:/stanley-solutions-blog/sel-protocol-coming-to-python.html</id><summary type="html">&lt;p class="first last"&gt;The SEL Protocol binding suite for Python is finally coming...&lt;/p&gt;
+</content><category term="Python"></category><category term="Protocols"></category><category term="SEL"></category><category term="Python"></category><category term="Communications"></category><category term="Metering"></category></entry><entry><title>Introducing selprotopy</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/sel-protocol-coming-to-python.html" rel="alternate"></link><published>2020-09-20T11:07:00-07:00</published><updated>2020-09-30T15:45:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-09-20:/stanley-solutions-blog/sel-protocol-coming-to-python.html</id><summary type="html">&lt;p class="first last"&gt;The SEL Protocol binding suite for Python is finally coming...&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;SEL Protocol is finally coming for Python. That's right, you've heard correctly; it's coming.&lt;/p&gt;
 &lt;img alt="The new... `selprotopy`!" src="https://raw.githubusercontent.com/engineerjoe440/sel-proto-py/master/logo/selprotopy.png" style="width: 350px;" /&gt;
 &lt;p&gt;But, what is SEL Protocol anyway?&lt;/p&gt;
