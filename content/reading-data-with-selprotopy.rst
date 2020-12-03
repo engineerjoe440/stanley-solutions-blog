@@ -1,10 +1,10 @@
-Reading Data with SELPROTOPY
-############################
+Reading Data with `selprotopy`
+##############################
 
 :date: 2020-11-22 19:02
 :modified: 2020-11-22 19:02
 :tags: Protocols, SEL, Python, Communications, Metering
-:category: python
+:category: Python
 :slug: reading-data-with-selprotopy
 :authors: Joe Stanley
 :summary: Finally reading some data from SEL relays using Python! Now to get the controls working...
