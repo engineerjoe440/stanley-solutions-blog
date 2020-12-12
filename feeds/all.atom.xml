@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-12-02T19:45:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Sustainability in the News...</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/sustainability-in-the-news-december-2020.html" rel="alternate"></link><published>2020-12-02T19:45:00-08:00</published><updated>2020-12-02T19:45:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-12-02:/stanley-solutions-blog/sustainability-in-the-news-december-2020.html</id><summary type="html">&lt;p class="first last"&gt;Recycled concrete and herbicide detecting transistors? Bring on the new sustainability-focused tech!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-12-12T10:59:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>pycev - A Python CEV Reader</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/pycev-a-python-cev-reader.html" rel="alternate"></link><published>2020-12-12T10:59:00-08:00</published><updated>2020-12-12T10:59:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-12-12:/stanley-solutions-blog/pycev-a-python-cev-reader.html</id><summary type="html">&lt;p class="first last"&gt;Another new project? Well, why not? This time, we'll be tackling reading CEV files from SEL in Python.&lt;/p&gt;
+</summary><content type="html">&lt;img alt="Introducing: pycev!" src="https://raw.githubusercontent.com/engineerjoe440/pycev/main/logo/pycev.png" style="width: 600px;" /&gt;
+&lt;p&gt;Wait...&lt;/p&gt;
+&lt;p&gt;Another new project?&lt;/p&gt;
+&lt;p&gt;Yes. That's right. I'm starting another new project. But hey! There's a lot of framework
+that needs to be introduced before I can start doing all the cool high-level stuff that we
+all want to see and use. I mean, by now you should understand that I'm all about getting
+the framework right. If you're still not sure, go read my rant about getting the framework
+right... &lt;a class="reference external" href="https://blog.stanleysolutionsnw.com/write-framework-once.html"&gt;This is my rant on getting framework right.&lt;/a&gt;&lt;/p&gt;
+&lt;div class="section" id="goal"&gt;
+&lt;h2&gt;Goal:&lt;/h2&gt;
+&lt;p&gt;So what's the plan here, anyway?&lt;/p&gt;
+&lt;p&gt;Well, this project, &lt;cite&gt;pycev&lt;/cite&gt; (I've almost considered that it should be pronounced &amp;quot;pie-safe&amp;quot;, but
+that's not how it looks, so we'll let that stew a while longer) will be a package for reading and
+interpreting SEL Compressed EVent records. They're a proprietary (but open) format in which SEL
+protective relays collect event information and &amp;quot;compress&amp;quot; it into a format that's easily read
+by machines (computers).&lt;/p&gt;
+&lt;p&gt;There's already a handful of projects out in the wild for reading COMTRADE records; which, if
+you're unfamiliar are &amp;quot;&lt;em&gt;Common Format for Transient Data Exchange&lt;/em&gt;&amp;quot; files, and are supported by
+many SEL relays in addition to a much broader number of other vendor devices. Trouble is, not
+everyone uses COMTRADE, and comparatively, CEV files are a little simpler, and (in my opinion)
+more straight-forward and robust. Perhaps the best Python project for reading COMTRADE files
+is &lt;a class="reference external" href="https://github.com/dparrini/python-comtrade"&gt;Python Comtrade&lt;/a&gt;. That project shows great maturity and value. It also sees regular updates
+and bugfixes as needed.&lt;/p&gt;
+&lt;p&gt;Since it's such a well respected and mature project, I'd like to take it as inspiration for
+&lt;cite&gt;pycev&lt;/cite&gt; and use it to help me realize the best API for the package so that the two libraries
+could (potentially) be used interchangeably for various projects.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-s-first"&gt;
+&lt;h2&gt;What's First?&lt;/h2&gt;
+&lt;p&gt;Well, I guess starting the package development is first!&lt;/p&gt;
+&lt;p&gt;I've already carved out a repository, and I've got something of a skeleton package put together.
+I think the first step will be getting enough working that I can upload it to PyPI to reserve
+the namespace. Then full development will need to come. There's a good handful of things that
+need to be tackled:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Upload Project to PyPI&lt;/li&gt;
+&lt;li&gt;Develop Core Functionality and Match API to that of &amp;quot;Python-Comtrade&amp;quot;&lt;/li&gt;
+&lt;li&gt;Develop Automated Test Suite with Local Server and Various Existing CEV Files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So that's the sort of roadmap I see before me. Now, the time-frame is still way up in the air;
+so who knows whe this all will &lt;em&gt;actually&lt;/em&gt; happen. But here's hoping!&lt;/p&gt;
+&lt;p&gt;If you're interested in checking in on the project, and would like to jump in and contribute,
+have a little look at the &lt;a class="reference external" href="https://github.com/engineerjoe440/pycev"&gt;repository&lt;/a&gt;, and feel free to open an &lt;a class="reference external" href="https://github.com/engineerjoe440/pycev/issues"&gt;issue&lt;/a&gt; to start a conversation!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Python"></category><category term="Python"></category><category term="SEL"></category><category term="CEV"></category><category term="Event"></category><category term="Record"></category><category term="Files"></category><category term="Power System"></category><category term="Analysis"></category></entry><entry><title>Sustainability in the News...</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/sustainability-in-the-news-december-2020.html" rel="alternate"></link><published>2020-12-02T19:45:00-08:00</published><updated>2020-12-02T19:45:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-12-02:/stanley-solutions-blog/sustainability-in-the-news-december-2020.html</id><summary type="html">&lt;p class="first last"&gt;Recycled concrete and herbicide detecting transistors? Bring on the new sustainability-focused tech!&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;I want to get in the habit of writing up some brief articles more regularly to talk about
 some of the more interesting articles and news that I've heard recently in the realm of
 sustainability. Now, I'll grant, that I typically do my own sort of exploration(s) into

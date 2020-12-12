@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  pycev - A Python CEV Reader | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/pycev-a-python-cev-reader.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/default.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="Another new project? Well, why not? This time, we'll be tackling reading CEV files from SEL in Python.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  <cite>pycev</cite> - A Python CEV Reader
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2020-12-12T10:59:00-08:00">
+          <i class="fas fa-clock"></i>
+          Sat 12 December 2020
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sel.html">#SEL</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/cev.html">#CEV</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/event.html">#Event</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/record.html">#Record</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/files.html">#Files</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/power-system.html">#Power System</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/analysis.html">#Analysis</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <img alt="Introducing: pycev!" src="https://raw.githubusercontent.com/engineerjoe440/pycev/main/logo/pycev.png" style="width: 600px;" />
+<p>Wait...</p>
+<p>Another new project?</p>
+<p>Yes. That's right. I'm starting another new project. But hey! There's a lot of framework
+that needs to be introduced before I can start doing all the cool high-level stuff that we
+all want to see and use. I mean, by now you should understand that I'm all about getting
+the framework right. If you're still not sure, go read my rant about getting the framework
+right... <a class="reference external" href="https://blog.stanleysolutionsnw.com/write-framework-once.html">This is my rant on getting framework right.</a></p>
+<div class="section" id="goal">
+<h2>Goal:</h2>
+<p>So what's the plan here, anyway?</p>
+<p>Well, this project, <cite>pycev</cite> (I've almost considered that it should be pronounced &quot;pie-safe&quot;, but
+that's not how it looks, so we'll let that stew a while longer) will be a package for reading and
+interpreting SEL Compressed EVent records. They're a proprietary (but open) format in which SEL
+protective relays collect event information and &quot;compress&quot; it into a format that's easily read
+by machines (computers).</p>
+<p>There's already a handful of projects out in the wild for reading COMTRADE records; which, if
+you're unfamiliar are &quot;<em>Common Format for Transient Data Exchange</em>&quot; files, and are supported by
+many SEL relays in addition to a much broader number of other vendor devices. Trouble is, not
+everyone uses COMTRADE, and comparatively, CEV files are a little simpler, and (in my opinion)
+more straight-forward and robust. Perhaps the best Python project for reading COMTRADE files
+is <a class="reference external" href="https://github.com/dparrini/python-comtrade">Python Comtrade</a>. That project shows great maturity and value. It also sees regular updates
+and bugfixes as needed.</p>
+<p>Since it's such a well respected and mature project, I'd like to take it as inspiration for
+<cite>pycev</cite> and use it to help me realize the best API for the package so that the two libraries
+could (potentially) be used interchangeably for various projects.</p>
+</div>
+<div class="section" id="what-s-first">
+<h2>What's First?</h2>
+<p>Well, I guess starting the package development is first!</p>
+<p>I've already carved out a repository, and I've got something of a skeleton package put together.
+I think the first step will be getting enough working that I can upload it to PyPI to reserve
+the namespace. Then full development will need to come. There's a good handful of things that
+need to be tackled:</p>
+<ul class="simple">
+<li>Upload Project to PyPI</li>
+<li>Develop Core Functionality and Match API to that of &quot;Python-Comtrade&quot;</li>
+<li>Develop Automated Test Suite with Local Server and Various Existing CEV Files</li>
+</ul>
+<p>So that's the sort of roadmap I see before me. Now, the time-frame is still way up in the air;
+so who knows whe this all will <em>actually</em> happen. But here's hoping!</p>
+<p>If you're interested in checking in on the project, and would like to jump in and contribute,
+have a little look at the <a class="reference external" href="https://github.com/engineerjoe440/pycev">repository</a>, and feel free to open an <a class="reference external" href="https://github.com/engineerjoe440/pycev/issues">issue</a> to start a conversation!</p>
+</div>
+
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
