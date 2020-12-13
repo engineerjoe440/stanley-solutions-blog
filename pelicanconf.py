@@ -70,6 +70,8 @@ AUTHOR_FEED_RSS = None
 LINKS = (('Joe On GitHub', 'https://github.com/engineerjoe440/'),
          ('ElectricPy Project', 'https://engineerjoe440.github.io/ElectricPy/'),
          ('KRNC Project', 'https://github.com/engineerjoe440/KRNCApps/'),
+         ('SELProtoPy Project', 'https://github.com/engineerjoe440/sel-proto-py'),
+         ('PyCEV Project', 'https://github.com/engineerjoe440/pycev')
          ('RSS Feed', 'feeds/all.rss.xml'),)
 
 # Social widget
