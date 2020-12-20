@@ -107,7 +107,7 @@ project README, but I did deviate a little to get it working.
 #. After I got all of that working, I was able to set up my Windows desktop running Banana Mixer
    to stream to my Raspberry Pi using VBAN. I configured VBAN on my desktop to stream as such:
 
-   .. image:: https://raw.githubusercontent.com/engineerjoe440/pycev/main/logo/pycev.png
+   .. image:: {attach}/images/vban_desktop.png
       :alt: Windows VBAN server configuration.
       :width: 600 px
 
