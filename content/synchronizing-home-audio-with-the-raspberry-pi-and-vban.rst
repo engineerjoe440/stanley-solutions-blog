@@ -4,7 +4,7 @@ Synchronizing Home Audio with the Raspberry Pi and VBAN
 :date: 2020-12-19 19:44
 :modified: 2020-12-19 19:44
 :tags: Raspberry Pi, VBAN, Audio, Networking, Music, Home Automation
-:category: RaspberryPi
+:category: Raspberry Pi
 :slug: networked-audio-using-vban-and-rpi
 :authors: Joe Stanley
 :summary: Ever wish your music was synchronized across your home, but you didn't have to sell your soul to Google to make it happen? Well, I did it with a Raspberry Pi and a nifty little open-source project!
@@ -34,7 +34,7 @@ my study. But I *really* want more.
 My Solution
 -----------
 
-Enter `VBAN <https://vb-audio.com/Voicemeeter/vban.htm>`_.
+Enter `VB Audio Network <https://vb-audio.com/Voicemeeter/vban.htm>`_.
 
 VBAN is a UDP-based network audio streaming protocol that was developed by the same individual
 who created the `Banana`_ audio mixer which I've come to love for my desktop audio mixing desires.
