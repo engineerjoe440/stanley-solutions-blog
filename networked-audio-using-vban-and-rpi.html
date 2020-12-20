@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Synchronizing Home Audio with the Raspberry Pi and VBAN | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/networked-audio-using-vban-and-rpi.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/default.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/raspberry-pi.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/raspberry-pi.rss.xml">  
+  <meta name="description" content="Ever wish your music was synchronized across your home, but you didn't have to sell your soul to Google to make it happen? Well, I did it with a Raspberry Pi and a nifty little open-source project!">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/sel-proto-py" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Synchronizing Home Audio with the Raspberry Pi and VBAN
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2020-12-19T19:44:00-08:00">
+          <i class="fas fa-clock"></i>
+          Sat 19 December 2020
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/raspberry-pi.html">Raspberry Pi</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/raspberry-pi.html">#Raspberry Pi</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/vban.html">#VBAN</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/audio.html">#Audio</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/networking.html">#Networking</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/music.html">#Music</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-automation.html">#Home Automation</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>I'm something of an audiophile.</p>
+<p>Not completely, mind you, just partly.</p>
+<p>Why partly? Well, I love audio! Anymore, I don't really watch television, or movies; but I listen
+to audiobooks, podcasts, music, and more all the time! I like to listen everywhere. Home, work,
+while driving. EVERYWHERE. And I like to have my audio follow me around all the time. In other
+words, I like having the same music in my study as what's in my living room, kitchen, bathroom,
+bedroom... EVERYWHERE.</p>
+<p>I'd say that I enjoy quality HiFi audio, but I'm not the pickiest out there. My kitchen, for
+example has some pretty crude audio since I bought a pretty cheap stereo reciever and just
+sorta threw it together. Still, I enjoy it. It gives me audio when I'm cooking, cleaning, or just
+hanging out; and for me, that's the most important part.</p>
+<p>When I bought my home, I decided that I was going to install an &quot;Audio Bus&quot; to allow bi-directional
+audio transportation. I've since started on the project, but I've run out of speaker cable, and
+considering the crazy holiday spending, I've put on the brakes for the moment on my &quot;personal&quot;
+spending. That means that I've only been able to hard-wire a connection between the kitchen and
+my study. But I <em>really</em> want more.</p>
+<div class="section" id="my-solution">
+<h2>My Solution</h2>
+<p>Enter <a class="reference external" href="https://vb-audio.com/Voicemeeter/vban.htm">VB Audio Network</a>.</p>
+<p>VBAN is a UDP-based network audio streaming protocol that was developed by the same individual
+who created the <a class="reference external" href="https://vb-audio.com/Voicemeeter/banana.htm">Banana</a> audio mixer which I've come to love for my desktop audio mixing desires.
+It's essentially a networked audio system, allowing streaming audio transmission and reception,
+and it's officially supported on Windows, Android, and iOS; and community-supported on Linux!</p>
+<p>That's right, it's available on Linux, and it's fully open-source as <a class="reference external" href="https://github.com/quiniouben/vban">vban</a> where it's
+accessible as a command-line-based reciever or transmitter.</p>
+</div>
+<div class="section" id="my-process">
+<h2>My Process</h2>
+<p>So... Late last night, after a long day of work, I decided I wasn't done programming, so I
+started in on this project. I took an old Raspberry Pi that I'd already mounted in my
+vintage Zenith cabinet stereo (that's a story for another day, and I'll have to tell you about
+it!) and I began preparing it. Somehow, I'd ruined the SD card, so I chucked the original SD and
+flashed a new one with the latest build of RaspberryOS. After I had the card flashed, I dropped
+an empty file titled 'ssh' in the <cite>/boot</cite> directory so that it would enable SSH on initial boot.</p>
+<p>Now, with SSH set up, and my new SD card plugged into the Pi, I powered it up and connected
+remotely; updating the system with <cite>sudo apt-get update</cite> and <cite>sudo apt-get upgrade -y</cite> I had a
+fresh install ready for my experimentation!</p>
+<p>Now, for the benefit of new tinkerers interested in VBAN setup on a Pi (and a way to jog my own
+terrible memory sometime in the future), I'll try to illustrate the remaining steps as best I can
+remember. I had to play with some trial and error, so I'm reordering some steps to make it more
+clear and straight-forward, but I'll comment on some of the &quot;hardships&quot; I had after we get through
+all of the steps. My process was centered around the installation instructions on the <a class="reference external" href="https://github.com/quiniouben/vban">vban</a>
+project README, but I did deviate a little to get it working.</p>
+<ol class="arabic">
+<li><p class="first">After preparing my &quot;fresh install,&quot; I went ahead and installed the Raspberry Pi and Alsa
+headers so that they'd show up for the installation.</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; sudo apt-get install raspberrypi-kernel-headers
+<span class="gp">$</span>&gt; sudo apt-get install libasound-dev
+</pre></div>
+</li>
+<li><p class="first">With my new headers installed, I was ready to clone the git repo and build it. I guess that at
+this point, I <em>should</em> mention that I'd previously installed git, but I suppose you might have
+been able to infer that on your own. Anyway, I cloned the repo to my home folder:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; git clone https://github.com/quiniouben/vban.git
+</pre></div>
+</li>
+<li><p class="first">Now, I moved myself into that new directory with: <cite>cd vban</cite></p>
+</li>
+<li><p class="first">Before I could build the <cite>vban</cite> system by following the instructions on the GitHub repo, I
+needed to install the <cite>autoconf</cite> tools so that the autoconfiguration scripts would function.</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; sudo apt-get install autotools-dev
+<span class="gp">$</span>&gt; sudo apt-get install autoconf
+</pre></div>
+</li>
+<li><p class="first">I then went ahead and followed the installation instructions from the <cite>vban</cite> project README,
+substituting a few extra arguments to satisfy the system requirements (Alsa only, no Pulse/Jack).</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; ./autogen.sh
+<span class="gp">$</span>&gt; ./configure --enable-alsa --disable-pulseaudio --disable-jack      <span class="c1"># Only using Alsa</span>
+<span class="gp">$</span>&gt; make
+<span class="gp">$</span>&gt; make install
+</pre></div>
+</li>
+<li><p class="first">After I got all of that working, I was able to set up my Windows desktop running Banana Mixer
+to stream to my Raspberry Pi using VBAN. I configured VBAN on my desktop to stream as such:</p>
+<img alt="Windows VBAN server configuration." src="https://raw.githubusercontent.com/engineerjoe440/pycev/main/logo/pycev.png" style="width: 600px;" />
+</li>
+<li><p class="first">Then, I could simply issue the following command in my Raspberry Pi to start listening!</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; vban_receptor -i &lt;my-desktop-ip&gt; -p <span class="m">6980</span> -s StereoPi -d front -q <span class="m">0</span>
+</pre></div>
+<p>This meant that I'd listen for a stream of name &quot;StereoPi&quot; from my desktop with it's specific
+IP address on port 6980. I'd then stream that audio to the &quot;front&quot; output in my Alsa config,
+and (since this is a hard-wired Ethernet connection) I set the highest quality to reduce delay.</p>
+</li>
+</ol>
+<p>Viola! I've now begun sharing audio between my desktop and the Raspberry Pi!</p>
+</div>
+<div class="section" id="another-dilemma">
+<h2>Another Dilemma</h2>
+<p>Ah, but we weren't done yet! See, that command is blocking, meaning that if I close my SSH
+connection, say good bye to audio! Drat!</p>
+<p>I decided that to fix this, I'd write a little systemd service, and keep it disabled, so that
+I could start and stop it easily enough (so if I want to use other audio services, they won't
+clash too terribly).</p>
+<p>So I wrote this:</p>
+<div class="highlight"><pre><span></span><span class="c1"># vbanstereorx.service</span>
+<span class="c1"># VBAN Receptor Stereo Service</span>
+
+<span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span> <span class="s">VBAN Stereo Receptor</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/vban_receptor  -i 192.168.2.136 -p 6980 -s StereoPi -d front -q 0</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</pre></div>
+<p>Then simply &quot;installed&quot; it with the following command:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; cp vbanstereorx.service /etc/systemd/system/vbanstereorx.service
+</pre></div>
+<p>Now, I can just start or stop the reciever by issuing <cite>sudo systemctl start vbanstereorx</cite> or
+<cite>sudo systemctl stop vbanstereeorx</cite>, respectively!</p>
+<div class="section" id="the-other-challenges">
+<h3>The Other Challenges</h3>
+<p>I'm afraid it all wasn't easy-peasy, and setup smooth; there were still a few hiccups.</p>
+<p>Right now, the biggest thing is that I believe Alsa is on its way out for the Raspberry
+Pi, so I have a feeling that I'm gonna need to reform this at some point, but perhaps
+that's just for the Pi4 for the time being? I'm not really sure... Anyone who might know,
+<a class="reference external" href="mailto:engineerjoe440&#64;yahoo.com">hit me up</a>.</p>
+<p>The other issue that I ran into during installation was the use of autoconfig scripts and
+RPi/Alsa headers. Since they weren't <em>explicitly</em> called out as installation requisites,
+I bumped into them, and had to take to Googling my way out of a corner. Wasn't bad, just
+slowed me down.</p>
+</div>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>I'll have to save that for another post; another day. Just keep your eyes peeled!</p>
+</div>
+
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
