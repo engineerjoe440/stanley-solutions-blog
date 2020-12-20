@@ -1,4 +1,4 @@
 pelican
-pygments-style-solarized
+pygments-solarized
 https://github.com/nairobilug/pelican-alchemy/tarball/master
 pelican-sitemap
