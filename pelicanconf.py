@@ -9,7 +9,7 @@ import alchemy, pygments_solarized
 THEME = alchemy.path()
 BOOTSTRAP_CSS = 'https://bootswatch.com/4/darkly/bootstrap.css'
 SITESUBTITLE = 'Engineering and creativity - all under one hat.'
-PYGMENTS_STYLE = pygments_solarized.dark
+print("STYLE:", PYGMENTS_STYLE)
 SITEIMAGE = 'logo.png'
 DESCRIPTION = ('Electrical Engineering blog by Joe Stanley - Python,' + 
     'Python3, IEC 61131-3, Industrial Controllers, Real-Time Control')
