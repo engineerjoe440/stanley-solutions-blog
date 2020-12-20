@@ -145,7 +145,7 @@ So I wrote this:
 
    [Service]
    Type=simple
-   ExecStart=/usr/local/bin/vban_receptor  -i 192.168.2.136 -p 6980 -s StereoPi -d front -q 0
+   ExecStart=/usr/local/bin/vban_receptor  -i <my-desktop-ip> -p 6980 -s StereoPi -d front -q 0
 
    [Install]
    WantedBy=multi-user.target
