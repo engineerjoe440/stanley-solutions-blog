@@ -5,11 +5,11 @@ AUTHOR = 'Joe Stanley'
 SITENAME = 'Stanley Solutions Blog'
 SITEURL = 'https://engineerjoe440.github.io/stanley-solutions-blog/'
 
-import alchemy, pygments_solarized
+import alchemy
 THEME = alchemy.path()
 BOOTSTRAP_CSS = 'https://bootswatch.com/4/darkly/bootstrap.css'
 SITESUBTITLE = 'Engineering and creativity - all under one hat.'
-print("STYLE:", PYGMENTS_STYLE)
+PYGMENTS_STYLE = 'monokai'
 SITEIMAGE = 'logo.png'
 DESCRIPTION = ('Electrical Engineering blog by Joe Stanley - Python,' + 
     'Python3, IEC 61131-3, Industrial Controllers, Real-Time Control')
