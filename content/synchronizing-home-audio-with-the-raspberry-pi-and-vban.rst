@@ -109,7 +109,7 @@ project README, but I did deviate a little to get it working.
 
    .. image:: {attach}/images/vban_desktop.png
       :alt: Windows VBAN server configuration.
-      :width: 600 px
+      :width: 800 px
 
 #. Then, I could simply issue the following command in my Raspberry Pi to start listening!
    
