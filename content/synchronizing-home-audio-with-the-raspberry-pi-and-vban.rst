@@ -72,6 +72,7 @@ project README, but I did deviate a little to get it working.
    headers so that they'd show up for the installation.
 
    .. code-block:: console
+      
       $> sudo apt-get install raspberrypi-kernel-headers
       $> sudo apt-get install libasound-dev
 
@@ -80,6 +81,7 @@ project README, but I did deviate a little to get it working.
    been able to infer that on your own. Anyway, I cloned the repo to my home folder:
 
    .. code-block:: console
+      
       $> git clone https://github.com/quiniouben/vban.git
 
 #. Now, I moved myself into that new directory with: `cd vban`
@@ -88,6 +90,7 @@ project README, but I did deviate a little to get it working.
    needed to install the `autoconf` tools so that the autoconfiguration scripts would function.
 
    .. code-block:: console
+      
       $> sudo apt-get install autotools-dev
       $> sudo apt-get install autoconf
 
@@ -95,6 +98,7 @@ project README, but I did deviate a little to get it working.
    substituting a few extra arguments to satisfy the system requirements (Alsa only, no Pulse/Jack).
 
    .. code-block:: console
+      
       $> ./autogen.sh
       $> ./configure --enable-alsa --disable-pulseaudio --disable-jack      # Only using Alsa
       $> make
@@ -110,6 +114,7 @@ project README, but I did deviate a little to get it working.
 #. Then, I could simply issue the following command in my Raspberry Pi to start listening!
    
    .. code-block:: console
+      
       $> vban_receptor -i <my-desktop-ip> -p 6980 -s StereoPi -d front -q 0
    
    This meant that I'd listen for a stream of name "StereoPi" from my desktop with it's specific
@@ -131,6 +136,7 @@ clash too terribly).
 So I wrote this:
 
 .. code-block:: ini
+   
    # vbanstereorx.service
    # VBAN Receptor Stereo Service
 
@@ -144,9 +150,11 @@ So I wrote this:
    [Install]
    WantedBy=multi-user.target
 
+
 Then simply "installed" it with the following command:
 
 .. code-block:: console
+   
    $> cp vbanstereorx.service /etc/systemd/system/vbanstereorx.service
 
 Now, I can just start or stop the reciever by issuing `sudo systemctl start vbanstereorx` or
