@@ -102,7 +102,7 @@ clash too terribly).&lt;/p&gt;
 
 &lt;span class="k"&gt;[Service]&lt;/span&gt;
 &lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;simple&lt;/span&gt;
-&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/local/bin/vban_receptor  -i 192.168.2.136 -p 6980 -s StereoPi -d front -q 0&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/local/bin/vban_receptor  -i &amp;lt;my-desktop-ip&amp;gt; -p 6980 -s StereoPi -d front -q 0&lt;/span&gt;
 
 &lt;span class="k"&gt;[Install]&lt;/span&gt;
 &lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
