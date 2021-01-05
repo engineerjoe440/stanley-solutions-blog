@@ -1,5 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-12-12T10:59:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>pycev - A Python CEV Reader</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/pycev-a-python-cev-reader.html" rel="alternate"></link><published>2020-12-12T10:59:00-08:00</published><updated>2020-12-12T10:59:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-12-12:/stanley-solutions-blog/pycev-a-python-cev-reader.html</id><summary type="html">&lt;p class="first last"&gt;Another new project? Well, why not? This time, we'll be tackling reading CEV files from SEL in Python.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2020-12-21T19:07:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>GitLab, Jenkins, Python, and the Raspberry Pi!</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/gitlab-jenkins-and-the-rpi.html" rel="alternate"></link><published>2020-12-21T19:07:00-08:00</published><updated>2020-12-21T19:07:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-12-21:/stanley-solutions-blog/gitlab-jenkins-and-the-rpi.html</id><summary type="html">&lt;p class="first"&gt;I'm finally getting around to setting up some CI/CD systems for my self-hosted GitLab server... About Time!&lt;/p&gt;
+&lt;p class="last"&gt;CI/CD, Dev Ops, Pipelines, Workflows, Automated Deployment&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Think that's enough buzz words to catch the Google SEO engine's eye?&lt;/p&gt;
+&lt;p&gt;Probably not, I know, but I'm not going to spend anymore time on it at the moment. See,
+I've got bigger items to tackle! Namely, getting Jenkins set up on a Raspberry Pi, as
+the name of this article so implies.&lt;/p&gt;
+&lt;p&gt;Good news for you; I've cut out the &amp;quot;dirty-work&amp;quot; through the magic of &amp;quot;blog-posting.&amp;quot;&lt;/p&gt;
+&lt;p&gt;As part of the work I've been tackling for some of the other open source projects I'm
+developing, I need to develop a local (on-premises) continuous integration solution to
+effectively slam my code with testing and verification. After all, what's great code
+without equally great tests? I need to have the system on-premises for a couple reasons;
+the largest of which being the fact that I need access to custom hardware.&lt;/p&gt;
+&lt;blockquote&gt;
+So, why a Pi? A Pi 3-B no less?!&lt;/blockquote&gt;
+&lt;p&gt;Well, that's quite simple; actually. It's the only spare computer I have at the moment.&lt;/p&gt;
+&lt;p&gt;So now that I've thoroughly introduced you, to my reasoning, and the topic at hand;
+let's get into it!&lt;/p&gt;
+&lt;div class="section" id="installing-jenkins-on-the-pi"&gt;
+&lt;h2&gt;Installing Jenkins on the Pi&lt;/h2&gt;
+&lt;p&gt;I already have GitLab set up on an old x86 laptop running Ubuntu Server 20.04, so
+for this article, I'm going to focus on setting up Jenkins on a Raspberry Pi, and
+getting the basics of the workflow between Jenkins and GitLab running.&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Start with a fresh Pi (latest build of the RaspberryPiOS). I had a Pi sitting
+around with an older build of Raspbian, but that's several years old, and I
+really just wanted to start fresh.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Update the Raspberry Pi. Well, in the spirit of starting fresh, might as well
+update the system!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install Java with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; sudo apt-get install openjdk-11-jre
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Verify Java Version with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; java --version
+&lt;span class="go"&gt;openjdk 11.0.9.1 2020-11-04&lt;/span&gt;
+&lt;span class="go"&gt;OpenJDK Runtime Environment (build 11.0.9.1+1-post-Raspbian-1deb10u2)&lt;/span&gt;
+&lt;span class="go"&gt;OpenJDK Server VM (build 11.0.9.1+1-post-Raspbian-1deb10u2, mixed mode)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;At this point, I took some time to get the Python system up to a state that
+would be a bit more useful for me. So I installed &lt;cite&gt;pip3&lt;/cite&gt;, and a number of
+Python packages. I suppose this could really be done at any point during this
+whole process, but I felt like this was the most sensible time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Download and add the Jenkins Key with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key &lt;span class="p"&gt;|&lt;/span&gt; sudo apt-key add -
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Open a new file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; sudo nano /etc/apt/sources.list.d/jenkins.list
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then add the following line and save the file to add the Jenkins repository as
+a source:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;deb https://pkg.jenkins.io/debian binary/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Next, another good &lt;cite&gt;sudo apt-get update&lt;/cite&gt; is in order, followed by
+&lt;cite&gt;sudo apt-get install jenkins&lt;/cite&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Using the command listed below, you can grab the initial admin password to get
+started:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Now it's time to navigate to &lt;cite&gt;&amp;lt;raspberry-pi-ip-address:8080&lt;/cite&gt; and use that fancy
+password to log in for the first time and start the setup wizard; or should I say
+butler?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;After the &amp;quot;butler&amp;quot; has completed, it's time to get started with setting up some CI
+jobs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="preparing-a-simple-pytest-job-with-jenkins"&gt;
+&lt;h2&gt;Preparing a Simple &lt;cite&gt;pytest&lt;/cite&gt; Job with Jenkins&lt;/h2&gt;
+&lt;p&gt;Now, I'll caution that I this portion doesn't cover any of the GitLab/Jenkins
+interfacing, maybe I'll get to writing that in another article... As part of the
+material I'm skipping, I'm going to breeze right over the GitLab connection and
+repository information. I'm going to focus, instead, on the build operations.&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;With the new Jenkins server up and running, create a &amp;quot;New Item,&amp;quot; give it a
+descriptive, memorable name, and set it as a &amp;quot;Freestyle Project&amp;quot;&lt;/p&gt;
+&lt;img alt="Create a new project in Jenkins for CI." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkins-new-config.png" style="width: 800px;" /&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;After configuring the various other settings relevant to the project (repository,
+build-triggers, etc.) find the &lt;em&gt;&amp;quot;Build&amp;quot;&lt;/em&gt; section and from the &lt;em&gt;&amp;quot;Add build step&amp;quot;&lt;/em&gt;
+select &lt;em&gt;&amp;quot;Execute shell&amp;quot;&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;In the new &amp;quot;Command&amp;quot; field of the &amp;quot;Execute shell&amp;quot; section, insert the commands
+necessary to navigate to the appropriate subdirectory and run &lt;cite&gt;pytest&lt;/cite&gt;. In my case,
+my pytest &amp;quot;test folder&amp;quot; is located in the root directory, so I don't really need
+to change the working directory; I just go and run &lt;cite&gt;pytest&lt;/cite&gt;. I do run a few other
+generic commands just to make sure that I've got a fair report of the build
+environment in case I need to go back and debug some things. So, here's a sample
+of what my configuration might look like.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;echo &amp;quot;Current Directory&amp;quot;&lt;/span&gt;
+&lt;span class="go"&gt;pwd&lt;/span&gt;
+&lt;span class="go"&gt;echo &amp;quot;List Folder Structure&amp;quot;&lt;/span&gt;
+&lt;span class="go"&gt;ls -a ./&amp;lt;name-of-my-python-package-folder&amp;gt;&lt;/span&gt;
+&lt;span class="go"&gt;echo &amp;quot;Run pytest&amp;quot;&lt;/span&gt;
+&lt;span class="go"&gt;pytest -v&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;/div&gt;
+</content><category term="Python"></category><category term="Python"></category><category term="Jenkins"></category><category term="Gitlab"></category><category term="Raspberry Pi"></category><category term="Dev Ops"></category><category term="GIT"></category><category term="CI/CD"></category></entry><entry><title>pycev - A Python CEV Reader</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/pycev-a-python-cev-reader.html" rel="alternate"></link><published>2020-12-12T10:59:00-08:00</published><updated>2020-12-12T10:59:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-12-12:/stanley-solutions-blog/pycev-a-python-cev-reader.html</id><summary type="html">&lt;p class="first last"&gt;Another new project? Well, why not? This time, we'll be tackling reading CEV files from SEL in Python.&lt;/p&gt;
 </summary><content type="html">&lt;img alt="Introducing: pycev!" src="https://raw.githubusercontent.com/engineerjoe440/pycev/main/logo/pycev.png" style="width: 600px;" /&gt;
 &lt;p&gt;Wait...&lt;/p&gt;
 &lt;p&gt;Another new project?&lt;/p&gt;

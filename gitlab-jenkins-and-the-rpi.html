@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  GitLab, Jenkins, Python, and the Raspberry Pi! | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/gitlab-jenkins-and-the-rpi.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="I'm finally getting around to setting up some CI/CD systems for my self-hosted GitLab server... About Time! CI/CD, Dev Ops, Pipelines, Workflows, Automated Deployment">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  GitLab, Jenkins, Python, and the Raspberry Pi!
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2020-12-21T19:07:00-08:00">
+          <i class="fas fa-clock"></i>
+          Mon 21 December 2020
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/jenkins.html">#Jenkins</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/gitlab.html">#Gitlab</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/raspberry-pi.html">#Raspberry Pi</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/dev-ops.html">#Dev Ops</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/git.html">#GIT</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/cicd.html">#CI/CD</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>Think that's enough buzz words to catch the Google SEO engine's eye?</p>
+<p>Probably not, I know, but I'm not going to spend anymore time on it at the moment. See,
+I've got bigger items to tackle! Namely, getting Jenkins set up on a Raspberry Pi, as
+the name of this article so implies.</p>
+<p>Good news for you; I've cut out the &quot;dirty-work&quot; through the magic of &quot;blog-posting.&quot;</p>
+<p>As part of the work I've been tackling for some of the other open source projects I'm
+developing, I need to develop a local (on-premises) continuous integration solution to
+effectively slam my code with testing and verification. After all, what's great code
+without equally great tests? I need to have the system on-premises for a couple reasons;
+the largest of which being the fact that I need access to custom hardware.</p>
+<blockquote>
+So, why a Pi? A Pi 3-B no less?!</blockquote>
+<p>Well, that's quite simple; actually. It's the only spare computer I have at the moment.</p>
+<p>So now that I've thoroughly introduced you, to my reasoning, and the topic at hand;
+let's get into it!</p>
+<div class="section" id="installing-jenkins-on-the-pi">
+<h2>Installing Jenkins on the Pi</h2>
+<p>I already have GitLab set up on an old x86 laptop running Ubuntu Server 20.04, so
+for this article, I'm going to focus on setting up Jenkins on a Raspberry Pi, and
+getting the basics of the workflow between Jenkins and GitLab running.</p>
+<ol class="arabic">
+<li><p class="first">Start with a fresh Pi (latest build of the RaspberryPiOS). I had a Pi sitting
+around with an older build of Raspbian, but that's several years old, and I
+really just wanted to start fresh.</p>
+</li>
+<li><p class="first">Update the Raspberry Pi. Well, in the spirit of starting fresh, might as well
+update the system!</p>
+</li>
+<li><p class="first">Install Java with:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; sudo apt-get install openjdk-11-jre
+</pre></div>
+</li>
+<li><p class="first">Verify Java Version with:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; java --version
+<span class="go">openjdk 11.0.9.1 2020-11-04</span>
+<span class="go">OpenJDK Runtime Environment (build 11.0.9.1+1-post-Raspbian-1deb10u2)</span>
+<span class="go">OpenJDK Server VM (build 11.0.9.1+1-post-Raspbian-1deb10u2, mixed mode)</span>
+</pre></div>
+</li>
+<li><p class="first">At this point, I took some time to get the Python system up to a state that
+would be a bit more useful for me. So I installed <cite>pip3</cite>, and a number of
+Python packages. I suppose this could really be done at any point during this
+whole process, but I felt like this was the most sensible time.</p>
+</li>
+<li><p class="first">Download and add the Jenkins Key with:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key <span class="p">|</span> sudo apt-key add -
+</pre></div>
+</li>
+<li><p class="first">Open a new file:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; sudo nano /etc/apt/sources.list.d/jenkins.list
+</pre></div>
+<p>Then add the following line and save the file to add the Jenkins repository as
+a source:</p>
+<div class="highlight"><pre><span></span>deb https://pkg.jenkins.io/debian binary/
+</pre></div>
+</li>
+<li><p class="first">Next, another good <cite>sudo apt-get update</cite> is in order, followed by
+<cite>sudo apt-get install jenkins</cite></p>
+</li>
+<li><p class="first">Using the command listed below, you can grab the initial admin password to get
+started:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+</pre></div>
+</li>
+<li><p class="first">Now it's time to navigate to <cite>&lt;raspberry-pi-ip-address:8080</cite> and use that fancy
+password to log in for the first time and start the setup wizard; or should I say
+butler?</p>
+</li>
+</ol>
+<p>After the &quot;butler&quot; has completed, it's time to get started with setting up some CI
+jobs.</p>
+</div>
+<div class="section" id="preparing-a-simple-pytest-job-with-jenkins">
+<h2>Preparing a Simple <cite>pytest</cite> Job with Jenkins</h2>
+<p>Now, I'll caution that I this portion doesn't cover any of the GitLab/Jenkins
+interfacing, maybe I'll get to writing that in another article... As part of the
+material I'm skipping, I'm going to breeze right over the GitLab connection and
+repository information. I'm going to focus, instead, on the build operations.</p>
+<ol class="arabic">
+<li><p class="first">With the new Jenkins server up and running, create a &quot;New Item,&quot; give it a
+descriptive, memorable name, and set it as a &quot;Freestyle Project&quot;</p>
+<img alt="Create a new project in Jenkins for CI." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkins-new-config.png" style="width: 800px;" />
+</li>
+<li><p class="first">After configuring the various other settings relevant to the project (repository,
+build-triggers, etc.) find the <em>&quot;Build&quot;</em> section and from the <em>&quot;Add build step&quot;</em>
+select <em>&quot;Execute shell&quot;</em>.</p>
+</li>
+<li><p class="first">In the new &quot;Command&quot; field of the &quot;Execute shell&quot; section, insert the commands
+necessary to navigate to the appropriate subdirectory and run <cite>pytest</cite>. In my case,
+my pytest &quot;test folder&quot; is located in the root directory, so I don't really need
+to change the working directory; I just go and run <cite>pytest</cite>. I do run a few other
+generic commands just to make sure that I've got a fair report of the build
+environment in case I need to go back and debug some things. So, here's a sample
+of what my configuration might look like.</p>
+<div class="highlight"><pre><span></span><span class="go">echo &quot;Current Directory&quot;</span>
+<span class="go">pwd</span>
+<span class="go">echo &quot;List Folder Structure&quot;</span>
+<span class="go">ls -a ./&lt;name-of-my-python-package-folder&gt;</span>
+<span class="go">echo &quot;Run pytest&quot;</span>
+<span class="go">pytest -v</span>
+</pre></div>
+</li>
+</ol>
+</div>
+<div class="section" id="summary">
+<h2>Summary</h2>
+</div>
+
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
