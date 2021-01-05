@@ -122,6 +122,7 @@ def main( parser, keymap ):
         filename = filename.replace('\\','-')
     # Clean Filename
     filename = filename.replace('\\','/')
+    filename = filename.replace(',','')
     filename = re.sub(r'-{2,}', '-', filename)
     filename = re.sub(r'\.{2,}', '.', filename)
     filename = filename.replace('`','')

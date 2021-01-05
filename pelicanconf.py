@@ -71,7 +71,7 @@ AUTHOR_FEED_RSS = None
 LINKS = (('Joe On GitHub', 'https://github.com/engineerjoe440/'),
          ('ElectricPy Project', 'https://engineerjoe440.github.io/ElectricPy/'),
          ('KRNC Project', 'https://github.com/engineerjoe440/KRNCApps/'),
-         ('SELProtoPy Project', 'https://engineerjoe440.github.io/sel-proto-py'),
+         ('SELProtoPy Project', 'https://engineerjoe440.github.io/selprotopy'),
          ('PyCEV Project', 'https://engineerjoe440.github.io/pycev'),
          ('RSS Feed', 'feeds/all.rss.xml'),)
 
