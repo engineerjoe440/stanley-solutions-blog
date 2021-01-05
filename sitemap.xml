@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2021-01-05T05:09:01-00:00</lastmod>
+<lastmod>2021-01-05T05:14:57-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/gitlab-jenkins-and-the-rpi.html</loc>
-<lastmod>2020-12-21T19:07:00-08:00</lastmod>
+<lastmod>2021-01-04T21:07:00-08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -131,7 +131,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html</loc>
-<lastmod>2020-12-21T19:07:00-07:53</lastmod>
+<lastmod>2021-01-04T21:07:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -152,49 +152,49 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html</loc>
-<lastmod>2020-12-21T19:07:00-07:53</lastmod>
+<lastmod>2021-01-04T21:07:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/jenkins.html</loc>
-<lastmod>2020-12-21T19:07:00-07:53</lastmod>
+<lastmod>2021-01-04T21:07:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/gitlab.html</loc>
-<lastmod>2020-12-21T19:07:00-07:53</lastmod>
+<lastmod>2021-01-04T21:07:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/raspberry-pi.html</loc>
-<lastmod>2020-12-21T19:07:00-07:53</lastmod>
+<lastmod>2021-01-04T21:07:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/dev-ops.html</loc>
-<lastmod>2020-12-21T19:07:00-07:53</lastmod>
+<lastmod>2021-01-04T21:07:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/git.html</loc>
-<lastmod>2020-12-21T19:07:00-07:53</lastmod>
+<lastmod>2021-01-04T21:07:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/cicd.html</loc>
-<lastmod>2020-12-21T19:07:00-07:53</lastmod>
+<lastmod>2021-01-04T21:07:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -453,7 +453,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2020-12-21T19:07:00-07:53</lastmod>
+<lastmod>2021-01-04T21:07:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
