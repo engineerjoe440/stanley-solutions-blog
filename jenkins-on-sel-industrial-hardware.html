@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  CI/CD On Industrial Grade Hardware | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/jenkins-on-sel-industrial-hardware.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/devops.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/devops.rss.xml">  
+  <meta name="description" content="Run DevOps CI/CD pipelines on industrial equipment with no moving parts? Ok! Sign me up!!!">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  CI/CD On Industrial Grade Hardware
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2021-02-07T16:19:00-08:00">
+          <i class="fas fa-clock"></i>
+          Sun 07 February 2021
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/devops.html">DevOps</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sel.html">#SEL</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/industrial.html">#Industrial</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/rugged-computer.html">#Rugged Computer</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/cicd.html">#Ci/Cd</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/development.html">#Development</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/server.html">#Server</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>Yes... I already have too many computers. But with that said, what's a few more?</p>
+<p>I know it was only about a month-and-a-half ago that I was writing about Jenkins
+running on a Raspberry Pi, but I outgrew that pretty quickly. In reality, I
+really just started with it, and basically gave up; but hey! I learned a lot in
+that time. So now, I'm upgrading!</p>
+<div class="section" id="the-new-hardware">
+<h2>The new hardware</h2>
+<p>I am something of a hardware graveyard. Old machines come to me to live out the
+end of their lives and, eventually, give up the ghost. I managed to get my hands
+on some second-hand industrial computers, to do some bidding for me. Namely, I
+picked up some old SEL (Schweitzer Engineering Laboratories) SEL-1102 rugged
+computers. They're based on an old Intel x686 processor, and don't have anything
+special in the memory arena... but they're super solid machines.</p>
+<img alt="SEL Rugged Computers to Run my DevOps Pipeline" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/SEL1102/IMG_0849.jpg" style="width: 600px;" />
+<p>My comment about being a &quot;computer graveyard&quot; might still apply to these
+computers too, but well, they've got a lot more life left in them. You see,
+these are ruggedized computers designed for installation into some of the most
+extreme environments around the world. Rated for harsh operating conditions,
+built with no moving parts (that's right, a computer without fans), and a whole
+slew of serial ports (16 DB9 ports alone). SEL maintains a 10 worldwide warranty
+too; but I'll grant that this warranty is void because these devices were sold
+to me secondhand. I bring up this point, however because it really exemplifies
+the commitment to quality that SEL brings to the table.</p>
+<p>Now, for those of you who know me well, you'll also know that I <em>work</em> for SEL.
+So yeah, I do have some bias there; but I've also gotten to see (first-hand) the
+quality that we at SEL put into our products, so I'm very proud to have a few of
+these machines running at home, and I'm very excited to put them into production.</p>
+</div>
+<div class="section" id="the-new-work">
+<h2>The new work</h2>
+<p>With these new servers, I'm excited to set them up running Debian (because, yeah,
+they will do that - and very well, I might add) to support a Jenkins server. I
+plan to use that, and expose it as my primary integration system. With Jenkins
+running on these new machines, I'm going to set up a Pi Cluster to offload the
+actual pipeline work.</p>
+<p>But why?</p>
+<p>Well, I want the main Jenkins server to be just that... the main server. I want
+other machines to do all the &quot;dirty work&quot; for me.</p>
+<p>So, before you get too carried away with your thoughts; yes, that does mean more
+computers. I've already put in an order for a Raspberry Pi cluster, which I'm
+very excited about; but that's another article for the near future.</p>
+<p>Part of this excitement also stems from my need to integrate with some SEL relays
+serially for testing with my SELProtoPy project. With all of those serial ports
+on these computers, I'll be able to tie in to those relays quite nicely to allow
+some really solid automated testing. Better yet, with all of that integration,
+I'll be able to do some really nice pipelined builds for testing SELProtoPy and
+PyCEV.</p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>Well, next on my plate is to get these machines up and running on my network so
+that I can access them remotely and start integrating with GitHub actions to
+fire off the builds and testing.</p>
+<p>I'm very excited to be putting some SEL equipment to work in my own personal
+development practices, so I'm sure I'll have some more updates as I go along!</p>
+<img alt="Putting some SEL Hardware to Work" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/SEL1102/IMG_0850.jpg" style="width: 600px;" />
+</div>
+
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
