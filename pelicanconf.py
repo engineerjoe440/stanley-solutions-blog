@@ -16,7 +16,6 @@ DESCRIPTION = ('Electrical Engineering blog by Joe Stanley - Python,' +
 
 PLUGINS=[
     'sitemap',
-    'pelican_embed_svg',
 ]
 
 SITEMAP = {

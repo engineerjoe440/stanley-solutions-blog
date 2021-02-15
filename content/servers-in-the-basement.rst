@@ -41,11 +41,11 @@ That's because these projects are still in their infancy, and still need some
 TLC.
 
 
-.. image:: http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=PyCEV-CI
+.. image:: http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=PyCEV-CI&sanitize=true
    :alt: PyCEV Build Status
    :width: 50 px
 
-.. image:: http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=SELProtoPy-CI
+.. image:: http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=SELProtoPy-CI&sanitize=true
    :alt: SELProtoPy Build Status
    :width: 50 px
 
