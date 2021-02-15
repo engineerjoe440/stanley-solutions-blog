@@ -6,9 +6,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>  Introducing selprotopy | Stanley Solutions Blog
+  <title>  Servers in the Basement... | Stanley Solutions Blog
 </title>
-  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/sel-protocol-coming-to-python.html">
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/jenkins-servers-in-the-basement.html">
 
 
   <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
@@ -20,9 +20,9 @@
         href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
   <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
         href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
-        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
-        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
-  <meta name="description" content="The SEL Protocol binding suite for Python is finally coming...">
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/devops.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/devops.rss.xml">  
+  <meta name="description" content="Some people keep their creepy Christmas decorations in their basement. Others keep their continuous integration servers down there too...">
 
 
 </head>
@@ -53,43 +53,59 @@
 
   <div class="main">
     <div class="container">
-      <h1>  Introducing <cite>selprotopy</cite>
+      <h1>  Servers in the Basement...
 </h1>
       <hr>
   <article class="article">
     <header>
       <ul class="list-inline">
-        <li class="list-inline-item text-muted" title="2020-09-20T11:07:00-07:00">
+        <li class="list-inline-item text-muted" title="2021-02-14T19:23:00-08:00">
           <i class="fas fa-clock"></i>
-          Sun 20 September 2020
+          Sun 14 February 2021
         </li>
         <li class="list-inline-item">
           <i class="fas fa-folder-open"></i>
-          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/devops.html">DevOps</a>
         </li>
           <li class="list-inline-item">
             <i class="fas fa-user"></i>
               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
           <li class="list-inline-item">
             <i class="fas fa-tag"></i>
-              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/protocols.html">#Protocols</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sel.html">#SEL</a>          </li>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sel.html">#SEL</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/cicd.html">#CI/CD</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/jenkins.html">#Jenkins</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/dev-ops.html">#Dev-Ops</a>          </li>
       </ul>
     </header>
     <div class="content">
-      <p>SEL Protocol is finally coming for Python. That's right, you've heard correctly; it's coming.</p>
-<img alt="The new... `selprotopy`!" src="https://raw.githubusercontent.com/engineerjoe440/sel-proto-py/master/logo/selprotopy.png" style="width: 350px;" />
-<p>But, what is SEL Protocol anyway?</p>
-<p>Well, it's a communications protocol, or standard, that was developed by <a class="reference external" href="https://selinc.com/">SEL</a> to support
-fast data communications between protective electric relays (the devices that monitor the
-power grid for faults) and communications processors. It was developed in the early '90s to
-help improve communication support of devices to allow users to monitor protective relays
-from a distance, and to perform control operations without being present.</p>
-<p>Anyway...</p>
-<p>I've begun writing <a class="reference external" href="https://github.com/engineerjoe440/selprotopy">selprotopy</a> which will be a protocol driver supporting SEL protocol in
-Python. This means that users will be able to integrate solutions with SEL relays using
-Python!</p>
-<p>Obviously, there's a lot to come, so this is not much more than an early announcement.
-If you're interested in contributing, feel free to drop me a message! I'd love to interact!</p>
+      <img alt="SEL Rugged Computers mounted and ready for work!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkinsbasement/IMG_0851.jpg" style="width: 600px;" />
+<p>Whelp, I've gone and done it. I've mounted and installed one of my SEL computers
+and set it up for running Jenkins!</p>
+<p>This isn't going to be a very in-depth article, but I wanted to say that it's
+done. The server is mounted with a brand new switch and surge protector (no UPS
+for the moment, but perhaps to come in the <em>relatively</em> near future). They're
+networked back upstairs to my little IT closet, and Jenkins is waiting idly for
+me to push new code.</p>
+<p>I spent Saturday mounting the server, re-routing all the networking, and setting
+up my modem to provide access to the servers by way of a reverse proxy. Perhaps
+I'll document what that is and how it works, but that might be another article.</p>
+<p>Today I got to work standing up a few <cite>pytest</cite> projects for both <a class="reference external" href="https://github.com/engineerjoe440/selprotopy">selprotopy</a>
+and <a class="reference external" href="https://github.com/engineerjoe440/pycev">pycev</a>, what's exciting about this though, is the fact that they're set up
+now so that they can access the private resources they need for testing, but
+they can be kicked off by my commits and pushes to their repositories on GitHub.</p>
+<p>Want proof that these new projects are up and rocking? Check out their build
+statuses; and before you say anything, yes, I know they're failing right now.
+That's because these projects are still in their infancy, and still need some
+TLC.</p>
+<a href='http://jenkins.stanleysolutionsnw.com/job/PyCEV-CI/'><img src='http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=PyCEV-CI'></a>
+<a href='http://jenkins.stanleysolutionsnw.com/job/SELProtoPy-CI/'><img src='http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=SELProtoPy-CI'></a><p>So... now I can really start cranking on that code, and Jenkins can do some of
+my dirty work to start running the tests for me!</p>
+<img alt="Gotta love that SEL blue!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkinsbasement/IMG_0852.jpg" style="width: 600px;" />
+<p>I want to restate that I'm very excited to be using some old SEL hardware and
+giving it a second lease on life. These computers are rugged, industrial
+machines; and I'm getting to put them to work making these projects solid. Not
+to mention that these projects are actually tailored to supporting SEL tech.</p>
+<p>Yep. It's nerdy.</p>
+<p>Yep. I'm still excited.</p>
+<p>Yep. You guessed it; I'll surely be giving more updates moving forward!</p>
 
     </div>
   </article>
