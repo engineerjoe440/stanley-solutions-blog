@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-02-14T19:23:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Servers in the Basement...</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/jenkins-servers-in-the-basement.html" rel="alternate"></link><published>2021-02-14T19:23:00-08:00</published><updated>2021-02-14T19:23:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-02-14:/stanley-solutions-blog/jenkins-servers-in-the-basement.html</id><summary type="html">&lt;p class="first last"&gt;Some people keep their creepy Christmas decorations in their basement. Others keep their continuous integration servers down there too...&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-02-14T20:40:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Servers in the Basement...</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/jenkins-servers-in-the-basement.html" rel="alternate"></link><published>2021-02-14T19:23:00-08:00</published><updated>2021-02-14T20:40:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-02-14:/stanley-solutions-blog/jenkins-servers-in-the-basement.html</id><summary type="html">&lt;p class="first last"&gt;Some people keep their creepy Christmas decorations in their basement. Others keep their continuous integration servers down there too...&lt;/p&gt;
 </summary><content type="html">&lt;img alt="SEL Rugged Computers mounted and ready for work!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkinsbasement/IMG_0851.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;Whelp, I've gone and done it. I've mounted and installed one of my SEL computers
 and set it up for running Jenkins!&lt;/p&gt;
@@ -15,12 +15,6 @@ I'll document what that is and how it works, but that might be another article.&
 and &lt;a class="reference external" href="https://github.com/engineerjoe440/pycev"&gt;pycev&lt;/a&gt;, what's exciting about this though, is the fact that they're set up
 now so that they can access the private resources they need for testing, but
 they can be kicked off by my commits and pushes to their repositories on GitHub.&lt;/p&gt;
-&lt;p&gt;Want proof that these new projects are up and rocking? Check out their build
-statuses; and before you say anything, yes, I know they're failing right now.
-That's because these projects are still in their infancy, and still need some
-TLC.&lt;/p&gt;
-&lt;img alt="PyCEV Build Status" src="http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=PyCEV-CI&amp;amp;sanitize=true" style="width: 50px;" /&gt;
-&lt;img alt="SELProtoPy Build Status" src="http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=SELProtoPy-CI&amp;amp;sanitize=true" style="width: 50px;" /&gt;
 &lt;p&gt;So... now I can really start cranking on that code, and Jenkins can do some of
 my dirty work to start running the tests for me!&lt;/p&gt;
 &lt;img alt="Gotta love that SEL blue!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkinsbasement/IMG_0852.jpg" style="width: 600px;" /&gt;
