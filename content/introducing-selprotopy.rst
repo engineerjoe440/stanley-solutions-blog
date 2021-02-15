@@ -2,7 +2,7 @@ Introducing `selprotopy`
 ########################
 
 :date: 2020-09-20 11:07
-:modified: 2020-09-30 15:45
+:modified: 2021-02-14 16:00
 :tags: Python, Protocols, SEL
 :category: Python
 :slug: sel-protocol-coming-to-python
@@ -10,7 +10,7 @@ Introducing `selprotopy`
 :summary: The SEL Protocol binding suite for Python is finally coming...
 
 
-.. _selprotopy: https://github.com/engineerjoe440/sel-proto-py
+.. _selprotopy: https://github.com/engineerjoe440/selprotopy
 .. _SEL: https://selinc.com/
 
 
