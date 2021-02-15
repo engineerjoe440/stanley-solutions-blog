@@ -42,8 +42,12 @@ TLC.
 
 
 .. image:: http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=PyCEV-CI
+   :alt: PyCEV Build Status
+   :width: 50 px
 
 .. image:: http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=SELProtoPy-CI
+   :alt: SELProtoPy Build Status
+   :width: 50 px
 
 So... now I can really start cranking on that code, and Jenkins can do some of
 my dirty work to start running the tests for me!
