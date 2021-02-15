@@ -2,7 +2,7 @@ Servers in the Basement...
 ##########################
 
 :date: 2021-02-14 19:23
-:modified: 2021-02-14 19:23
+:modified: 2021-02-14 20:40
 :tags: SEL, CI/CD, Jenkins, Dev-Ops
 :category: DevOps
 :slug: jenkins-servers-in-the-basement
@@ -34,20 +34,6 @@ Today I got to work standing up a few `pytest` projects for both `selprotopy`_
 and `pycev`_, what's exciting about this though, is the fact that they're set up
 now so that they can access the private resources they need for testing, but
 they can be kicked off by my commits and pushes to their repositories on GitHub.
-
-Want proof that these new projects are up and rocking? Check out their build
-statuses; and before you say anything, yes, I know they're failing right now.
-That's because these projects are still in their infancy, and still need some
-TLC.
-
-
-.. image:: http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=PyCEV-CI&sanitize=true
-   :alt: PyCEV Build Status
-   :width: 50 px
-
-.. image:: http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=SELProtoPy-CI&sanitize=true
-   :alt: SELProtoPy Build Status
-   :width: 50 px
 
 So... now I can really start cranking on that code, and Jenkins can do some of
 my dirty work to start running the tests for me!
