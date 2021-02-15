@@ -40,10 +40,10 @@ statuses; and before you say anything, yes, I know they're failing right now.
 That's because these projects are still in their infancy, and still need some
 TLC.
 
-.. raw:: html
-   
-   <a href='http://jenkins.stanleysolutionsnw.com/job/PyCEV-CI/'><img src='http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=PyCEV-CI'></a>
-   <a href='http://jenkins.stanleysolutionsnw.com/job/SELProtoPy-CI/'><img src='http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=SELProtoPy-CI'></a>
+
+.. image:: http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=PyCEV-CI
+
+.. image:: http://jenkins.stanleysolutionsnw.com/buildStatus/icon?job=SELProtoPy-CI
 
 So... now I can really start cranking on that code, and Jenkins can do some of
 my dirty work to start running the tests for me!
