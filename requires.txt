@@ -1,3 +1,4 @@
 pelican
 https://github.com/nairobilug/pelican-alchemy/tarball/master
+pelican-embed-svg
 pelican-sitemap
