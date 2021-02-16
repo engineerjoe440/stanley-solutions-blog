@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Spam the VBAN for Non-Stop Audio | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/spam-the-vban-for-non-stop-audio.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/raspberry-pi.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/raspberry-pi.rss.xml">  
+  <meta name="description" content="When things get sticky, leave it to Python to keep the wheels greased!">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Spam the VBAN for Non-Stop Audio
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2021-02-15T20:22:00-08:00">
+          <i class="fas fa-clock"></i>
+          Mon 15 February 2021
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/raspberry-pi.html">Raspberry Pi</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/vban.html">#VBAN</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/audio-network.html">#Audio Network</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/raspberry-pi.html">#Raspberry Pi</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/linux.html">#Linux</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>In a <a class="reference external" href="https://blog.stanleysolutionsnw.com/networked-audio-using-vban-and-rpi.html">recent article</a> I wrote about how I'd started to integrate more of my house's
+audio system with a networked audio protocol known as &quot;VBAN&quot;. I'd gotten some great
+use out of the system, but I'd started running into some problems more recently...</p>
+<p>You see, for some reason, if I were streaming some audio to my Raspberry Pi, and the
+stream dropped into a lull (i.e. between songs, say) I'd often see some pretty nasty
+buffer errors from Alsa. Now, I could've dug into it much deeper and tried to get to
+the root of the problem in <cite>C</cite>, but I didn't really feel like it. Instead, I thought
+I'd just throw some Python at it! So after spending an intermittent afternoon
+reminding myself how the <cite>subprocess</cite> module works, and debugging my own madness, I
+got a working script that I use as a <em>systemd</em> service.</p>
+<div class="highlight"><pre><span></span><span class="c1"># VBAN Receiver in Python</span>
+
+<span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="c1"># Executor Function</span>
+<span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+    <span class="n">popen</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                             <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">universal_newlines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">stdout_line</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="n">popen</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readline</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">stdout_line</span><span class="p">,</span> <span class="n">popen</span>
+    <span class="n">popen</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">return_code</span> <span class="o">=</span> <span class="n">popen</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">return_code</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">(</span><span class="n">return_code</span><span class="p">,</span> <span class="n">cmd</span><span class="p">)</span>
+
+<span class="c1"># Define Attributes</span>
+<span class="n">MASTER_PC_IP</span> <span class="o">=</span> <span class="s2">&quot;&lt;your-ip-here&gt;&quot;</span>
+<span class="n">LOG_FILE</span> <span class="o">=</span> <span class="s1">&#39;/var/vban_log.log&#39;</span>
+
+<span class="c1"># Define Command and Args</span>
+<span class="n">EXECUTABLE</span> <span class="o">=</span> <span class="s2">&quot;/usr/local/bin/vban_receptor&quot;</span>
+<span class="n">ARGS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-i&quot;</span><span class="p">,</span> <span class="n">MASTER_PC_IP</span><span class="p">,</span> <span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;6980&quot;</span><span class="p">,</span> <span class="s2">&quot;-s&quot;</span><span class="p">,</span> <span class="s2">&quot;StereoPi&quot;</span><span class="p">,</span> <span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="s2">&quot;front&quot;</span><span class="p">,</span> <span class="s2">&quot;-q&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">]</span>
+
+<span class="n">CALL</span> <span class="o">=</span> <span class="p">[</span><span class="n">EXECUTABLE</span><span class="p">]</span>
+<span class="n">CALL</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ARGS</span><span class="p">)</span>
+
+<span class="c1"># Call the System</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">LOG_FILE</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">logFile</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">output</span><span class="p">,</span> <span class="n">proc_handle</span> <span class="ow">in</span> <span class="n">execute</span><span class="p">(</span><span class="n">CALL</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">logFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+            <span class="c1"># Catch Error</span>
+            <span class="k">if</span> <span class="s2">&quot;Error: alsa_write:&quot;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failure... Python intervening!&quot;</span><span class="p">)</span>
+                <span class="n">proc_handle</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+                <span class="n">proc_handle</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+                <span class="k">break</span> <span class="c1"># Continue While Loop - Call Again</span>
+<span class="c1"># END</span>
+</pre></div>
+<p>With that magic little Python script, I basically kick VBAN in the butt every time
+that Alsa decides to be unfriendly (which happens quite regularly) by killing the
+process, and then starting it right back up. With the magic of computers, this
+happens very fast, and as I'd briefly mentioned earlier, it only seems to really
+play into the &quot;mix&quot; in-between songs anyway. So after building the script, giving
+it a nice little test drive, and scrutinizing my Raspberry Pi; I thought it was
+time to build it back into my simple little service.</p>
+<div class="highlight"><pre><span></span>[Unit]
+Description= VBAN Stereo Receptor
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/vbanner.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+<p>I'm sure I'll be back to crack the hood back open on this one at some point, but
+for now, I'm happy to stream my music back to my cabinet stereo with the power of
+Linux.</p>
+
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
