@@ -2,7 +2,7 @@ Spam the VBAN for Non-Stop Audio
 ################################
 
 :date: 2021-02-15 20:22
-:modified: 2021-02-15 20:22
+:modified: 2021-02-15 20:43
 :tags: VBAN, Audio Network, Raspberry Pi, Python, Linux
 :category: Raspberry Pi
 :slug: spam-the-vban-for-non-stop-audio
@@ -78,6 +78,7 @@ it a nice little test drive, and scrutinizing my Raspberry Pi; I thought it was
 time to build it back into my simple little service.
 
 .. code-block:: ini
+   
    # /etc/systemd/system/vbanstereorx.service
    # vbanstereorx.service
    # VBAN Receptor Stereo Service
