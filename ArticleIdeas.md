@@ -8,4 +8,8 @@
 * WLED Configuration with Home Assistant
 * GitHub Tooling for Python Testing
 * Gitlab backups to Linode and OMV
-* Https/Ssh proxy
+* HTTPS/SSH proxy
+* VBAN Server for Streaming Audio
+* OpenWRT Access Points Etc.
+* Education Focussed Lab Boards (4-H boards)
+* Livingroom Power Box
