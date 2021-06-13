@@ -13,3 +13,4 @@
 * OpenWRT Access Points Etc.
 * Education Focussed Lab Boards (4-H boards)
 * Livingroom Power Box
+* TasmotaFresh Fan Controls
