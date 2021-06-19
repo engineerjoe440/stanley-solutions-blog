@@ -41,7 +41,8 @@ for easy access. My own sort of computer tower, you might say.
    :width: 600 px
 
 But this thing's ultimately a power supply, right? So it's got to have *power*! And that, it does! Inside, I've mounted a little multi-output power supply
-with 3 discrete taps; 24V, 12V, and 5V. I don't quite know what I'm going to do with 24V, yet, but the 5V and 12V are already serving my purposes to power the little computer, a variety of lights, and perhaps a few more odds and ends as time progresses.
+with 3 discrete taps; 24V, 12V, and 5V. I don't quite know what I'm going to do with 24V, yet, but the 5V and 12V are already serving my purposes to power
+the little computer, a variety of lights, and perhaps a few more odds and ends as time progresses.
 
 .. image:: {attach}/images/demo-boards-and-amo-power/203150896_2002088606597054_7741904286201403555_n.jpg
    :alt: The power!
@@ -62,22 +63,29 @@ Specs:
 
 So let's talk about what all's in this thing!
 
-#. Power Supplies:
-  * 2x 5V, 2.1A USB Chargers
-  * 2x 5V, 2.4A USB Fast Chargers
-  * 1x 19V, ~2A Computer Charger
-  * 2x 120VAC Outlets (one internal, the other external)
-  * 1x 24V DC Rail
-  * 1x 12V DC Rail (powers the USB chargers, and a few other bits-and-bobs)
-  * 1x 5V DC Rail (powers the Technologic Linux computer)
-#. Switches:
-  * 3x Safety Toggle Switches
-  * 5x Illuminated Rocker Switches
-#. Meters:
-  * 1x Backlit AC Panel Meter, 0-150VAC
-  * 1x Blue LED Digital Meter, 0-200VAC
-#. Computing Specs:
-  * 1x Technologic 7800 ARM Computer; Runs Pre-built Debian 5.0, "Lenny" (yeah, it's old, okay?!)
+Power Supplies:
+~~~~~~~~~~~~~~~
+* 2x 5V, 2.1A USB Chargers
+* 2x 5V, 2.4A USB Fast Chargers
+* 1x 19V, ~2A Computer Charger
+* 2x 120VAC Outlets (one internal, the other external)
+* 1x 24V DC Rail
+* 1x 12V DC Rail (powers the USB chargers, and a few other bits-and-bobs)
+* 1x 5V DC Rail (powers the Technologic Linux computer)
+
+Switches:
+~~~~~~~~~
+* 3x Safety Toggle Switches
+* 5x Illuminated Rocker Switches
+
+Meters:
+~~~~~~~
+* 1x Backlit AC Panel Meter, 0-150VAC
+* 1x Blue LED Digital Meter, 0-200VAC
+
+Computing Specs:
+~~~~~~~~~~~~~~~~
+* 1x Technologic 7800 ARM Computer; Runs Pre-built Debian 5.0, "Lenny" (yeah, it's old, okay?!)
 
 Final Thoughts
 --------------
