@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Home-Projects</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/home-projects.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-06-19T11:40:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Powering My Own Relaxation</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/powering-my-own-relaxation.html" rel="alternate"></link><published>2021-06-19T11:40:00-07:00</published><updated>2021-06-19T11:40:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-06-19:/stanley-solutions-blog/powering-my-own-relaxation.html</id><summary type="html">&lt;p class="first last"&gt;I spend enough time in my arm-chair with my laptop that I thought it about time to power all my digital toys in the same spot!&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;You know, I never thought I'd spend so much time in my arm-chair. But here we are.&lt;/p&gt;
+&lt;p&gt;It's become pretty comfortable, recently, with all the new audio networking I've been working on (namely my audio network using VBAN - you can read
+more about that &lt;a class="reference external" href="https://blog.stanleysolutionsnw.com/spam-the-vban-for-non-stop-audio.html"&gt;here&lt;/a&gt;). Still, I'm not about to just sit back and listen
+without doing &lt;em&gt;something&lt;/em&gt;. I mean, c'mon! I'm an insatiable tinkerer, after all. So, I spend a lot of time working away on my laptop (really starting
+to love &lt;a class="reference external" href="https://kde.org/plasma-desktop/"&gt;KDE Plasma!&lt;/a&gt;) and poking around at random bits and bytes.&lt;/p&gt;
+&lt;p&gt;So I need a charger, but I get bored dragging around that plain ole' wall-wart! So I thought I could do one better. I've seen plenty of those neat
+looking amo-can stereos, online, but that's not quite my style. If you know me, you know I prefer cabinet stereos. No, instead I thought I could put
+all of my power supply components in the can; and throw in a few of my own touches along the way. So, I decided I'd get to work.&lt;/p&gt;
+&lt;p&gt;A little too much drooling and visitation of our favorite, least-favorite A-to-Z online marketplace, I had an assortment of nerdy-looking switch
+assemblies, voltage meters, and a beefy little multi-output DC power supply.&lt;/p&gt;
+&lt;img alt="The Controls of my &amp;quot;Unique&amp;quot; Power Can" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203727287_161197975998707_4701277717982762523_n.jpg" style="width: 600px;" /&gt;
+&lt;p&gt;Now with all these neat little switches, I've got to do &lt;strong&gt;*something*&lt;/strong&gt; with them, right?&lt;/p&gt;
+&lt;p&gt;You bet!&lt;/p&gt;
+&lt;p&gt;How about adding a little Linux computer, to the mix? Sure! I gave yet another old machine new life by taking an old
+&lt;a class="reference external" href="https://www.embeddedarm.com/"&gt;Technologic computer&lt;/a&gt; and lobbing it into the case; mounted with Ethernet, serial terminal, and dual USB ports exposed
+for easy access. My own sort of computer tower, you might say.&lt;/p&gt;
+&lt;img alt="Mounted a Linux computer in there too!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203630587_497812148003314_6021780960392169872_n.jpg" style="width: 600px;" /&gt;
+&lt;p&gt;But this thing's ultimately a power supply, right? So it's got to have &lt;em&gt;power&lt;/em&gt;! And that, it does! Inside, I've mounted a little multi-output power supply
+with 3 discrete taps; 24V, 12V, and 5V. I don't quite know what I'm going to do with 24V, yet, but the 5V and 12V are already serving my purposes to power
+the little computer, a variety of lights, and perhaps a few more odds and ends as time progresses.&lt;/p&gt;
+&lt;img alt="The power!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203150896_2002088606597054_7741904286201403555_n.jpg" style="width: 600px;" /&gt;
+&lt;p&gt;What's more, however, is that I've also inserted several USB power hubs, and mounted a computer charger inside the can so that I can power my laptop, too!
+In fact, as I sit her writing, I'm using the power supply right now!&lt;/p&gt;
+&lt;p&gt;Now, I'll grant that like so many of my little tinkering projects, this one is nowhere near being complete, but I will say that &lt;em&gt;one&lt;/em&gt; of the switches
+does function to control the two voltage meters mounted inside (one analog, the other digital).&lt;/p&gt;
+&lt;img alt="The final (but not finished) product!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/202866327_175178427900304_1831963921642931273_n.jpg" style="width: 600px;" /&gt;
+&lt;div class="section" id="specs"&gt;
+&lt;h2&gt;Specs:&lt;/h2&gt;
+&lt;p&gt;So let's talk about what all's in this thing!&lt;/p&gt;
+&lt;div class="section" id="power-supplies"&gt;
+&lt;h3&gt;Power Supplies:&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;2x 5V, 2.1A USB Chargers&lt;/li&gt;
+&lt;li&gt;2x 5V, 2.4A USB Fast Chargers&lt;/li&gt;
+&lt;li&gt;1x 19V, ~2A Computer Charger&lt;/li&gt;
+&lt;li&gt;2x 120VAC Outlets (one internal, the other external)&lt;/li&gt;
+&lt;li&gt;1x 24V DC Rail&lt;/li&gt;
+&lt;li&gt;1x 12V DC Rail (powers the USB chargers, and a few other bits-and-bobs)&lt;/li&gt;
+&lt;li&gt;1x 5V DC Rail (powers the Technologic Linux computer)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="switches"&gt;
+&lt;h3&gt;Switches:&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;3x Safety Toggle Switches&lt;/li&gt;
+&lt;li&gt;5x Illuminated Rocker Switches&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="meters"&gt;
+&lt;h3&gt;Meters:&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;1x Backlit AC Panel Meter, 0-150VAC&lt;/li&gt;
+&lt;li&gt;1x Blue LED Digital Meter, 0-200VAC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="computing-specs"&gt;
+&lt;h3&gt;Computing Specs:&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;1x Technologic 7800 ARM Computer; Runs Pre-built Debian 5.0, &amp;quot;Lenny&amp;quot; (yeah, it's old, okay?!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="final-thoughts"&gt;
+&lt;h2&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;Another quick note about the project, I finally got to use my brand-new drill press for it! Woo-hoo!!! That was a lot of fun!&lt;/p&gt;
+&lt;p&gt;Hopefully, when I get the little computer tied into some more important things, I'll have more to say on the matter, but first, I've
+got to get it booting Debian... Then see if I can possibly get it to run newer images... Like, I dunno, something &lt;em&gt;NEW&lt;/em&gt;?!?!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Home-Projects"></category><category term="Ammo-Can"></category><category term="Power-Supply"></category><category term="Arm-Chair"></category><category term="Linux"></category><category term="Charger"></category></entry></feed>
