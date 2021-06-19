@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 `writenew.py`
 
@@ -37,8 +38,10 @@ except:
         else:
             return keymap['author']
 
-def tagerizer():
+def tagerizer(prompt=False):
     global keymap
+    if prompt:
+        return ''
     tags = re.split(r', ?',keymap['tags'])
     for i,tag in enumerate(tags):
         if not tag.isupper():
@@ -47,16 +50,23 @@ def tagerizer():
             tags[i] = tag
     return ', '.join(tags)
 
-def slugerizer():
+def slugerizer(prompt=False):
     global keymap
-    return keymap['slug'].replace(' ','-')
+    tag = re.sub(r'[^\w\s]', '', keymap['title'].lower())
+    tag = tag.replace(' ', '-')
+    if prompt:
+        return " [{}]".format(tag)
+    elif keymap['slug'] == '':
+        return tag
+    else:
+        return keymap['slug'].replace(' ', '-')
 
 prompts = [
     ['title',       "What will the new article's title be? ",                       None],
     ['tags',        "What tags should the new article include? (comma separated) ", tagerizer],
     ['category',    "What category should the article associate with? ",            None],
-    ['slug',        "What should the slug be? ",                                    slugerizer],
-    ['author',      "Who is the author?{} ".format(usr_callback(prompt=True)),      usr_callback],
+    ['slug',        "What should the slug be? "                     ,               slugerizer],
+    ['author',      "Who is the author? ",                                          usr_callback],
     ['summary',     "Please give a brief summary: ",                                None],
 ]
 
@@ -93,7 +103,10 @@ def main( parser, keymap ):
     index = 0
     while True:
         prompt_set = prompts[index]
-        response = input(prompt_set[1])
+        prompt_msg = prompt_set[1]
+        if prompt_set[2] != None:
+            prompt_msg += prompt_set[2](prompt=True)
+        response = input(prompt_msg)
         if response == '^':
             index -= 1
             continue
