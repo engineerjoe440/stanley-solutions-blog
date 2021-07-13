@@ -25,7 +25,7 @@ jobs:
       - name: Build Pelican Pages
         if: success()
         run: |
-          pelican -s pelicanconf.py
+          pelican -s pelicanconf.py --fatal errors
 
       # https://github.com/marketplace/actions/github-pages
       #- if: success()
