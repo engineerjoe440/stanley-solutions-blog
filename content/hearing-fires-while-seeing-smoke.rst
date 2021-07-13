@@ -2,7 +2,7 @@ Hearing Fires While Seeing Smoke
 ################################
 
 :date: 2021-07-12 20:18
-:modified: 2021-07-12 20:18
+:modified: 2021-07-12 20:54
 :tags: Wildfire, IoT, MCU, Mesh, Radio, Smart-Sensor, Capstone, University
 :category: Capstone
 :slug: hearing-fires-while-seeing-smoke
@@ -14,6 +14,9 @@ If you've talked to me at all in the past nine months or so, you probably alread
 Capstone project at the University of Idaho. Now, admittedly, it's something of a selfish endeavor as I have far too many "fun things" that I'd like
 to explore, and not enough time or energy to do them all. Thankfully, some good faculty members are just as excited about some of these intriguing
 projects as I am.
+
+What's more, though, as I sit here in North Idaho, surrounded by worsening smoke from many terrible wildfires, I'm reflecting on the project I was
+so lucky to sponsor, and how excited I am for its future, and what future students will bring to it.
 
 The Project
 -----------
@@ -69,9 +72,9 @@ year (so long as the University will let me!), and I'm very excited to do so. Th
 
 * Power - An obvious concern for any IoT device, and certainly one responsible for such a challenging environment.
 * Sensor Validation - This years team did a great job bootstrapping their way up, but with luck, next year's team will be able to refine that work into
-something that can prove the validity of the sensor.
+  something that can prove the validity of the sensor.
 * Wireless Mesh Networking - This was something that was really exciting since this year's team was able to find an open-source library to help with
-this challenge, but there's more to be done; especially if the network is going to be anything larger than a few nodes.
+  this challenge, but there's more to be done; especially if the network is going to be anything larger than a few nodes.
 * Enclosure Testing - Anything exposed to the elements needs to be hardened, and this enclosure still needs a little refinement there.
 
 
