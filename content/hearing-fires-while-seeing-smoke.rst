@@ -53,6 +53,7 @@ The Product
 -----------
 
 .. raw:: html
+
    <img src="http://images.shoutwiki.com/mindworks/thumb/5/5b/2021_infrasonic_wildfire_detector_finished_enclosure.png/800px-2021_infrasonic_wildfire_detector_finished_enclosure.png" width="600" alt="The Sensor..." align="left">
 
 
