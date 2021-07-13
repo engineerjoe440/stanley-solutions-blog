@@ -57,7 +57,7 @@ were also able to use some clear acrylic tubing to really show off how sharp thi
 
 .. raw:: html
 
-   <img src="http://images.shoutwiki.com/mindworks/thumb/5/5b/2021_infrasonic_wildfire_detector_finished_enclosure.png/800px-2021_infrasonic_wildfire_detector_finished_enclosure.png" width="400" alt="The Sensor..." align="left" style="padding:10px;">
+   <img src="http://images.shoutwiki.com/mindworks/thumb/5/5b/2021_infrasonic_wildfire_detector_finished_enclosure.png/800px-2021_infrasonic_wildfire_detector_finished_enclosure.png" width="450" alt="The Sensor..." align="left" style="padding:10px;">
 
 
 Now, I'm not going to go too-deep into the technical specs of this thing, partly because I don't want to type it all out, and partly because the team
