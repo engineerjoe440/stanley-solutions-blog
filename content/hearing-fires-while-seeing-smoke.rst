@@ -37,10 +37,10 @@ neat tech.
 This Year's Team
 ----------------
 
-.. image:: {attach}/images/team-firewatch.jpg
-   :alt: Meet team "Firewatch".
-   :width: 600 px
-   :align: right
+.. raw:: html
+
+   <img src="{attach}/images/team-firewatch.jpg" width="400" alt="Meet Team Firewatch!" align="right">
+
 
 So, this year, we had a team of some really outstanding students from a variety of backgrounds. Meridian, a mechanical engineer; Carlos, a computer
 scientist; and two electrical engineers, Cory and Drew. We had the luxury of giving this fantastic team the flexibility of choosing their own path
