@@ -23,7 +23,7 @@ The Project
 
 .. raw:: html
 
-   <img src="{attach}/images/team-firewatch.jpg" width="400" alt="Meet Team Firewatch!" align="right">
+   <img src="{attach}/images/team-firewatch.jpg" width="300" alt="Meet Team Firewatch!" align="right">
 
 
 So what was it? Well, the project in a nutshell was to lay the groundwork for a design of a device which will detect wildfire using infrasonic sound;
@@ -52,13 +52,13 @@ the pleasure of keeping it! At least... until next year, when we get some more s
 The Product
 -----------
 
-.. raw:: html
-
-   <img src="http://images.shoutwiki.com/mindworks/thumb/5/5b/2021_infrasonic_wildfire_detector_finished_enclosure.png/800px-2021_infrasonic_wildfire_detector_finished_enclosure.png" width="600" alt="The Sensor..." align="left">
-
-
 The team was able to design a really wonderful and unique enclosure to encapsulate their microcontroller, sensor, antenna, and amplifier circuit. They
 were also able to use some clear acrylic tubing to really show off how sharp this thing looks!
+
+.. raw:: html
+
+   <img src="http://images.shoutwiki.com/mindworks/thumb/5/5b/2021_infrasonic_wildfire_detector_finished_enclosure.png/800px-2021_infrasonic_wildfire_detector_finished_enclosure.png" width="400" alt="The Sensor..." align="left" style="padding:10px;">
+
 
 Now, I'm not going to go too-deep into the technical specs of this thing, partly because I don't want to type it all out, and partly because the team
 has already done such a fantastic job documenting it both in their `Wiki page <http://mindworks.shoutwiki.com/wiki/Infrasonic_Wildfire_Detector>`_
