@@ -2,7 +2,7 @@ Hearing Fires While Seeing Smoke
 ################################
 
 :date: 2021-07-12 20:18
-:modified: 2021-07-12 20:54
+:modified: 2021-07-12 21:05
 :tags: Wildfire, IoT, MCU, Mesh, Radio, Smart-Sensor, Capstone, University
 :category: Capstone
 :slug: hearing-fires-while-seeing-smoke
@@ -21,6 +21,11 @@ so lucky to sponsor, and how excited I am for its future, and what future studen
 The Project
 -----------
 
+.. raw:: html
+
+   <img src="{attach}/images/team-firewatch.jpg" width="400" alt="Meet Team Firewatch!" align="right">
+
+
 So what was it? Well, the project in a nutshell was to lay the groundwork for a design of a device which will detect wildfire using infrasonic sound;
 that's the sound that's lower than what we can hear - think that death rumble from that old beater car you drove in high-school. No? Just me? Oh...
 
@@ -37,11 +42,6 @@ neat tech.
 This Year's Team
 ----------------
 
-.. raw:: html
-
-   <img src="{attach}/images/team-firewatch.jpg" width="400" alt="Meet Team Firewatch!" align="right">
-
-
 So, this year, we had a team of some really outstanding students from a variety of backgrounds. Meridian, a mechanical engineer; Carlos, a computer
 scientist; and two electrical engineers, Cory and Drew. We had the luxury of giving this fantastic team the flexibility of choosing their own path
 in terms of the areas they were really interested in researching, which made for a lot of fun.
@@ -52,10 +52,9 @@ the pleasure of keeping it! At least... until next year, when we get some more s
 The Product
 -----------
 
-.. image:: http://images.shoutwiki.com/mindworks/thumb/5/5b/2021_infrasonic_wildfire_detector_finished_enclosure.png/800px-2021_infrasonic_wildfire_detector_finished_enclosure.png
-   :alt: The sensor...
-   :width: 600 px
-   :align: left
+.. raw:: html
+   <img src="http://images.shoutwiki.com/mindworks/thumb/5/5b/2021_infrasonic_wildfire_detector_finished_enclosure.png/800px-2021_infrasonic_wildfire_detector_finished_enclosure.png" width="600" alt="The Sensor..." align="left">
+
 
 The team was able to design a really wonderful and unique enclosure to encapsulate their microcontroller, sensor, antenna, and amplifier circuit. They
 were also able to use some clear acrylic tubing to really show off how sharp this thing looks!
