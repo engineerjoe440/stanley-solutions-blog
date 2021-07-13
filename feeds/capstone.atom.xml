@@ -8,7 +8,7 @@ projects as I am.&lt;/p&gt;
 so lucky to sponsor, and how excited I am for its future, and what future students will bring to it.&lt;/p&gt;
 &lt;div class="section" id="the-project"&gt;
 &lt;h2&gt;The Project&lt;/h2&gt;
-&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/team-firewatch.jpg" width="400" alt="Meet Team Firewatch!" align="right"&gt;&lt;p&gt;So what was it? Well, the project in a nutshell was to lay the groundwork for a design of a device which will detect wildfire using infrasonic sound;
+&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/team-firewatch.jpg" width="300" alt="Meet Team Firewatch!" align="right"&gt;&lt;p&gt;So what was it? Well, the project in a nutshell was to lay the groundwork for a design of a device which will detect wildfire using infrasonic sound;
 that's the sound that's lower than what we can hear - think that death rumble from that old beater car you drove in high-school. No? Just me? Oh...&lt;/p&gt;
 &lt;p&gt;The infrasonic sound would be detected by an ultra-economical (yeah, cheap) condenser microphone and amplified before being measured by a small
 microcontroller responsible for wrapping that data up into a message sent over-the-air back to some central base. But what's to make it more interesting,
@@ -29,9 +29,9 @@ the pleasure of keeping it! At least... until next year, when we get some more s
 &lt;/div&gt;
 &lt;div class="section" id="the-product"&gt;
 &lt;h2&gt;The Product&lt;/h2&gt;
-&lt;img src="http://images.shoutwiki.com/mindworks/thumb/5/5b/2021_infrasonic_wildfire_detector_finished_enclosure.png/800px-2021_infrasonic_wildfire_detector_finished_enclosure.png" width="600" alt="The Sensor..." align="left"&gt;&lt;p&gt;The team was able to design a really wonderful and unique enclosure to encapsulate their microcontroller, sensor, antenna, and amplifier circuit. They
+&lt;p&gt;The team was able to design a really wonderful and unique enclosure to encapsulate their microcontroller, sensor, antenna, and amplifier circuit. They
 were also able to use some clear acrylic tubing to really show off how sharp this thing looks!&lt;/p&gt;
-&lt;p&gt;Now, I'm not going to go too-deep into the technical specs of this thing, partly because I don't want to type it all out, and partly because the team
+&lt;img src="http://images.shoutwiki.com/mindworks/thumb/5/5b/2021_infrasonic_wildfire_detector_finished_enclosure.png/800px-2021_infrasonic_wildfire_detector_finished_enclosure.png" width="400" alt="The Sensor..." align="left" style="padding:10px;"&gt;&lt;p&gt;Now, I'm not going to go too-deep into the technical specs of this thing, partly because I don't want to type it all out, and partly because the team
 has already done such a fantastic job documenting it both in their &lt;a class="reference external" href="http://mindworks.shoutwiki.com/wiki/Infrasonic_Wildfire_Detector"&gt;Wiki page&lt;/a&gt;
 and in their &lt;a class="reference external" href="https://gitlab.stanleysolutionsnw.com/infrasound-detector/portfolio-2020-2021"&gt;GitLab repo&lt;/a&gt; (which is one of the services I host!).&lt;/p&gt;
 &lt;/div&gt;
