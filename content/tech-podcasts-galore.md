@@ -15,10 +15,9 @@ Where should I even begin, though? Perhaps I'll start with the security side of 
 
 ## "Darknet Diaries"
 
-```html
 <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Darknet_Diaries_podcast_artwork.jpg"
     width="300" alt="Darknet Diaries" align="right">
-```
+
 One of my favorites was recommended to me by a colleague. [Darknet Diaries](https://darknetdiaries.com/)
 is an excellent podcast covering everything in the darker side of the internet. No, don't worry... You
 don't need to download a TOR browser to listen. This podcast covers everything from hackers to penetration
