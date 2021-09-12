@@ -1,3 +1,5 @@
 pelican
 https://github.com/nairobilug/pelican-alchemy/tarball/master
+Markdown
+mdx_include
 pelican-sitemap

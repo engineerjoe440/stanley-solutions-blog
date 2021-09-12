@@ -85,6 +85,19 @@ rst_format = """{title}
 
 """
 
+# Define the default MD file format
+md_format = """Title:{title}
+Date: {year}-{month}-{day} {hour}:{minute}
+Modified: {year}-{month}-{day} {hour}:{minute}
+Tags: {tags}
+Category: {category}
+Slug: {slug}
+Authors: {author}
+Summary: {summary}
+
+
+"""
+
 parser = argparse.ArgumentParser(prog='writenew', description=
             'Pelican ReStructuredText blog post build assistant.')
 parser.add_argument('-o','--open',action='store_true',help=
@@ -125,9 +138,13 @@ def main( parser, keymap ):
     keymap['day']   = time.strftime('%d')
     keymap['hour']  = time.strftime('%H')
     keymap['minute']= time.strftime('%M')
+    # Determine File Format
+    file_type = input("Should the file be formatted as Markdown or ReStructuredText? [md, rst]   ")
+    if file_type == '':
+        file_type = 'md'
     # Determine Filename
     if filename in ['', None]:
-        filename = keymap['title'].lower().replace(' ','-') + '.rst'
+        filename = keymap['title'].lower().replace(' ','-') + '.{}'.format(file_type)
         # Clean Filename
         filename = filename.replace('?','')
         filename = filename.replace('!','')
