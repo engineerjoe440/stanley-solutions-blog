@@ -3,10 +3,8 @@
 right here!&lt;/p&gt;
 &lt;p&gt;Where should I even begin, though? Perhaps I'll start with the security side of computers...&lt;/p&gt;
 &lt;h2&gt;"Darknet Diaries"&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://upload.wikimedia.org/wikipedia/en/6/6a/Darknet_Diaries_podcast_artwork.jpg&amp;quot;&lt;/span&gt;
-    &lt;span class="na"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;300&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;alt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Darknet Diaries&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;align&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;right&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;p&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Darknet_Diaries_podcast_artwork.jpg"
+    width="300" alt="Darknet Diaries" align="right"&gt;&lt;/p&gt;
 &lt;p&gt;One of my favorites was recommended to me by a colleague. &lt;a href="https://darknetdiaries.com/"&gt;Darknet Diaries&lt;/a&gt;
 is an excellent podcast covering everything in the darker side of the internet. No, don't worry... You
 don't need to download a TOR browser to listen. This podcast covers everything from hackers to penetration
