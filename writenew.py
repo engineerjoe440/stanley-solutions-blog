@@ -162,7 +162,10 @@ def main( parser, keymap ):
     # Write Contents
     print("Writing contents to:", filename)
     with open(filename, 'w') as fObj:
-        fObj.write( rst_format.format(**keymap) )
+        if 'm' in file_type.lower():
+            fObj.write( md_format.format(**keymap) )
+        else:
+            fObj.write( rst_format.format(**keymap) )
     if not openafter:
         response = ''
         while response.upper() not in ['Y','N']:
