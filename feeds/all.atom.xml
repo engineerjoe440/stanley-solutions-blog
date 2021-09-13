@@ -2,13 +2,70 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-09-12T15:34:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Tech Podcasts Galore!</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/tech-podcasts-galore.html" rel="alternate"></link><published>2021-09-12T15:34:00-07:00</published><updated>2021-09-12T15:34:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-09-12:/stanley-solutions-blog/tech-podcasts-galore.html</id><summary type="html">&lt;p&gt;Everyone's got their new favorite podcast these days. So here, let me list all of my favorites!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been asked a lot lately what tech podcasts I listen to, so I thought I'd briefly summarize them all
 right here!&lt;/p&gt;
 &lt;p&gt;Where should I even begin, though? Perhaps I'll start with the security side of computers...&lt;/p&gt;
-&lt;h2&gt;"Darknet Diaries"&lt;/h2&gt;
+&lt;h4&gt;&lt;em&gt;"Darknet Diaries"&lt;/em&gt;&lt;/h4&gt;
 &lt;p&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Darknet_Diaries_podcast_artwork.jpg"
-    width="300" alt="Darknet Diaries" align="right"&gt;&lt;/p&gt;
-&lt;p&gt;One of my favorites was recommended to me by a colleague. &lt;a href="https://darknetdiaries.com/"&gt;Darknet Diaries&lt;/a&gt;
+    width="150" alt="Darknet Diaries" align="right"&gt;&lt;/p&gt;
+&lt;p&gt;One of my favorites was recommended to me by a colleague. &lt;a href="https://darknetdiaries.com/"&gt;&lt;em&gt;Darknet Diaries&lt;/em&gt;&lt;/a&gt;
 is an excellent podcast covering everything in the darker side of the internet. No, don't worry... You
 don't need to download a TOR browser to listen. This podcast covers everything from hackers to penetration
-testers; everything in the cybersecurity space.&lt;/p&gt;</content><category term="Audio"></category><category term="Tech"></category><category term="Podcasts"></category><category term="Media"></category></entry><entry><title>Hearing Fires While Seeing Smoke</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/hearing-fires-while-seeing-smoke.html" rel="alternate"></link><published>2021-07-12T20:18:00-07:00</published><updated>2021-07-12T21:05:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-07-12:/stanley-solutions-blog/hearing-fires-while-seeing-smoke.html</id><summary type="html">&lt;p class="first last"&gt;While most of North Idaho is seeing (and smelling) plenty of smoke, I'm looking back over a successful Capstone project and more to come...&lt;/p&gt;
+testers; everything in the cybersecurity space.&lt;/p&gt;
+&lt;p&gt;Jack Rhysider, the host of &lt;em&gt;Darknet Diaries&lt;/em&gt; covers a wide variety of stories in the tech and security
+world, and yet, somehow he manages to make each story captivating for all audiences. I really do mean &lt;strong&gt;all&lt;/strong&gt;
+audiences, too. I've even had my mother and other non-techy folks listen to episodes and find some value.&lt;/p&gt;
+&lt;h4&gt;&lt;em&gt;"Security Now"&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;For those interested in the deep-tech-intricacies of cybersecurity, Steve Gibson and
+&lt;a href="https://twit.tv/shows/security-now"&gt;&lt;em&gt;Security Now&lt;/em&gt;&lt;/a&gt; digs deep into the meat-and-potatoes; or should I say,
+they bytes-and-bits of the stuff. Covering everything from &lt;em&gt;Boot-Hole&lt;/em&gt; and &lt;em&gt;Print-Nightmare&lt;/em&gt; to the latest
+in &lt;a href="https://www.wireguard.com/"&gt;Wireguard&lt;/a&gt; and new security practices for IoT devices. &lt;em&gt;Security Now&lt;/em&gt; is a
+great podcast for the tech-minded and security-interested.&lt;/p&gt;
+&lt;p&gt;Now... Perhaps I should switch gears to the more programming-focused side of the table. After all, I've got
+a number of podcasts that I listen to in this arena too!&lt;/p&gt;
+&lt;h4&gt;&lt;em&gt;"Python Bytes"&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;img src="https://pythonbytes.fm/static/img/logo.png?cache_id=391cb49247369a67c4be78b27f2b3cd5"
+    width="150" alt="Python Bytes" align="left"&gt;&lt;/p&gt;
+&lt;p&gt;By far, my favorite of the programming-pods, &lt;a href="https://pythonbytes.fm/"&gt;&lt;em&gt;Python Bytes&lt;/em&gt;&lt;/a&gt; covers the latest news
+in the Python programming language and the areas of the tech world that Python supports. Everything from web
+servers to data-science, from embedded Python to the data-center!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Python Bytes&lt;/em&gt; is a little on the shorter side; at least when compared with the other podcasts I've listed so
+far. Michael Kennedy and Brian Okken cover all the latest-and-greatest Python modules and techniques with at
+least one guest host every week.&lt;/p&gt;
+&lt;h4&gt;&lt;em&gt;"Talk Python to Me"&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;Another podcast from Michael Kennedy (one of the hosts of the aforementioned &lt;em&gt;Python Bytes&lt;/em&gt;) is
+&lt;a href="https://talkpython.fm"&gt;&lt;em&gt;Talk Python to Me&lt;/em&gt;&lt;/a&gt;. It's a little longer than its sister podcast, and goes into
+greater detail in the technology or topic of interest. Michael brings on a variety of fantastic guests, all
+of which help discuss the latest news.&lt;/p&gt;
+&lt;h4&gt;&lt;em&gt;"Test and Code"&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;Brian Okken's other podcast, much like &lt;em&gt;Talk Python to Me&lt;/em&gt; is a companion podcast to &lt;em&gt;Python Bytes&lt;/em&gt;. Brian,
+the author of &lt;em&gt;"Python Testing with pytest: Simple, Rapid, Effective, and Scalable"&lt;/em&gt; covers the intricacies
+of testing code effectively. &lt;a href="https://testandcode.com/"&gt;&lt;em&gt;Test and Code&lt;/em&gt;&lt;/a&gt; is a great podcast, and is a little
+on the shorter side, so it makes for quick listening!&lt;/p&gt;
+&lt;h4&gt;&lt;em&gt;"Coder Radio"&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://coder.show/"&gt;&lt;em&gt;Coder Radio&lt;/em&gt;&lt;/a&gt; is a discussion-based show talking all about "the art and business of
+programming". It's often very opinionated, but let's be honest... Have you ever met a programmer who isn't?
+A Jupiter Broadcasting family podcast, &lt;em&gt;Coder Radio&lt;/em&gt; talks everything from Python to Objective-C, Rust to
+Ruby, GO to JS.&lt;/p&gt;
+&lt;p&gt;Now, getting into the rest of the tech-stack, we simply must talk about Linux! And here, I've got quite the
+assortment of Linux podcasts... Let's get started.&lt;/p&gt;
+&lt;h4&gt;&lt;em&gt;"Linux Unplugged"&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;img src="https://assets.fireside.fm/file/fireside-images/podcasts/images/f/f31a453c-fa15-491f-8618-3f71f1d565e5/cover_small.jpg?v=3"
+    width="150" alt="Linux Unplugged" align="right"&gt;&lt;/p&gt;
+&lt;p&gt;By far, my favorite Linux pod, &lt;a href="https://linuxunplugged.com/"&gt;&lt;em&gt;Linux Unplugged&lt;/em&gt;&lt;/a&gt; covers everything in the
+community of Linux; from new technologies to community happenings. Chris Fisher and Wes Payne bring the best
+of the community together and make a fantastic weekly show as part of the Jupiter Broadcasting family. Always
+keeping high-energy, enthusiastic goals, and a hopeful spirit; Chris and Wes open up with the community every
+Tuesday.&lt;/p&gt;
+&lt;h4&gt;&lt;em&gt;"Self-Hosted"&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;Admittedly, it's not &lt;em&gt;directly&lt;/em&gt; Linux focused, but it &lt;em&gt;is&lt;/em&gt; "Linux adjacent". &lt;a href="https://selfhosted.show/"&gt;&lt;em&gt;Self-Hosted&lt;/em&gt;&lt;/a&gt;
+is another Jupiter Broadcasting show, but it caters towards (namely) the self-hosting side of the open-source
+community. Everything from Nextcloud to Plex, Wireguard to Home Assistant. This is another one of my favorite
+podcasts, and thus its placement in my lineup.&lt;/p&gt;
+&lt;h4&gt;&lt;em&gt;"Linux Action News"&lt;/em&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://linuxactionnews.com/"&gt;LAN&lt;/a&gt;, A.K.A. Linux Action News, is a short-and-sweet weekly podcast covering
+all the latest news in the Linux world. Whether you're a die-hard Linux fan-boy, or a part-time tech
+enthusiast, LAN is a great place to get the latest news in the Linux landscape. Being part of the Jupiter
+Broadcasting family, it sees the same level of wonderful production care.&lt;/p&gt;
+&lt;h2&gt;More?&lt;/h2&gt;
+&lt;p&gt;Hmm... this isn't an all encompassing list, but there just isn't time.... I'll have to write more after a while.&lt;/p&gt;</content><category term="Audio"></category><category term="Tech"></category><category term="Podcasts"></category><category term="Media"></category></entry><entry><title>Hearing Fires While Seeing Smoke</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/hearing-fires-while-seeing-smoke.html" rel="alternate"></link><published>2021-07-12T20:18:00-07:00</published><updated>2021-07-12T21:05:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-07-12:/stanley-solutions-blog/hearing-fires-while-seeing-smoke.html</id><summary type="html">&lt;p class="first last"&gt;While most of North Idaho is seeing (and smelling) plenty of smoke, I'm looking back over a successful Capstone project and more to come...&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;If you've talked to me at all in the past nine months or so, you probably already know that I had the great privilege of sponsoring an Engineering
 Capstone project at the University of Idaho. Now, admittedly, it's something of a selfish endeavor as I have far too many &amp;quot;fun things&amp;quot; that I'd like
 to explore, and not enough time or energy to do them all. Thankfully, some good faculty members are just as excited about some of these intriguing
