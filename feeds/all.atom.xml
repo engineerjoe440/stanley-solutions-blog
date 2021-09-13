@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-09-12T15:34:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Tech Podcasts Galore!</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/tech-podcasts-galore.html" rel="alternate"></link><published>2021-09-12T15:34:00-07:00</published><updated>2021-09-12T15:34:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-09-12:/stanley-solutions-blog/tech-podcasts-galore.html</id><summary type="html">&lt;p&gt;Everyone's got their new favorite podcast these days. So here, let me list all of my favorites!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been asked a lot lately what tech podcasts I listen to, so I thought I'd briefly summarize them all
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-09-12T17:07:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>A Better Way to Integrate with VoiceMeeter?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/a-better-way-to-integrate-with-voicemeeter.html" rel="alternate"></link><published>2021-09-12T17:07:00-07:00</published><updated>2021-09-12T17:07:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-09-12:/stanley-solutions-blog/a-better-way-to-integrate-with-voicemeeter.html</id><summary type="html">&lt;p&gt;Wait... What? There's an API for VoiceMeeter? And there's already a Python API for it? Sign me up!&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, I finally sucked it up and bought an Intel NUC to run as my own mini audio-server. For what purpose,
+you ask? Well, so that I can have an "always on" &lt;a href="https://vb-audio.com/Voicemeeter/vban.htm"&gt;VBAN&lt;/a&gt; server
+where I can route audio through-out my house. From my desktop, my laptop, my mixer, my stereo.... All
+over!&lt;/p&gt;
+&lt;p&gt;Now, I did run into a little trouble in the process. My little NUC is mounted nicely out of the way at my
+desk in my study. It looks great, and runs great... buuuuut... There's one little problem.&lt;/p&gt;
+&lt;p&gt;When I connect or disconnect over a Remote Desktop (RDP) connection it gets, shall we say, a little mixed
+up. In fact, the VoiceMeeter audio engine falls all over itself and gets tangled up. Now, to get around
+this problem, I can restart the audio engine, or the software itself. So I started looking into how to
+automate the kick-in-the-pants the software needed. Mind you, I'd done this before by using Python to find
+the process ID that VoiceMeeter was associated with, and kill it, restarting a moment later. But that's
+boring and slow. So I did some Googling...&lt;/p&gt;
+&lt;p&gt;Turns out, VoiceMeeter has an &lt;a href="https://forum.vb-audio.com/viewtopic.php?f=8&amp;amp;t=346"&gt;API&lt;/a&gt;! FANTASTIC!&lt;/p&gt;
+&lt;p&gt;Now, I realize that that's a C-API, and I'd much rather do my programming in Python. I don't really want
+to fuss with installing GCC on my little NUC. SO... I started investigating how to wrap the C-API with
+Python. It's something I'd never done before, but I figured it must be possible! Once more, I turned to
+the internet wizards, and found a very &lt;a href="https://stackoverflow.com/a/252473/10406011"&gt;nice little article on StackOverflow&lt;/a&gt;
+on how to wrap a C-level DLL with Python.&lt;/p&gt;
+&lt;p&gt;I used that article and proved to myself that, YES, I can write Python code to hit the DLL. But, it
+occurred to me, that maybe somebody else had already done that work.&lt;/p&gt;
+&lt;p&gt;Back to Google...&lt;/p&gt;
+&lt;p&gt;EUREKA! Turns out that someone (&lt;a href="https://github.com/chvolkmann"&gt;Christian Volkmann&lt;/a&gt;, to be specific) had
+already written a full API against the DLL. It's all in Python, and it's glorious! Here...
+&lt;a href="https://github.com/chvolkmann/voicemeeter-remote-python"&gt;Go take a look!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So all that left for me was whacking out a little script to run in the background, monitor for new RDP
+connections, and restart the audio engine when the connection state changed. Here's what that looked
+like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;TODO&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;What Else Will Come?&lt;/h3&gt;
+&lt;p&gt;Goodness, there's so many other things that I can do with this now. Imagine having a full web-based front
+end that I could use to control it! That would be pretty awesome, wouldn't it? I'll really have to do
+some more exploring with this!&lt;/p&gt;</content><category term="Python"></category><category term="Audio"></category><category term="Voicemeeter"></category><category term="Api"></category><category term="Sdk"></category><category term="Mixer"></category><category term="Python"></category></entry><entry><title>Tech Podcasts Galore!</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/tech-podcasts-galore.html" rel="alternate"></link><published>2021-09-12T15:34:00-07:00</published><updated>2021-09-12T15:34:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-09-12:/stanley-solutions-blog/tech-podcasts-galore.html</id><summary type="html">&lt;p&gt;Everyone's got their new favorite podcast these days. So here, let me list all of my favorites!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been asked a lot lately what tech podcasts I listen to, so I thought I'd briefly summarize them all
 right here!&lt;/p&gt;
 &lt;p&gt;Where should I even begin, though? Perhaps I'll start with the security side of computers...&lt;/p&gt;
 &lt;h4&gt;&lt;em&gt;"Darknet Diaries"&lt;/em&gt;&lt;/h4&gt;

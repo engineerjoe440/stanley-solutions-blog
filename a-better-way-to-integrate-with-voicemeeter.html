@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  A Better Way to Integrate with VoiceMeeter? | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/a-better-way-to-integrate-with-voicemeeter.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="Wait... What? There's an API for VoiceMeeter? And there's already a Python API for it? Sign me up!">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  A Better Way to Integrate with VoiceMeeter?
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2021-09-12T17:07:00-07:00">
+          <i class="fas fa-clock"></i>
+          Sun 12 September 2021
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/audio.html">#Audio</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/voicemeeter.html">#Voicemeeter</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/api.html">#Api</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sdk.html">#Sdk</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/mixer.html">#Mixer</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>So, I finally sucked it up and bought an Intel NUC to run as my own mini audio-server. For what purpose,
+you ask? Well, so that I can have an "always on" <a href="https://vb-audio.com/Voicemeeter/vban.htm">VBAN</a> server
+where I can route audio through-out my house. From my desktop, my laptop, my mixer, my stereo.... All
+over!</p>
+<p>Now, I did run into a little trouble in the process. My little NUC is mounted nicely out of the way at my
+desk in my study. It looks great, and runs great... buuuuut... There's one little problem.</p>
+<p>When I connect or disconnect over a Remote Desktop (RDP) connection it gets, shall we say, a little mixed
+up. In fact, the VoiceMeeter audio engine falls all over itself and gets tangled up. Now, to get around
+this problem, I can restart the audio engine, or the software itself. So I started looking into how to
+automate the kick-in-the-pants the software needed. Mind you, I'd done this before by using Python to find
+the process ID that VoiceMeeter was associated with, and kill it, restarting a moment later. But that's
+boring and slow. So I did some Googling...</p>
+<p>Turns out, VoiceMeeter has an <a href="https://forum.vb-audio.com/viewtopic.php?f=8&amp;t=346">API</a>! FANTASTIC!</p>
+<p>Now, I realize that that's a C-API, and I'd much rather do my programming in Python. I don't really want
+to fuss with installing GCC on my little NUC. SO... I started investigating how to wrap the C-API with
+Python. It's something I'd never done before, but I figured it must be possible! Once more, I turned to
+the internet wizards, and found a very <a href="https://stackoverflow.com/a/252473/10406011">nice little article on StackOverflow</a>
+on how to wrap a C-level DLL with Python.</p>
+<p>I used that article and proved to myself that, YES, I can write Python code to hit the DLL. But, it
+occurred to me, that maybe somebody else had already done that work.</p>
+<p>Back to Google...</p>
+<p>EUREKA! Turns out that someone (<a href="https://github.com/chvolkmann">Christian Volkmann</a>, to be specific) had
+already written a full API against the DLL. It's all in Python, and it's glorious! Here...
+<a href="https://github.com/chvolkmann/voicemeeter-remote-python">Go take a look!</a></p>
+<p>So all that left for me was whacking out a little script to run in the background, monitor for new RDP
+connections, and restart the audio engine when the connection state changed. Here's what that looked
+like:</p>
+<div class="highlight"><pre><span></span><code><span class="n">TODO</span><span class="err">!</span>
+</code></pre></div>
+
+<h3>What Else Will Come?</h3>
+<p>Goodness, there's so many other things that I can do with this now. Imagine having a full web-based front
+end that I could use to control it! That would be pretty awesome, wouldn't it? I'll really have to do
+some more exploring with this!</p>
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
