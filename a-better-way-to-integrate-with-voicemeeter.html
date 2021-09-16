@@ -103,7 +103,47 @@ already written a full API against the DLL. It's all in Python, and it's gloriou
 <p>So all that left for me was whacking out a little script to run in the background, monitor for new RDP
 connections, and restart the audio engine when the connection state changed. Here's what that looked
 like:</p>
-<div class="highlight"><pre><span></span><code><span class="n">TODO</span><span class="err">!</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># vmeetermanager - an automated tool to keep VoiceMeeter running correctly.</span>
+<span class="c1"># (c) 2021 - Stanley Solutions | Joe Stanley</span>
+
+<span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">voicemeeter</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="c1"># Define function to determine rdp connection</span>
+<span class="k">def</span> <span class="nf">is_rdp_connected</span><span class="p">():</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;netstat&quot;</span><span class="p">,</span> <span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="s2">&quot;find&quot;</span><span class="p">,</span> <span class="s1">&#39;&quot;:3389 &quot;&#39;</span><span class="p">]</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;ESTABLISHED&quot;</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span> <span class="c1"># Default</span>
+
+
+<span class="c1"># Main Body</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">last_state</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="c1"># Establish VoiceMeeter Connection</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">voicemeeter</span><span class="o">.</span><span class="n">remote</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">vmr</span><span class="p">:</span>
+                <span class="c1"># Run Loop</span>
+                <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="c1"># Determine Connection State</span>
+                    <span class="n">connected</span> <span class="o">=</span> <span class="n">is_rdp_connected</span><span class="p">()</span>
+                    <span class="n">changed_state</span> <span class="o">=</span> <span class="n">connected</span> <span class="o">!=</span> <span class="n">last_state</span>
+                    <span class="n">last_state</span> <span class="o">=</span> <span class="n">connected</span>
+                    <span class="c1"># If the state has changed, restart audio engine</span>
+                    <span class="k">if</span> <span class="n">changed_state</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RDP Connection State Changed to: CONNECTED=</span><span class="si">{</span><span class="n">connected</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+                        <span class="n">vmr</span><span class="o">.</span><span class="n">restart</span><span class="p">()</span>
+                    <span class="c1"># Don&#39;t overburden the systems</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VoiceMeeter Hasn&#39;t Started Yet...&quot;</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
 
 <h3>What Else Will Come?</h3>
