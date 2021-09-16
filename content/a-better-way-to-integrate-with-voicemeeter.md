@@ -1,6 +1,6 @@
 Title: A Better Way to Integrate with VoiceMeeter?
 Date: 2021-09-12 17:07
-Modified: 2021-09-12 17:07
+Modified: 2021-09-15 17:38
 Tags: Audio, Voicemeeter, Api, Sdk, Mixer, Python
 Category: Python
 Slug: a-better-way-to-integrate-with-voicemeeter
@@ -45,7 +45,47 @@ connections, and restart the audio engine when the connection state changed. Her
 like:
 
 ```python
-TODO!
+# vmeetermanager - an automated tool to keep VoiceMeeter running correctly.
+# (c) 2021 - Stanley Solutions | Joe Stanley
+
+# Imports
+import voicemeeter
+import subprocess
+import time
+
+
+# Define function to determine rdp connection
+def is_rdp_connected():
+    args = ["netstat", '-n', '|', "find", '":3389 "']
+    resp = subprocess.run(' '.join(args), shell=True, capture_output=True)
+    if "ESTABLISHED" in resp.stdout.decode('utf-8'):
+        return True
+    return False # Default
+
+
+# Main Body
+if __name__ == "__main__":
+    last_state = False
+    # Establish VoiceMeeter Connection
+    while True:
+        try:
+            with voicemeeter.remote("banana") as vmr:
+                # Run Loop
+                while True:
+                    # Determine Connection State
+                    connected = is_rdp_connected()
+                    changed_state = connected != last_state
+                    last_state = connected
+                    # If the state has changed, restart audio engine
+                    if changed_state:
+                        print(f"RDP Connection State Changed to: CONNECTED={connected}")
+                        time.sleep(0.25)
+                        vmr.restart()
+                    # Don't overburden the systems
+                    time.sleep(1)
+        except Exception:
+            print("VoiceMeeter Hasn't Started Yet...")
+            time.sleep(3)
 ```
 
 ### What Else Will Come?
