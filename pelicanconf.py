@@ -15,6 +15,7 @@ DESCRIPTION = ('Electrical Engineering blog by Joe Stanley - Python,' +
     'Python3, IEC 61131-3, Industrial Controllers, Real-Time Control')
 
 PLUGINS=[
+    'render_math',
     'sitemap',
 ]
 
