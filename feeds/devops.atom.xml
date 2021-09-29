@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - DevOps</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/devops.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-02-14T20:40:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Servers in the Basement...</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/jenkins-servers-in-the-basement.html" rel="alternate"></link><published>2021-02-14T19:23:00-08:00</published><updated>2021-02-14T20:40:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-02-14:/stanley-solutions-blog/jenkins-servers-in-the-basement.html</id><summary type="html">&lt;p class="first last"&gt;Some people keep their creepy Christmas decorations in their basement. Others keep their continuous integration servers down there too...&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - DevOps</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/devops.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-09-28T21:53:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Why do I Self-Host?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/why-do-i-selfhost.html" rel="alternate"></link><published>2021-09-28T21:53:00-07:00</published><updated>2021-09-28T21:53:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-09-28:/stanley-solutions-blog/why-do-i-selfhost.html</id><summary type="html">&lt;p&gt;I was recently asked "why do you run your own servers, when there's perfectly good, cheap, cloud providers?" Well... Here's why!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I was recently having a conversation with a few techie friends about the ridiculous and nerdy things that I'm doing at home. And, yes,
+I realize I'm very nerdy. If that isn't clear already, go read some of my other articles.&lt;/p&gt;
+&lt;p&gt;One of my friends was curious why, exactly, I've decided to self-host so many of my services when I could easily lob those things up on
+some cloud-service like &lt;a href="https://www.linode.com/unplugged"&gt;Linode&lt;/a&gt;. It's a fair question! To my friend's point, those services are fast,
+easy, and require very little maintenance (comparatively, of course). To be clear, I mean that these services manage much of the storage,
+hardware constraints, and networking limitations that I'm working through regularly. There's still the regular work of updating operating
+systems that needs to be managed whether the server is running locally or in the cloud.&lt;/p&gt;
+&lt;p&gt;I won't discredit these features! They're quite attractive, but there's still reason for me to keep my servers plugged in.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Let me explain...&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Reduce, Reuse, Recycle&lt;/h3&gt;
+&lt;p&gt;This point is perhaps the most important to me. I believe I've mentioned before that a lot... Let me emphasize that point...&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;A LOT&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;of the hardware I'm using is old. Many of the computers are what could be considered "ancient" desktop towers. They're old computers doing
+modern things. In fact, at this point I think I have more 32-bit computers than I do 64-bit ones. Before you ask, yes, it's a bit painful;
+but it's worthwhile. I mean, just think about it... I'm currently running seven computers that other people were ready to just throw in
+the trash. That's 7 computers that didn't need to be recycled, 7 computers whose lifetime just got extended courtesy of yours truly.&lt;/p&gt;
+&lt;p&gt;Admittedly, they're power-hungry, and they're not as powerful as more modern equivalents, but they're doing great things for me, and that's
+something that they wouldn't be able to do otherwise. Others would more than likely just chuck them, and I think it's far more valuable to
+milk those old machines for everything I can. Perhaps it's just the naive part of my personality, but I'd like to think that these little
+choices have an impact in some small way.&lt;/p&gt;
+&lt;h3&gt;My Disks, My Data&lt;/h3&gt;
+&lt;p&gt;As just about any self-hosting fiend would likely tell you: "my data lives on &lt;em&gt;my&lt;/em&gt; disks". Point being, since I own the disks, I'm the
+proprietor of the data, too! That means I don't ever have to concern myself with whether or not I can revoke control over the data. Now,
+I'll grant, this certainly makes me sound a bit more like a conspiracy theorist or an "old codger". I guess I don't have any rebuttal
+against that. I'll just have to take it.&lt;/p&gt;
+&lt;h4&gt;Data that's Important to Me, For My Eyes Only&lt;/h4&gt;
+&lt;p&gt;To tack on to the previous point, since I own the data, I can use what I consider "private" or "privileged" data on my servers. Why?
+Because I own them! I can &lt;em&gt;see&lt;/em&gt; where the disks that store the data reside. Now, I know this may not seem like the greatest argument, but
+when it comes to the argument of security and sensitivity, isn't it really all about perception and comfort anyway?&lt;/p&gt;
+&lt;p&gt;To put it another way, why do millions of homeowners install a home-security system? Is it because they think that the system will
+immediately stop thieves in the act? Wouldn't better deadbolts and barred windows provide the same level of protection? Perhaps,
+but then, maybe not. I'd expect that in more cases than not, homeowners want a balance. They want features, and they want function.
+They want to &lt;em&gt;feel&lt;/em&gt; secure, and they want to enjoy their home without barred windows and dozens of deadbolts.&lt;/p&gt;
+&lt;p&gt;That's why having my "private" data on my local servers is important to me. I've been graciously granted numerous data-set samples to
+test some of my other Python projects against, but that data is important to the people who gave it to me. It's the sort of data that I'm
+honored to have been granted access to, and I don't really think it's appropriate to share with the rest of the world. So, I host it on
+servers that live in my basement. Somewhere that lives behind &lt;em&gt;my&lt;/em&gt; firewalls.&lt;/p&gt;
+&lt;p&gt;I don't think that my solution is right for everyone, and I don't think it's the "be-all-end-all" solution that I wish it was, but it
+works for me, and makes me happy! After all, if it helps me sleep well at night, isn't that worth something?&lt;/p&gt;
+&lt;h3&gt;Diversified Service Structure&lt;/h3&gt;
+&lt;p&gt;You've heard of diversified investments, haven't you?&lt;/p&gt;
+&lt;p&gt;Well, that's kinda what I'm doing with my diversified infrastructure. You see, I'm not &lt;em&gt;only&lt;/em&gt; self-hosting. &lt;gasp!&gt; I'm also using cloud
+services (namely Linode - thanks, Linode Team!) to help me with some services, and I'm planning to spin up some others in the (relatively)
+near future. Sometimes speed is important, sometimes it's not. When speed &lt;em&gt;is&lt;/em&gt; a concern, I try to host on Linode, since they're so
+&lt;strong&gt;SUPER-FAST&lt;/strong&gt; and available, it makes sense for me. But in other cases, it doesn't make sense.&lt;/p&gt;
+&lt;p&gt;That's all part of the whole "multi-cloud" paradigm anyway, though. Different providers for different applications, diversified to be more
+robust. In fact, I &lt;em&gt;do&lt;/em&gt; use Linode for some off-site backups. I'm still working out my backup strategy. It's not the greatest, at the
+moment, but it's coming along, and some of that is thanks to Linode's services, and the peace-of-mind they offer. Mind you, the data I'm
+backing up to Linode still goes through secure tunnels, and it's not the "private" data that I was mentioning earlier.&lt;/p&gt;
+&lt;h3&gt;Hands-On Learning Opportunities&lt;/h3&gt;
+&lt;p&gt;My last point for keeping these machines kicking around in my closets, basement, and elsewhere is because they all offer me some great
+opportunities to learn! After all, if I'm going to keep these things up and running, I've got to constantly be improving, adding, reworking
+and modifying to (stealing a bit from my 4-H background here) make the best better. Having these servers in my house affords me the ability
+to simply plug in a USB stick, or connect a monitor if I blow up SSH so badly I can't reconnect. It means that when I botch the install, I
+just start over, and when I need to copy the whole darn disk, I just pull it out and stick it in my external hard-drive bay.&lt;/p&gt;
+&lt;p&gt;Believe me, I've learned a lot in the past year playing with these things and keeping them up. And there's still a lot more I want to learn.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;So that's my story, and I'm sticking to it.&lt;/p&gt;
+&lt;p&gt;Like I mentioned earlier, I wouldn't recommend this to everyone; it's a solution that fits my needs, but that may be different than what
+others are interested in. Still, I'm proud of the fact that I'm running so much out of my own home, and I'm excited to keep growing with
+these old computers. I'm happy that I'm able to reuse machines that would otherwise litter some landfill, and keep things running for
+myself and some of the university students that I support.&lt;/p&gt;</content><category term="DevOps"></category><category term="Self Hosting"></category><category term="Servers"></category><category term="Computing"></category><category term="Hosting"></category><category term="Web"></category><category term="Services"></category></entry><entry><title>Servers in the Basement...</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/jenkins-servers-in-the-basement.html" rel="alternate"></link><published>2021-02-14T19:23:00-08:00</published><updated>2021-02-14T20:40:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-02-14:/stanley-solutions-blog/jenkins-servers-in-the-basement.html</id><summary type="html">&lt;p class="first last"&gt;Some people keep their creepy Christmas decorations in their basement. Others keep their continuous integration servers down there too...&lt;/p&gt;
 </summary><content type="html">&lt;img alt="SEL Rugged Computers mounted and ready for work!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkinsbasement/IMG_0851.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;Whelp, I've gone and done it. I've mounted and installed one of my SEL computers
 and set it up for running Jenkins!&lt;/p&gt;

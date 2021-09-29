@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Why do I Self-Host? | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/why-do-i-selfhost.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/devops.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/devops.rss.xml">  
+  <meta name="description" content="I was recently asked "why do you run your own servers, when there's perfectly good, cheap, cloud providers?" Well... Here's why!">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Why do I Self-Host?
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2021-09-28T21:53:00-07:00">
+          <i class="fas fa-clock"></i>
+          Tue 28 September 2021
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/devops.html">DevOps</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/self-hosting.html">#Self Hosting</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/servers.html">#Servers</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/computing.html">#Computing</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/hosting.html">#Hosting</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/web.html">#Web</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/services.html">#Services</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>I was recently having a conversation with a few techie friends about the ridiculous and nerdy things that I'm doing at home. And, yes,
+I realize I'm very nerdy. If that isn't clear already, go read some of my other articles.</p>
+<p>One of my friends was curious why, exactly, I've decided to self-host so many of my services when I could easily lob those things up on
+some cloud-service like <a href="https://www.linode.com/unplugged">Linode</a>. It's a fair question! To my friend's point, those services are fast,
+easy, and require very little maintenance (comparatively, of course). To be clear, I mean that these services manage much of the storage,
+hardware constraints, and networking limitations that I'm working through regularly. There's still the regular work of updating operating
+systems that needs to be managed whether the server is running locally or in the cloud.</p>
+<p>I won't discredit these features! They're quite attractive, but there's still reason for me to keep my servers plugged in.</p>
+<p><em>Let me explain...</em></p>
+<h3>Reduce, Reuse, Recycle</h3>
+<p>This point is perhaps the most important to me. I believe I've mentioned before that a lot... Let me emphasize that point...</p>
+<p><strong><em>A LOT</em></strong></p>
+<p>of the hardware I'm using is old. Many of the computers are what could be considered "ancient" desktop towers. They're old computers doing
+modern things. In fact, at this point I think I have more 32-bit computers than I do 64-bit ones. Before you ask, yes, it's a bit painful;
+but it's worthwhile. I mean, just think about it... I'm currently running seven computers that other people were ready to just throw in
+the trash. That's 7 computers that didn't need to be recycled, 7 computers whose lifetime just got extended courtesy of yours truly.</p>
+<p>Admittedly, they're power-hungry, and they're not as powerful as more modern equivalents, but they're doing great things for me, and that's
+something that they wouldn't be able to do otherwise. Others would more than likely just chuck them, and I think it's far more valuable to
+milk those old machines for everything I can. Perhaps it's just the naive part of my personality, but I'd like to think that these little
+choices have an impact in some small way.</p>
+<h3>My Disks, My Data</h3>
+<p>As just about any self-hosting fiend would likely tell you: "my data lives on <em>my</em> disks". Point being, since I own the disks, I'm the
+proprietor of the data, too! That means I don't ever have to concern myself with whether or not I can revoke control over the data. Now,
+I'll grant, this certainly makes me sound a bit more like a conspiracy theorist or an "old codger". I guess I don't have any rebuttal
+against that. I'll just have to take it.</p>
+<h4>Data that's Important to Me, For My Eyes Only</h4>
+<p>To tack on to the previous point, since I own the data, I can use what I consider "private" or "privileged" data on my servers. Why?
+Because I own them! I can <em>see</em> where the disks that store the data reside. Now, I know this may not seem like the greatest argument, but
+when it comes to the argument of security and sensitivity, isn't it really all about perception and comfort anyway?</p>
+<p>To put it another way, why do millions of homeowners install a home-security system? Is it because they think that the system will
+immediately stop thieves in the act? Wouldn't better deadbolts and barred windows provide the same level of protection? Perhaps,
+but then, maybe not. I'd expect that in more cases than not, homeowners want a balance. They want features, and they want function.
+They want to <em>feel</em> secure, and they want to enjoy their home without barred windows and dozens of deadbolts.</p>
+<p>That's why having my "private" data on my local servers is important to me. I've been graciously granted numerous data-set samples to
+test some of my other Python projects against, but that data is important to the people who gave it to me. It's the sort of data that I'm
+honored to have been granted access to, and I don't really think it's appropriate to share with the rest of the world. So, I host it on
+servers that live in my basement. Somewhere that lives behind <em>my</em> firewalls.</p>
+<p>I don't think that my solution is right for everyone, and I don't think it's the "be-all-end-all" solution that I wish it was, but it
+works for me, and makes me happy! After all, if it helps me sleep well at night, isn't that worth something?</p>
+<h3>Diversified Service Structure</h3>
+<p>You've heard of diversified investments, haven't you?</p>
+<p>Well, that's kinda what I'm doing with my diversified infrastructure. You see, I'm not <em>only</em> self-hosting. <gasp!> I'm also using cloud
+services (namely Linode - thanks, Linode Team!) to help me with some services, and I'm planning to spin up some others in the (relatively)
+near future. Sometimes speed is important, sometimes it's not. When speed <em>is</em> a concern, I try to host on Linode, since they're so
+<strong>SUPER-FAST</strong> and available, it makes sense for me. But in other cases, it doesn't make sense.</p>
+<p>That's all part of the whole "multi-cloud" paradigm anyway, though. Different providers for different applications, diversified to be more
+robust. In fact, I <em>do</em> use Linode for some off-site backups. I'm still working out my backup strategy. It's not the greatest, at the
+moment, but it's coming along, and some of that is thanks to Linode's services, and the peace-of-mind they offer. Mind you, the data I'm
+backing up to Linode still goes through secure tunnels, and it's not the "private" data that I was mentioning earlier.</p>
+<h3>Hands-On Learning Opportunities</h3>
+<p>My last point for keeping these machines kicking around in my closets, basement, and elsewhere is because they all offer me some great
+opportunities to learn! After all, if I'm going to keep these things up and running, I've got to constantly be improving, adding, reworking
+and modifying to (stealing a bit from my 4-H background here) make the best better. Having these servers in my house affords me the ability
+to simply plug in a USB stick, or connect a monitor if I blow up SSH so badly I can't reconnect. It means that when I botch the install, I
+just start over, and when I need to copy the whole darn disk, I just pull it out and stick it in my external hard-drive bay.</p>
+<p>Believe me, I've learned a lot in the past year playing with these things and keeping them up. And there's still a lot more I want to learn.</p>
+<hr>
+<p>So that's my story, and I'm sticking to it.</p>
+<p>Like I mentioned earlier, I wouldn't recommend this to everyone; it's a solution that fits my needs, but that may be different than what
+others are interested in. Still, I'm proud of the fact that I'm running so much out of my own home, and I'm excited to keep growing with
+these old computers. I'm happy that I'm able to reuse machines that would otherwise litter some landfill, and keep things running for
+myself and some of the university students that I support.</p>
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
