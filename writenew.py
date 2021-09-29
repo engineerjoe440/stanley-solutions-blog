@@ -86,7 +86,7 @@ rst_format = """{title}
 """
 
 # Define the default MD file format
-md_format = """Title:{title}
+md_format = """Title: {title}
 Date: {year}-{month}-{day} {hour}:{minute}
 Modified: {year}-{month}-{day} {hour}:{minute}
 Tags: {tags}
