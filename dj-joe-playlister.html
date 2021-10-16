@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  DJ Joe Playlister | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/dj-joe-playlister.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="I've been going a bit crazy with the web-app craze lately. Let me show you what I've been up to...">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  DJ Joe Playlister
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2021-10-16T12:03:00-07:00">
+          <i class="fas fa-clock"></i>
+          Sat 16 October 2021
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/spotify.html">#Spotify</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/apple-music.html">#Apple-Music</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/web-apps.html">#Web-Apps</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/dj.html">#DJ</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/docker.html">#Docker</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>I've been working up a fever on web-apps recently. Ones that I'm developing, ones that I'm deploying, and ones that
+I'm reviewing. That goes for both work and home. Gosh... I think I need a vacation. Maybe next lifetime.</p>
+<p>Recently, at home, my focus has been on several "DJ Joe Services," things that I can utilize for my mobile DJ work and
+that will help me make those processes easier. Remember, I'm lazy! I want to find the easiest way to do things. Right
+now, I've got two apps deployed, and I'll be working on a third here pretty soon.</p>
+<p>The first app was an availability calendar. I'll have to write about it soon, since it was a fun project tying APIs,
+Python, and React.js all into one solution. However, this is about my second app. What I call a "playlister," i.e.,
+something that can slurp the playlist information out of another file/service/etc., and provide it in a more consumable
+manner. Right now, it's focus is on Spotify and Apple-Music, since those are the two prominent sources that are
+consistent enough for me to work with.</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/Screenshot_20211016_120952.png" style="width: fit-content;" alt="DJ Joe Playlister"></p>
+<h3>Inspiration</h3>
+<p>As a mobile DJ, I often am provided "playlists" in various forms: Word documents, text
+files, quickly-scribbled hand-written notes, Spotify playlists, and Apple Music playlists.</p>
+<p>It quickly became apparent for me, that I spent <em>way</em> more time working through these
+Spotify playlists and Apple Music playlists to get them into a form that was actually
+helpful for me. In most cases, I could not simply copy/paste the Spotify list(s) out so
+that I could search for the songs of interest in my own library and then determine whether
+I'd need to aqcuire additional music. Thus... I came to the conclusion, I'd want a little
+assistance from my computer.</p>
+<h3>Stages of Development</h3>
+<p>I originally started with a simple Tkinter-app that used the <a href="https://spotipy.readthedocs.io/en/latest/"><code>spotipy</code></a>
+package to pull playlist information into a simple plain-text file. It was helpful, but
+ended up incurring a few additional challenges of its own. The largest of which being the
+fact I had to securly pass the API secrets around with the script itself. This became a
+real burden, so I decided to enhance the system into a full-service mini web-app that
+could be utilized for exactly this purpose. The web-app could run persistently on a server
+that could hang on to those secrets and allow me to access the tool from anywhere.</p>
+<p>Thus, the <code>djjoeplaylister</code> was born.</p>
+<h3>Technical Details</h3>
+<p>This app is built on the shoulders of giants, so let me give credit to those where it's due!</p>
+<p><strong>Technology Specs</strong>
+* Language: Python 3
+* Web Framework: <a href="https://fastapi.tiangolo.com/">FastAPI</a>
+* Web Listener/ASGI Server: <a href="https://uvicorn.org/">Uvicorn</a>
+* Reverse Proxy: <a href="https://nginx.com/">Nginx</a>
+* Hosting Provider: <a href="https://linode.com/">Linode virtual hosting</a>
+* Operating System: Ubuntu server
+* App Deployment Enviromnent: Dockerized Container</p>
+<p><strong>Python Packages Leveraged</strong>
+* Spotify Client: <a href="https://spotipy.readthedocs.io/en/latest/"><code>spotipy</code></a>
+* Apple Music Client: <a href="https://docs.python-requests.org/en/latest/"><code>requests</code></a>
+* HTML Table Generation: <a href=""><code>pandas</code></a></p>
+<p>Additionally, I'd like to provide a special thanks and shout-out to this gist that
+helped me get up and running with consuming the Apple Music playlist without dealing
+with Apple's crummy developer program ($99 dolars a year, just to access an API? No
+thank you!) https://gist.github.com/aleclol/ef9e87d0964f00975f82d5373a814447</p>
+<hr>
+<p>That's it! My little DJ Playlister! Want to go see it? <a href="https://playlists.djjoeidaho.com/">Go Check it Out!</a> It's not
+anything too terribly special, and it's got plenty of room to grow, but it's a helpful little tool, and I think it
+showcases the utility of the Python programming language.</p>
+<h5>I mean... just think about it.</h5>
+<p>I started with a simple little Tkinter script for which I had to lug secrets around all the time, and it was great! But
+it had some significant shortcomings. Python to the rescue though, a little refactoring, and throw in some HTML, CSS,
+and some more packages and I've got a full web-application. Still full Python, and it's fully-deployed! You can't do that
+with a lot of other tools. Imagine if I had started with some Excel macro, or some bash script. It would've been very
+difficult to scale those apps out to something that's actually useful in the context that I need.</p>
+<p><strong><em>Not with Python!</em></strong></p>
+<p>Preaching session over. Chat again soon, goodbye!</p>
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>

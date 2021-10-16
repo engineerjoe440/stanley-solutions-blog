@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2021-09-29T05:59:17-00:00</lastmod>
+<lastmod>2021-10-16T19:23:55-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/dj-joe-playlister.html</loc>
+<lastmod>2021-10-16T12:03:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -229,7 +236,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html</loc>
-<lastmod>2021-09-15T17:38:00-07:53</lastmod>
+<lastmod>2021-10-16T12:03:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -251,6 +258,48 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/teaching.html</loc>
 <lastmod>2021-06-25T19:03:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/spotify.html</loc>
+<lastmod>2021-10-16T12:03:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/apple-music.html</loc>
+<lastmod>2021-10-16T12:03:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html</loc>
+<lastmod>2021-10-16T12:03:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/web-apps.html</loc>
+<lastmod>2021-10-16T12:03:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/dj.html</loc>
+<lastmod>2021-10-16T12:03:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/docker.html</loc>
+<lastmod>2021-10-16T12:03:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -341,13 +390,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/mixer.html</loc>
-<lastmod>2021-09-15T17:38:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html</loc>
 <lastmod>2021-09-15T17:38:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -810,7 +852,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2021-09-28T21:53:00-07:53</lastmod>
+<lastmod>2021-10-16T12:03:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

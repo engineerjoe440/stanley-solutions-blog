@@ -1,5 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-09-15T17:38:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>A Better Way to Integrate with VoiceMeeter?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/a-better-way-to-integrate-with-voicemeeter.html" rel="alternate"></link><published>2021-09-12T17:07:00-07:00</published><updated>2021-09-15T17:38:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-09-12:/stanley-solutions-blog/a-better-way-to-integrate-with-voicemeeter.html</id><summary type="html">&lt;p&gt;Wait... What? There's an API for VoiceMeeter? And there's already a Python API for it? Sign me up!&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, I finally sucked it up and bought an Intel NUC to run as my own mini audio-server. For what purpose,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-10-16T12:03:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>DJ Joe Playlister</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/dj-joe-playlister.html" rel="alternate"></link><published>2021-10-16T12:03:00-07:00</published><updated>2021-10-16T12:03:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-10-16:/stanley-solutions-blog/dj-joe-playlister.html</id><summary type="html">&lt;p&gt;I've been going a bit crazy with the web-app craze lately. Let me show you what I've been up to...&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been working up a fever on web-apps recently. Ones that I'm developing, ones that I'm deploying, and ones that
+I'm reviewing. That goes for both work and home. Gosh... I think I need a vacation. Maybe next lifetime.&lt;/p&gt;
+&lt;p&gt;Recently, at home, my focus has been on several "DJ Joe Services," things that I can utilize for my mobile DJ work and
+that will help me make those processes easier. Remember, I'm lazy! I want to find the easiest way to do things. Right
+now, I've got two apps deployed, and I'll be working on a third here pretty soon.&lt;/p&gt;
+&lt;p&gt;The first app was an availability calendar. I'll have to write about it soon, since it was a fun project tying APIs,
+Python, and React.js all into one solution. However, this is about my second app. What I call a "playlister," i.e.,
+something that can slurp the playlist information out of another file/service/etc., and provide it in a more consumable
+manner. Right now, it's focus is on Spotify and Apple-Music, since those are the two prominent sources that are
+consistent enough for me to work with.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/Screenshot_20211016_120952.png" style="width: fit-content;" alt="DJ Joe Playlister"&gt;&lt;/p&gt;
+&lt;h3&gt;Inspiration&lt;/h3&gt;
+&lt;p&gt;As a mobile DJ, I often am provided "playlists" in various forms: Word documents, text
+files, quickly-scribbled hand-written notes, Spotify playlists, and Apple Music playlists.&lt;/p&gt;
+&lt;p&gt;It quickly became apparent for me, that I spent &lt;em&gt;way&lt;/em&gt; more time working through these
+Spotify playlists and Apple Music playlists to get them into a form that was actually
+helpful for me. In most cases, I could not simply copy/paste the Spotify list(s) out so
+that I could search for the songs of interest in my own library and then determine whether
+I'd need to aqcuire additional music. Thus... I came to the conclusion, I'd want a little
+assistance from my computer.&lt;/p&gt;
+&lt;h3&gt;Stages of Development&lt;/h3&gt;
+&lt;p&gt;I originally started with a simple Tkinter-app that used the &lt;a href="https://spotipy.readthedocs.io/en/latest/"&gt;&lt;code&gt;spotipy&lt;/code&gt;&lt;/a&gt;
+package to pull playlist information into a simple plain-text file. It was helpful, but
+ended up incurring a few additional challenges of its own. The largest of which being the
+fact I had to securly pass the API secrets around with the script itself. This became a
+real burden, so I decided to enhance the system into a full-service mini web-app that
+could be utilized for exactly this purpose. The web-app could run persistently on a server
+that could hang on to those secrets and allow me to access the tool from anywhere.&lt;/p&gt;
+&lt;p&gt;Thus, the &lt;code&gt;djjoeplaylister&lt;/code&gt; was born.&lt;/p&gt;
+&lt;h3&gt;Technical Details&lt;/h3&gt;
+&lt;p&gt;This app is built on the shoulders of giants, so let me give credit to those where it's due!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Technology Specs&lt;/strong&gt;
+* Language: Python 3
+* Web Framework: &lt;a href="https://fastapi.tiangolo.com/"&gt;FastAPI&lt;/a&gt;
+* Web Listener/ASGI Server: &lt;a href="https://uvicorn.org/"&gt;Uvicorn&lt;/a&gt;
+* Reverse Proxy: &lt;a href="https://nginx.com/"&gt;Nginx&lt;/a&gt;
+* Hosting Provider: &lt;a href="https://linode.com/"&gt;Linode virtual hosting&lt;/a&gt;
+* Operating System: Ubuntu server
+* App Deployment Enviromnent: Dockerized Container&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Packages Leveraged&lt;/strong&gt;
+* Spotify Client: &lt;a href="https://spotipy.readthedocs.io/en/latest/"&gt;&lt;code&gt;spotipy&lt;/code&gt;&lt;/a&gt;
+* Apple Music Client: &lt;a href="https://docs.python-requests.org/en/latest/"&gt;&lt;code&gt;requests&lt;/code&gt;&lt;/a&gt;
+* HTML Table Generation: &lt;a href=""&gt;&lt;code&gt;pandas&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Additionally, I'd like to provide a special thanks and shout-out to this gist that
+helped me get up and running with consuming the Apple Music playlist without dealing
+with Apple's crummy developer program ($99 dolars a year, just to access an API? No
+thank you!) https://gist.github.com/aleclol/ef9e87d0964f00975f82d5373a814447&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;That's it! My little DJ Playlister! Want to go see it? &lt;a href="https://playlists.djjoeidaho.com/"&gt;Go Check it Out!&lt;/a&gt; It's not
+anything too terribly special, and it's got plenty of room to grow, but it's a helpful little tool, and I think it
+showcases the utility of the Python programming language.&lt;/p&gt;
+&lt;h5&gt;I mean... just think about it.&lt;/h5&gt;
+&lt;p&gt;I started with a simple little Tkinter script for which I had to lug secrets around all the time, and it was great! But
+it had some significant shortcomings. Python to the rescue though, a little refactoring, and throw in some HTML, CSS,
+and some more packages and I've got a full web-application. Still full Python, and it's fully-deployed! You can't do that
+with a lot of other tools. Imagine if I had started with some Excel macro, or some bash script. It would've been very
+difficult to scale those apps out to something that's actually useful in the context that I need.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Not with Python!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Preaching session over. Chat again soon, goodbye!&lt;/p&gt;</content><category term="Python"></category><category term="Spotify"></category><category term="Apple-Music"></category><category term="Python"></category><category term="Web-Apps"></category><category term="DJ"></category><category term="Docker"></category></entry><entry><title>A Better Way to Integrate with VoiceMeeter?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/a-better-way-to-integrate-with-voicemeeter.html" rel="alternate"></link><published>2021-09-12T17:07:00-07:00</published><updated>2021-09-15T17:38:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-09-12:/stanley-solutions-blog/a-better-way-to-integrate-with-voicemeeter.html</id><summary type="html">&lt;p&gt;Wait... What? There's an API for VoiceMeeter? And there's already a Python API for it? Sign me up!&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, I finally sucked it up and bought an Intel NUC to run as my own mini audio-server. For what purpose,
 you ask? Well, so that I can have an "always on" &lt;a href="https://vb-audio.com/Voicemeeter/vban.htm"&gt;VBAN&lt;/a&gt; server
 where I can route audio through-out my house. From my desktop, my laptop, my mixer, my stereo.... All
 over!&lt;/p&gt;
