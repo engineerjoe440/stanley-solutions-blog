@@ -21,7 +21,7 @@ something that can slurp the playlist information out of another file/service/et
 manner. Right now, it's focus is on Spotify and Apple-Music, since those are the two prominent sources that are
 consistent enough for me to work with.
 
-<img src="{attach}/images/Screenshot_20211016_120952.png" style="width: fit-content; position: fixed; left: 0px;" alt="DJ Joe Playlister">
+<img src="{attach}/images/Screenshot_20211016_120952.png" style="width: 100%;" alt="DJ Joe Playlister">
 
 ### Inspiration
 As a mobile DJ, I often am provided "playlists" in various forms: Word documents, text
