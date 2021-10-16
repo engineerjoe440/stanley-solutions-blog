@@ -9,7 +9,7 @@ Python, and React.js all into one solution. However, this is about my second app
 something that can slurp the playlist information out of another file/service/etc., and provide it in a more consumable
 manner. Right now, it's focus is on Spotify and Apple-Music, since those are the two prominent sources that are
 consistent enough for me to work with.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/Screenshot_20211016_120952.png" style="width: fit-content;" alt="DJ Joe Playlister"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/Screenshot_20211016_120952.png" style="width: fit-content; position: fixed;" alt="DJ Joe Playlister"&gt;&lt;/p&gt;
 &lt;h3&gt;Inspiration&lt;/h3&gt;
 &lt;p&gt;As a mobile DJ, I often am provided "playlists" in various forms: Word documents, text
 files, quickly-scribbled hand-written notes, Spotify playlists, and Apple Music playlists.&lt;/p&gt;
@@ -30,18 +30,22 @@ that could hang on to those secrets and allow me to access the tool from anywher
 &lt;p&gt;Thus, the &lt;code&gt;djjoeplaylister&lt;/code&gt; was born.&lt;/p&gt;
 &lt;h3&gt;Technical Details&lt;/h3&gt;
 &lt;p&gt;This app is built on the shoulders of giants, so let me give credit to those where it's due!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Technology Specs&lt;/strong&gt;
-* Language: Python 3
-* Web Framework: &lt;a href="https://fastapi.tiangolo.com/"&gt;FastAPI&lt;/a&gt;
-* Web Listener/ASGI Server: &lt;a href="https://uvicorn.org/"&gt;Uvicorn&lt;/a&gt;
-* Reverse Proxy: &lt;a href="https://nginx.com/"&gt;Nginx&lt;/a&gt;
-* Hosting Provider: &lt;a href="https://linode.com/"&gt;Linode virtual hosting&lt;/a&gt;
-* Operating System: Ubuntu server
-* App Deployment Enviromnent: Dockerized Container&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Python Packages Leveraged&lt;/strong&gt;
-* Spotify Client: &lt;a href="https://spotipy.readthedocs.io/en/latest/"&gt;&lt;code&gt;spotipy&lt;/code&gt;&lt;/a&gt;
-* Apple Music Client: &lt;a href="https://docs.python-requests.org/en/latest/"&gt;&lt;code&gt;requests&lt;/code&gt;&lt;/a&gt;
-* HTML Table Generation: &lt;a href=""&gt;&lt;code&gt;pandas&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Technology Specs&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Python 3&lt;/li&gt;
+&lt;li&gt;Web Framework: &lt;a href="https://fastapi.tiangolo.com/"&gt;FastAPI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Web Listener/ASGI Server: &lt;a href="https://uvicorn.org/"&gt;Uvicorn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Reverse Proxy: &lt;a href="https://nginx.com/"&gt;Nginx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hosting Provider: &lt;a href="https://linode.com/"&gt;Linode virtual hosting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Operating System: Ubuntu server&lt;/li&gt;
+&lt;li&gt;App Deployment Enviromnent: Dockerized Container&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Python Packages Leveraged&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Spotify Client: &lt;a href="https://spotipy.readthedocs.io/en/latest/"&gt;&lt;code&gt;spotipy&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Apple Music Client: &lt;a href="https://docs.python-requests.org/en/latest/"&gt;&lt;code&gt;requests&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;HTML Table Generation: &lt;a href="https://pandas.pydata.org/"&gt;&lt;code&gt;pandas&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Additionally, I'd like to provide a special thanks and shout-out to this gist that
 helped me get up and running with consuming the Apple Music playlist without dealing
 with Apple's crummy developer program ($99 dolars a year, just to access an API? No
