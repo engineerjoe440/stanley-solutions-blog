@@ -9,7 +9,7 @@ Summary: Some songs have a hidden meaning, and one song that I really enjoy has 
 
 
 <img src="https://images.genius.com/526afafd58e01d4b67deca68f8840a80.1000x1000x1.jpg"
-    width="300" alt="Darknet Diaries" align="right">
+    width="300" alt="LANCO" align="right">
 
 I'm a fan of many music genres, but I most certainly grew up on country. I mean... Have you met me? I wear a cowboy hat,
 for pete-sake! I really lots of music, but I'll always have a soft spot for a good country love song.
