@@ -21,7 +21,7 @@ something that can slurp the playlist information out of another file/service/et
 manner. Right now, it's focus is on Spotify and Apple-Music, since those are the two prominent sources that are
 consistent enough for me to work with.
 
-<img src="{attach}/images/Screenshot_20211016_120952.png" style="width: fit-content; position: fixed;" alt="DJ Joe Playlister">
+<img src="{attach}/images/Screenshot_20211016_120952.png" style="width: fit-content; position: fixed; left: 0px;" alt="DJ Joe Playlister">
 
 ### Inspiration
 As a mobile DJ, I often am provided "playlists" in various forms: Word documents, text
@@ -67,7 +67,8 @@ This app is built on the shoulders of giants, so let me give credit to those whe
 Additionally, I'd like to provide a special thanks and shout-out to this gist that
 helped me get up and running with consuming the Apple Music playlist without dealing
 with Apple's crummy developer program ($99 dolars a year, just to access an API? No
-thank you!) https://gist.github.com/aleclol/ef9e87d0964f00975f82d5373a814447
+thank you!)
+[https://gist.github.com/aleclol/ef9e87d0964f00975f82d5373a814447](https://gist.github.com/aleclol/ef9e87d0964f00975f82d5373a814447)
 
 ------
 
