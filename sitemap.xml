@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2021-10-16T19:33:31-00:00</lastmod>
+<lastmod>2021-10-16T19:36:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -26,7 +26,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/just-some-thoghts-on-a-song.html</loc>
-<lastmod>2021-09-23T13:58:00-07:00</lastmod>
+<lastmod>2021-10-16T12:35:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -173,7 +173,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/audio.html</loc>
-<lastmod>2021-09-12T15:34:00-07:53</lastmod>
+<lastmod>2021-10-16T12:35:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -223,13 +223,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/iec-61131-3.html</loc>
 <lastmod>2020-09-01T23:38:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/music.html</loc>
-<lastmod>2021-09-23T13:58:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -348,21 +341,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/music.html</loc>
-<lastmod>2021-09-23T13:58:00-07:53</lastmod>
+<lastmod>2021-10-16T12:35:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/songs.html</loc>
-<lastmod>2021-09-23T13:58:00-07:53</lastmod>
+<lastmod>2021-10-16T12:35:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/audio.html</loc>
-<lastmod>2021-09-23T13:58:00-07:53</lastmod>
+<lastmod>2021-10-16T12:35:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -852,7 +845,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2021-10-16T12:03:00-07:53</lastmod>
+<lastmod>2021-10-16T12:35:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
