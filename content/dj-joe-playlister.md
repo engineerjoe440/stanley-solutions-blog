@@ -21,7 +21,7 @@ something that can slurp the playlist information out of another file/service/et
 manner. Right now, it's focus is on Spotify and Apple-Music, since those are the two prominent sources that are
 consistent enough for me to work with.
 
-<img src="{attach}/images/Screenshot_20211016_120952.png" style="width: fit-content;" alt="DJ Joe Playlister">
+<img src="{attach}/images/Screenshot_20211016_120952.png" style="width: fit-content; position: fixed;" alt="DJ Joe Playlister">
 
 ### Inspiration
 As a mobile DJ, I often am provided "playlists" in various forms: Word documents, text
@@ -49,6 +49,7 @@ Thus, the `djjoeplaylister` was born.
 This app is built on the shoulders of giants, so let me give credit to those where it's due!
 
 **Technology Specs**
+
 * Language: Python 3
 * Web Framework: [FastAPI](https://fastapi.tiangolo.com/)
 * Web Listener/ASGI Server: [Uvicorn](https://uvicorn.org/)
@@ -58,9 +59,10 @@ This app is built on the shoulders of giants, so let me give credit to those whe
 * App Deployment Enviromnent: Dockerized Container
 
 **Python Packages Leveraged**
+
 * Spotify Client: [`spotipy`](https://spotipy.readthedocs.io/en/latest/)
 * Apple Music Client: [`requests`](https://docs.python-requests.org/en/latest/)
-* HTML Table Generation: [`pandas`]()
+* HTML Table Generation: [`pandas`](https://pandas.pydata.org/)
 
 Additionally, I'd like to provide a special thanks and shout-out to this gist that
 helped me get up and running with consuming the Apple Music playlist without dealing
