@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Automating Python Releases with GitHub Actions | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/automating-python-releases-with-github-actions.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="I'm pretty lazy... We've covered that already, but wouldn't it be exceptionally nice if I could make GitHub automate Python package releases for me? Lets do that...">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Automating Python Releases with GitHub Actions
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2021-11-25T14:01:00-08:00">
+          <i class="fas fa-clock"></i>
+          Thu 25 November 2021
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/automation.html">#Automation</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/github-actions.html">#Github Actions</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/pypi.html">#PyPI</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>Oh yes. I'm lazy.</p>
+<p>Haven't we established that, yet? Well, we're going to hit that nail home with this topic...</p>
+<p>We've established previously that I manage a number of random Python packages, including <em>ElectricPy</em>, <em>SELProtoPy</em>, and <em>PyCEV</em>.
+I've come to the realization that I need all the help I can get with releasing updates on a regular basis. So... How shall we do
+that?</p>
+<h3>Where to Start?</h3>
+<p>I decided that I needed this for <em>ElectricPy</em> first. So let's start with figuring out what we want to do:</p>
+<ul>
+<li>Identify the Current ElectricPy Version from the Source Code (bail out if the version is the same or older than what's previously been released)</li>
+<li>Create a Tag that Matches the ElectricPy Version, then Push that to GitHub</li>
+<li>Build the Python Package as a Source-Code Bundle, and as a <a href="https://pythonwheels.com">Python Wheel</a></li>
+<li>Push the Packages to the Python Package Index (PyPI)</li>
+</ul>
+<p>So those are the primary requirements. Now, let's work out how we're going to do it. I know that I want to use GitHub actions to
+do this whole thing. So let's start there.</p>
+<h3>What are GitHub Actions, Anyway?</h3>
+<p>Well, GitHub actions are GitHub's way of providing CI/CD systems. Essentially, providing Linux-container based workflows that are
+defined through YAML description files. The YAML (which stands for Yet Another Mark-up Language) files define what container base
+should be used, and what the steps need to be completed.</p>
+<h3>Are there any Read-to-Go GitHub Actions?</h3>
+<p>Well, yes... But, actually no.</p>
+<p>There's quite a few pretty good actions available in the community, but getting everything <em>just</em> right is a bit more tricky. Why, you
+ask? Well, they all completed one or two of those actions I'd outlined above, but they didn't cover the whole list. So, I decided to
+glue them all together with a bit of Python!</p>
+<h3>Start by Identifying the Version</h3>
+<p>We need to pick the version out of the ElectricPy package, and then we need to double-check that it's not already used, or older than
+the most-up-to-date version. So I built a simple little script:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Release Versioning Support Script</span>
+<span class="c1"># Joe Stanley | 2021</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">USERNAME</span> <span class="o">=</span> <span class="s1">&#39;engineerjoe440&#39;</span>
+<span class="n">REPO</span> <span class="o">=</span> <span class="s1">&#39;electricpy&#39;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">electricpy</span> <span class="k">as</span> <span class="nn">ep</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+    <span class="kn">import</span> <span class="nn">electricpy</span> <span class="k">as</span> <span class="nn">ep</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://api.github.com/repos/</span><span class="si">{</span><span class="n">USERNAME</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">REPO</span><span class="si">}</span><span class="s2">/releases/latest&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">latest</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="n">latest</span> <span class="o">=</span> <span class="s1">&#39;0.0.0&#39;</span>
+
+<span class="c1"># Verify Version is Newer</span>
+<span class="n">version</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v</span><span class="si">{</span><span class="n">ep</span><span class="o">.</span><span class="n">_version_</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="n">version</span> <span class="o">&lt;=</span> <span class="n">latest</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Module version is not newer than previous release!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+</code></pre></div>
+
+<p>So, that script does a couple things for us. It polls GitHub for the latest release marked in the repo under my
+username and project name. It then verifies that the version is valid and <em>new</em>.</p>
+<h3>How About that Action Definition?</h3>
+<p>So, we've covered one of the four pieces we need to accomplish. What's left? Well, we still need to build the
+Python package (but that's easy) and then create the release and push it to PyPI. Lucky for us, both of those
+remaining "questions" there's ready-made GitHub actions! So what does this whole thing look like?</p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span><span class="o">:</span> <span class="n">Release</span>
+<span class="n">on</span><span class="o">:</span>
+  <span class="n">push</span><span class="o">:</span>
+   <span class="n">branches</span><span class="o">:</span>
+     <span class="o">-</span> <span class="n">master</span>
+
+<span class="n">jobs</span><span class="o">:</span>
+  <span class="n">release</span><span class="o">:</span>
+    <span class="n">runs</span><span class="o">-</span><span class="n">on</span><span class="o">:</span> <span class="n">ubuntu</span><span class="o">-</span><span class="n">latest</span>
+    <span class="n">steps</span><span class="o">:</span>
+      <span class="o">-</span> <span class="n">uses</span><span class="o">:</span> <span class="n">actions</span><span class="o">/</span><span class="n">checkout</span><span class="err">@</span><span class="n">v2</span>
+      <span class="err">#</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="na">com</span><span class="sr">/marketplace/actions/s</span><span class="n">etup</span><span class="o">-</span><span class="n">python</span>
+      <span class="err">#</span> <span class="o">^--</span> <span class="n">This</span> <span class="n">gives</span> <span class="n">info</span> <span class="n">on</span> <span class="n">matrix</span> <span class="n">testing</span><span class="o">.</span>
+      <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Install</span> <span class="n">Python</span>
+        <span class="n">uses</span><span class="o">:</span> <span class="n">actions</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">python</span><span class="err">@</span><span class="n">v1</span>
+        <span class="k">with</span><span class="o">:</span>
+          <span class="n">python</span><span class="o">-</span><span class="n">version</span><span class="o">:</span> <span class="s2">&quot;3.10&quot;</span>
+      <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Identify</span> <span class="n">Version</span>
+        <span class="n">id</span><span class="o">:</span> <span class="n">version</span>
+        <span class="n">run</span><span class="o">:</span> <span class="o">|</span>
+          <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span> <span class="n">build</span> <span class="o">--</span><span class="n">user</span>
+          <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="na">txt</span> <span class="o">--</span><span class="n">user</span>
+          <span class="n">output</span><span class="o">=</span><span class="n">$</span><span class="o">(</span><span class="n">python</span> <span class="n">release</span><span class="o">-</span><span class="n">version</span><span class="o">.</span><span class="na">py</span><span class="o">)</span>
+          <span class="n">echo</span> <span class="s2">&quot;::set-output name=version::$output&quot;</span>
+      <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Build</span> <span class="n">Artifacts</span>
+        <span class="k">if</span><span class="o">:</span> <span class="n">success</span><span class="o">()</span>
+        <span class="n">id</span><span class="o">:</span> <span class="n">build</span>
+        <span class="n">run</span><span class="o">:</span> <span class="o">|</span>
+          <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">build</span> <span class="o">--</span><span class="n">sdist</span> <span class="o">--</span><span class="n">wheel</span> <span class="o">--</span><span class="n">outdir</span> <span class="n">dist</span><span class="o">/</span>
+      <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Create</span> <span class="n">Release</span>
+        <span class="n">uses</span><span class="o">:</span> <span class="n">ncipollo</span><span class="o">/</span><span class="n">release</span><span class="o">-</span><span class="n">action</span><span class="err">@</span><span class="n">v1</span>
+        <span class="k">with</span><span class="o">:</span>
+          <span class="n">tag</span><span class="o">:</span> <span class="n">$</span><span class="o">{{</span> <span class="n">steps</span><span class="o">.</span><span class="na">version</span><span class="o">.</span><span class="na">outputs</span><span class="o">.</span><span class="na">version</span> <span class="o">}}</span>
+          <span class="n">name</span><span class="o">:</span> <span class="n">Release</span> <span class="n">$</span><span class="o">{{</span> <span class="n">steps</span><span class="o">.</span><span class="na">version</span><span class="o">.</span><span class="na">outputs</span><span class="o">.</span><span class="na">version</span> <span class="o">}}</span>
+          <span class="n">body</span><span class="o">:</span> <span class="n">$</span><span class="o">{{</span> <span class="n">steps</span><span class="o">.</span><span class="na">tag_version</span><span class="o">.</span><span class="na">outputs</span><span class="o">.</span><span class="na">changelog</span> <span class="o">}}</span>
+          <span class="n">artifacts</span><span class="o">:</span> <span class="s2">&quot;dist/*&quot;</span>
+      <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Publish</span> <span class="n">distribution</span> <span class="err">📦</span> <span class="n">to</span> <span class="n">PyPI</span>
+        <span class="k">if</span><span class="o">:</span> <span class="n">success</span><span class="o">()</span>
+        <span class="n">uses</span><span class="o">:</span> <span class="n">pypa</span><span class="o">/</span><span class="n">gh</span><span class="o">-</span><span class="n">action</span><span class="o">-</span><span class="n">pypi</span><span class="o">-</span><span class="n">publish</span><span class="err">@</span><span class="n">master</span>
+        <span class="k">with</span><span class="o">:</span>
+            <span class="n">password</span><span class="o">:</span> <span class="n">$</span><span class="o">{{</span> <span class="n">secrets</span><span class="o">.</span><span class="na">PYPI_API_TOKEN</span> <span class="o">}}</span>
+</code></pre></div>
+
+<p>That big definition basically does a bunch of stuff for us; I'll break it out by each of the steps:</p>
+<ol>
+<li>Check out the source code.</li>
+<li>Install Python 3.10 - Because we kinda need that. Notice here that <code>3.10</code> is in double quotes as: "3.10".
+That's because otherwise, the GitHub system might mistake it as 3.1... You know, because 3.10 is really just
+a decimal number with an extra 0 at the end.</li>
+<li>Use the Python Script (from above) to figure out the version. But not before installing the required
+packages; both for the script, and for <em>ElectricPy</em>.</li>
+<li>Build the Artifacts - The things we want to keep. Namely the source-code distribution (<code>--sdist</code>) and the
+wheel file.</li>
+<li>Create the GitHub release. This will place the package on the GitHub repo's "Releases" page and add a new
+tag to the repository so it's easy to back-track the code.</li>
+<li>Finally, push those artifacts to PyPI so they're available for download and install with <code>pip</code>.</li>
+</ol>
+<h3>Wrapping Up</h3>
+<p>This might not be the biggest accomplishment, but it's a huge relief because it makes automating releases
+and pushing out updates MUCH easier. So, let's bring on the new features and updates!!!</p>
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
