@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2021-11-26T01:57:00-00:00</lastmod>
+<lastmod>2021-12-08T06:07:07-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/creepy-killer-vibes.html</loc>
+<lastmod>2021-12-07T21:36:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -228,6 +235,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/home-improvement.html</loc>
+<lastmod>2021-12-07T21:36:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/home-projects.html</loc>
 <lastmod>2021-06-19T11:40:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -265,6 +279,34 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/teaching.html</loc>
 <lastmod>2021-06-25T19:03:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-renovation.html</loc>
+<lastmod>2021-12-07T21:36:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/improvement.html</loc>
+<lastmod>2021-12-07T21:36:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/renovation.html</loc>
+<lastmod>2021-12-07T21:36:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/restoration.html</loc>
+<lastmod>2021-12-07T21:36:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -901,7 +943,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2021-11-25T15:25:00-07:53</lastmod>
+<lastmod>2021-12-07T21:36:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
