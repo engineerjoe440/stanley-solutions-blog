@@ -38,3 +38,10 @@ This ought to be a fun little tradition, and I'm hopeful that my victims... errm
 "code".
 
 <img src="{attach}/images/lock-box/263380603_595182361758282_4319520950240861117_n.jpg" style="width: 75%">
+
+You know, it occurs to me that I haven't provided any of the fun details! This project is all powered off a 12V SLA (sealed-lead-acid)
+battery, and is run by the brains of an Arduino. The Arduino takes input from the little touch-pad, and signals to a BUZ11A transistor
+that switches the solenoid responsible for *actually locking* the box.
+
+There's not too much to the code, but if you'd like, it's all available in one of
+[my GitHub repositories](https://github.com/engineerjoe440/stanley-lock-box/blob/main/StanleyLockBox/src/main.cpp)
