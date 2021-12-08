@@ -20,14 +20,14 @@ Right now, the big project is renovating upstairs. Downstairs was largely renova
 removing the old lath-and-plaster and replacing it with proper drywall. Admittedly, it's a bit spooky looking, and that's largely what
 this post is intended to be about... Showing the creepy "behind the scenes" looks...
 
-![The upstairs hallway...]({attach}/images/home-improvement/20211115_004428524_iOS.png)
+<img src="{attach}/images/home-improvement/20211115_004428524_iOS.png" style="width: 50%;">
 
 ##### Hey! Take a look there!
 
 It's the stairwell and the old chimney brick for the old kitchen stove. I'm going to work on lighting that brick up and framing it out
 so it'll still be visible after the remodel. After all, isn't it cool? From a bygone era!
 
-![Stairwell]({attach}/images/home-improvement/20211115_004436243_iOS.jpg)
+<img src="{attach}/images/home-improvement/20211115_004436243_iOS.jpg" style="width: 50%;">
 
 ##### I've even got a helper!
 
@@ -36,10 +36,10 @@ Look very closely, you'll see a companion who *thinks* he's helping. Let's not t
 This is a look around the master bedroom, and a look through what will become the bedroom wall. As I write, there's now some Sheetrock
 hung here, but there's more to be done!
 
-![a-helper]({attach}/images/home-improvement/20211115_004449997_iOS.jpg)
+<img src="{attach}/images/home-improvement/20211115_004449997_iOS.jpg" style="width: 100%;">
 
 Lastly, here's a look at the closet, and back out into the hallway upstairs. This helps tie a few of the previous pictures together.
 
-![]({attach}/images/home-improvement/20211115_004454965_iOS.jpg)
+<img src="{attach}/images/home-improvement/20211115_004454965_iOS.jpg" style="width: 50%;">
 
 Hopefully I'll keep on it, and provide some more updates as more transpires!
