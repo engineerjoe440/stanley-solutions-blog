@@ -135,20 +135,20 @@ happens very fast, and as I'd briefly mentioned earlier, it only seems to really
 play into the &quot;mix&quot; in-between songs anyway. So after building the script, giving
 it a nice little test drive, and scrutinizing my Raspberry Pi; I thought it was
 time to build it back into my simple little service.</p>
-<div class="highlight"><pre><span></span><span class="c1"># /etc/systemd/system/vbanstereorx.service</span>
-<span class="c1"># vbanstereorx.service</span>
-<span class="c1"># VBAN Receptor Stereo Service</span>
+<div class="highlight"><pre><span></span><span class="c1"># /etc/systemd/system/vbanstereorx.service</span><span class="w"></span>
+<span class="c1"># vbanstereorx.service</span><span class="w"></span>
+<span class="c1"># VBAN Receptor Stereo Service</span><span class="w"></span>
 
-<span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span> <span class="s">VBAN Stereo Receptor</span>
+<span class="k">[Unit]</span><span class="w"></span>
+<span class="na">Description</span><span class="o">=</span><span class="w"> </span><span class="s">VBAN Stereo Receptor</span><span class="w"></span>
 
-<span class="k">[Service]</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/python3 /home/vbanner.py</span>
-<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+<span class="k">[Service]</span><span class="w"></span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span><span class="w"></span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/python3 /home/vbanner.py</span><span class="w"></span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span><span class="w"></span>
 
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+<span class="k">[Install]</span><span class="w"></span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span><span class="w"></span>
 </pre></div>
 <p>I'm sure I'll be back to crack the hood back open on this one at some point, but
 for now, I'm happy to stream my music back to my cabinet stereo with the power of

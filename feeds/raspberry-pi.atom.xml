@@ -59,20 +59,20 @@ happens very fast, and as I'd briefly mentioned earlier, it only seems to really
 play into the &amp;quot;mix&amp;quot; in-between songs anyway. So after building the script, giving
 it a nice little test drive, and scrutinizing my Raspberry Pi; I thought it was
 time to build it back into my simple little service.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# /etc/systemd/system/vbanstereorx.service&lt;/span&gt;
-&lt;span class="c1"&gt;# vbanstereorx.service&lt;/span&gt;
-&lt;span class="c1"&gt;# VBAN Receptor Stereo Service&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# /etc/systemd/system/vbanstereorx.service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="c1"&gt;# vbanstereorx.service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="c1"&gt;# VBAN Receptor Stereo Service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="k"&gt;[Unit]&lt;/span&gt;
-&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;VBAN Stereo Receptor&lt;/span&gt;
+&lt;span class="k"&gt;[Unit]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;VBAN Stereo Receptor&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="k"&gt;[Service]&lt;/span&gt;
-&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;simple&lt;/span&gt;
-&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/bin/python3 /home/vbanner.py&lt;/span&gt;
-&lt;span class="na"&gt;Restart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;always&lt;/span&gt;
+&lt;span class="k"&gt;[Service]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;simple&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/bin/python3 /home/vbanner.py&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;Restart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;always&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="k"&gt;[Install]&lt;/span&gt;
-&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
+&lt;span class="k"&gt;[Install]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I'm sure I'll be back to crack the hood back open on this one at some point, but
 for now, I'm happy to stream my music back to my cabinet stereo with the power of
@@ -172,18 +172,18 @@ connection, say good bye to audio! Drat!&lt;/p&gt;
 I could start and stop it easily enough (so if I want to use other audio services, they won't
 clash too terribly).&lt;/p&gt;
 &lt;p&gt;So I wrote this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# vbanstereorx.service&lt;/span&gt;
-&lt;span class="c1"&gt;# VBAN Receptor Stereo Service&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# vbanstereorx.service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="c1"&gt;# VBAN Receptor Stereo Service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="k"&gt;[Unit]&lt;/span&gt;
-&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;VBAN Stereo Receptor&lt;/span&gt;
+&lt;span class="k"&gt;[Unit]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;VBAN Stereo Receptor&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="k"&gt;[Service]&lt;/span&gt;
-&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;simple&lt;/span&gt;
-&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/local/bin/vban_receptor  -i &amp;lt;my-desktop-ip&amp;gt; -p 6980 -s StereoPi -d front -q 0&lt;/span&gt;
+&lt;span class="k"&gt;[Service]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;simple&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/local/bin/vban_receptor  -i &amp;lt;my-desktop-ip&amp;gt; -p 6980 -s StereoPi -d front -q 0&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="k"&gt;[Install]&lt;/span&gt;
-&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
+&lt;span class="k"&gt;[Install]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Then simply &amp;quot;installed&amp;quot; it with the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; cp vbanstereorx.service /etc/systemd/system/vbanstereorx.service

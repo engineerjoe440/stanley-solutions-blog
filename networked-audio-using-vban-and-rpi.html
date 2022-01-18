@@ -170,18 +170,18 @@ connection, say good bye to audio! Drat!</p>
 I could start and stop it easily enough (so if I want to use other audio services, they won't
 clash too terribly).</p>
 <p>So I wrote this:</p>
-<div class="highlight"><pre><span></span><span class="c1"># vbanstereorx.service</span>
-<span class="c1"># VBAN Receptor Stereo Service</span>
+<div class="highlight"><pre><span></span><span class="c1"># vbanstereorx.service</span><span class="w"></span>
+<span class="c1"># VBAN Receptor Stereo Service</span><span class="w"></span>
 
-<span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span> <span class="s">VBAN Stereo Receptor</span>
+<span class="k">[Unit]</span><span class="w"></span>
+<span class="na">Description</span><span class="o">=</span><span class="w"> </span><span class="s">VBAN Stereo Receptor</span><span class="w"></span>
 
-<span class="k">[Service]</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/vban_receptor  -i &lt;my-desktop-ip&gt; -p 6980 -s StereoPi -d front -q 0</span>
+<span class="k">[Service]</span><span class="w"></span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span><span class="w"></span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/vban_receptor  -i &lt;my-desktop-ip&gt; -p 6980 -s StereoPi -d front -q 0</span><span class="w"></span>
 
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+<span class="k">[Install]</span><span class="w"></span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span><span class="w"></span>
 </pre></div>
 <p>Then simply &quot;installed&quot; it with the following command:</p>
 <div class="highlight"><pre><span></span><span class="gp">$</span>&gt; cp vbanstereorx.service /etc/systemd/system/vbanstereorx.service
