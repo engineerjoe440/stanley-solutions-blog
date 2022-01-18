@@ -9,3 +9,7 @@
 #isso-thread .preview-mode {
     color: black;
 }
+
+.isso-comment .text {
+    color: white;
+}
