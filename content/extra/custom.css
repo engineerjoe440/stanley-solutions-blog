@@ -1,0 +1,12 @@
+#isso-thread .textarea.placeholder {
+    color: white;
+    background-color: grey;
+}
+
+#isso-thread .textarea:focus {
+    color: black;
+}
+
+#isso-thread .textarea {
+    color: black;
+}

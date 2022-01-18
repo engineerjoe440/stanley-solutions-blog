@@ -15,6 +15,8 @@ SITEIMAGE = 'logo.png'
 DESCRIPTION = ('Electrical Engineering blog by Joe Stanley - Python,' + 
     'Python3, IEC 61131-3, Industrial Controllers, Real-Time Control')
 
+ISSO_URL = "https://blogcomments.stanleysolutionsnw.com"
+
 PLUGINS=[
     'render_math',
     'sitemap',
@@ -70,7 +72,6 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-DISQUS_SITENAME = 'test'
 
 # Blogroll
 LINKS = (('Joe On GitHub', 'https://github.com/engineerjoe440/'),
