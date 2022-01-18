@@ -7,6 +7,7 @@ SITEURL = 'https://engineerjoe440.github.io/stanley-solutions-blog/'
 
 import alchemy
 THEME = alchemy.path()
+THEME_TEMPLATES_OVERRIDES = ['content/templates']
 BOOTSTRAP_CSS = 'https://bootswatch.com/4/darkly/bootstrap.css'
 SITESUBTITLE = 'Engineering and creativity - all under one hat.'
 PYGMENTS_STYLE = 'monokai'
@@ -52,7 +53,8 @@ EXTRA_PATH_METADATA = {
     'html/google307ea14d75106813.html': {'path': 'google307ea14d75106813.html'},
 }
 ARTICLE_EXCLUDES = [
-    'html'
+    'html',
+    'templates'
 ]
 
 TIMEZONE = 'America/Los_Angeles'
@@ -68,12 +70,14 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+DISQUS_SITENAME = 'test'
+
 # Blogroll
 LINKS = (('Joe On GitHub', 'https://github.com/engineerjoe440/'),
          ('ElectricPy Project', 'https://engineerjoe440.github.io/ElectricPy/'),
-         ('KRNC Project', 'https://github.com/engineerjoe440/KRNCApps/'),
          ('SELProtoPy Project', 'https://engineerjoe440.github.io/selprotopy'),
          ('PyCEV Project', 'https://engineerjoe440.github.io/pycev'),
+         ('KRNC Project', 'https://github.com/engineerjoe440/KRNCApps/'),
          ('RSS Feed', 'feeds/all.rss.xml'),)
 
 # Social widget
