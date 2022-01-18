@@ -1,7 +1,3 @@
-#isso-thread .textarea:focus {
-    color: black;
-}
-
-#isso-thread .textarea {
+#isso-thread .text-wrapper {
     color: black;
 }
