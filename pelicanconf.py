@@ -9,6 +9,9 @@ import alchemy
 THEME = alchemy.path()
 THEME_TEMPLATES_OVERRIDES = ['content/templates']
 BOOTSTRAP_CSS = 'https://bootswatch.com/4/darkly/bootstrap.css'
+THEME_CSS_OVERRIDES = [
+    '/custom.css'
+]
 SITESUBTITLE = 'Engineering and creativity - all under one hat.'
 PYGMENTS_STYLE = 'monokai'
 SITEIMAGE = 'logo.png'

@@ -1,3 +1,6 @@
+# Ignore any Generated Content
+output/
+
 # Ignore ini files
 *.ini
 
