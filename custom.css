@@ -1,4 +1,4 @@
-#isso-thread .text-wrapper, .textarea, .preview-mode, .input-wrapper {
+#isso-thread .text-wrapper, #isso-thread .textarea, #isso-thread .preview-mode, #isso-thread .input-wrapper {
     background-color: rgba(107, 135, 144, 0.82);
 }
 
