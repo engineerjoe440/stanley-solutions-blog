@@ -15,3 +15,14 @@
 * Lab Control/Metering System
 * Home Metering Systems w/ SEL-734
 * Python/React Server System for DJ Calendar
+* Jenkins plugin wildness
+* MaterialUI dropzone issues
+* 4-H Photo uploader
+* Automated server updates
+* SEL protocol testing infrastructure
+* Telnet vs Socket with Python SEL Protocol
+* Telnet monkeypatch with Python
+* VirtualDJ running on Linux
+* Smart Sensing gasses (radon) with HomeAssistant
+* Tasmota Hardware
+* List of self-hosted services
