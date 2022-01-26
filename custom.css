@@ -1,15 +1,7 @@
-#isso-thread .text-wrapper {
-    color: black;
+#isso-thread .text-wrapper, .textarea, .preview-mode, .input-wrapper {
+    background-color: rgba(107, 135, 144, 0.82);
 }
 
-#isso-thread .textarea {
-    color: black;
-}
-
-#isso-thread .preview-mode {
-    color: black;
-}
-
-.isso-comment .text {
+.isso-comment .text, .h1, .h2, .h3, .h4, .h5 {
     color: white;
 }
