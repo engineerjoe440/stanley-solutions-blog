@@ -1,5 +1,9 @@
-#isso-thread .text-wrapper, #isso-thread .textarea, #isso-thread .preview-mode, #isso-thread .input-wrapper {
+#isso-thread .text-wrapper, #isso-thread .textarea, #isso-thread .input-wrapper {
     background-color: rgba(107, 135, 144, 0.82);
+}
+
+#isso-thread .preview-mode, #isso-thread .preview {
+    background: repeating-linear-gradient(-45deg, #6B8790, #6B8790 10px, #7E93C8 10px, #7E93C8 20px );
 }
 
 .isso-comment .text, .h1, .h2, .h3, .h4, .h5 {
