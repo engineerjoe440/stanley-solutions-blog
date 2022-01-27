@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Telnetlib, Python, and SEL Protocol | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/telnetlib-python-and-sel-protocol.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="Python's telnetlib library doesn't like null-characters, SEL protocol does, that makes for some interesting challenges.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Telnetlib, Python, and SEL Protocol
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2022-01-26T16:32:00-08:00">
+          <i class="fas fa-clock"></i>
+          Wed 26 January 2022
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sel.html">#SEL</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/communications.html">#Communications</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/telnet.html">#Telnet</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/libraries.html">#Libraries</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/monkey-patch.html">#Monkey-Patch</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <h3>Zeros don't matter, right?</h3>
+<p>Well, that depends on who, (<em>or what</em>) you're talking to. If it happens to be an SEL relay, those zeros are pretty important.</p>
+<p>How important? Well, every byte tells a story... so that means that every zero is important.</p>
+<h3>Where did this start?</h3>
+<p>We can take a few steps back. Go take a look at <a href="/reading-data-with-selprotopy.html">my article introducing SELProtoPy</a> to see
+what the buzz is all about. In short, I want to write a full protocol client in Python for SEL Fast-Meter, and potentially branch
+out from there. We'll see how far I can take it.</p>
+<p>This is definitely an article that I've been wanting to write for some time, because it's very fascinating. Last year, I started
+working on the project and began writing the protocol parser from specifications provided by an
+<a href="https://selinc.com/api/download/5026/">SEL application guide</a> which describes the intricacies of the binary SEL Fast-Meter
+protocol.</p>
+<p>Before I describe the challenges in too much detail, however, perhaps I should summarize SEL protocol...</p>
+<hr>
+<blockquote>
+<p>When we talk about SEL protocol, we're really discussing a <em>suite</em> of protocols which includes:</p>
+<ul>
+<li>Fast Meter</li>
+<li>Fast Message</li>
+<li>Fast Operate</li>
+</ul>
+<p>Those "protocols" are all very closely linked, and are all intended to be "described" protocols. In other words, SEL protocol is
+self-describing. It essentially defines one "main" command/response sequence which then provides the definition for each of the
+various sub-protocols. SEL protocol commands all start with the hexadecimal-encoded byte <code>A5</code>. Each command is two bytes in length,
+and the "device definition" command will return a definition of all the other available commands. That is, a device wishing to
+query an SEL protocol enabled device would issue the hexadecimal string: <code>A5 C0</code> and interpret the response to determine what other
+commands are available for the device. The response from the device definition command not only provides a listing of what commands
+are supported, but what hexadecimal string is required to query for those commands.</p>
+</blockquote>
+<hr>
+<p>So with the basics recounted, where this gets interesting comes into play when we account for the fact that SEL protocol was originally
+a serial-based protocol, and made extensive use of null-padding, which is the practice of using zeros to separate content to account
+for reasonable byte-alignment. That means that in almost every command response, there's a significant number of null characters (zeros)
+in not only the definitions, but the data regions provided.</p>
+<p>The application-guide I mentioned earlier has become something of the "de facto standard" for the protocol suite, and it defines how
+SEL protocol provides the numerical quantities used to describe the power system. In many cases, it's possible for those quantities
+to be zero for analog measurements. Whats more, SEL protocol provides an extensive set of word-bits (boolean points) in a bit-packed
+format (8 word-bits packed into a single byte).</p>
+<p>Let's pause and think about that for a moment.</p>
+<p>Eight boolean statuses packed into a byte; many dozens, if not hundreds, of bits packed into bytes for a single response. At least a
+50/50 chance that each bit will be a 0 (false/deasserted). This all means that it's highly likely that one or more of the bytes will
+be all 0's... a null-character.</p>
+<p>When I was working on this project, pretty early on, I found something interesting; when I would issue commands to request fast-meter
+data, I'd see that the total data length was significantly shorter than what the response message indicated it should be. After
+digging in, and looking at a little Wireshark, I found that my usage of Python's <code>telnetlib</code> was effectively cutting the null
+characters out.</p>
+<p>A little googling, and it was further confirmed from an <a href="https://stackoverflow.com/a/32616342/10406011">answer on StackOverflow</a></p>
+<h6><em>"</em></h6>
+<blockquote>
+<p>I stumbled in this same problem when trying to get data from an RS232-TCP/IP Converter using telnet - the telnetlib would suppress every 0x00 from the message. As Fredrik Johansson well answered, it is the way telnetlib was implemented.</p>
+</blockquote>
+<div style="text-align: right">
+<h6><i>"</i></h6>
+</div>
+
+<p>Luckily enough, there's a fantastic way to resolve this problem, you can actually play a few games with <code>telnetlib</code> to monkey-patch
+functionality to retain null characters. Just check out this code snippet from that StackOverflow answer:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">telnetlib</span>
+<span class="kn">from</span> <span class="nn">telnetlib</span> <span class="kn">import</span> <span class="n">IAC</span><span class="p">,</span> <span class="n">DO</span><span class="p">,</span> <span class="n">DONT</span><span class="p">,</span> <span class="n">WILL</span><span class="p">,</span> <span class="n">WONT</span><span class="p">,</span> <span class="n">SE</span><span class="p">,</span> <span class="n">NOOPT</span>
+
+<span class="k">def</span> <span class="nf">_process_rawq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Alteração da implementação desta função necessária pois telnetlib suprime 0x00 e \021 dos dados lidos</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">buf</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">rawq</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rawq_getchar</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">iacseq</span><span class="p">:</span>
+<span class="c1">#                if c == theNULL:</span>
+<span class="c1">#                    continue</span>
+<span class="c1">#                if c == &quot;\021&quot;:</span>
+<span class="c1">#                    continue</span>
+                <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="n">IAC</span><span class="p">:</span>
+                    <span class="n">buf</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sb</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sb</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span>
+                    <span class="k">continue</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">iacseq</span> <span class="o">+=</span> <span class="n">c</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iacseq</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># &#39;IAC: IAC CMD [OPTION only for WILL/WONT/DO/DONT]&#39;</span>
+                <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">(</span><span class="n">DO</span><span class="p">,</span> <span class="n">DONT</span><span class="p">,</span> <span class="n">WILL</span><span class="p">,</span> <span class="n">WONT</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">iacseq</span> <span class="o">+=</span> <span class="n">c</span>
+                    <span class="k">continue</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">iacseq</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="n">IAC</span><span class="p">:</span>
+                    <span class="n">buf</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sb</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sb</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="n">SB</span><span class="p">:</span> <span class="c1"># SB ... SE start.</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">sb</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">sbdataq</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                    <span class="k">elif</span> <span class="n">c</span> <span class="o">==</span> <span class="n">SE</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">sb</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">sbdataq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sbdataq</span> <span class="o">+</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                        <span class="n">buf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">option_callback</span><span class="p">:</span>
+                        <span class="c1"># Callback is supposed to look into</span>
+                        <span class="c1"># the sbdataq</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">option_callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">NOOPT</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># We can&#39;t offer automatic processing of</span>
+                        <span class="c1"># suboptions. Alas, we should not get any</span>
+                        <span class="c1"># unless we did a WILL/DO before.</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s1">&#39;IAC </span><span class="si">%d</span><span class="s1"> not recognized&#39;</span> <span class="o">%</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iacseq</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iacseq</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">iacseq</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="n">opt</span> <span class="o">=</span> <span class="n">c</span>
+                <span class="k">if</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="p">(</span><span class="n">DO</span><span class="p">,</span> <span class="n">DONT</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s1">&#39;IAC </span><span class="si">%s</span><span class="s1"> </span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span>
+                        <span class="n">cmd</span> <span class="o">==</span> <span class="n">DO</span> <span class="ow">and</span> <span class="s1">&#39;DO&#39;</span> <span class="ow">or</span> <span class="s1">&#39;DONT&#39;</span><span class="p">,</span> <span class="nb">ord</span><span class="p">(</span><span class="n">opt</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">option_callback</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">option_callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">IAC</span> <span class="o">+</span> <span class="n">WONT</span> <span class="o">+</span> <span class="n">opt</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="p">(</span><span class="n">WILL</span><span class="p">,</span> <span class="n">WONT</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s1">&#39;IAC </span><span class="si">%s</span><span class="s1"> </span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span>
+                        <span class="n">cmd</span> <span class="o">==</span> <span class="n">WILL</span> <span class="ow">and</span> <span class="s1">&#39;WILL&#39;</span> <span class="ow">or</span> <span class="s1">&#39;WONT&#39;</span><span class="p">,</span> <span class="nb">ord</span><span class="p">(</span><span class="n">opt</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">option_callback</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">option_callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">IAC</span> <span class="o">+</span> <span class="n">DONT</span> <span class="o">+</span> <span class="n">opt</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">EOFError</span><span class="p">:</span> <span class="c1"># raised by self.rawq_getchar()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iacseq</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1"># Reset on EOF</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sb</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">pass</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">cookedq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cookedq</span> <span class="o">+</span> <span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sbdataq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sbdataq</span> <span class="o">+</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">telnetlib</span><span class="o">.</span><span class="n">Telnet</span><span class="o">.</span><span class="n">process_rawq</span> <span class="o">=</span> <span class="n">_process_rawq</span>
+</code></pre></div>
+
+<p><em>Very interesting........</em></p>
+<h3>Parting Thoughts</h3>
+<p>This is one problem solved, but I've come across an interesting issue where sending the commands over Telnet is not
+working, but sending the same commands over a plain TCP socket works without failure. Hmm... Weird. That one's
+going to take some more research. I'll be sure to post what I find, when I find it!</p>
+<p>If you have questions, thoughts, or just want to say "hi", feel free to drop me a note in my new comments system
+below!</p>
+    </div>
+  </article>
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
