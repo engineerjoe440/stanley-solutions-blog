@@ -68,12 +68,12 @@ characters out.
 
 A little googling, and it was further confirmed from an [answer on StackOverflow](https://stackoverflow.com/a/32616342/10406011)
 
-###### *"*
+#### *"*
 
 > I stumbled in this same problem when trying to get data from an RS232-TCP/IP Converter using telnet - the telnetlib would suppress every 0x00 from the message. As Fredrik Johansson well answered, it is the way telnetlib was implemented.
 
 <div style="text-align: right">
-<h6><i>"</i></h6>
+<h4><i>"</i></h4>
 </div>
 
 Luckily enough, there's a fantastic way to resolve this problem, you can actually play a few games with `telnetlib` to monkey-patch
