@@ -17,11 +17,10 @@
 * Python/React Server System for DJ Calendar
 * Jenkins plugin wildness
 * MaterialUI dropzone issues
-* 4-H Photo uploader
+* 4-H Photo uploader - Automated Deployments Using Jenkins
 * Automated server updates
 * SEL protocol testing infrastructure
 * Telnet vs Socket with Python SEL Protocol
-* Telnet monkeypatch with Python
 * VirtualDJ running on Linux
 * Smart Sensing gasses (radon) with HomeAssistant
 * Tasmota Hardware
