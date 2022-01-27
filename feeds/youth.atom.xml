@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Youth</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/youth.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2022-01-26T17:35:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>React.js, Python, Pictures, and 4-H!</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/reactjs-python-pictures-and-4h.html" rel="alternate"></link><published>2022-01-26T17:35:00-08:00</published><updated>2022-01-26T17:35:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-01-26:/stanley-solutions-blog/reactjs-python-pictures-and-4h.html</id><summary type="html">&lt;p&gt;How do you get nearly one-hundred high-school age youth to collect nearly as many photos for a competition at a youth conference? Facebook? Google-Drive? How about Python...?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Do you remember going to those youth conferences when you were younger?&lt;/p&gt;
+&lt;p&gt;I do!&lt;/p&gt;
+&lt;p&gt;I loved them!&lt;/p&gt;
+&lt;p&gt;In Idaho 4-H, there's an annual conference known as the
+&lt;a href="https://www.uidaho.edu/extension/4h/events/stac"&gt;"State Teen Association Convention,"&lt;/a&gt; though, admittedly,
+when I attended, it was known as "Teen Conference." Essentially, it's a conference focused on giving youth from
+around the state the opportunity to explore what opportunities exist after high school. Youth get to spend about
+four days on campus at the University of Idaho, and explore various career- and education-focused "tracks."&lt;/p&gt;
+&lt;p&gt;But what would a youth-conference be, without some social activities and competition?&lt;/p&gt;
+&lt;p&gt;Idaho "STAC" has a number of social activities and competitions in addition to the educational portions to help
+bring youth across the state together and help them build new connections. One of the competitions that happens
+throughout the conference is what's known as "district competitions."&lt;/p&gt;
+&lt;h3&gt;What are the districts, and what are the district competitions?&lt;/h3&gt;
+&lt;p&gt;Well, the state of Idaho is broken into four regional districts: Northern, Southern, Central, and Eastern. The
+districts help keep some organization across the state, and at STAC, they are the dividing line(s) for youth
+meetings.&lt;/p&gt;
+&lt;p&gt;Throughout the conference the districts compete against one another for points in district competitions. After
+all, who doesn't like a little good-humored, friendly competition? Now, to be honest, I don't think that there's
+any specific "prize" to come out of winning, but it's a lot of fun.&lt;/p&gt;
+&lt;p&gt;There are competitions focusing in a few key areas including creativity (photo contest, skit performances) and
+healthy living (skit/dance performances).&lt;/p&gt;
+&lt;h3&gt;The challenge...&lt;/h3&gt;
+&lt;p&gt;The photo competition is always an interesting challenge to host. It ends up becoming something of a technical
+challenge to administer since there's no "effective" way to collect the photos into one place. In years past
+all forms of systems have been used; everything from Facebook with hashtags, to public Google Drives, email, and
+more... It's been a pain!&lt;/p&gt;
+&lt;p&gt;Last year something dawned on me, we could create something a little more interesting!&lt;/p&gt;
+&lt;p&gt;What if we created a simple little web-app to allow the youth to upload the photos they take for the competition,
+and made it a requirement for the youth to agree to a photo-consent-release. So that's what we got started on!&lt;/p&gt;
+&lt;h3&gt;The Solution:&lt;/h3&gt;
+&lt;p&gt;I spent some time a few months back doing some research on what we could use for an effective photo storage system.
+I wanted to use an open-source project that would allow API-based access to upload photos, and whose management
+is simple, intuitive, and without too many frills. I did some poking around, and playing with different services
+on a $5/month Linode (love those things for testing, by-the-way), and I finally landed on
+&lt;a href="https://lycheeorg.github.io/"&gt;Lychee&lt;/a&gt; for a couple of reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There's a terrific, and simple &lt;code&gt;docker-compose&lt;/code&gt; configuration provided by &lt;a href="https://docs.linuxserver.io/images/docker-lychee"&gt;LinuxServer.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The API is VERY WELL documented, and exceedingly simple&lt;/li&gt;
+&lt;li&gt;There's already a &lt;a href="https://pypi.org/project/pychee/"&gt;Python Lychee client&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The user interface is very simple and focused without too many frills&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Using Lychee as the "back-end storage" for this project, I can create a nice "wrapper" on the front to make an easy
+web-app to allow youth delegates to upload their photos. To do that, I can use my slick little Python/React.js
+integrated web-server pairing.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Want to see what it's looking like?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/idaho4h-photo-upload/Screenshot_20220126_174318.png" style="width: 100%" alt="Idaho 4-H Photo Upload"&gt;&lt;/p&gt;
+&lt;h3&gt;Other Perks:&lt;/h3&gt;
+&lt;p&gt;Pretty early on in this project's investigation, I met a 4-H'er who is actually learning about some programming, and
+so we've been working together on developing the web-front-end interface for youth.&lt;/p&gt;
+&lt;p&gt;I've got quite a bit more fun stories to tell about how we're using my GitLab and Jenkins instances to help us keep
+this project moving, but that will be coming a little later. That said, take a look at the consent form that we've built,
+and the dark-mode that we were able to build!&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/idaho4h-photo-upload/Screenshot_20220126_174254.png" style="width: 100%" alt="Idaho 4-H Photo Upload"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/idaho4h-photo-upload/Screenshot_20220126_174342.png" style="width: 100%" alt="Idaho 4-H Photo Upload"&gt;&lt;/p&gt;</content><category term="Youth"></category><category term="Python"></category><category term="React.Js"></category><category term="4H"></category><category term="Fastapi"></category><category term="Materialui"></category><category term="Linode"></category></entry></feed>

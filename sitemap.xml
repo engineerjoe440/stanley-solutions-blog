@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2022-01-27T01:32:09-00:00</lastmod>
+<lastmod>2022-01-27T02:30:26-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/reactjs-python-pictures-and-4h.html</loc>
+<lastmod>2022-01-26T17:35:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -305,8 +312,50 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/youth.html</loc>
+<lastmod>2022-01-26T17:35:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html</loc>
-<lastmod>2022-01-26T16:32:00-07:53</lastmod>
+<lastmod>2022-01-26T17:35:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/reactjs.html</loc>
+<lastmod>2022-01-26T17:35:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/4h.html</loc>
+<lastmod>2022-01-26T17:35:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/fastapi.html</loc>
+<lastmod>2022-01-26T17:35:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/materialui.html</loc>
+<lastmod>2022-01-26T17:35:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/linode.html</loc>
+<lastmod>2022-01-26T17:35:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -711,13 +760,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/4h.html</loc>
-<lastmod>2021-06-25T19:03:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/ammo-can.html</loc>
 <lastmod>2021-06-19T11:40:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -1027,7 +1069,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2022-01-26T16:32:00-07:53</lastmod>
+<lastmod>2022-01-26T17:35:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

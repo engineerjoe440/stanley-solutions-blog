@@ -123,12 +123,12 @@ data, I'd see that the total data length was significantly shorter than what the
 digging in, and looking at a little Wireshark, I found that my usage of Python's <code>telnetlib</code> was effectively cutting the null
 characters out.</p>
 <p>A little googling, and it was further confirmed from an <a href="https://stackoverflow.com/a/32616342/10406011">answer on StackOverflow</a></p>
-<h6><em>"</em></h6>
+<h4><em>"</em></h4>
 <blockquote>
 <p>I stumbled in this same problem when trying to get data from an RS232-TCP/IP Converter using telnet - the telnetlib would suppress every 0x00 from the message. As Fredrik Johansson well answered, it is the way telnetlib was implemented.</p>
 </blockquote>
 <div style="text-align: right">
-<h6><i>"</i></h6>
+<h4><i>"</i></h4>
 </div>
 
 <p>Luckily enough, there's a fantastic way to resolve this problem, you can actually play a few games with <code>telnetlib</code> to monkey-patch

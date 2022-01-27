@@ -45,12 +45,12 @@ data, I'd see that the total data length was significantly shorter than what the
 digging in, and looking at a little Wireshark, I found that my usage of Python's &lt;code&gt;telnetlib&lt;/code&gt; was effectively cutting the null
 characters out.&lt;/p&gt;
 &lt;p&gt;A little googling, and it was further confirmed from an &lt;a href="https://stackoverflow.com/a/32616342/10406011"&gt;answer on StackOverflow&lt;/a&gt;&lt;/p&gt;
-&lt;h6&gt;&lt;em&gt;"&lt;/em&gt;&lt;/h6&gt;
+&lt;h4&gt;&lt;em&gt;"&lt;/em&gt;&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I stumbled in this same problem when trying to get data from an RS232-TCP/IP Converter using telnet - the telnetlib would suppress every 0x00 from the message. As Fredrik Johansson well answered, it is the way telnetlib was implemented.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div style="text-align: right"&gt;
-&lt;h6&gt;&lt;i&gt;"&lt;/i&gt;&lt;/h6&gt;
+&lt;h4&gt;&lt;i&gt;"&lt;/i&gt;&lt;/h4&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Luckily enough, there's a fantastic way to resolve this problem, you can actually play a few games with &lt;code&gt;telnetlib&lt;/code&gt; to monkey-patch
