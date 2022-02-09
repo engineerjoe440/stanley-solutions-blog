@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+import os
 
 AUTHOR = 'Joe Stanley'
 SITENAME = 'Stanley Solutions Blog'
@@ -22,8 +23,12 @@ ISSO_URL = "https://blogcomments.stanleysolutionsnw.com"
 
 PLUGINS=[
     'render_math',
+    'pelican_photos',
     'sitemap',
 ]
+
+PHOTO_LIBRARY = os.path.join(os.getcwd(), "content", "images")
+PHOTO_WATERMARK = False
 
 SITEMAP = {
     "format": "xml",
