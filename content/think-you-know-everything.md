@@ -14,7 +14,7 @@ engineering project, the ***"Quiz Board"***. It was a project of mine to make a 
 and engaging public education system. I used it at the county fair to help teach folks about
 swine, since that was my 4-H project.
 
-<img src="{attach}/images/quiz-board/22-02-08 17-02-31 1227.jpg" style="width: 40%" alt="The Quiz">
+<img src="{attach}/images/quiz-board/22-02-08 17-02-31 1227.jpg" style="width: 100%" alt="The Quiz">
 
 ## The Inspiration
 
@@ -55,7 +55,7 @@ the red light.
 
 Thus, "The Quiz" was born.
 
-gallery::{photo}quiz-board
+<img src="{attach}/images/quiz-board/22-02-08 16-59-31 1225.jpg" style="width: 100%" alt="The Guts">
 
 #### Processing with Electro-Mechanical Logic
 
