@@ -23,7 +23,7 @@ ISSO_URL = "https://blogcomments.stanleysolutionsnw.com"
 
 PLUGINS=[
     'render_math',
-    'pelican_photos',
+    'photos',
     'sitemap',
 ]
 
