@@ -28,6 +28,7 @@ PLUGINS=[
 ]
 
 PHOTO_LIBRARY = os.path.join(os.getcwd(), "content", "images")
+PHOTO_GALLERY = (1024, 768, 80)
 PHOTO_WATERMARK = False
 PHOTO_SQUARE_THUMB = False
 PHOTO_RESIZE_JOBS = -1
