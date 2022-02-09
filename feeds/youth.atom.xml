@@ -3,7 +3,7 @@
 engineering project, the &lt;strong&gt;&lt;em&gt;"Quiz Board"&lt;/em&gt;&lt;/strong&gt;. It was a project of mine to make a &lt;em&gt;cool&lt;/em&gt;
 and engaging public education system. I used it at the county fair to help teach folks about
 swine, since that was my 4-H project.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/quiz-board/22-02-08 17-02-31 1227.jpg" style="width: 40%" alt="The Quiz"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/quiz-board/22-02-08 17-02-31 1227.jpg" style="width: 100%" alt="The Quiz"&gt;&lt;/p&gt;
 &lt;h2&gt;The Inspiration&lt;/h2&gt;
 &lt;p&gt;Long ago, in a town far away, I was given an old "quiz board" to fix. It was literally a board,
 and it had screws protruding from both sides. The system was simple. There were questions printed
@@ -36,15 +36,7 @@ That meant that I could easily "line-up" the switches so that if the user presse
 button, it would turn on a green light, and if they pressed the wrong button, it would turn on
 the red light.&lt;/p&gt;
 &lt;p&gt;Thus, "The Quiz" was born.&lt;/p&gt;
-&lt;p&gt;&lt;!-- &gt;&gt;&gt;&gt; Start &gt;&gt;&gt;&gt;&gt; PHOTO plugin: inline gallery &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; --&gt;
-&lt;div class="gallery"&gt;
-        &lt;h1&gt;&lt;/h1&gt;
-                    &lt;a href="/photos/quiz-board/22-02-08 16-59-31 1225.jpg" title="22-02-08 16-59-31 1225.jpg" exif="" caption=""&gt;&lt;img src="/photos/quiz-board/22-02-08 16-59-31 1225t.jpg"&gt;&lt;/a&gt;
-                    &lt;a href="/photos/quiz-board/22-02-08 16-59-34 1226.jpg" title="22-02-08 16-59-34 1226.jpg" exif="" caption=""&gt;&lt;img src="/photos/quiz-board/22-02-08 16-59-34 1226t.jpg"&gt;&lt;/a&gt;
-                    &lt;a href="/photos/quiz-board/22-02-08 17-02-31 1227.jpg" title="22-02-08 17-02-31 1227.jpg" exif="" caption=""&gt;&lt;img src="/photos/quiz-board/22-02-08 17-02-31 1227t.jpg"&gt;&lt;/a&gt;
-                    &lt;a href="/photos/quiz-board/22-02-08 17-02-35 1228.jpg" title="22-02-08 17-02-35 1228.jpg" exif="" caption=""&gt;&lt;img src="/photos/quiz-board/22-02-08 17-02-35 1228t.jpg"&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;!-- &lt;&lt;&lt;&lt; End &lt;&lt;&lt;&lt;&lt; PHOTO plugin: inline gallery &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/quiz-board/22-02-08 16-59-31 1225.jpg" style="width: 100%" alt="The Guts"&gt;&lt;/p&gt;
 &lt;h4&gt;Processing with Electro-Mechanical Logic&lt;/h4&gt;
 &lt;p&gt;I love touting that this machine had a 3-bit processor; which, if you stretch your imagination
 a little bit, I guess that &lt;em&gt;is&lt;/em&gt; true since it had three switches, and their positions all
