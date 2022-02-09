@@ -29,6 +29,8 @@ PLUGINS=[
 
 PHOTO_LIBRARY = os.path.join(os.getcwd(), "content", "images")
 PHOTO_WATERMARK = False
+PHOTO_SQUARE_THUMB = False
+PHOTO_RESIZE_JOBS = -1
 
 SITEMAP = {
     "format": "xml",
