@@ -82,6 +82,39 @@
 engineering project, the <strong><em>"Quiz Board"</em></strong>. It was a project of mine to make a <em>cool</em>
 and engaging public education system. I used it at the county fair to help teach folks about
 swine, since that was my 4-H project.</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/quiz-board/22-02-08 17-02-31 1227.jpg" style="width: 40%" alt="The Quiz"></p>
+<h2>The Inspiration</h2>
+<p>Long ago, in a town far away, I was given an old "quiz board" to fix. It was literally a board,
+and it had screws protruding from both sides. The system was simple. There were questions printed
+on the left side, answers printed on the right. If you connected the provided wires using connected
+alligator clips the board would tell you if you were "right" by illuminating an little bulb.
+Pretty neat little idea for kids, you connect a wire on the left to select the question, then you
+can connect the wire on the right to select an answer. If you were right, the bulb lights up!</p>
+<h4>But it was boring!</h4>
+<p>Or at least, I thought it was. There was no <em>real</em> feedback from the system if you got the answer
+wrong, and it was kinda sad, for that reason. Needless to say, I wasn't satisfied. It wasn't long
+after I repaired that board before I was starting to mull over ideas of how I could make my own
+and improve upon the design.</p>
+<p>Around the same time, I was learning about how Walt Disney had used rotating "drums" with little
+depressions to make practical control systems before precise timing in microcontrollers was easy
+and practical. I distinctly remember an old clip from some archive of Walt giving a tour of some
+of the Haunted Mansion Audio-Animatronic control systems, and showing how these big rotating drums
+would depress and release valve controlls for the pneumatics. These valves would then, in turn,
+operate the cylinders responsible for actually moving the animatronics around, and by coordinating
+all of these depressions at just the right speed and timing, the Disney Imagineers could craft
+some spectacular repeating animations. Wonderful!</p>
+<p>I liked that idea, and I had NO idea how microcontrollers worked. I didn't even have an Arduino
+yet, and I had never even seen real software code (needless to say, my parents were not the
+biggest tech-geeks in the area). So I started mulling this over. After what must've been a few
+months (really, I can't remember), an idea came to me. I realized that those little snap-action
+switches have two positions, one defaulting to ON, the other defaulting to OFF; more commonly
+referred to as "Normally Closed" and "Normally Open," respectively. That meant that I could use
+two switches pretty easily to "route" electricity for a couple of buttons labeled "TRUE" and
+"FALSE". The switch associated with the <em>right</em> answer would be pressed, the other would not.
+That meant that I could easily "line-up" the switches so that if the user pressed the <em>right</em>
+button, it would turn on a green light, and if they pressed the wrong button, it would turn on
+the red light.</p>
+<p>Thus, "The Quiz" was born.</p>
 <p><!-- >>>> Start >>>>> PHOTO plugin: inline gallery >>>>>>>>> -->
 <div class="gallery">
         <h1></h1>
@@ -91,10 +124,33 @@ swine, since that was my 4-H project.</p>
                     <a href="/photos/quiz-board/22-02-08 17-02-35 1228.jpg" title="22-02-08 17-02-35 1228.jpg" exif="" caption=""><img src="/photos/quiz-board/22-02-08 17-02-35 1228t.jpg"></a>
 </div>
 <!-- <<<< End <<<<< PHOTO plugin: inline gallery <<<<<<<<< --></p>
-<p>Now... I promise, I'll work to add a little more detail about the technical aspects. After all,
-this whole system ran around a 3-bit processor.</p>
+<h4>Processing with Electro-Mechanical Logic</h4>
+<p>I love touting that this machine had a 3-bit processor; which, if you stretch your imagination
+a little bit, I guess that <em>is</em> true since it had three switches, and their positions all
+mattered for the result of the question/answer. I've already explained what two of the switches
+were for, but that third switch was responsible for keeping the whole thing moving in just the
+right way. That's right, that last switch was responsible for controlling the motor.</p>
+<p>The whole system revolved -pun intended- around this rotating drum idea. Questions were printed
+on a sheet of paper taped to a 4" diameter piece of PVC pipe, and the pipe turned to line the
+questions up with a "viewing window" in the face of this gargantuan machine. When the user
+pressed "start" that would deactivate the "constant" source of power for the motor, so as soon
+as the next switch press happens, the motor would stop. This would, in turn, line up the
+question with the viewing window, and then the user could read and respond to the question.</p>
+<p>This whole project took my father and I much of the year to build. In all, probably between one-
+and two-hundred hours, total. When it was finally completed, I got to take the machine with me
+to the Clearwater County fair, and load it up with questions about pigs to help entertain and
+educate the public.</p>
     </div>
   </article>
+<!-- PHOTO plugin: article gallery -->
+<div class="gallery">
+      <h1></h1>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/quiz-board/22-02-08 16-59-31 1225.jpg" title="22-02-08 16-59-31 1225.jpg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/quiz-board/22-02-08 16-59-31 1225t.jpg"></a>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/quiz-board/22-02-08 16-59-34 1226.jpg" title="22-02-08 16-59-34 1226.jpg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/quiz-board/22-02-08 16-59-34 1226t.jpg"></a>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/quiz-board/22-02-08 17-02-31 1227.jpg" title="22-02-08 17-02-31 1227.jpg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/quiz-board/22-02-08 17-02-31 1227t.jpg"></a>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/quiz-board/22-02-08 17-02-35 1228.jpg" title="22-02-08 17-02-35 1228.jpg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/quiz-board/22-02-08 17-02-35 1228t.jpg"></a>
+</div>
+<!-- PHOTO plugin: article gallery -->
 <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
 <section class="comments" id="comments">
     <h3 class="panel">Comments</h3>
