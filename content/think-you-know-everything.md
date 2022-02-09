@@ -6,6 +6,6 @@ Category: Youth
 Slug: think-you-know-everything
 Authors: Joe Stanley
 Summary: A step back down memory-lane, I pulled out the ol' 'Quiz Board' for a presentation!
-gallery: {photo}quiz-board
 
 
+gallery::{photo}quiz-board

@@ -31,6 +31,8 @@ PHOTO_LIBRARY = os.path.join(os.getcwd(), "content", "images")
 PHOTO_WATERMARK = False
 PHOTO_SQUARE_THUMB = False
 PHOTO_RESIZE_JOBS = -1
+PHOTO_INLINE_GALLERY_ENABLED = True
+PHOTO_INLINE_GALLERY_TEMPLATE = "inline_gallery"
 
 SITEMAP = {
     "format": "xml",
