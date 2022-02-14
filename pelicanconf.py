@@ -35,6 +35,18 @@ PHOTO_RESIZE_JOBS = -1
 PHOTO_INLINE_GALLERY_ENABLED = True
 PHOTO_INLINE_GALLERY_TEMPLATE = "inline_gallery"
 
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+        'plantuml_markdown': {
+            'server': "http://www.plantuml.com/plantuml",
+        },
+    },
+    'output_format': 'html5',
+}
+
 SITEMAP = {
     "format": "xml",
     "priorities": {
