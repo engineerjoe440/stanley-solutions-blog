@@ -20,17 +20,17 @@ throughout this article in places where I &lt;em&gt;don't&lt;/em&gt; want the Pl
 so I'm putting it together here.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;I tried a number of things that didn't work, so let me just list those quickly to put them behind us:&lt;/p&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;I'd tried using a tag directly in the uml-header to specify the server; later, I found that this option isn't even supported. So I
 don't know what I was thinking!&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;::_uml_:: format=&amp;quot;svg&amp;quot; ... server=&amp;quot;http://www.plantuml.com/plantuml&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;I then tried integrating with Pelican's PlantUML extension (which requires the Java tool be installed). I thought that I &lt;em&gt;must&lt;/em&gt;
 need some kind of cooperation between the two extensions... Nope. Fail.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;p&gt;Alright... so after trying a number of packages, and combining configurations, I finally found this little note in the PlantUML-Markdown
 PyPI page:&lt;/p&gt;
 &lt;blockquote&gt;

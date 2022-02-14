@@ -99,17 +99,17 @@ throughout this article in places where I <em>don't</em> want the PlantUML to ac
 so I'm putting it together here.</p>
 <hr>
 <p>I tried a number of things that didn't work, so let me just list those quickly to put them behind us:</p>
-<ol>
+<ul>
 <li>I'd tried using a tag directly in the uml-header to specify the server; later, I found that this option isn't even supported. So I
 don't know what I was thinking!</li>
-</ol>
+</ul>
 <div class="highlight"><pre><span></span><code>::_uml_:: format=&quot;svg&quot; ... server=&quot;http://www.plantuml.com/plantuml&quot;
 </code></pre></div>
 
-<ol>
+<ul>
 <li>I then tried integrating with Pelican's PlantUML extension (which requires the Java tool be installed). I thought that I <em>must</em>
 need some kind of cooperation between the two extensions... Nope. Fail.</li>
-</ol>
+</ul>
 <p>Alright... so after trying a number of packages, and combining configurations, I finally found this little note in the PlantUML-Markdown
 PyPI page:</p>
 <blockquote>
