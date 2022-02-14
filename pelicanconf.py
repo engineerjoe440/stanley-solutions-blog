@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+import os
 
 AUTHOR = 'Joe Stanley'
 SITENAME = 'Stanley Solutions Blog'
@@ -22,8 +23,17 @@ ISSO_URL = "https://blogcomments.stanleysolutionsnw.com"
 
 PLUGINS=[
     'render_math',
+    'photos',
     'sitemap',
 ]
+
+PHOTO_LIBRARY = os.path.join(os.getcwd(), "content", "images")
+PHOTO_GALLERY = (2048, 1024, 80)
+PHOTO_WATERMARK = False
+PHOTO_SQUARE_THUMB = False
+PHOTO_RESIZE_JOBS = -1
+PHOTO_INLINE_GALLERY_ENABLED = True
+PHOTO_INLINE_GALLERY_TEMPLATE = "inline_gallery"
 
 SITEMAP = {
     "format": "xml",
@@ -82,6 +92,7 @@ LINKS = (('Joe On GitHub', 'https://github.com/engineerjoe440/'),
          ('SELProtoPy Project', 'https://engineerjoe440.github.io/selprotopy'),
          ('PyCEV Project', 'https://engineerjoe440.github.io/pycev'),
          ('KRNC Project', 'https://github.com/engineerjoe440/KRNCApps/'),
+         ('Calendar', 'https://calendar.google.com/calendar/u/0?cid=ZW5naW5lZXJqb2U0NDBAZ21haWwuY29t'),
          ('RSS Feed', 'feeds/all.rss.xml'),)
 
 # Social widget

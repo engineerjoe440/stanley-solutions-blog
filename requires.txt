@@ -5,3 +5,4 @@ plantuml
 mdx_include
 pelican-render-math
 pelican-sitemap
+pelican-photos
