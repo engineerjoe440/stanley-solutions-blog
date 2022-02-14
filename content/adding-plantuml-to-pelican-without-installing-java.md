@@ -18,7 +18,7 @@ article(s):
 
 ```markdown
 ::_uml_:: format="svg" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram" width="300px" height="300px"
-   !theme spacelab
+   !theme cerulean
    Bob->Alice : Hello!
 ::end-uml::
 ```
@@ -29,7 +29,7 @@ throughout this article in places where I *don't* want the PlantUML to actually 
 I, in turn, render an image such as the following:
 
 ::uml:: format="svg" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram" width="300px" height="300px"
-   !theme spacelab
+   !theme cerulean
    Bob->Alice : Hello!
 ::end-uml::
 
