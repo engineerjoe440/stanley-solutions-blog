@@ -2,6 +2,7 @@ pelican
 https://github.com/nairobilug/pelican-alchemy/tarball/master
 Markdown
 plantuml
+plantuml-markdown
 mdx_include
 pelican-render-math
 pelican-sitemap
