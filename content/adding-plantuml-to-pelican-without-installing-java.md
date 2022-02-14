@@ -40,14 +40,14 @@ so I'm putting it together here.
 
 I tried a number of things that didn't work, so let me just list those quickly to put them behind us:
 
-1. I'd tried using a tag directly in the uml-header to specify the server; later, I found that this option isn't even supported. So I
+* I'd tried using a tag directly in the uml-header to specify the server; later, I found that this option isn't even supported. So I
 don't know what I was thinking!
 
 ```markdown
 ::_uml_:: format="svg" ... server="http://www.plantuml.com/plantuml"
 ```
 
-2. I then tried integrating with Pelican's PlantUML extension (which requires the Java tool be installed). I thought that I *must*
+* I then tried integrating with Pelican's PlantUML extension (which requires the Java tool be installed). I thought that I *must*
 need some kind of cooperation between the two extensions... Nope. Fail.
 
 Alright... so after trying a number of packages, and combining configurations, I finally found this little note in the PlantUML-Markdown
