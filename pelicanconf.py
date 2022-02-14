@@ -24,7 +24,6 @@ ISSO_URL = "https://blogcomments.stanleysolutionsnw.com"
 PLUGINS=[
     'render_math',
     'photos',
-    'plantuml',
     'sitemap',
 ]
 
