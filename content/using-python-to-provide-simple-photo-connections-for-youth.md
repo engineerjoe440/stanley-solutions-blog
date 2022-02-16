@@ -31,7 +31,7 @@ connection between the React front-end and the Lychee service itself. This same 
 React public files. Effectively, like so many other places I use Python, it acts as the all-important glue in this
 system.
 
-::uml:: format="svg" alt="Idaho 4-H Photos Site" title="Idaho 4-H Photos Site" width="300px" height="300px"
+::uml:: format="svg" alt="Idaho 4-H Photos Site" title="Idaho 4-H Photos Site" width="100%"
    !theme spacelab
     skinparam actorStyle awesome
     actor User
