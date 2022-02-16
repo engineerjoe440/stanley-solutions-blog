@@ -29,7 +29,7 @@ Makes me wish there were other ways I could get involved in researching addition
 
 ### What's New
 
-<img src="{attach}/images/firesense-wing.jpg" style="width: 100%" alt="Wings for Dropping Fire Sensors">
+<img src="{attach}/images/firesense-wing.jpeg" style="width: 100%" alt="Wings for Dropping Fire Sensors">
 
 This year is my second year acting as the sponsor for a wildfire detection system, and I have to say, I'm stoked. This is a very
 exciting project, and has a lot of potential. If you want to read more about the concept or tech, go check out my articles on
