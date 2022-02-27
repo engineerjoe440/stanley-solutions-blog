@@ -61,7 +61,7 @@ just start over, and when I need to copy the whole darn disk, I just pull it out
 others are interested in. Still, I'm proud of the fact that I'm running so much out of my own home, and I'm excited to keep growing with
 these old computers. I'm happy that I'm able to reuse machines that would otherwise litter some landfill, and keep things running for
 myself and some of the university students that I support.&lt;/p&gt;</content><category term="DevOps"></category><category term="Self Hosting"></category><category term="Servers"></category><category term="Computing"></category><category term="Hosting"></category><category term="Web"></category><category term="Services"></category></entry><entry><title>Servers in the Basement...</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/jenkins-servers-in-the-basement.html" rel="alternate"></link><published>2021-02-14T19:23:00-08:00</published><updated>2021-02-14T20:40:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-02-14:/stanley-solutions-blog/jenkins-servers-in-the-basement.html</id><summary type="html">&lt;p class="first last"&gt;Some people keep their creepy Christmas decorations in their basement. Others keep their continuous integration servers down there too...&lt;/p&gt;
-</summary><content type="html">&lt;img alt="SEL Rugged Computers mounted and ready for work!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkinsbasement/IMG_0851.jpg" style="width: 600px;" /&gt;
+</summary><content type="html">&lt;img alt="SEL Rugged Computers mounted and ready for work!" src="https://engineerjoe440.github.io/stanley-solutions-blog/IMG_0851.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;Whelp, I've gone and done it. I've mounted and installed one of my SEL computers
 and set it up for running Jenkins!&lt;/p&gt;
 &lt;p&gt;This isn't going to be a very in-depth article, but I wanted to say that it's
@@ -78,7 +78,7 @@ now so that they can access the private resources they need for testing, but
 they can be kicked off by my commits and pushes to their repositories on GitHub.&lt;/p&gt;
 &lt;p&gt;So... now I can really start cranking on that code, and Jenkins can do some of
 my dirty work to start running the tests for me!&lt;/p&gt;
-&lt;img alt="Gotta love that SEL blue!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkinsbasement/IMG_0852.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Gotta love that SEL blue!" src="https://engineerjoe440.github.io/stanley-solutions-blog/IMG_0852.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;I want to restate that I'm very excited to be using some old SEL hardware and
 giving it a second lease on life. These computers are rugged, industrial
 machines; and I'm getting to put them to work making these projects solid. Not
@@ -100,7 +100,7 @@ on some second-hand industrial computers, to do some bidding for me. Namely, I
 picked up some old SEL (Schweitzer Engineering Laboratories) SEL-1102 rugged
 computers. They're based on an old Intel x686 processor, and don't have anything
 special in the memory arena... but they're super solid machines.&lt;/p&gt;
-&lt;img alt="SEL Rugged Computers to Run my DevOps Pipeline" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/SEL1102/IMG_0849.jpg" style="width: 600px;" /&gt;
+&lt;img alt="SEL Rugged Computers to Run my DevOps Pipeline" src="https://engineerjoe440.github.io/stanley-solutions-blog/IMG_0849.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;My comment about being a &amp;quot;computer graveyard&amp;quot; might still apply to these
 computers too, but well, they've got a lot more life left in them. You see,
 these are ruggedized computers designed for installation into some of the most
@@ -142,6 +142,6 @@ that I can access them remotely and start integrating with GitHub actions to
 fire off the builds and testing.&lt;/p&gt;
 &lt;p&gt;I'm very excited to be putting some SEL equipment to work in my own personal
 development practices, so I'm sure I'll have some more updates as I go along!&lt;/p&gt;
-&lt;img alt="Putting some SEL Hardware to Work" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/SEL1102/IMG_0850.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Putting some SEL Hardware to Work" src="https://engineerjoe440.github.io/stanley-solutions-blog/IMG_0850.jpg" style="width: 600px;" /&gt;
 &lt;/div&gt;
 </content><category term="DevOps"></category><category term="SEL"></category><category term="Industrial"></category><category term="Rugged Computer"></category><category term="Ci/Cd"></category><category term="Development"></category><category term="Server"></category></entry></feed>

@@ -28,7 +28,7 @@ was basically constructed with a AA battery pack, a few spring terminals, and a 
 explain the basics of an energy source, energy transmission, and an energy sink (load). What made this fun, was that we could go around once the students
 had their little power system running and create a &amp;quot;fault&amp;quot; by cutting the wire between the spring terminals. Then we could instruct the students to fix
 their system and leave them to their own devices (and a few odd assorted materials).&lt;/p&gt;
-&lt;img alt="Basic circuit demonstration board (one of three identical models)." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203019151_490948755513699_8766751111523803463_n.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Basic circuit demonstration board (one of three identical models)." src="https://engineerjoe440.github.io/stanley-solutions-blog/203019151_490948755513699_8766751111523803463_n.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;I also made three of the overloading circuit. This one was, by far, my favorite. You see, these boards are set up with 5 separately controlled T-10
 sockets, each with their own ON-OFF latching pushbutton. There's also the matter of a USB phone charger connected at the &amp;quot;far end&amp;quot;. The whole thing is
 powered by a single 9V battery, connected to the rest of the circuit by a single 1-ohm power resistor. This all means that as each of the incandescent
@@ -37,7 +37,7 @@ is rated for some 6-24VDC (approximately). Meaning that when the voltage input d
 That means that the system will quite easily overload to the point of failure. This was a great example for the students, because it allowed them to
 truly play with the system until they can get a sense about how the system can be &lt;em&gt;&amp;quot;loaded down&amp;quot;&lt;/em&gt;. The point here was just to share with students just
 how the power system can theoretically be overloaded, and how that's not good for any of the consumers. Pretty cool to see in action!&lt;/p&gt;
-&lt;img alt="Overloading circuit demonstration board (one of three identical models)." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203656236_2868616930066285_3189504440222786790_n.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Overloading circuit demonstration board (one of three identical models)." src="https://engineerjoe440.github.io/stanley-solutions-blog/203656236_2868616930066285_3189504440222786790_n.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;Finally, I built a single board (on a whim, I might add) to demonstrate how a breaker acts (effectively) as a latching switch. I used a simple ice-cube
 relay to act in this capacity, and to be controlled by a few simple push-buttons. One button (red, of course, to match the electrical industry standard)
 was used to &lt;em&gt;close&lt;/em&gt; the breaker. One button (green -just as the red- matching the industry standard) to &lt;em&gt;&amp;quot;open&amp;quot;&lt;/em&gt; the circuit, and finally a simple button
@@ -45,7 +45,7 @@ offset from the others, and labeled to indicate a fault. It's quite simple, real
 so as to reduce the voltage across the relay coil to the point of loosing the magnetic field, and &lt;em&gt;falling&lt;/em&gt; open. However, from the student's perspective,
 it all looks and feels real. It seems that the &amp;quot;breaker&amp;quot; is responding to commands to open or close, and that it responds to a fault by opening to protect
 itself and the system. Lastly, I should note, there is a single blue LED in this circuit, too, just to indicate whether the circuit is energized or not.&lt;/p&gt;
-&lt;img alt="Breaker circuit demo board." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203681209_804202393601180_447891412997591781_n.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Breaker circuit demo board." src="https://engineerjoe440.github.io/stanley-solutions-blog/203681209_804202393601180_447891412997591781_n.jpg" style="width: 600px;" /&gt;
 &lt;/div&gt;
 &lt;div class="section" id="the-results"&gt;
 &lt;h2&gt;The Results:&lt;/h2&gt;

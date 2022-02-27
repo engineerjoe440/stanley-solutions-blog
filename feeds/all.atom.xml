@@ -1057,7 +1057,7 @@ projects as I am.&lt;/p&gt;
 so lucky to sponsor, and how excited I am for its future, and what future students will bring to it.&lt;/p&gt;
 &lt;div class="section" id="the-project"&gt;
 &lt;h2&gt;The Project&lt;/h2&gt;
-&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/team-firewatch.jpg" width="300" alt="Meet Team Firewatch!" align="right"&gt;&lt;p&gt;So what was it? Well, the project in a nutshell was to lay the groundwork for a design of a device which will detect wildfire using infrasonic sound;
+&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/team-firewatch.jpg" width="300" alt="Meet Team Firewatch!" align="right"&gt;&lt;p&gt;So what was it? Well, the project in a nutshell was to lay the groundwork for a design of a device which will detect wildfire using infrasonic sound;
 that's the sound that's lower than what we can hear - think that death rumble from that old beater car you drove in high-school. No? Just me? Oh...&lt;/p&gt;
 &lt;p&gt;The infrasonic sound would be detected by an ultra-economical (yeah, cheap) condenser microphone and amplified before being measured by a small
 microcontroller responsible for wrapping that data up into a message sent over-the-air back to some central base. But what's to make it more interesting,
@@ -1127,7 +1127,7 @@ was basically constructed with a AA battery pack, a few spring terminals, and a 
 explain the basics of an energy source, energy transmission, and an energy sink (load). What made this fun, was that we could go around once the students
 had their little power system running and create a &amp;quot;fault&amp;quot; by cutting the wire between the spring terminals. Then we could instruct the students to fix
 their system and leave them to their own devices (and a few odd assorted materials).&lt;/p&gt;
-&lt;img alt="Basic circuit demonstration board (one of three identical models)." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203019151_490948755513699_8766751111523803463_n.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Basic circuit demonstration board (one of three identical models)." src="https://engineerjoe440.github.io/stanley-solutions-blog/203019151_490948755513699_8766751111523803463_n.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;I also made three of the overloading circuit. This one was, by far, my favorite. You see, these boards are set up with 5 separately controlled T-10
 sockets, each with their own ON-OFF latching pushbutton. There's also the matter of a USB phone charger connected at the &amp;quot;far end&amp;quot;. The whole thing is
 powered by a single 9V battery, connected to the rest of the circuit by a single 1-ohm power resistor. This all means that as each of the incandescent
@@ -1136,7 +1136,7 @@ is rated for some 6-24VDC (approximately). Meaning that when the voltage input d
 That means that the system will quite easily overload to the point of failure. This was a great example for the students, because it allowed them to
 truly play with the system until they can get a sense about how the system can be &lt;em&gt;&amp;quot;loaded down&amp;quot;&lt;/em&gt;. The point here was just to share with students just
 how the power system can theoretically be overloaded, and how that's not good for any of the consumers. Pretty cool to see in action!&lt;/p&gt;
-&lt;img alt="Overloading circuit demonstration board (one of three identical models)." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203656236_2868616930066285_3189504440222786790_n.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Overloading circuit demonstration board (one of three identical models)." src="https://engineerjoe440.github.io/stanley-solutions-blog/203656236_2868616930066285_3189504440222786790_n.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;Finally, I built a single board (on a whim, I might add) to demonstrate how a breaker acts (effectively) as a latching switch. I used a simple ice-cube
 relay to act in this capacity, and to be controlled by a few simple push-buttons. One button (red, of course, to match the electrical industry standard)
 was used to &lt;em&gt;close&lt;/em&gt; the breaker. One button (green -just as the red- matching the industry standard) to &lt;em&gt;&amp;quot;open&amp;quot;&lt;/em&gt; the circuit, and finally a simple button
@@ -1144,7 +1144,7 @@ offset from the others, and labeled to indicate a fault. It's quite simple, real
 so as to reduce the voltage across the relay coil to the point of loosing the magnetic field, and &lt;em&gt;falling&lt;/em&gt; open. However, from the student's perspective,
 it all looks and feels real. It seems that the &amp;quot;breaker&amp;quot; is responding to commands to open or close, and that it responds to a fault by opening to protect
 itself and the system. Lastly, I should note, there is a single blue LED in this circuit, too, just to indicate whether the circuit is energized or not.&lt;/p&gt;
-&lt;img alt="Breaker circuit demo board." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203681209_804202393601180_447891412997591781_n.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Breaker circuit demo board." src="https://engineerjoe440.github.io/stanley-solutions-blog/203681209_804202393601180_447891412997591781_n.jpg" style="width: 600px;" /&gt;
 &lt;/div&gt;
 &lt;div class="section" id="the-results"&gt;
 &lt;h2&gt;The Results:&lt;/h2&gt;
@@ -1169,22 +1169,22 @@ looking amo-can stereos, online, but that's not quite my style. If you know me, 
 all of my power supply components in the can; and throw in a few of my own touches along the way. So, I decided I'd get to work.&lt;/p&gt;
 &lt;p&gt;A little too much drooling and visitation of our favorite, least-favorite A-to-Z online marketplace, I had an assortment of nerdy-looking switch
 assemblies, voltage meters, and a beefy little multi-output DC power supply.&lt;/p&gt;
-&lt;img alt="The Controls of my &amp;quot;Unique&amp;quot; Power Can" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203727287_161197975998707_4701277717982762523_n.jpg" style="width: 600px;" /&gt;
+&lt;img alt="The Controls of my &amp;quot;Unique&amp;quot; Power Can" src="https://engineerjoe440.github.io/stanley-solutions-blog/203727287_161197975998707_4701277717982762523_n.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;Now with all these neat little switches, I've got to do &lt;strong&gt;*something*&lt;/strong&gt; with them, right?&lt;/p&gt;
 &lt;p&gt;You bet!&lt;/p&gt;
 &lt;p&gt;How about adding a little Linux computer, to the mix? Sure! I gave yet another old machine new life by taking an old
 &lt;a class="reference external" href="https://www.embeddedarm.com/"&gt;Technologic computer&lt;/a&gt; and lobbing it into the case; mounted with Ethernet, serial terminal, and dual USB ports exposed
 for easy access. My own sort of computer tower, you might say.&lt;/p&gt;
-&lt;img alt="Mounted a Linux computer in there too!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203630587_497812148003314_6021780960392169872_n.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Mounted a Linux computer in there too!" src="https://engineerjoe440.github.io/stanley-solutions-blog/203630587_497812148003314_6021780960392169872_n.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;But this thing's ultimately a power supply, right? So it's got to have &lt;em&gt;power&lt;/em&gt;! And that, it does! Inside, I've mounted a little multi-output power supply
 with 3 discrete taps; 24V, 12V, and 5V. I don't quite know what I'm going to do with 24V, yet, but the 5V and 12V are already serving my purposes to power
 the little computer, a variety of lights, and perhaps a few more odds and ends as time progresses.&lt;/p&gt;
-&lt;img alt="The power!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/203150896_2002088606597054_7741904286201403555_n.jpg" style="width: 600px;" /&gt;
+&lt;img alt="The power!" src="https://engineerjoe440.github.io/stanley-solutions-blog/203150896_2002088606597054_7741904286201403555_n.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;What's more, however, is that I've also inserted several USB power hubs, and mounted a computer charger inside the can so that I can power my laptop, too!
 In fact, as I sit her writing, I'm using the power supply right now!&lt;/p&gt;
 &lt;p&gt;Now, I'll grant that like so many of my little tinkering projects, this one is nowhere near being complete, but I will say that &lt;em&gt;one&lt;/em&gt; of the switches
 does function to control the two voltage meters mounted inside (one analog, the other digital).&lt;/p&gt;
-&lt;img alt="The final (but not finished) product!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/demo-boards-and-amo-power/202866327_175178427900304_1831963921642931273_n.jpg" style="width: 600px;" /&gt;
+&lt;img alt="The final (but not finished) product!" src="https://engineerjoe440.github.io/stanley-solutions-blog/202866327_175178427900304_1831963921642931273_n.jpg" style="width: 600px;" /&gt;
 &lt;div class="section" id="specs"&gt;
 &lt;h2&gt;Specs:&lt;/h2&gt;
 &lt;p&gt;So let's talk about what all's in this thing!&lt;/p&gt;
@@ -1306,7 +1306,7 @@ time to build it back into my simple little service.&lt;/p&gt;
 for now, I'm happy to stream my music back to my cabinet stereo with the power of
 Linux.&lt;/p&gt;
 </content><category term="Raspberry Pi"></category><category term="VBAN"></category><category term="Audio Network"></category><category term="Raspberry Pi"></category><category term="Python"></category><category term="Linux"></category></entry><entry><title>Servers in the Basement...</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/jenkins-servers-in-the-basement.html" rel="alternate"></link><published>2021-02-14T19:23:00-08:00</published><updated>2021-02-14T20:40:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-02-14:/stanley-solutions-blog/jenkins-servers-in-the-basement.html</id><summary type="html">&lt;p class="first last"&gt;Some people keep their creepy Christmas decorations in their basement. Others keep their continuous integration servers down there too...&lt;/p&gt;
-</summary><content type="html">&lt;img alt="SEL Rugged Computers mounted and ready for work!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkinsbasement/IMG_0851.jpg" style="width: 600px;" /&gt;
+</summary><content type="html">&lt;img alt="SEL Rugged Computers mounted and ready for work!" src="https://engineerjoe440.github.io/stanley-solutions-blog/IMG_0851.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;Whelp, I've gone and done it. I've mounted and installed one of my SEL computers
 and set it up for running Jenkins!&lt;/p&gt;
 &lt;p&gt;This isn't going to be a very in-depth article, but I wanted to say that it's
@@ -1323,7 +1323,7 @@ now so that they can access the private resources they need for testing, but
 they can be kicked off by my commits and pushes to their repositories on GitHub.&lt;/p&gt;
 &lt;p&gt;So... now I can really start cranking on that code, and Jenkins can do some of
 my dirty work to start running the tests for me!&lt;/p&gt;
-&lt;img alt="Gotta love that SEL blue!" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkinsbasement/IMG_0852.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Gotta love that SEL blue!" src="https://engineerjoe440.github.io/stanley-solutions-blog/IMG_0852.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;I want to restate that I'm very excited to be using some old SEL hardware and
 giving it a second lease on life. These computers are rugged, industrial
 machines; and I'm getting to put them to work making these projects solid. Not
@@ -1345,7 +1345,7 @@ on some second-hand industrial computers, to do some bidding for me. Namely, I
 picked up some old SEL (Schweitzer Engineering Laboratories) SEL-1102 rugged
 computers. They're based on an old Intel x686 processor, and don't have anything
 special in the memory arena... but they're super solid machines.&lt;/p&gt;
-&lt;img alt="SEL Rugged Computers to Run my DevOps Pipeline" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/SEL1102/IMG_0849.jpg" style="width: 600px;" /&gt;
+&lt;img alt="SEL Rugged Computers to Run my DevOps Pipeline" src="https://engineerjoe440.github.io/stanley-solutions-blog/IMG_0849.jpg" style="width: 600px;" /&gt;
 &lt;p&gt;My comment about being a &amp;quot;computer graveyard&amp;quot; might still apply to these
 computers too, but well, they've got a lot more life left in them. You see,
 these are ruggedized computers designed for installation into some of the most
@@ -1387,7 +1387,7 @@ that I can access them remotely and start integrating with GitHub actions to
 fire off the builds and testing.&lt;/p&gt;
 &lt;p&gt;I'm very excited to be putting some SEL equipment to work in my own personal
 development practices, so I'm sure I'll have some more updates as I go along!&lt;/p&gt;
-&lt;img alt="Putting some SEL Hardware to Work" src="https://engineerjoe440.github.io/stanley-solutions-blog/images/SEL1102/IMG_0850.jpg" style="width: 600px;" /&gt;
+&lt;img alt="Putting some SEL Hardware to Work" src="https://engineerjoe440.github.io/stanley-solutions-blog/IMG_0850.jpg" style="width: 600px;" /&gt;
 &lt;/div&gt;
 </content><category term="DevOps"></category><category term="SEL"></category><category term="Industrial"></category><category term="Rugged Computer"></category><category term="Ci/Cd"></category><category term="Development"></category><category term="Server"></category></entry><entry><title>GitLab, Jenkins, Python, and the Raspberry Pi!</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/gitlab-jenkins-and-the-rpi.html" rel="alternate"></link><published>2020-12-21T19:07:00-08:00</published><updated>2021-01-04T21:07:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-12-21:/stanley-solutions-blog/gitlab-jenkins-and-the-rpi.html</id><summary type="html">&lt;p class="first"&gt;I'm finally getting around to setting up some CI/CD systems for my self-hosted GitLab server... About Time!&lt;/p&gt;
 &lt;p class="last"&gt;CI/CD, Dev Ops, Pipelines, Workflows, Automated Deployment&lt;/p&gt;
@@ -1472,7 +1472,7 @@ repository information. I'm going to focus, instead, on the build operations.&lt
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;With the new Jenkins server up and running, create a &amp;quot;New Item,&amp;quot; give it a
 descriptive, memorable name, and set it as a &amp;quot;Freestyle Project&amp;quot;&lt;/p&gt;
-&lt;img alt="Create a new project in Jenkins for CI." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkins-new-config.png" style="width: 800px;" /&gt;
+&lt;img alt="Create a new project in Jenkins for CI." src="https://engineerjoe440.github.io/stanley-solutions-blog/jenkins-new-config.png" style="width: 800px;" /&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;After configuring the various other settings relevant to the project (repository,
 build-triggers, etc.) find the &lt;em&gt;&amp;quot;Build&amp;quot;&lt;/em&gt; section and from the &lt;em&gt;&amp;quot;Add build step&amp;quot;&lt;/em&gt;
@@ -1575,7 +1575,7 @@ substituting a few extra arguments to satisfy the system requirements (Alsa only
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;After I got all of that working, I was able to set up my Windows desktop running Banana Mixer
 to stream to my Raspberry Pi using VBAN. I configured VBAN on my desktop to stream as such:&lt;/p&gt;
-&lt;img alt="Windows VBAN server configuration." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/vban_desktop.png" style="width: 800px;" /&gt;
+&lt;img alt="Windows VBAN server configuration." src="https://engineerjoe440.github.io/stanley-solutions-blog/vban_desktop.png" style="width: 800px;" /&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Then, I could simply issue the following command in my Raspberry Pi to start listening!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; vban_receptor -i &amp;lt;my-desktop-ip&amp;gt; -p &lt;span class="m"&gt;6980&lt;/span&gt; -s StereoPi -d front -q &lt;span class="m"&gt;0&lt;/span&gt;
@@ -1930,17 +1930,17 @@ to make it work as I wished.&lt;/p&gt;
 &lt;li&gt;&lt;p class="first"&gt;Locate existing highlight.js installation location by finding dependent module (in my
 case marp). Then open directory (since I'm using Windows, I can use
 &lt;cite&gt;Explorer &amp;lt;path/to/marp/directory&amp;gt;&lt;/cite&gt;&lt;/p&gt;
-&lt;img alt="Identify the install location." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/61131-highlighting/cmd-view.png" /&gt;
+&lt;img alt="Identify the install location." src="https://engineerjoe440.github.io/stanley-solutions-blog/cmd-view.png" /&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Navigate to the directory containing the module of interest, then navigate to the
 &lt;cite&gt;node_modules/highlight.js&lt;/cite&gt; folder underneath the desired module. In my case, since
 I'm using marp-cli, I navigated to
 &lt;cite&gt;node_modules/&amp;#64;marp-team/marp-cli/node_modules/highlight.js/lib&lt;/cite&gt;&lt;/p&gt;
-&lt;img alt="Locate the `index.js` file for modification." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/61131-highlighting/explorer-view.png" /&gt;
+&lt;img alt="Locate the `index.js` file for modification." src="https://engineerjoe440.github.io/stanley-solutions-blog/explorer-view.png" /&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Open the &lt;cite&gt;index.js&lt;/cite&gt; file in a text editor and add a new line to register the &lt;cite&gt;iecst&lt;/cite&gt;
 language.&lt;/p&gt;
-&lt;img alt="Registering the new language." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/61131-highlighting/register-language.png" /&gt;
+&lt;img alt="Registering the new language." src="https://engineerjoe440.github.io/stanley-solutions-blog/register-language.png" /&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Finally, navigate to the languages folder and add the &lt;cite&gt;iecst.js&lt;/cite&gt; file. Here, for my
 application, I had to make some modifications (which I documented fully in an &lt;a class="reference external" href="https://github.com/highlightjs/highlightjs-structured-text/issues/9#issuecomment-685266264"&gt;issue&lt;/a&gt;
@@ -1956,7 +1956,7 @@ integration comes along. For the meantime, here's the takeaway:&lt;/p&gt;
 going forward!&lt;/p&gt;
 &lt;p&gt;Oh, and how about what that syntax-highlighted code? What does it look like anyway?&lt;/p&gt;
 &lt;p&gt;Have a look for yourself!&lt;/p&gt;
-&lt;img alt="An example of (nonsense) syntax-highlighted 61131 code." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/61131-highlighting/61131example.png" /&gt;
+&lt;img alt="An example of (nonsense) syntax-highlighted 61131 code." src="https://engineerjoe440.github.io/stanley-solutions-blog/61131example.png" /&gt;
 &lt;/div&gt;
 </content><category term="IEC-61131-3"></category><category term="iec-61131-3"></category><category term="documentation"></category></entry><entry><title>A Picture is Worth a Thousand Words</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/making-bitmap-images-from-bytes.html" rel="alternate"></link><published>2020-08-21T08:49:00-07:00</published><updated>2020-09-01T11:42:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2020-08-21:/stanley-solutions-blog/making-bitmap-images-from-bytes.html</id><summary type="html">&lt;p class="first last"&gt;Making images and plotting might just be possible in real-time-controllers.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;I was introduced to a very nice gentleman about a year ago who was demonstrating some
@@ -1990,7 +1990,7 @@ etcetera. Here's an example of what an event record might look like. This was ta
 a technical paper written titled &amp;quot;Numerical model framework of power quality events&amp;quot; by
 Rodney Tan and Vigna Ramachandaramurthy; the full paper's linked below, so take a look if
 you're so inclined!&lt;/p&gt;
-&lt;img alt="An example power system fault &amp;quot;Event Record&amp;quot;." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/power-system-fault.png" /&gt;
+&lt;img alt="An example power system fault &amp;quot;Event Record&amp;quot;." src="https://engineerjoe440.github.io/stanley-solutions-blog/power-system-fault.png" /&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://www.researchgate.net/publication/290451701_Numerical_model_framework_of_power_quality_events"&gt;Tan, Rodney &amp;amp; Ramachandaramurthy, Vigna K.. (2010). Numerical model framework of power
 quality events. 43. 30-47.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Soooo, the idea that this gentleman and his team had crafted was to extract the

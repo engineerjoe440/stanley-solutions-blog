@@ -152,7 +152,7 @@ substituting a few extra arguments to satisfy the system requirements (Alsa only
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;After I got all of that working, I was able to set up my Windows desktop running Banana Mixer
 to stream to my Raspberry Pi using VBAN. I configured VBAN on my desktop to stream as such:&lt;/p&gt;
-&lt;img alt="Windows VBAN server configuration." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/vban_desktop.png" style="width: 800px;" /&gt;
+&lt;img alt="Windows VBAN server configuration." src="https://engineerjoe440.github.io/stanley-solutions-blog/vban_desktop.png" style="width: 800px;" /&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Then, I could simply issue the following command in my Raspberry Pi to start listening!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; vban_receptor -i &amp;lt;my-desktop-ip&amp;gt; -p &lt;span class="m"&gt;6980&lt;/span&gt; -s StereoPi -d front -q &lt;span class="m"&gt;0&lt;/span&gt;

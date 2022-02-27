@@ -165,7 +165,7 @@ projects as I am.&lt;/p&gt;
 so lucky to sponsor, and how excited I am for its future, and what future students will bring to it.&lt;/p&gt;
 &lt;div class="section" id="the-project"&gt;
 &lt;h2&gt;The Project&lt;/h2&gt;
-&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/team-firewatch.jpg" width="300" alt="Meet Team Firewatch!" align="right"&gt;&lt;p&gt;So what was it? Well, the project in a nutshell was to lay the groundwork for a design of a device which will detect wildfire using infrasonic sound;
+&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/team-firewatch.jpg" width="300" alt="Meet Team Firewatch!" align="right"&gt;&lt;p&gt;So what was it? Well, the project in a nutshell was to lay the groundwork for a design of a device which will detect wildfire using infrasonic sound;
 that's the sound that's lower than what we can hear - think that death rumble from that old beater car you drove in high-school. No? Just me? Oh...&lt;/p&gt;
 &lt;p&gt;The infrasonic sound would be detected by an ultra-economical (yeah, cheap) condenser microphone and amplified before being measured by a small
 microcontroller responsible for wrapping that data up into a message sent over-the-air back to some central base. But what's to make it more interesting,

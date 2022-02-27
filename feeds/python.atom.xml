@@ -476,7 +476,7 @@ repository information. I'm going to focus, instead, on the build operations.&lt
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;With the new Jenkins server up and running, create a &amp;quot;New Item,&amp;quot; give it a
 descriptive, memorable name, and set it as a &amp;quot;Freestyle Project&amp;quot;&lt;/p&gt;
-&lt;img alt="Create a new project in Jenkins for CI." src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkins-new-config.png" style="width: 800px;" /&gt;
+&lt;img alt="Create a new project in Jenkins for CI." src="https://engineerjoe440.github.io/stanley-solutions-blog/jenkins-new-config.png" style="width: 800px;" /&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;After configuring the various other settings relevant to the project (repository,
 build-triggers, etc.) find the &lt;em&gt;&amp;quot;Build&amp;quot;&lt;/em&gt; section and from the &lt;em&gt;&amp;quot;Add build step&amp;quot;&lt;/em&gt;
