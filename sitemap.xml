@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2022-02-16T04:28:37-00:00</lastmod>
+<lastmod>2022-02-27T18:42:36-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/bringing-light-to-the-living-room.html</loc>
+<lastmod>2022-02-27T09:52:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -299,7 +306,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/home-improvement.html</loc>
-<lastmod>2021-12-07T21:36:00-07:53</lastmod>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -349,6 +356,69 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/youth.html</loc>
 <lastmod>2022-02-15T20:17:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/esp8266.html</loc>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/tasmota.html</loc>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/smart-home.html</loc>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-assistant.html</loc>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/mqtt.html</loc>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/iot.html</loc>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/lighting.html</loc>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/lights.html</loc>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/development.html</loc>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -439,13 +509,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/youth.html</loc>
-<lastmod>2022-02-15T20:17:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/development.html</loc>
 <lastmod>2022-02-15T20:17:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -837,13 +900,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/iot.html</loc>
-<lastmod>2021-07-12T21:05:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/mcu.html</loc>
 <lastmod>2021-07-12T21:05:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -1110,13 +1166,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/smart-home.html</loc>
-<lastmod>2020-11-22T19:32:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/wifi.html</loc>
 <lastmod>2020-11-22T19:32:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -1202,7 +1251,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2022-02-15T20:17:00-07:53</lastmod>
+<lastmod>2022-02-27T09:52:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
