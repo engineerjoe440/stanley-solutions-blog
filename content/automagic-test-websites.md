@@ -9,4 +9,11 @@ Summary: Over the last few months, I've been working with a 4-H member to develo
 
 
 
-<iframe src="https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader/-/raw/develop/Jenkinsfile" width="500" height="300" frameBorder="2">
+As you may already know, I've been working on some fun and interesting stuff with some 4-H members over the last few months. We're developing a
+[Python-based photo-upload-app](/reactjs-python-pictures-and-4h.html) to allow 4-H youth (delegates) at a youth conference upload photos securely
+to participate in competitions during the conference, and to share photos for the end-of-conference-slideshow.
+
+<object data="https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader/-/raw/develop/Jenkinsfile" type="text/plain"
+width="500" style="height: 300px">
+<a href="https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader/-/raw/develop/Jenkinsfile">No Support?</a>
+</object>
