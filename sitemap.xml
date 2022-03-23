@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2022-03-02T04:20:06-00:00</lastmod>
+<lastmod>2022-03-23T00:33:52-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/ideas-for-swine-education.html</loc>
+<lastmod>2022-03-22T16:54:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -355,7 +362,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/youth.html</loc>
-<lastmod>2022-02-15T20:17:00-07:53</lastmod>
+<lastmod>2022-03-22T16:54:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/youth.html</loc>
+<lastmod>2022-03-22T16:54:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/swine.html</loc>
+<lastmod>2022-03-22T16:54:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/4-h.html</loc>
+<lastmod>2022-03-22T16:54:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/livestock.html</loc>
+<lastmod>2022-03-22T16:54:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/education.html</loc>
+<lastmod>2022-03-22T16:54:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -508,13 +550,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/youth.html</loc>
-<lastmod>2022-02-15T20:17:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/fastapi.html</loc>
 <lastmod>2022-02-15T20:17:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -579,13 +614,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/logic.html</loc>
-<lastmod>2022-02-09T07:54:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/4-h.html</loc>
 <lastmod>2022-02-09T07:54:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -1251,7 +1279,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2022-02-27T09:52:00-07:53</lastmod>
+<lastmod>2022-03-22T16:54:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
