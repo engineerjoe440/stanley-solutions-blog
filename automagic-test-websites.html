@@ -154,7 +154,213 @@ Again though, I'll note that there is some prior setup required to make the whol
 
 <h4>4) Dockerize</h4>
 <p>This whole thing runs in a little docker container. Pretty simple!</p>
-<h1>TODO... I'll write more here soon!</h1>
+<div class="highlight"><pre><span></span><code><span class="c"># Dockerfile for Idaho 4-H Photo Upload Service</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9</span>
+
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/server</span>
+
+<span class="k">COPY</span><span class="w"> </span>./backend /server
+
+<span class="k">RUN</span><span class="w"> </span>pip install --no-cache-dir --upgrade -r /server/requirements.txt
+
+<span class="c"># Run Server on localhost:8383 so Nginx can Hit it without Direct Extern. Access</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;uvicorn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;main:app&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--host&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--port&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;80&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--log-config&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;log_conf.yml&quot;</span><span class="p">]</span>
+</code></pre></div>
+
+<p>Basically, we just dockerize the Python application after pulling all of its backend source contents into one spot. This whole container is then built and
+deployed with a little docker-compose magic:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span><span class="w"></span>
+
+<span class="c1"># Web-UI is Defined by Local &quot;Dockerfile&quot;, Must Be Rebuilt Each Time</span><span class="w"></span>
+<span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">webui</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./</span><span class="w"></span>
+<span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./Dockerfile</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$NEXT_AVAIL_APP_PORT:80</span><span class="w"></span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$RESTART_POLICY</span><span class="w"></span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LYCHEE_API_USER</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LYCHEE_API_TOKEN</span><span class="w"></span>
+</code></pre></div>
+
+<p>Notice the use of a few things, we've got several environment variables in that docker-compose file:</p>
+<ul>
+<li><code>NEXT_AVAIL_APP_PORT</code> Defines the port that should be used on the host system such that NGINX may pass it traffic.</li>
+<li><code>RESTART_POLICY</code> Defines whether or not the container should restart automatically, this is only set for the <code>main</code> and <code>develop</code> branches.</li>
+<li><code>LYCHEE_API_USER</code> Calls out that a local environment variable should be pulled from Jenkins to declare the username to use for Lychee access.</li>
+<li><code>LYCHEE_API_TOKEN</code> As for the username, calls out reference to what Jenkins provides as the password (token) for the API access to Lychee.</li>
+</ul>
+<p>This, of course, is all leveraged in Jenkins:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">def</span> <span class="nf">buildDockerContainer</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Docker Container&quot;</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Check for &quot;Default&quot; Conditions</span>
+        <span class="c1">// MAIN and DEVELOP Branches Should Have Consistent Ports</span>
+        <span class="c1">// Their Containers Should Also Restart Automatically</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span> <span class="o">==</span> <span class="s2">&quot;main&quot;</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span> <span class="o">=</span> <span class="s2">&quot;8000&quot;</span>
+            <span class="n">env</span><span class="o">.</span><span class="na">RESTART_POLICY</span> <span class="o">=</span> <span class="s2">&quot;always&quot;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span> <span class="o">==</span> <span class="s2">&quot;develop&quot;</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span> <span class="o">=</span> <span class="s2">&quot;8001&quot;</span>
+            <span class="n">env</span><span class="o">.</span><span class="na">RESTART_POLICY</span> <span class="o">=</span> <span class="s2">&quot;always&quot;</span>
+        <span class="o">}</span>
+        <span class="n">echo</span> <span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span>
+
+        <span class="c1">// Provide credentials to the docker-compose script so that</span>
+        <span class="c1">// container will reference the Lychee API credentials.</span>
+        <span class="n">withCredentials</span><span class="o">([</span>
+            <span class="n">usernamePassword</span><span class="o">(</span><span class="nl">credentialsId:</span> <span class="s1">&#39;idaho4hapi&#39;</span><span class="o">,</span>
+            <span class="nl">usernameVariable:</span> <span class="s1">&#39;LYCHEE_API_USER&#39;</span><span class="o">,</span>
+            <span class="nl">passwordVariable:</span> <span class="s1">&#39;LYCHEE_API_TOKEN&#39;</span><span class="o">)</span>
+        <span class="o">])</span> <span class="o">{</span>
+            <span class="c1">// Build the Container - Using the Branch-Name as Env Var</span>
+            <span class="n">sh</span> <span class="s2">&quot;docker-compose up -d --build&quot;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>The Jenkins scripting is responsible for doing a few things. First and foremost, if the branch is one of the "static" branches (<code>main</code> or <code>develop</code>),
+it's given a static port (the same as the <em>last</em> time this branch was deployed). If it's not one of the key branches, then it's given the next available
+port, one that comes from a file on the host OS and is incremented each time there's a new deployment. Admittedly, this is a bit intense, and it makes
+the port move a little more than it probably needs to, but it does ensure somewhat robust port management.</p>
+<p>At the same time the port number is being decided, the restart-policy may be updated. You see, the default restart policy is <code>"no"</code>, indicating that the
+container should NOT restart if it were to fail, or the host OS were to restart; however, that's not the behavior we want for the "static" branches. They
+should restart whenever possible! And that's exactly what the <code>RESTART_POLICY</code> environmental override does. It updates the restart policy fro <code>"no"</code> to
+<code>"always"</code> for the static branches.</p>
+<p>The next piece of the script is to run the docker-compose command, but notice how that's done in the context of a <code>withCredentials</code> block. This allows
+Jenkins to provision the Lyche credentials to environmental variables that docker-compose can reference and inject into the container at build-time. This
+gives us the ability to launch the container with the appropriate credentials, while securing them in Jenkins and avoiding the need to have them stored as
+a static file either in GitLab, or on the server, itself. Sweet!</p>
+<h4>5) Deploy in NGINX</h4>
+<p>Who likes typing in the specific port for the web-service they want to use... or better yet, besides the nerdier of us who know about it... who would even think of that?</p>
+<p>That's exactly where NGINX comes in in this case. NGINX does all of the proxying for me on this server. What's a proxy? you ask. Well, according to
+the Merriam-Webster dictionary:</p>
+<blockquote>
+<p>proxy (noun)</p>
+<p>\ ˈpräk-sē  \</p>
+<p>the agency, function, or office of a deputy who acts as a substitute for another</p>
+</blockquote>
+<p>In my case, NGINX <em>proxies</em> or represents each of the various services and, in turn, passes web requests to them. So for each new branch, I need to create a new proxy for the associated, url-ified branch name to pass to the specific application port that the container is listening on.</p>
+<p>That's done pretty simply by running a little Python script to generate the NGINX configuration, then we restart NGINX to accept the new config.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">def</span> <span class="nf">deployContainerInNginx</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Deploy in NGINX&quot;</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Generate the NGINX Config File</span>
+        <span class="n">sh</span> <span class="s2">&quot;python3 ./writeNginxConfig.py&quot;</span>
+
+        <span class="c1">// Restart NGINX To Apply Config</span>
+        <span class="n">sh</span> <span class="s2">&quot;sudo /usr/bin/systemctl restart nginx&quot;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>That little Python script helps us out too, it basically sucks in a few of the environmental variables to determine how the configuration should be written
+(or if it should be written at all - it's not written for <code>main</code> or <code>develop</code> branches). After slurping up those environmental variables, it writes out a
+new file with the configuration into NGINX's sites-enabled directory.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">################################################################################</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">deployNginx.py</span>
+
+<span class="sd">A deployment helper script to automate the addition of new NGINX configuration</span>
+<span class="sd">files in the /etc/nginx/sites-enabled directory.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1">################################################################################</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">PORT_VAR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NEXT_AVAIL_APP_PORT&quot;</span><span class="p">)</span>
+<span class="n">BRANCH_VAR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DOCKER_BRANCH_NAME&quot;</span><span class="p">)</span>
+
+<span class="n">NGINX_CONFIG</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2"># </span><span class="si">{BRANCH_NAME}</span><span class="s2"> Configuration</span>
+<span class="s2">server {{</span>
+<span class="s2">    listen 80;</span>
+<span class="s2">    server_name </span><span class="si">{BRANCH_NAME}</span><span class="s2">.idaho4h.com www.</span><span class="si">{BRANCH_NAME}</span><span class="s2">.idaho4h.com;</span>
+
+<span class="s2">    access_log  /home/jenkins/nginx-logs/</span><span class="si">{BRANCH_NAME}</span><span class="s2">.log;</span>
+
+<span class="s2">    location / {{</span>
+<span class="s2">        proxy_pass http://127.0.0.1:</span><span class="si">{CONTAINER_PORT}</span><span class="s2">;</span>
+<span class="s2">        proxy_set_header Host $http_host;</span>
+<span class="s2">        proxy_set_header Upgrade $http_upgrade;</span>
+<span class="s2">        proxy_set_header Connection &quot;upgrade&quot;;</span>
+<span class="s2">        proxy_set_header X-Real-IP $remote_addr;</span>
+<span class="s2">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span>
+<span class="s2">        proxy_set_header X-Scheme $scheme;</span>
+
+<span class="s2">        client_max_body_size 0;</span>
+<span class="s2">    }}</span>
+
+<span class="s2">}}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Branch: &quot;</span><span class="p">,</span> <span class="n">BRANCH_VAR</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Port: &quot;</span><span class="p">,</span> <span class="n">PORT_VAR</span><span class="p">)</span>
+    <span class="c1"># Validate that this is not one of the &quot;special&quot; cases</span>
+    <span class="k">if</span> <span class="n">BRANCH_VAR</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="s1">&#39;develop&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping NGINX Redeploy&quot;</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Stop - Don&#39;t Change Port Number</span>
+    <span class="c1"># Write the New Config File</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/etc/nginx/sites-enabled&#39;</span><span class="p">,</span> <span class="n">BRANCH_VAR</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="c1"># Fill with the Cleaned Branch Variable and the Container&#39;s Port</span>
+            <span class="n">NGINX_CONFIG</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">BRANCH_NAME</span><span class="o">=</span><span class="n">BRANCH_VAR</span><span class="p">,</span>
+                <span class="n">CONTAINER_PORT</span><span class="o">=</span><span class="n">PORT_VAR</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+<span class="c1"># END</span>
+</code></pre></div>
+
+<h4>6) Wrap Up</h4>
+<p>Pretty much exactly what it sounds like, this final stage just puts things "away" after the fact. The primary purpose of this operation is just to store
+the configuration for the TCP port to use for Docker the next time around. It's all simplified with the use of a Python file.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">################################################################################</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">updatePort.py</span>
+
+<span class="sd">A deployment helper script to automate the &quot;bumping&quot; of the container port file</span>
+<span class="sd">to coordinate cross-branch container deployments.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1">################################################################################</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">PORT_VAR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NEXT_AVAIL_APP_PORT&quot;</span><span class="p">)</span>
+<span class="n">BRANCH_VAR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DOCKER_BRANCH_NAME&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Branch: &quot;</span><span class="p">,</span> <span class="n">BRANCH_VAR</span><span class="p">)</span>
+    <span class="c1"># Validate that this is not one of the &quot;special&quot; cases</span>
+    <span class="k">if</span> <span class="n">BRANCH_VAR</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="s1">&#39;develop&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping Automatic Port Update&quot;</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Stop - Don&#39;t Change Port Number</span>
+
+    <span class="c1"># Run Main Operation</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/home/jenkins/app-ports&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="c1"># Modify the Port Number</span>
+    <span class="n">current_port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">PORT_VAR</span><span class="p">)</span>
+    <span class="n">next_port</span> <span class="o">=</span> <span class="n">current_port</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">current_port</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_port</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current Deployment Port: &quot;</span><span class="p">,</span> <span class="n">current_port</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next Deployment Port: &quot;</span><span class="p">,</span> <span class="n">next_port</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/home/jenkins/app-ports&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+<span class="c1"># END</span>
+</code></pre></div>
+
+<h2>Recapping</h2>
+<p>This whole automated flow allows me to keep builds going auto-magically so that I can work with a 4-H youth member to develop this simple little
+photo-upload app without having to go too deep into the weeds with all of the development nightmares, we can focus on the basics of the code, and then let
+the automated system keep it all moving along for us.</p>
 <details>
   <summary>Click to expand all the Jenkinsfile goodness!</summary>
 
@@ -292,6 +498,12 @@ Again though, I'll note that there is some prior setup required to make the whol
 
 
 </details>
+
+<p>That means we spend MORE time on learning, and LESS time on fighting the system! In theory, at least...</p>
+<p><img src="https://imgs.xkcd.com/comics/automation.png" style="width: 100%" alt="Woes of Automation"></p>
+<blockquote>
+<p><em>image credit: <a href="https://xkcd.com/1319/">XKCD comics</a></em></p>
+</blockquote>
     </div>
   </article>
 <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
