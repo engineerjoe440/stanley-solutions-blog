@@ -96,8 +96,67 @@ his own code in GitLab's built in editor, so he doesn't need to learn <code>git<
 isn't the <em>hosting server</em>, itself, it's just the CI server. In fact, I'm using a Linode server which is configured and provisioned as a Jenkins agent (as
 far as my Jenkins instance is concerned) that has NGINX, Python, Docker, and docker-compose installed to do the heavy lifting. This way, I can make it all
 come together quite nicely.</p>
+<p>The pipeline, in a nutshell, looks something like this:</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkins_4h_deployment.png" style="width: 100%" alt="Jenkins Pipeline"></p>
+<p>So let's walk through those stages...</p>
+<h4>1) Prep</h4>
+<p>Pretty much what it sounds like. Pull down the repo source, do any other setup that's necessary.</p>
+<p>Notably though, this stage actually URL-ifies the branch name. In other words, it sanitizes the branch-name to make it appropriate for a unique
+subdomain-name. This is kinda critical. Each branch will end up getting its own subdomain under the <code>idaho4h.com</code> domain that's filed for this server.
+The process is pretty simple, really, just replace whitespace and slashes with dashes so that it's a "legal" subdomain.</p>
+<p>Here's the function I use to do it:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">def</span> <span class="nf">urlifyBranchName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// &quot;Sanitize&quot; the Branch Name as a Sub-Domain Name</span>
+    <span class="c1">// i.e., https://&lt;branch-name&gt;.idaho4h.com/</span>
+    <span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span> <span class="o">=</span> <span class="n">BRANCH_NAME</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s2">&quot; &quot;</span><span class="o">,</span> <span class="s2">&quot;-&quot;</span><span class="o">).</span><span class="na">replaceAll</span><span class="o">(</span><span class="s2">&quot;/&quot;</span><span class="o">,</span> <span class="s2">&quot;-&quot;</span><span class="o">)</span>
+    <span class="n">echo</span> <span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<h4>2) Test Python</h4>
+<p>This one's pretty simple. Since Python is holding up the backend, I want to run some tests. This is pretty much unit-test only (no functional or
+integration tests, here - yet), but it allows us to check some of the simple sanitizer functions we're going to count on for the service.</p>
+<p>Adittedly, I had a bit of trouble with some of the virtual-environment stuff, and haven't gotten back around to fixing that yet, so for now just ignore
+the title of the function. The execution is pretty simple. pip-install the requirements we need, then run <code>pytest</code>. Voila!</p>
+<div class="highlight"><pre><span></span><code><span class="kt">def</span> <span class="nf">runPythonTestsInVirtualEnv</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Test Python&quot;</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Install Requirements</span>
+        <span class="n">sh</span> <span class="s2">&quot;&quot;&quot;python3 -m pip install -r ${WORKSPACE}/${requirementsFile}&quot;&quot;&quot;</span>
+
+        <span class="c1">// Run `pytest`</span>
+        <span class="n">sh</span> <span class="s2">&quot;pytest&quot;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<h4>3) Build the Frontend</h4>
+<p>This whole project relies on a Python backend, and a React.js frontend. I need to get around to documenting this whole intertie a little better, but for
+now, just know that there are two root folders. One for the frontend, the other for the backend. When building the whole thing, we build and export the
+frontend and shove it into the static folder of the backend. Python can then serve all of the javascript, html, and css files from there. Pretty simple,
+really (took a while to figure out, though).</p>
+<p>What this stage does can be summarized as follows: install npm resources, fix what audit warnings can be handled, build the artifacts. Fairly simple!
+Again though, I'll note that there is some prior setup required to make the whole npm ecosystem "happy" with the structure of the frontend folder.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">def</span> <span class="nf">buildReactFrontend</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">stage</span><span class="o">(</span><span class="s2">&quot;React Frontend&quot;</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">dir</span><span class="o">(</span><span class="s2">&quot;frontend&quot;</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Ensure all Packages are Installed</span>
+            <span class="n">sh</span> <span class="s2">&quot;npm install&quot;</span>
+
+            <span class="c1">// Attempt to Resolve Reported Vulnerabilities</span>
+            <span class="n">sh</span> <span class="s2">&quot;npm audit fix || true&quot;</span> <span class="c1">// Don&#39;t fail on normal warning</span>
+
+            <span class="c1">// Use the Build Tooling</span>
+            <span class="n">sh</span> <span class="s2">&quot;npm run build&quot;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<h4>4) Dockerize</h4>
+<p>This whole thing runs in a little docker container. Pretty simple!</p>
+<h1>TODO... I'll write more here soon!</h1>
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Click to expand all the Jenkinsfile goodness!</summary>
 
 <div class="highlight"><pre><span></span><code><span class="cm">/*******************************************************************************</span>
 <span class="cm"> *</span>

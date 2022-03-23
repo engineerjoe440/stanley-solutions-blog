@@ -17,8 +17,67 @@ his own code in GitLab's built in editor, so he doesn't need to learn &lt;code&g
 isn't the &lt;em&gt;hosting server&lt;/em&gt;, itself, it's just the CI server. In fact, I'm using a Linode server which is configured and provisioned as a Jenkins agent (as
 far as my Jenkins instance is concerned) that has NGINX, Python, Docker, and docker-compose installed to do the heavy lifting. This way, I can make it all
 come together quite nicely.&lt;/p&gt;
+&lt;p&gt;The pipeline, in a nutshell, looks something like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/jenkins_4h_deployment.png" style="width: 100%" alt="Jenkins Pipeline"&gt;&lt;/p&gt;
+&lt;p&gt;So let's walk through those stages...&lt;/p&gt;
+&lt;h4&gt;1) Prep&lt;/h4&gt;
+&lt;p&gt;Pretty much what it sounds like. Pull down the repo source, do any other setup that's necessary.&lt;/p&gt;
+&lt;p&gt;Notably though, this stage actually URL-ifies the branch name. In other words, it sanitizes the branch-name to make it appropriate for a unique
+subdomain-name. This is kinda critical. Each branch will end up getting its own subdomain under the &lt;code&gt;idaho4h.com&lt;/code&gt; domain that's filed for this server.
+The process is pretty simple, really, just replace whitespace and slashes with dashes so that it's a "legal" subdomain.&lt;/p&gt;
+&lt;p&gt;Here's the function I use to do it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;urlifyBranchName&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// &amp;quot;Sanitize&amp;quot; the Branch Name as a Sub-Domain Name&lt;/span&gt;
+    &lt;span class="c1"&gt;// i.e., https://&amp;lt;branch-name&amp;gt;.idaho4h.com/&lt;/span&gt;
+    &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;DOCKER_BRANCH_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BRANCH_NAME&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;replaceAll&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;replaceAll&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;DOCKER_BRANCH_NAME&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;2) Test Python&lt;/h4&gt;
+&lt;p&gt;This one's pretty simple. Since Python is holding up the backend, I want to run some tests. This is pretty much unit-test only (no functional or
+integration tests, here - yet), but it allows us to check some of the simple sanitizer functions we're going to count on for the service.&lt;/p&gt;
+&lt;p&gt;Adittedly, I had a bit of trouble with some of the virtual-environment stuff, and haven't gotten back around to fixing that yet, so for now just ignore
+the title of the function. The execution is pretty simple. pip-install the requirements we need, then run &lt;code&gt;pytest&lt;/code&gt;. Voila!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;runPythonTestsInVirtualEnv&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Test Python&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="c1"&gt;// Install Requirements&lt;/span&gt;
+        &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;python3 -m pip install -r ${WORKSPACE}/${requirementsFile}&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Run `pytest`&lt;/span&gt;
+        &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pytest&amp;quot;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;3) Build the Frontend&lt;/h4&gt;
+&lt;p&gt;This whole project relies on a Python backend, and a React.js frontend. I need to get around to documenting this whole intertie a little better, but for
+now, just know that there are two root folders. One for the frontend, the other for the backend. When building the whole thing, we build and export the
+frontend and shove it into the static folder of the backend. Python can then serve all of the javascript, html, and css files from there. Pretty simple,
+really (took a while to figure out, though).&lt;/p&gt;
+&lt;p&gt;What this stage does can be summarized as follows: install npm resources, fix what audit warnings can be handled, build the artifacts. Fairly simple!
+Again though, I'll note that there is some prior setup required to make the whole npm ecosystem "happy" with the structure of the frontend folder.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;buildReactFrontend&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;React Frontend&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;frontend&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// Ensure all Packages are Installed&lt;/span&gt;
+            &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;npm install&amp;quot;&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Attempt to Resolve Reported Vulnerabilities&lt;/span&gt;
+            &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;npm audit fix || true&amp;quot;&lt;/span&gt; &lt;span class="c1"&gt;// Don&amp;#39;t fail on normal warning&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Use the Build Tooling&lt;/span&gt;
+            &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;npm run build&amp;quot;&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;4) Dockerize&lt;/h4&gt;
+&lt;p&gt;This whole thing runs in a little docker container. Pretty simple!&lt;/p&gt;
+&lt;h1&gt;TODO... I'll write more here soon!&lt;/h1&gt;
 &lt;details&gt;
-  &lt;summary&gt;Click to expand!&lt;/summary&gt;
+  &lt;summary&gt;Click to expand all the Jenkinsfile goodness!&lt;/summary&gt;
 
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cm"&gt;/*******************************************************************************&lt;/span&gt;
 &lt;span class="cm"&gt; *&lt;/span&gt;
