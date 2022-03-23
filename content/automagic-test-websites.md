@@ -34,6 +34,9 @@ isn't the *hosting server*, itself, it's just the CI server. In fact, I'm using 
 far as my Jenkins instance is concerned) that has NGINX, Python, Docker, and docker-compose installed to do the heavy lifting. This way, I can make it all
 come together quite nicely.
 
+
+<details>
+  <summary>Click to expand!</summary>
 ```groovy
 /*******************************************************************************
  *
@@ -166,3 +169,4 @@ def runPythonTestsInVirtualEnv() {
     }
 }
 ```
+</details>
