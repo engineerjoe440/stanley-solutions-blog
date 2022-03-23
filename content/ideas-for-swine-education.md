@@ -21,6 +21,11 @@ own creation. This article will chronicle some of those ideas; both the good, an
 
 ## “Bad Water”
 
+<img src="https://t4.ftcdn.net/jpg/01/18/85/23/360_F_118852383_kjyToVFqvQ9T1rNlfrYQuYiAlmtqZTU9.jpg"
+    width="300" alt="Dirty Water" align="right">
+
+> *image credit: [Adobe Stock Photos](https://stock.adobe.com/hu/search/images?k=dirty+water+glass)*
+
 Ok, I can't claim that this was my idea (thanks, Roxanne!); but I'll shamelessly use it, because... ***Wow!***
 
 Clean water is essential! Most of us know this, and some of us have first-hand experience with the alternatives and their repercussions, but it's very
@@ -92,6 +97,11 @@ the same luxury, they've lost a substantial ammount of nutrition, because the wo
 
 
 ## “Mold Growth and Clean Feed”
+
+<img src="https://media.wired.com/photos/5f4d18f6bb023d54b55e4e19/master/pass/Science_penicillum_922527614.jpg"
+    width="300" alt="Dirty Water" align="right">
+
+> *image credit: [Wired](https://www.wired.com/story/grim-reality-reopening-more-mold-offices-schools-houses/)*
 
 Many 4-H'ers will buy feed in bulk at the beginning of the season so that they can take it at lower cost. This often means one *GREAT BIG* sack of feed
 sitting around all summer, which may not be the best option... Why? you ask... Well...
