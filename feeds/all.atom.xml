@@ -10,8 +10,144 @@ in whichever repository I configure. Better yet, I can make it automatically loo
 those branches change.&lt;/p&gt;
 &lt;p&gt;What I've just described is nothing new to those who work in CI/CD (Continuous Integration/Continuous Deployment) systems, but it is valuable and, I think,
 novel in this context. I'm using this automated build system to abstract the complexity of deploying a containerized application so that I can focus on
-development with a youth member, and focus on programming, not deploying servers.&lt;/p&gt;
-&lt;p&gt;&lt;embed type="text/plain" src="https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader/-/raw/develop/Jenkinsfile" width="500" height="200"&gt;&lt;/p&gt;</content><category term="Youth"></category><category term="Youth"></category><category term="4-H"></category><category term="Education"></category><category term="Jenkins"></category><category term="NGINX"></category><category term="Docker"></category><category term="Docker-Compose"></category><category term="Development"></category><category term="CI"></category><category term="CI-CD"></category><category term="Self-Hosted"></category><category term="Gitlab"></category></entry><entry><title>Ideas for Swine Education</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/ideas-for-swine-education.html" rel="alternate"></link><published>2022-03-22T16:54:00-07:00</published><updated>2022-03-22T16:54:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-03-22:/stanley-solutions-blog/ideas-for-swine-education.html</id><summary type="html">&lt;p&gt;I recently attended the 2022 University of Idaho, Washington State University joint Youth Swine Field day in Asotin, WA. It's been a while since I've been very involved in swine projects in 4-H, but it's been good getting back into the swing of things. Admmittedly, I'm learning new things all the time, myself, but since the ethos of 4-H is "Learn by Doing," I'm always one for good, tangible, hands-on exercises to help engage youth while teaching. I thought it about time that I share a few of my ideas!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm just getting back into the swing of 4-H activities. Monthly community meetings, regular project meetings, etc. But I want to bring some exciting new
+development with a youth member, and focus on programming, not deploying servers. Using Jenkins, in this way, the 4-H'er that I'm working with can write
+his own code in GitLab's built in editor, so he doesn't need to learn &lt;code&gt;git&lt;/code&gt; and he can commit his work, and watch it automatically deploy for him!&lt;/p&gt;
+&lt;h2&gt;How I'm Making the Magic Happen with Jenkins&lt;/h2&gt;
+&lt;p&gt;So... Like I said, Jenkins is doing most of the heavy lifting here. It's looking for changes, then running builds when those changes appear; but Jenkins
+isn't the &lt;em&gt;hosting server&lt;/em&gt;, itself, it's just the CI server. In fact, I'm using a Linode server which is configured and provisioned as a Jenkins agent (as
+far as my Jenkins instance is concerned) that has NGINX, Python, Docker, and docker-compose installed to do the heavy lifting. This way, I can make it all
+come together quite nicely.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cm"&gt;/*******************************************************************************&lt;/span&gt;
+&lt;span class="cm"&gt; *&lt;/span&gt;
+&lt;span class="cm"&gt; * Jenkinsfile for Idaho 4-H Delegate Photo Upload Interface&lt;/span&gt;
+&lt;span class="cm"&gt; *&lt;/span&gt;
+&lt;span class="cm"&gt; * 2021 - Stanley Solutions&lt;/span&gt;
+&lt;span class="cm"&gt; * Joe Stanley&lt;/span&gt;
+&lt;span class="cm"&gt; ******************************************************************************/&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Global Variables&lt;/span&gt;
+&lt;span class="c1"&gt;// In Groovy, global variables are not given a type or proceeded by def&lt;/span&gt;
+&lt;span class="n"&gt;requirementsFile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;backend/requirements.txt&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;properties&lt;/span&gt;&lt;span class="o"&gt;([[&lt;/span&gt;&lt;span class="n"&gt;$class&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;GitLabConnectionProperty&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nl"&gt;gitLabConnection:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;StanleySolutions GitLab&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]])&lt;/span&gt;
+
+&lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;4happserver&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Set Up Environment Variables&lt;/span&gt;
+    &lt;span class="n"&gt;parameters&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nl"&gt;name:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;DOCKER_BRANCH_NAME&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nl"&gt;defaultValue:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nl"&gt;name:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;NEXT_AVAIL_APP_PORT&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nl"&gt;defaultValue:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nl"&gt;name:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;RESTART_POLICY&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nl"&gt;defaultValue:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;no&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+    &lt;span class="c1"&gt;// Clean Workspace&lt;/span&gt;
+    &lt;span class="n"&gt;cleanWs&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Prep&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Check Out Source Code&lt;/span&gt;
+        &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;scm&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Load the Next Available Port as an Env Var&lt;/span&gt;
+        &lt;span class="n"&gt;load&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/home/jenkins/app-ports&amp;quot;&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Clean Branch Name&lt;/span&gt;
+        &lt;span class="n"&gt;urlifyBranchName&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Publish Status of All Contained Stages&lt;/span&gt;
+    &lt;span class="n"&gt;gitlabCommitStatus&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Test Backend&lt;/span&gt;
+        &lt;span class="n"&gt;runPythonTestsInVirtualEnv&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Build Frontend&lt;/span&gt;
+        &lt;span class="n"&gt;buildReactFrontend&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Stand Up Container&lt;/span&gt;
+        &lt;span class="n"&gt;buildDockerContainer&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Deploy Container&lt;/span&gt;
+        &lt;span class="n"&gt;deployContainerInNginx&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+
+        &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Wrap Up&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// Update Port for Next Build&lt;/span&gt;
+            &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;python3 ./updatePort.py&amp;quot;&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+
+&lt;span class="kt"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;urlifyBranchName&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// &amp;quot;Sanitize&amp;quot; the Branch Name as a Sub-Domain Name&lt;/span&gt;
+    &lt;span class="c1"&gt;// i.e., https://&amp;lt;branch-name&amp;gt;.idaho4h.com/&lt;/span&gt;
+    &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;DOCKER_BRANCH_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BRANCH_NAME&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;replaceAll&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;replaceAll&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;DOCKER_BRANCH_NAME&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;buildReactFrontend&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;React Frontend&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;dir&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;frontend&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// Ensure all Packages are Installed&lt;/span&gt;
+            &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;npm install&amp;quot;&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Attempt to Resolve Reported Vulnerabilities&lt;/span&gt;
+            &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;npm audit fix || true&amp;quot;&lt;/span&gt; &lt;span class="c1"&gt;// Don&amp;#39;t fail on normal warning&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Use the Build Tooling&lt;/span&gt;
+            &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;npm run build&amp;quot;&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;buildDockerContainer&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Docker Container&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Check for &amp;quot;Default&amp;quot; Conditions&lt;/span&gt;
+        &lt;span class="c1"&gt;// MAIN and DEVELOP Branches Should Have Consistent Ports&lt;/span&gt;
+        &lt;span class="c1"&gt;// Their Containers Should Also Restart Automatically&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;DOCKER_BRANCH_NAME&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;main&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;NEXT_AVAIL_APP_PORT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;8000&amp;quot;&lt;/span&gt;
+            &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;RESTART_POLICY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;always&amp;quot;&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;DOCKER_BRANCH_NAME&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;develop&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;NEXT_AVAIL_APP_PORT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;8001&amp;quot;&lt;/span&gt;
+            &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;RESTART_POLICY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;always&amp;quot;&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+        &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;NEXT_AVAIL_APP_PORT&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Provide credentials to the docker-compose script so that&lt;/span&gt;
+        &lt;span class="c1"&gt;// container will reference the Lychee API credentials.&lt;/span&gt;
+        &lt;span class="n"&gt;withCredentials&lt;/span&gt;&lt;span class="o"&gt;([&lt;/span&gt;
+            &lt;span class="n"&gt;usernamePassword&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nl"&gt;credentialsId:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;idaho4hapi&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+            &lt;span class="nl"&gt;usernameVariable:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;LYCHEE_API_USER&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+            &lt;span class="nl"&gt;passwordVariable:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;LYCHEE_API_TOKEN&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+        &lt;span class="o"&gt;])&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// Build the Container - Using the Branch-Name as Env Var&lt;/span&gt;
+            &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;docker-compose up -d --build&amp;quot;&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;deployContainerInNginx&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Deploy in NGINX&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="c1"&gt;// Generate the NGINX Config File&lt;/span&gt;
+        &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;python3 ./writeNginxConfig.py&amp;quot;&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Restart NGINX To Apply Config&lt;/span&gt;
+        &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;sudo /usr/bin/systemctl restart nginx&amp;quot;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;runPythonTestsInVirtualEnv&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Test Python&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="c1"&gt;// Install Requirements&lt;/span&gt;
+        &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;python3 -m pip install -r ${WORKSPACE}/${requirementsFile}&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Run `pytest`&lt;/span&gt;
+        &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pytest&amp;quot;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Youth"></category><category term="Youth"></category><category term="4-H"></category><category term="Education"></category><category term="Jenkins"></category><category term="NGINX"></category><category term="Docker"></category><category term="Docker-Compose"></category><category term="Development"></category><category term="CI"></category><category term="CI-CD"></category><category term="Self-Hosted"></category><category term="Gitlab"></category></entry><entry><title>Ideas for Swine Education</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/ideas-for-swine-education.html" rel="alternate"></link><published>2022-03-22T16:54:00-07:00</published><updated>2022-03-22T16:54:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-03-22:/stanley-solutions-blog/ideas-for-swine-education.html</id><summary type="html">&lt;p&gt;I recently attended the 2022 University of Idaho, Washington State University joint Youth Swine Field day in Asotin, WA. It's been a while since I've been very involved in swine projects in 4-H, but it's been good getting back into the swing of things. Admmittedly, I'm learning new things all the time, myself, but since the ethos of 4-H is "Learn by Doing," I'm always one for good, tangible, hands-on exercises to help engage youth while teaching. I thought it about time that I share a few of my ideas!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm just getting back into the swing of 4-H activities. Monthly community meetings, regular project meetings, etc. But I want to bring some exciting new
 learning activities to the projects I'm supporting.&lt;/p&gt;
 &lt;p&gt;I spent... gosh... 10(?) years in the swine project, about 8 of which were both in market and breeding projects, so quite a bit of time around those pigs!
 Well worth it, if you ask me.&lt;/p&gt;
