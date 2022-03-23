@@ -34,9 +34,88 @@ isn't the *hosting server*, itself, it's just the CI server. In fact, I'm using 
 far as my Jenkins instance is concerned) that has NGINX, Python, Docker, and docker-compose installed to do the heavy lifting. This way, I can make it all
 come together quite nicely.
 
+The pipeline, in a nutshell, looks something like this:
+
+<img src="{attach}/images/jenkins_4h_deployment.png" style="width: 100%" alt="Jenkins Pipeline">
+
+So let's walk through those stages...
+
+#### 1) Prep
+
+Pretty much what it sounds like. Pull down the repo source, do any other setup that's necessary.
+
+Notably though, this stage actually URL-ifies the branch name. In other words, it sanitizes the branch-name to make it appropriate for a unique
+subdomain-name. This is kinda critical. Each branch will end up getting its own subdomain under the `idaho4h.com` domain that's filed for this server.
+The process is pretty simple, really, just replace whitespace and slashes with dashes so that it's a "legal" subdomain.
+
+Here's the function I use to do it:
+
+```groovy
+def urlifyBranchName() {
+    // "Sanitize" the Branch Name as a Sub-Domain Name
+    // i.e., https://<branch-name>.idaho4h.com/
+    env.DOCKER_BRANCH_NAME = BRANCH_NAME.replaceAll(" ", "-").replaceAll("/", "-")
+    echo env.DOCKER_BRANCH_NAME
+}
+```
+
+
+#### 2) Test Python
+
+This one's pretty simple. Since Python is holding up the backend, I want to run some tests. This is pretty much unit-test only (no functional or
+integration tests, here - yet), but it allows us to check some of the simple sanitizer functions we're going to count on for the service.
+
+Adittedly, I had a bit of trouble with some of the virtual-environment stuff, and haven't gotten back around to fixing that yet, so for now just ignore
+the title of the function. The execution is pretty simple. pip-install the requirements we need, then run `pytest`. Voila!
+
+```groovy
+def runPythonTestsInVirtualEnv() {
+    stage("Test Python") {
+        // Install Requirements
+        sh """python3 -m pip install -r ${WORKSPACE}/${requirementsFile}"""
+        
+        // Run `pytest`
+        sh "pytest"
+    }
+}
+```
+
+#### 3) Build the Frontend
+
+This whole project relies on a Python backend, and a React.js frontend. I need to get around to documenting this whole intertie a little better, but for
+now, just know that there are two root folders. One for the frontend, the other for the backend. When building the whole thing, we build and export the
+frontend and shove it into the static folder of the backend. Python can then serve all of the javascript, html, and css files from there. Pretty simple,
+really (took a while to figure out, though).
+
+What this stage does can be summarized as follows: install npm resources, fix what audit warnings can be handled, build the artifacts. Fairly simple!
+Again though, I'll note that there is some prior setup required to make the whole npm ecosystem "happy" with the structure of the frontend folder.
+
+```groovy
+def buildReactFrontend() {
+    stage("React Frontend") {
+        dir("frontend") {
+            // Ensure all Packages are Installed
+            sh "npm install"
+
+            // Attempt to Resolve Reported Vulnerabilities
+            sh "npm audit fix || true" // Don't fail on normal warning
+
+            // Use the Build Tooling
+            sh "npm run build"
+        }
+    }
+}
+```
+
+#### 4) Dockerize
+
+This whole thing runs in a little docker container. Pretty simple!
+
+# TODO... I'll write more here soon!
+
 
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Click to expand all the Jenkinsfile goodness!</summary>
 ```groovy
 /*******************************************************************************
  *
