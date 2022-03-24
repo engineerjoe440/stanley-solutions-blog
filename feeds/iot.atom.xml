@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - IoT</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/iot.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2022-03-23T22:34:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>What is Tasmota, Anyway?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/what-is-tasmota-anyway.html" rel="alternate"></link><published>2022-03-23T22:34:00-07:00</published><updated>2022-03-23T22:34:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-03-23:/stanley-solutions-blog/what-is-tasmota-anyway.html</id><summary type="html">&lt;p&gt;I've had a handfull of friends and colleagues ask about Tasmota; what it is, what it does, how to use it, etc. So I thought I'd put together a little article to tell you about this AWESOME open-source IoT firmware, why I use it, and how you can get started with it too!&lt;/p&gt;</summary><content type="html">&lt;p&gt;If I've talked to you at all in the past year or so, you probably already know that I've gone a little wild with the home automation thing. I've got
+all sorts of "smart stuff" scattered around the house. Mostly to turn lights on or off, but I do have some more intelligent things too. But, I'm a bit of
+a tin-foil-hat-wearer, I guess you could say. After all, I run my own local Home Assistant, and to tie in nicely, I also use a free-and-open-source
+firmware for most of my IoT devices, a little, something called &lt;em&gt;Tasmota&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;What is Tasmota?&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://tasmota.github.io/docs/Getting-Started/"&gt;Tasmota&lt;/a&gt; is an open-source firmware, developed for the ESP8266 and ESP32 microcontrollers manufactured by Espressif. It's a lightweight, multifunctional, and
+fully featured smart-home software for nearly every IoT device you can think of. It supports both MQTT and RESTful API communications, meaning that it can tie into nearly every home automation system available today.&lt;/p&gt;
+&lt;p&gt;In particular, there's a few things that I really like about the project.&lt;/p&gt;
+&lt;h4&gt;1) Its Openness&lt;/h4&gt;
+&lt;p&gt;It's absolutely fantastic to have such a wonderful, well developed project all floating out in the open. Tasmota started as a simple project built for
+ESP8266 devices, but quickly expanded to work for just about any IoT devices that run on the Espressif chipset. All sorts of common, economical brands of
+smart plugs, smart bulbs, and more are supported by Tasmota, all because they're built on the Espressif chip, and the Tasmota firmware core is open,
+allowing for continued expanse and improvement.&lt;/p&gt;
+&lt;p&gt;Tasmota is all available on GitHub, stored in the open, improved by the many. Plenty of wonderful developers who are all working on the project, but
+clearly, I'm caught up on the great utopian parts of it all, and overlooking the downsides and drawbacks of open source. But perhaps that's ok. Maybe
+that's just what I need to keep the spirit, and maybe that's good for us all. I guess I'm digressing, aren't I?&lt;/p&gt;
+&lt;h4&gt;2) Its Feature Set&lt;/h4&gt;
+&lt;p&gt;Tasmota's got some awesome features, too! From it's simple, easy-to-get-started-with web interface and configuration to its integration with MQTT, and
+simple HTTP REST interfaces. Even it's fully baked-in console for configuration. Tasmota has all the features that the other modern IoT devices have,
+and all in one place.&lt;/p&gt;
+&lt;h4&gt;3) Its Lack of Cloud Dependence&lt;/h4&gt;
+&lt;p&gt;Did I mention that I've got a case of "tin-foil-hat-itis"? Well, it's a problem. Perhaps not such a "problem" but it does mean that most of my smart
+things don't talk to the rest of the world. That does mean that I can't exactly take direct control of all of my home automation when I'm not at home,
+but I think I like it that way. A little security, of sorts...&lt;/p&gt;
+&lt;p&gt;Having no reliance on the wild inter-webs, it means that when things go down (like my connection to the internet), I still have control of all my things.
+Well, until I break things (as per the usual).&lt;/p&gt;
+&lt;h2&gt;Wrapping Up&lt;/h2&gt;
+&lt;p&gt;I'm a big fan of open source (clearly) and if you're ever looking to make your home a little smarter, let me recommend you take a look at Tasmota!&lt;/p&gt;</content><category term="IoT"></category><category term="Tasmota"></category><category term="IOT"></category><category term="Smart-Home"></category><category term="Open-Source"></category><category term="ESP8266"></category><category term="ESP32"></category><category term="Home-Automation"></category><category term="Wifi"></category></entry></feed>

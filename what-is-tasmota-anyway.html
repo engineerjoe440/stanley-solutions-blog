@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  What is Tasmota, Anyway? | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/what-is-tasmota-anyway.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/iot.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/iot.rss.xml">  
+  <meta name="description" content="I've had a handfull of friends and colleagues ask about Tasmota; what it is, what it does, how to use it, etc. So I thought I'd put together a little article to tell you about this AWESOME open-source IoT firmware, why I use it, and how you can get started with it too!">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://calendar.google.com/calendar/u/0?cid=ZW5naW5lZXJqb2U0NDBAZ21haWwuY29t" target="_blank">Calendar</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  What is Tasmota, Anyway?
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2022-03-23T22:34:00-07:00">
+          <i class="fas fa-clock"></i>
+          Wed 23 March 2022
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/iot.html">IoT</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/tasmota.html">#Tasmota</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/iot.html">#IOT</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/smart-home.html">#Smart-Home</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/open-source.html">#Open-Source</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/esp8266.html">#ESP8266</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/esp32.html">#ESP32</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-automation.html">#Home-Automation</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/wifi.html">#Wifi</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>If I've talked to you at all in the past year or so, you probably already know that I've gone a little wild with the home automation thing. I've got
+all sorts of "smart stuff" scattered around the house. Mostly to turn lights on or off, but I do have some more intelligent things too. But, I'm a bit of
+a tin-foil-hat-wearer, I guess you could say. After all, I run my own local Home Assistant, and to tie in nicely, I also use a free-and-open-source
+firmware for most of my IoT devices, a little, something called <em>Tasmota</em>.</p>
+<h2>What is Tasmota?</h2>
+<p><a href="https://tasmota.github.io/docs/Getting-Started/">Tasmota</a> is an open-source firmware, developed for the ESP8266 and ESP32 microcontrollers manufactured by Espressif. It's a lightweight, multifunctional, and
+fully featured smart-home software for nearly every IoT device you can think of. It supports both MQTT and RESTful API communications, meaning that it can tie into nearly every home automation system available today.</p>
+<p>In particular, there's a few things that I really like about the project.</p>
+<h4>1) Its Openness</h4>
+<p>It's absolutely fantastic to have such a wonderful, well developed project all floating out in the open. Tasmota started as a simple project built for
+ESP8266 devices, but quickly expanded to work for just about any IoT devices that run on the Espressif chipset. All sorts of common, economical brands of
+smart plugs, smart bulbs, and more are supported by Tasmota, all because they're built on the Espressif chip, and the Tasmota firmware core is open,
+allowing for continued expanse and improvement.</p>
+<p>Tasmota is all available on GitHub, stored in the open, improved by the many. Plenty of wonderful developers who are all working on the project, but
+clearly, I'm caught up on the great utopian parts of it all, and overlooking the downsides and drawbacks of open source. But perhaps that's ok. Maybe
+that's just what I need to keep the spirit, and maybe that's good for us all. I guess I'm digressing, aren't I?</p>
+<h4>2) Its Feature Set</h4>
+<p>Tasmota's got some awesome features, too! From it's simple, easy-to-get-started-with web interface and configuration to its integration with MQTT, and
+simple HTTP REST interfaces. Even it's fully baked-in console for configuration. Tasmota has all the features that the other modern IoT devices have,
+and all in one place.</p>
+<h4>3) Its Lack of Cloud Dependence</h4>
+<p>Did I mention that I've got a case of "tin-foil-hat-itis"? Well, it's a problem. Perhaps not such a "problem" but it does mean that most of my smart
+things don't talk to the rest of the world. That does mean that I can't exactly take direct control of all of my home automation when I'm not at home,
+but I think I like it that way. A little security, of sorts...</p>
+<p>Having no reliance on the wild inter-webs, it means that when things go down (like my connection to the internet), I still have control of all my things.
+Well, until I break things (as per the usual).</p>
+<h2>Wrapping Up</h2>
+<p>I'm a big fan of open source (clearly) and if you're ever looking to make your home a little smarter, let me recommend you take a look at Tasmota!</p>
+    </div>
+  </article>
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
