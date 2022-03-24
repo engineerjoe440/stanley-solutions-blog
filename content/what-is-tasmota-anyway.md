@@ -8,6 +8,8 @@ Authors: Joe Stanley
 Summary: I've had a handfull of friends and colleagues ask about Tasmota; what it is, what it does, how to use it, etc. So I thought I'd put together a little article to tell you about this AWESOME open-source IoT firmware, why I use it, and how you can get started with it too!
 
 
+<img src="https://tasmota.github.io/docs/_media/frontlogo.svg" width="300" alt="Tasmota" align="right">
+
 If I've talked to you at all in the past year or so, you probably already know that I've gone a little wild with the home automation thing. I've got
 all sorts of "smart stuff" scattered around the house. Mostly to turn lights on or off, but I do have some more intelligent things too. But, I'm a bit of
 a tin-foil-hat-wearer, I guess you could say. After all, I run my own local Home Assistant, and to tie in nicely, I also use a free-and-open-source
