@@ -5,7 +5,6 @@
   * Iris
   * NGINX Configuration
 * WLED Configuration with Home Assistant
-* GitHub Tooling for Python Testing
 * Gitlab backups to Linode and Other
 * HTTPS/SSH proxy
 * VBAN Server for Streaming Audio
@@ -15,7 +14,6 @@
 * Lab Control/Metering System
 * Home Metering Systems w/ SEL-734
 * Python/React Server System for DJ Calendar
-* Jenkins plugin wildness
 * MaterialUI dropzone issues
 * 4-H Photo uploader - Automated Deployments Using Jenkins
 * Automated server updates
