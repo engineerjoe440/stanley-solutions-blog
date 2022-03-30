@@ -1,5 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2022-03-23T22:34:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>What is Tasmota, Anyway?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/what-is-tasmota-anyway.html" rel="alternate"></link><published>2022-03-23T22:34:00-07:00</published><updated>2022-03-23T22:34:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-03-23:/stanley-solutions-blog/what-is-tasmota-anyway.html</id><summary type="html">&lt;p&gt;I've had a handfull of friends and colleagues ask about Tasmota; what it is, what it does, how to use it, etc. So I thought I'd put together a little article to tell you about this AWESOME open-source IoT firmware, why I use it, and how you can get started with it too!&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img src="https://tasmota.github.io/docs/_media/frontlogo.svg" width="300" alt="Tasmota" align="right"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2022-03-29T17:04:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Error Pages for Education</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/error-pages-for-education.html" rel="alternate"></link><published>2022-03-29T17:04:00-07:00</published><updated>2022-03-29T17:04:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-03-29:/stanley-solutions-blog/error-pages-for-education.html</id><summary type="html">&lt;p&gt;What better way to learn, then by doing. That, after all, is the ethos of 4-H. The very esence of how 4-H teaches youth effective life-skills every day. This "photo upload app" that I've been working on relies on some of the newest, prettiest, fanciest web framework technologies available to make the common user-interaction experience very smooth so that youth may engage in digital activities easily, without having to learn new hoops to jump through. Still, it's being built &lt;em&gt;for&lt;/em&gt; youth, &lt;em&gt;by&lt;/em&gt; youth, so wouldn't it be disappointing if there weren't aspects that were clearly touched by youth? Clearly inspired by them? Sharing their energy and creativity?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Errors are a given when it comes to computers. Heck, they're a given when it comes to most technology. We're all familiar with the &lt;em&gt;"dreaded 404"&lt;/em&gt; that's
+presented to users when a page or resource can't be found. That doesn't mean that they have to be boring! After all, the text "404" on screen is plain;
+uninteresting. Wouldn't it be disingenuous to use just plain text for a web-service that's exciting and interesting?&lt;/p&gt;
+&lt;p&gt;I think it would be!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Enter Youth-Designed Error Pages!&lt;/h3&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/4h-err-pages/err404.png" style="width: 100%" alt="404 Error Page"&gt;&lt;/p&gt;
+&lt;p&gt;This 404 page was designed by the youth that I'm working with. It gives some flavor to the site when something goes wrong. Admittedly, it's never the goal
+for things &lt;em&gt;to go wrong,&lt;/em&gt; but when it (inevitably) happens, we're ready!&lt;/p&gt;
+&lt;h2&gt;Intent&lt;/h2&gt;
+&lt;p&gt;I wanted to introduce the 4-H member who's helping me to a little "old-fasioned" web design. Crafting plain &lt;code&gt;HTML&lt;/code&gt; with &lt;code&gt;CSS&lt;/code&gt; and putting it all together
+for the specific purposes of showing errors, but that's not exactly &lt;em&gt;easy&lt;/em&gt; when you're just starting out. I also wanted to capture some of the "flare" and
+creativity that 4-H members always seem to have. After all, isn't part of the fun of any development project putting in the easter eggs? I think so!&lt;/p&gt;
+&lt;p&gt;So, that leaves me with two clear goals:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Youth-designed static HTML/CSS&lt;/li&gt;
+&lt;li&gt;Capturing creativity of youth&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Tools&lt;/h2&gt;
+&lt;p&gt;Like I said... It's not easy to just spin HTML off the cuff when you've never done any of it before in your life! Especially when we're talking about full-
+fledged pages that have pretty formatting and the like. What to do... what to do...&lt;/p&gt;
+&lt;p&gt;Enter: Microsoft Word.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://i.ytimg.com/vi/X34ZmkeZDos/maxresdefault.jpg" style="width: 100%" alt="The Ultimate IDE?"&gt;&lt;/p&gt;
+&lt;p&gt;Yep, that's right. The ultimate IDE... Well, something like that.&lt;/p&gt;
+&lt;p&gt;Anyway, Microsoft Word may not be a good IDE by most (sane) people's standards, but that doesn't mean that we can't use it for a little visual assistance.
+One thing that Word does have going for it in this space is the ability to easily format pages with text, images, formatting, and more. All in a convenient
+interface. After all, isn't that the reason that most of the world uses MS Word instead of LaTeX?&lt;/p&gt;
+&lt;p&gt;With this convenience, it's pretty easy to put some images together, add some text, center it how you want, and publish! Did I mention two key features?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft Word has an web-page viewing mode to present the page as how it might appear in a browser&lt;/li&gt;
+&lt;li&gt;Microsoft Word natively supports saving a file as &lt;code&gt;*.htm&lt;/code&gt;/&lt;code&gt;*.html&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That means that I could get anyone started with creating the pages, and worrying less about the HTML and more about how they want the pages to look.&lt;/p&gt;
+&lt;p&gt;Excellent.&lt;/p&gt;
+&lt;h2&gt;Bumps in the Proverbial "Information Superhighway"&lt;/h2&gt;
+&lt;p&gt;Well, that's all well and good; quite simple really, but here's where the rubber hits the &lt;code&gt;10101001010010101010010101010010100010101111&lt;/code&gt;...&lt;/p&gt;
+&lt;p&gt;When it comes time to publish these pages, it's pretty simple, the whole repository that we're working in is based around the separation of a frontend and
+a backend. The backend houses all the Python goodness, and all of the static and template files that are rendered and loaded for web-serving. That means
+that if we want to host specific files for error pages, we can split them up and distribute them accordingly into the backend directories like shown below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;backend&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|--&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;static&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="o"&gt;|--&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;someErrPage_files&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="o"&gt;|--&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;other&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;supporting&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;go&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;here&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="o"&gt;|--&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;someOtherErrPage_files&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;       &lt;/span&gt;&lt;span class="o"&gt;|--&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;other&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;supporting&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;go&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;here&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|--&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;templates&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="o"&gt;|--&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;someErrPage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="o"&gt;|--&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;someOtherErrPage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="c1"&gt;-- main.py&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;When we "export" or save the rendered error page from Word, we end up generating a single HTML file, and a folder full of supporting files. Everything
+from CSS, to XML, to images, and more. Since that's all static stuff, we can stick it in a sub-folder under the &lt;code&gt;backend/static&lt;/code&gt; directory. The plain HTML
+file, on the other hand, goes to the &lt;code&gt;backend/templates&lt;/code&gt; folder where it will be pulled from by Jinja in Python and rendered.&lt;/p&gt;
+&lt;p&gt;Key to all of this, is getting paths right. After all, pirates didn't find their treasure if they meant "paces" when they said "leagues" right?!&lt;/p&gt;
+&lt;p&gt;In much the same way, when Word generates those files, it assumes a certain path. It assumes that the folder containing all support files is colocated with
+the HTML file, in the same directory. Clearly, here, they are not.&lt;/p&gt;
+&lt;p&gt;This separation is for good reason though, all of the support files are static, they're not templates. We wouldn't ever want Jinja to attempt rendering
+any one of them, so they go in the &lt;code&gt;static&lt;/code&gt; directory. Simple as that. Now, the Python server already knows to route accordingly for static files, after
+all, early on, it uses a static router for FastAPI to do the lifting here, and it also sets up the templates structure accordingly so as to make Jinja
+rendering easy:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Application Base&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FastAPI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;TEMPLATES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
+
+&lt;span class="nd"&gt;@app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;on_event&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;startup&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;startup_event&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Event that Only Runs When App is Starting&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;global&lt;/span&gt; &lt;span class="n"&gt;TEMPLATES&lt;/span&gt;
+    &lt;span class="c1"&gt;# Mount the Static File Path&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mount&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/static&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;StaticFiles&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;directory&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;static&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;static&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;TEMPLATES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Jinja2Templates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;directory&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;templates&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice however, that for FastAPI to "catch" any such requests, it needs to see a URI with the prefix of &lt;code&gt;/static&lt;/code&gt;. Are you beginning to see the problem?&lt;/p&gt;
+&lt;p&gt;That's right, because MS Word doesn't include that prefix, the web-client will unknowingly ask for files that don't exist, and FastAPI will throw up its
+hands in defeat. Now, that's not all bad, since they're all just plain files, we can edit the HTML quite easily, and with a tweak or two, we can add the
+prefix where it's needed. It took me a bit to figure out exactly where this needed to be done, but when I did, it was very straight forward!&lt;/p&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;p&gt;I'll let you be the judge here. You've already seen the 404, but here's the 501 and 503:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/4h-err-pages/err501.png" style="width: 100%" alt="404 Error Page"&gt;&lt;/p&gt;
+&lt;p&gt;I'm very satisfied with the results; they pages are clever, cute, and most of all, they're genuine and showcase the very esence of learning and exploring
+with 4-H. That all makes me very happy.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/4h-err-pages/err503.png" style="width: 100%" alt="404 Error Page"&gt;&lt;/p&gt;
+&lt;h2&gt;Making Them Stand Out&lt;/h2&gt;
+&lt;p&gt;I really wanted to be able to show off these pages whenever I want. After all, it would kinda suck to only be able to see them when there's a legitimate
+error. That would make it very difficult to show them to passers-by! So, we did a little function-crafting!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# HTTP Error Response&lt;/span&gt;
+&lt;span class="nd"&gt;@app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/404&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;response_class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;HTMLResponse&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;page404&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;TEMPLATES&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TemplateResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;404.htm&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;request&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+
+&lt;span class="c1"&gt;# HTTP Error Response&lt;/span&gt;
+&lt;span class="nd"&gt;@app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/501&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;response_class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;HTMLResponse&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;page501&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;TEMPLATES&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TemplateResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;501.htm&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;request&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+
+&lt;span class="c1"&gt;# HTTP Error Response&lt;/span&gt;
+&lt;span class="nd"&gt;@app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/503&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;response_class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;HTMLResponse&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;page501&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;TEMPLATES&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TemplateResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;503.htm&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;request&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+
+&lt;span class="c1"&gt;# HTTP Exception Handlers&lt;/span&gt;
+&lt;span class="nd"&gt;@app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exception_handler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;StarletteHTTPException&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;custom_http_exception_handler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Request&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                                        &lt;span class="n"&gt;exc&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;StarletteHTTPException&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;exc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;status_code&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;404&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;await&lt;/span&gt; &lt;span class="n"&gt;page404&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;exc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;status_code&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;501&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;await&lt;/span&gt; &lt;span class="n"&gt;page501&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;exc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;status_code&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;503&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;await&lt;/span&gt; &lt;span class="n"&gt;page501&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;See here, that we were able to create three unique web-endpoints with FastAPI for each of the error pages, and then we could wrap them in the single error
+handler. This means that when a user goes to &lt;code&gt;https://develop.idaho4h.com/404&lt;/code&gt; they actually see the 404 page without generating a &lt;em&gt;real&lt;/em&gt; 404. The same is
+true for the other two errors, making the whole thing pretty slick, indeed.&lt;/p&gt;
+&lt;p&gt;Guess I'm tooting my own horn pretty loudly, at this point, aren't I?&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;In conclusion, it's been lots of fun getting to work with youth to make these custom error pages and show them off! It really helps demonstrate the work
+that this 4-H member has put in!&lt;/p&gt;</content><category term="Youth"></category><category term="Youth"></category><category term="4-H"></category><category term="Education"></category><category term="Development"></category><category term="HTTP"></category><category term="HTML"></category><category term="Status-Codes"></category></entry><entry><title>What is Tasmota, Anyway?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/what-is-tasmota-anyway.html" rel="alternate"></link><published>2022-03-23T22:34:00-07:00</published><updated>2022-03-23T22:34:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-03-23:/stanley-solutions-blog/what-is-tasmota-anyway.html</id><summary type="html">&lt;p&gt;I've had a handfull of friends and colleagues ask about Tasmota; what it is, what it does, how to use it, etc. So I thought I'd put together a little article to tell you about this AWESOME open-source IoT firmware, why I use it, and how you can get started with it too!&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img src="https://tasmota.github.io/docs/_media/frontlogo.svg" width="300" alt="Tasmota" align="right"&gt;&lt;/p&gt;
 &lt;p&gt;If I've talked to you at all in the past year or so, you probably already know that I've gone a little wild with the home automation thing. I've got
 all sorts of "smart stuff" scattered around the house. Mostly to turn lights on or off, but I do have some more intelligent things too. But, I'm a bit of
 a tin-foil-hat-wearer, I guess you could say. After all, I run my own local Home Assistant, and to tie in nicely, I also use a free-and-open-source
