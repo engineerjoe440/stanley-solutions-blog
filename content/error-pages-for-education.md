@@ -43,7 +43,7 @@ fledged pages that have pretty formatting and the like. What to do... what to do
 
 Enter: Microsoft Word.
 
-<img src="https://i.ytimg.com/vi/X34ZmkeZDos/maxresdefault.jpg" style="width: 100%" alt="The Ultimate IDE?">
+<img src="https://i.redd.it/1s0rlfdtsvg61.jpg" style="width: 100%" alt="The Ultimate IDE?">
 
 Yep, that's right. The ultimate IDE... Well, something like that.
 
