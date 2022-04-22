@@ -104,7 +104,7 @@ LINKS = (('Joe On GitHub', 'https://github.com/engineerjoe440/'),
          ('SELProtoPy Project', 'https://engineerjoe440.github.io/selprotopy'),
          ('PyCEV Project', 'https://engineerjoe440.github.io/pycev'),
          ('KRNC Project', 'https://github.com/engineerjoe440/KRNCApps/'),
-         ('Calendar', 'https://calendar.google.com/calendar/u/0?cid=ZW5naW5lZXJqb2U0NDBAZ21haWwuY29t'),
+         ('Calendar', 'https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles'),
          ('RSS Feed', 'feeds/all.rss.xml'),)
 
 # Social widget
