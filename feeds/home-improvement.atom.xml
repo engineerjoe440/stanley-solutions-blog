@@ -1,5 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Home-Improvement</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/home-improvement.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2022-02-27T09:52:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Bringing Light to the... Living Room?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/bringing-light-to-the-living-room.html" rel="alternate"></link><published>2022-02-27T09:52:00-08:00</published><updated>2022-02-27T09:52:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-02-27:/stanley-solutions-blog/bringing-light-to-the-living-room.html</id><summary type="html">&lt;p&gt;Shadow boxes deserve a shadow... right? Well, if there's a shadow, there has to be some light! That's what I've been working on; adding a little intelligent lighting to my shadow boxes! But, I've also been going crazy in the kitchen with some lights around the cabinets.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been working on adding all sorts of smart lights around my home since I bought it, and the progress doesn't slow down!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Home-Improvement</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/home-improvement.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2022-05-23T15:23:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Home Automation... Condensed!</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/home-automation-condensed.html" rel="alternate"></link><published>2022-05-23T15:23:00-07:00</published><updated>2022-05-23T15:23:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-05-23:/stanley-solutions-blog/home-automation-condensed.html</id><summary type="html">&lt;p&gt;Seems that, these days, there's an endless number of things that need to be automated for an "all-out" home-automation system. But how should we bring all of that stuff together? Well, I think I've got an idea...&lt;/p&gt;</summary><content type="html">&lt;p&gt;As you may already know, I've been doing lots to automate my home. It's come to the point that my mother and other family members complain that they
+can't do anything in my house without me. Well, that's left me with a bit of a conundrum. How can I make it so that people can use the home-automation
+things, but not need any of the nuianced nonsense?&lt;/p&gt;
+&lt;h2&gt;All of the Audio&lt;/h2&gt;
+&lt;p&gt;I've been working to make the audio "network" in my home quite extensive. Between use of &lt;a href="https://vb-audio.com/Voicemeeter/vban.htm"&gt;VBAN&lt;/a&gt; for digital
+audio streaming between my study and living room (&lt;a href="/networked-audio-using-vban-and-rpi"&gt;read more here&lt;/a&gt;), and analog connections from my study to
+kitchen, lab, and (yes) even bathroom. Now, the challenge with all that is that it's still highly reliant on my desktop or cell phone as the main source
+of audio. Additionally, whenever I have virtual meetings in my study, I need to shut everything down around the house. Not very much fun.&lt;/p&gt;
+&lt;p&gt;I decided that I need a central control to allow easy Pianobar playback control, in addition to a "master mute" button that'll disable all audio streaming
+around the house. Now... I'm still working on the actual "control box" which will have all of the buttons, but the operational pannel is already set up.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_3d778f5.jpeg" style="width: 100%" alt="Audio Output Blocks"&gt;&lt;/p&gt;
+&lt;p&gt;Since my analog stream is in stereo, I - of course - need to have four sets of terminals to make wiring easy. That's what's shown in the above picture;
+there's one for +R, -R, +L, and -L. Everything we need! They all connect to an input block by way of an ESP-8266 relay-breakout-board (shown in the upper-right
+of the image below).&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_eec766f.jpeg" style="width: 100%" alt="Audio Connector Control"&gt;&lt;/p&gt;
+&lt;p&gt;When I get this set up (completely) the little ESP board will listen for &lt;a href="https://mqtt.org/"&gt;MQTT&lt;/a&gt; commands from my home-automation server that will tell it
+to open the normally-closed relay contacts and effectively shut down the whole analog audio network by disconnecting my study mixer from the rest of the
+house.&lt;/p&gt;
+&lt;h2&gt;Detecting Doorbell Use&lt;/h2&gt;
+&lt;p&gt;In my house, the doorbell is a bit difficult to hear from anywhere other than the livingroom. I mean, it's possible to hear it from around the house, but not
+always. When I'm in the kitchen, if I'm cooking (which is often what I'm doing when I'm waiting for the doorbell), I can't often hear the bell over my skillet!
+So, I want to integrate the doorbell detection into some more intelligent operations and be able to send push notifications or even play audio chimes through
+the centralized audio system. Shouldn't be difficult, but I need to interface with one of my little &lt;a href="https://www.embeddedts.com/products/TS-7500"&gt;Technologic TS7500&lt;/a&gt;
+computers. Now... this computer has a 5VDC input. Not exactly ideal when the doorbell is running at about 16VAC.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_c71dcbc.jpeg" style="width: 100%" alt="Doorbell Conditioning Circuit"&gt;&lt;/p&gt;
+&lt;p&gt;Thus, another part of my home-automation center was built up. I needed to consume the AC input, run it through a bridge rectifier (the grey square on the right),
+apply a little filtering and smoothing with a "reasonably big" capacitor, and then shove that into a 12VDC relay.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;and why, Joe, didn't you just use an AC relay?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Erm... I don't really have a good answer for that other than the fact that I had all of these components on-hand, and it seemed like fun. Call me cheap for not
+picking up a $4.00 relay. Go ahead! I won't argue. It is cheap. But, I already had a few things on-hand, and heck! Why not?!&lt;/p&gt;
+&lt;p&gt;That relay is really only needed to use the doorbell signal to trigger the 5VDC signal to pass to the little Linux computer's input which then, in turn, can be
+monitored and used for triggering all manner of things.&lt;/p&gt;
+&lt;h2&gt;Leveraging Lights&lt;/h2&gt;
+&lt;p&gt;Another feature that I want to add is making one of the lights in my entryway a three-way switched light. The purpose of which is reasonably self-explanatory,
+but I want to bring intelligence to one of the light in my living room. The challenge is that the light is a traditional one, and it's already wired into the
+wall (properly), and I'd rather have a true three-way-switch than the dumb little "hack" that I used for my dining room light (which will surely change someday).&lt;/p&gt;
+&lt;p&gt;I've gone ahead and connected a nice, big, wiring block (shown in the upper-right of the image below) to allow for connections into the computer and the light
+itself. This should make it nice and convenient, and make a true 3-way switch possible where the computer and the light switch will always be responsive to
+control, and I won't have to wait for the dumb thing to boot up and initialize.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_a8b8778.jpeg" style="width: 100%" alt="Wiring Blocks for Lights"&gt;&lt;/p&gt;
+&lt;p&gt;The Technologic computer, of course, has its own relay-break-out-board which also sandwiches nicely into its fancy little aluminum case (shown below), and that
+is how I'm taking control of the light. Just like any other three-way-switch, I'm using the NO/NC contacts to wire opposite those of the three way switch I'll
+mount in the wall, and then I'll be able to control the light, either from a physical switch, or from the computer. Either way, no problem!&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_5caf4e9.jpeg" style="width: 100%" alt="Computer and all the Power Supplies"&gt;&lt;/p&gt;
+&lt;p&gt;You might also notice that there's a couple of power supplies there. I've got a nice little "computer-style" power supply which provides 5V, and I've also got
+a little board that I salvaged from some old (crappy) DJ dance lights that provides 12V.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;and what, Joe, is the 12V supply for?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I'm glad you asked!&lt;/p&gt;
+&lt;h2&gt;Talking with the Telegraph&lt;/h2&gt;
+&lt;p&gt;That's right... I'm nerdy enough that I want to connect to an old Telegraph key, and actually &lt;em&gt;do something&lt;/em&gt; with it. I'm wiring it in by my front entryway
+for no other purpose than to excentuate my "nerdiness". I'm not even quite sure what the system will do, yet, but I'll come up with something cool. Maybe
+listen for special "commands" and "do" respond with secret messages if you send the right code. Maybe just repeating messages back to the sender. Maybe
+other things. Who knows! If you've got some fun ideas, drop a note in the comments below!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;Side Note:&lt;/span&gt;
+&lt;span class="sd"&gt;----------&lt;/span&gt;
+
+&lt;span class="sd"&gt;In case you weren&amp;#39;t aware (and since I still haven&amp;#39;t written a post about how I did it, you&amp;#39;re probably not aware)&lt;/span&gt;
+&lt;span class="sd"&gt;the comment system embedded here in my blog is all hosted on an old computer in my basement (one of many), and is&lt;/span&gt;
+&lt;span class="sd"&gt;completely managed by me! So no worry about some third party service discontinuing their product. I get to keep&lt;/span&gt;
+&lt;span class="sd"&gt;hosting it as long as I want... Go ahead! Try it out! It even supports markdown...&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_fe0af05.jpeg" style="width: 100%" alt="The Wiring Blocks and Power Supplies"&gt;&lt;/p&gt;
+&lt;h2&gt;Wrapping Up&lt;/h2&gt;
+&lt;p&gt;It's fair to say that there's quite a bit more that I still need to do here. In fact, I've got a lot of wiring to do, still... But I'm excited that this
+project which, notably, is recycling the "box" that I used for my first foray into some home autoation is coming along nicely. In fact, this box contained
+the same computer and some of the same components to allow me to dabble in my first home-automation and Python web-serving application. There's still much
+to be learned.&lt;/p&gt;
+&lt;p&gt;The Linux computer is OLD, and will only (realistically) run Debian 5, which will make updates near impossible. That means that Python is going to be
+constrained to Python 2 (if I'm lucky, maybe I can load from the DeadSnakes PPA - but I'm doubtful), and that pretty much blocks the use of MQTT. That said,
+I still think I can pretty effectively set up the computer to host a little web-server to have REST-API endpoints, and I think I can even get it set up to
+&lt;em&gt;make&lt;/em&gt; REST-API calls.&lt;/p&gt;
+&lt;p&gt;I'm excited to see what fun will come of this! Stay tuned for more!&lt;/p&gt;</content><category term="Home-Improvement"></category><category term="linux"></category><category term="python"></category><category term="self-hosting"></category><category term="home-automation"></category><category term="iot"></category><category term="esp8266"></category></entry><entry><title>Bringing Light to the... Living Room?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/bringing-light-to-the-living-room.html" rel="alternate"></link><published>2022-02-27T09:52:00-08:00</published><updated>2022-02-27T09:52:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-02-27:/stanley-solutions-blog/bringing-light-to-the-living-room.html</id><summary type="html">&lt;p&gt;Shadow boxes deserve a shadow... right? Well, if there's a shadow, there has to be some light! That's what I've been working on; adding a little intelligent lighting to my shadow boxes! But, I've also been going crazy in the kitchen with some lights around the cabinets.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been working on adding all sorts of smart lights around my home since I bought it, and the progress doesn't slow down!
 I've pretty much covered all of the things that can be automated with little smart plugs. Everything from my scentsy's to my lamps, but now,
 I need to automate some of the more... challenging things.&lt;/p&gt;
 &lt;p&gt;I started a couple months ago with my coffee nook. I added a couple lights under the cabinet and hooked them up to a custom board, using an ESP-01S

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Home Automation... Condensed! | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/home-automation-condensed.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/home-improvement.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/home-improvement.rss.xml">  
+  <meta name="description" content="Seems that, these days, there's an endless number of things that need to be automated for an "all-out" home-automation system. But how should we bring all of that stuff together? Well, I think I've got an idea...">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank">Calendar</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Home Automation... Condensed!
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2022-05-23T15:23:00-07:00">
+          <i class="fas fa-clock"></i>
+          Mon 23 May 2022
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/home-improvement.html">Home-Improvement</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/linux.html">#linux</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/self-hosting.html">#self-hosting</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-automation.html">#home-automation</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/iot.html">#iot</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/esp8266.html">#esp8266</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>As you may already know, I've been doing lots to automate my home. It's come to the point that my mother and other family members complain that they
+can't do anything in my house without me. Well, that's left me with a bit of a conundrum. How can I make it so that people can use the home-automation
+things, but not need any of the nuianced nonsense?</p>
+<h2>All of the Audio</h2>
+<p>I've been working to make the audio "network" in my home quite extensive. Between use of <a href="https://vb-audio.com/Voicemeeter/vban.htm">VBAN</a> for digital
+audio streaming between my study and living room (<a href="/networked-audio-using-vban-and-rpi">read more here</a>), and analog connections from my study to
+kitchen, lab, and (yes) even bathroom. Now, the challenge with all that is that it's still highly reliant on my desktop or cell phone as the main source
+of audio. Additionally, whenever I have virtual meetings in my study, I need to shut everything down around the house. Not very much fun.</p>
+<p>I decided that I need a central control to allow easy Pianobar playback control, in addition to a "master mute" button that'll disable all audio streaming
+around the house. Now... I'm still working on the actual "control box" which will have all of the buttons, but the operational pannel is already set up.</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_3d778f5.jpeg" style="width: 100%" alt="Audio Output Blocks"></p>
+<p>Since my analog stream is in stereo, I - of course - need to have four sets of terminals to make wiring easy. That's what's shown in the above picture;
+there's one for +R, -R, +L, and -L. Everything we need! They all connect to an input block by way of an ESP-8266 relay-breakout-board (shown in the upper-right
+of the image below).</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_eec766f.jpeg" style="width: 100%" alt="Audio Connector Control"></p>
+<p>When I get this set up (completely) the little ESP board will listen for <a href="https://mqtt.org/">MQTT</a> commands from my home-automation server that will tell it
+to open the normally-closed relay contacts and effectively shut down the whole analog audio network by disconnecting my study mixer from the rest of the
+house.</p>
+<h2>Detecting Doorbell Use</h2>
+<p>In my house, the doorbell is a bit difficult to hear from anywhere other than the livingroom. I mean, it's possible to hear it from around the house, but not
+always. When I'm in the kitchen, if I'm cooking (which is often what I'm doing when I'm waiting for the doorbell), I can't often hear the bell over my skillet!
+So, I want to integrate the doorbell detection into some more intelligent operations and be able to send push notifications or even play audio chimes through
+the centralized audio system. Shouldn't be difficult, but I need to interface with one of my little <a href="https://www.embeddedts.com/products/TS-7500">Technologic TS7500</a>
+computers. Now... this computer has a 5VDC input. Not exactly ideal when the doorbell is running at about 16VAC.</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_c71dcbc.jpeg" style="width: 100%" alt="Doorbell Conditioning Circuit"></p>
+<p>Thus, another part of my home-automation center was built up. I needed to consume the AC input, run it through a bridge rectifier (the grey square on the right),
+apply a little filtering and smoothing with a "reasonably big" capacitor, and then shove that into a 12VDC relay.</p>
+<blockquote>
+<p>and why, Joe, didn't you just use an AC relay?</p>
+</blockquote>
+<p>Erm... I don't really have a good answer for that other than the fact that I had all of these components on-hand, and it seemed like fun. Call me cheap for not
+picking up a $4.00 relay. Go ahead! I won't argue. It is cheap. But, I already had a few things on-hand, and heck! Why not?!</p>
+<p>That relay is really only needed to use the doorbell signal to trigger the 5VDC signal to pass to the little Linux computer's input which then, in turn, can be
+monitored and used for triggering all manner of things.</p>
+<h2>Leveraging Lights</h2>
+<p>Another feature that I want to add is making one of the lights in my entryway a three-way switched light. The purpose of which is reasonably self-explanatory,
+but I want to bring intelligence to one of the light in my living room. The challenge is that the light is a traditional one, and it's already wired into the
+wall (properly), and I'd rather have a true three-way-switch than the dumb little "hack" that I used for my dining room light (which will surely change someday).</p>
+<p>I've gone ahead and connected a nice, big, wiring block (shown in the upper-right of the image below) to allow for connections into the computer and the light
+itself. This should make it nice and convenient, and make a true 3-way switch possible where the computer and the light switch will always be responsive to
+control, and I won't have to wait for the dumb thing to boot up and initialize.</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_a8b8778.jpeg" style="width: 100%" alt="Wiring Blocks for Lights"></p>
+<p>The Technologic computer, of course, has its own relay-break-out-board which also sandwiches nicely into its fancy little aluminum case (shown below), and that
+is how I'm taking control of the light. Just like any other three-way-switch, I'm using the NO/NC contacts to wire opposite those of the three way switch I'll
+mount in the wall, and then I'll be able to control the light, either from a physical switch, or from the computer. Either way, no problem!</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_5caf4e9.jpeg" style="width: 100%" alt="Computer and all the Power Supplies"></p>
+<p>You might also notice that there's a couple of power supplies there. I've got a nice little "computer-style" power supply which provides 5V, and I've also got
+a little board that I salvaged from some old (crappy) DJ dance lights that provides 12V.</p>
+<blockquote>
+<p>and what, Joe, is the 12V supply for?</p>
+</blockquote>
+<p>I'm glad you asked!</p>
+<h2>Talking with the Telegraph</h2>
+<p>That's right... I'm nerdy enough that I want to connect to an old Telegraph key, and actually <em>do something</em> with it. I'm wiring it in by my front entryway
+for no other purpose than to excentuate my "nerdiness". I'm not even quite sure what the system will do, yet, but I'll come up with something cool. Maybe
+listen for special "commands" and "do" respond with secret messages if you send the right code. Maybe just repeating messages back to the sender. Maybe
+other things. Who knows! If you've got some fun ideas, drop a note in the comments below!</p>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Side Note:</span>
+<span class="sd">----------</span>
+
+<span class="sd">In case you weren&#39;t aware (and since I still haven&#39;t written a post about how I did it, you&#39;re probably not aware)</span>
+<span class="sd">the comment system embedded here in my blog is all hosted on an old computer in my basement (one of many), and is</span>
+<span class="sd">completely managed by me! So no worry about some third party service discontinuing their product. I get to keep</span>
+<span class="sd">hosting it as long as I want... Go ahead! Try it out! It even supports markdown...</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
+
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_fe0af05.jpeg" style="width: 100%" alt="The Wiring Blocks and Power Supplies"></p>
+<h2>Wrapping Up</h2>
+<p>It's fair to say that there's quite a bit more that I still need to do here. In fact, I've got a lot of wiring to do, still... But I'm excited that this
+project which, notably, is recycling the "box" that I used for my first foray into some home autoation is coming along nicely. In fact, this box contained
+the same computer and some of the same components to allow me to dabble in my first home-automation and Python web-serving application. There's still much
+to be learned.</p>
+<p>The Linux computer is OLD, and will only (realistically) run Debian 5, which will make updates near impossible. That means that Python is going to be
+constrained to Python 2 (if I'm lucky, maybe I can load from the DeadSnakes PPA - but I'm doubtful), and that pretty much blocks the use of MQTT. That said,
+I still think I can pretty effectively set up the computer to host a little web-server to have REST-API endpoints, and I think I can even get it set up to
+<em>make</em> REST-API calls.</p>
+<p>I'm excited to see what fun will come of this! Stay tuned for more!</p>
+    </div>
+  </article>
+<!-- PHOTO plugin: article gallery -->
+<div class="gallery">
+      <h1></h1>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_373c80d.jpg" title="ima_373c80d.jpeg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_373c80dt.jpg"></a>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_3d778f5.jpg" title="ima_3d778f5.jpeg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_3d778f5t.jpg"></a>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_5caf4e9.jpg" title="ima_5caf4e9.jpeg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_5caf4e9t.jpg"></a>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_a8b8778.jpg" title="ima_a8b8778.jpeg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_a8b8778t.jpg"></a>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_c71dcbc.jpg" title="ima_c71dcbc.jpeg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_c71dcbct.jpg"></a>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_eec766f.jpg" title="ima_eec766f.jpeg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_eec766ft.jpg"></a>
+            <a href="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_fe0af05.jpg" title="ima_fe0af05.jpeg" exif="" caption=""><img src="https://engineerjoe440.github.io/stanley-solutions-blog/photos/home-automation-center/ima_fe0af05t.jpg"></a>
+</div>
+<!-- PHOTO plugin: article gallery -->
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
