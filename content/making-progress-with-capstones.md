@@ -33,6 +33,14 @@ data-setup="{}">
 <img src="https://nextcloud.stanleysolutionsnw.com/index.php/s/JCmy9eXoZgfmCZQ/download/PCB_v3_Layout.jpg" style="width: 100%" alt="FireSense PCB">
 
 
+**Other Pictures and Videos**
+
+- https://nextcloud.stanleysolutionsnw.com/index.php/s/eTZwdijf9taCxKp
+- https://nextcloud.stanleysolutionsnw.com/index.php/s/PjxzwKxr72d8PdN
+- https://nextcloud.stanleysolutionsnw.com/index.php/s/LWt2TSwfTiJNxH5
+- https://nextcloud.stanleysolutionsnw.com/index.php/s/NxWkwm9jbgKpejj
+
+
 
 # Biochar Reactor (Team Biochargers)
 
@@ -51,5 +59,13 @@ data-setup="{}">
 </video>
 
 <img src="https://nextcloud.stanleysolutionsnw.com/index.php/s/K85yecCKHgcnEt6/download/System_Breakdown_GIF.gif" style="width: 100%" alt="System Breakdown">
+
+
+**Other Pictures and Videos**
+
+- https://nextcloud.stanleysolutionsnw.com/index.php/s/tRi84GWsKpFi2Zf
+- https://nextcloud.stanleysolutionsnw.com/index.php/s/fopwNKM2zEnm7nY
+- https://nextcloud.stanleysolutionsnw.com/index.php/s/tRi84GWsKpFi2Zf
+- https://nextcloud.stanleysolutionsnw.com/index.php/s/6KDrz9kApReAtrb
 
 
