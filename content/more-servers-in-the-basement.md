@@ -16,3 +16,9 @@ most of my computing hardware is ancient 32-bit stuff). I'm really excited to st
 backup file storage server to start sharing the load of all my git backups, etc. to some rugged machinery.
 
 Anyway... check it all out!!!
+
+### Update:
+
+I've got even more computers now! Take a look!
+
+They're working to host Nextcloud, Gitea, Prometheus, Rainloop, Grafana, and more!
