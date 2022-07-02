@@ -48,11 +48,11 @@ after all, that's what 4-H is all about. The whole ethos really is *"learn by do
 
 Oh! You want to see the uploader? The album-site? The photos? OK!
 
-| **Description** | **Link**                                                                                 |
-|-----------------|------------------------------------------------------------------------------------------|
-| Photo Uploader  | [`photos.idaho4h.com`](https://photos.idaho4h.com/)                                      |
-| Albums and Pics | [`albums.idaho4h.com`](https://albums.idaho4h.com/)                                      |
-| Source Code     | [StanleySolutions Gitlab](https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader) |
+| **Description** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  | **Link**                                                                                 |
+|------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| Photo Uploader                                             | [`photos.idaho4h.com`](https://photos.idaho4h.com/)                                      |
+| Albums and Pics                                            | [`albums.idaho4h.com`](https://albums.idaho4h.com/)                                      |
+| Source Code                                                | [StanleySolutions Gitlab](https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader) |
 
 You can go browse all of the source code that our team (one of the Steering Committee youth members and myself) created, or you can go look at the
 finished product (the uploader), and even take a look at the album site. The album site has a single public album where all of the photos have
