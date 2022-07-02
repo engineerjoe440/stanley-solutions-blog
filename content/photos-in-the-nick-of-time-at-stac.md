@@ -166,11 +166,14 @@ for nothing else than to remove photos that just aren't flattering.
 
 # Closing Thoughts and Special Thanks
 
+> Administrative note: We're diverging from the technical stuff, here, so if that's what you came for, you're free to take off at this point!
+> However, if you like the 4-H memories, stick around and read on!
+
 I truly love participating in this event. It excites me each year to watch these young people grow and find themselves, and become true leaders. They're
 going places, and I love seeing that. I'm so happy to work alongside some really cool people who make the event possible.
 
-<img src="{attach}/images/stac-2022/528FB398-BCDA-435E-A3E8-EC5AF00A1F4F.jpeg" style="width: 40%; margin: 10px;" align="left" alt="These Folks Rock!">
-<img src="{attach}/images/stac-2022/028EFD6B-950A-4995-B1E5-A98BF31BD10A.jpeg" style="width: 40%; margin: 10px;" align="right" alt="What goofs...">
+<img src="{attach}/images/stac-2022/528FB398-BCDA-435E-A3E8-EC5AF00A1F4F.jpeg" style="width: 50%" align="left" alt="These Folks Rock!">
+<img src="{attach}/images/stac-2022/028EFD6B-950A-4995-B1E5-A98BF31BD10A.jpeg" style="width: 50%" align="right" alt="What goofs...">
 
 This isn't everyone, but it's a solid group! From left-to-right, Tara, Teresa, (yours truly), SheilAnne, and Kandee. Not pictured are Carrie and Mike
 who help to "round out" the remaining adults on the STAC Steering Committe. They're all a great group of folks to work with, and spend time with. I
@@ -182,7 +185,7 @@ all make it so much fun to work on.
 I'm a bit of a sap, so I want to end on this sappy note. Think of that what you will.
 
 It's hard to believe that nine years ago was *my* first time attending this conference as a youth, myself. That year was a wild and wonderful ride; I
-learned so much. That was also Dr. Lindstrom's first year as the Idaho State 4-H Director.
+learned so much. That was also Dr. Jim Lindstrom's first year as the Idaho State 4-H Director.
 
 <img src="{attach}/images/stac-2022/DSC_0925.JPG" style="width: 100%; margin: 10px;" align="right" alt="Dr. Lindstrom">
 
@@ -193,4 +196,17 @@ youth, educators, and 4-H professionals. Many times, there are folks who wear se
 
 Dr. Lindstrom has been behind this development for that entire time. He's worked diligently to keep the pipelines flowing and keep all of those folks
 engaged. I still remember sitting with Dr. Lindstrom at our formal banquet the first year at STAC and talking to him about what projects I was taking
-that year, and what I enjoyed about 4-H in the state.
+that year, and what I enjoyed about 4-H in the state. This is Dr. Lindstrom's last year, and it's been wonderful to reflect on all of the great things
+that the state has accomplished over these years, and I'm so thankful for Jim's leadership, care, and persistence. He's been a solid guide, and a true
+leader. The sort of person we all hope to "grow up to be."
+
+Thank you, Dr. Lindstrom! May Idaho 4-H continue to reap the benefits of all the greatness you've sewn, and may you be able to look back on it with
+fond memories of all the youth who've seen tremendous growth.
+
+---
+
+Last thing...
+
+Keep Making the Best Better.
+
+~Joe
