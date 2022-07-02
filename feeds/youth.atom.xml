@@ -63,7 +63,69 @@ shouldn't be made public before the photos become viewable. And that sorta takes
 &lt;p&gt;As much as I would &lt;em&gt;LOVE&lt;/em&gt; to say that we had zero issues this year with our new tool, that just isn't the truth. We had some great failures, too.
 I mean, after all, just look at that guy on the right. Would you trust him to make something that didn't have at least one or two hiccups? Me neither.&lt;/p&gt;
 &lt;p&gt;So here are all the little things that went wrong...&lt;/p&gt;
-&lt;h4&gt;1)&lt;/h4&gt;</content><category term="Youth"></category><category term="Python"></category><category term="React.Js"></category><category term="4H"></category><category term="Fastapi"></category><category term="Materialui"></category><category term="Linode"></category></entry><entry><title>Error Pages for Education</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/error-pages-for-education.html" rel="alternate"></link><published>2022-03-29T17:04:00-07:00</published><updated>2022-03-29T17:04:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-03-29:/stanley-solutions-blog/error-pages-for-education.html</id><summary type="html">&lt;p&gt;What better way to learn, then by doing. That, after all, is the ethos of 4-H. The very esence of how 4-H teaches youth effective life-skills every day. This "photo upload app" that I've been working on relies on some of the newest, prettiest, fanciest web framework technologies available to make the common user-interaction experience very smooth so that youth may engage in digital activities easily, without having to learn new hoops to jump through. Still, it's being built &lt;em&gt;for&lt;/em&gt; youth, &lt;em&gt;by&lt;/em&gt; youth, so wouldn't it be disappointing if there weren't aspects that were clearly touched by youth? Clearly inspired by them? Sharing their energy and creativity?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Errors are a given when it comes to computers. Heck, they're a given when it comes to most technology. We're all familiar with the &lt;em&gt;"dreaded 404"&lt;/em&gt; that's
+&lt;h4&gt;1) Not all Districts Were Accounted For&lt;/h4&gt;
+&lt;p&gt;Ok. Admittedly, this isn't exactly a failure, but I wanted to call it out, anyway, since there was some work to be done here, and it emphasized a
+point of contention in our system. You see, we've got a hard-coded mechanism for managing district validation for the district selection. That selection
+is this little section here...&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/district-selection.png" style="width: 40%" align="center" alt="District Selection"&gt;&lt;/p&gt;
+&lt;p&gt;In the code snippet below, you can see that there's a hard-coded number of options that are validated against. This isn't the only place though, the
+React.js frontend also has these values hard-coded. SO... We'll need to determine a way to make those selections more discrete, and customizable. Hmm...&lt;/p&gt;
+&lt;details&gt;
+  &lt;summary&gt;Click to examine the district validator function...&lt;/summary&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;validate_district&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;district_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;ValidatedDistrict&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;    District Validation Function&lt;/span&gt;
+
+&lt;span class="sd"&gt;    This function validates a string providing the name of the district which&lt;/span&gt;
+&lt;span class="sd"&gt;    photos should be uploaded in association with. If the name is valid, it will&lt;/span&gt;
+&lt;span class="sd"&gt;    return `True` and the sanitized name, should the name NOT be valid, `False`&lt;/span&gt;
+&lt;span class="sd"&gt;    will be returned with an empty string.&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;district&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;district_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;eastern&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;district&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Eastern District&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;district_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;northern&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;district&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Northern District&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;district_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;central&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;district&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Central District&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;district_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;southern&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;district&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Southern District&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;district_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;washington&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;district&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Washington State&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This isn&amp;#39;t a district!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This is a weirdly named district!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;district&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/details&gt;
+
+&lt;p&gt;Ultimately, this came up last minute (Sunday night before the delegation arrived) when we were discussing the Washington-State delegation's participation
+in the district competitions. Since they would be participating, we'd need them added to the list. Thankfully, due to our automated build system (thank
+goodness I spent the time to get that thing working), I was able to make the code changes, verify that my changes had some bugs, fix the bugs, and deploy
+- all within the time of about a half-an-hour.&lt;/p&gt;
+&lt;p&gt;So yeah, I'll call it a loss, but there was a hidden win, too!&lt;/p&gt;
+&lt;h4&gt;2) Limited Number of Photos in an Upload Group&lt;/h4&gt;
+&lt;p&gt;We've all heard that joke about assumptions, right?&lt;/p&gt;
+&lt;p&gt;You know, the one that says something about making an a$$ out of you and me? That one... Well, is it not the case that in engineering, we have to make a
+LOT of assumptions? Oh yeah. We do.&lt;/p&gt;
+&lt;p&gt;Well, we made an assumption about how many pictures people would want to upload at any given time. Guess we got those numbers a little wrong. We quickly
+learned that people wanted to upload a lot more than 10 pictures at any given time. Dang. Good thing GitLab has bug-tracking! So I went ahead and logged
+it already: https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader/-/issues/48  -- Love GitLab.&lt;/p&gt;
+&lt;h4&gt;3) Limited Download Access&lt;/h4&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/20220619_172534.jpg" style="width: 40%" align="left" alt="Not Enough Access."&gt;&lt;/p&gt;
+&lt;p&gt;Unfortunately, another thing that we learned the hard way this year was that downloading an entire album as a zipped file isn't as easy when you're not
+the web-admin (&lt;em&gt;coughs&lt;/em&gt; that's me).&lt;/p&gt;</content><category term="Youth"></category><category term="Python"></category><category term="React.Js"></category><category term="4H"></category><category term="Fastapi"></category><category term="Materialui"></category><category term="Linode"></category></entry><entry><title>Error Pages for Education</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/error-pages-for-education.html" rel="alternate"></link><published>2022-03-29T17:04:00-07:00</published><updated>2022-03-29T17:04:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-03-29:/stanley-solutions-blog/error-pages-for-education.html</id><summary type="html">&lt;p&gt;What better way to learn, then by doing. That, after all, is the ethos of 4-H. The very esence of how 4-H teaches youth effective life-skills every day. This "photo upload app" that I've been working on relies on some of the newest, prettiest, fanciest web framework technologies available to make the common user-interaction experience very smooth so that youth may engage in digital activities easily, without having to learn new hoops to jump through. Still, it's being built &lt;em&gt;for&lt;/em&gt; youth, &lt;em&gt;by&lt;/em&gt; youth, so wouldn't it be disappointing if there weren't aspects that were clearly touched by youth? Clearly inspired by them? Sharing their energy and creativity?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Errors are a given when it comes to computers. Heck, they're a given when it comes to most technology. We're all familiar with the &lt;em&gt;"dreaded 404"&lt;/em&gt; that's
 presented to users when a page or resource can't be found. That doesn't mean that they have to be boring! After all, the text "404" on screen is plain;
 uninteresting. Wouldn't it be disingenuous to use just plain text for a web-service that's exciting and interesting?&lt;/p&gt;
 &lt;p&gt;I think it would be!&lt;/p&gt;

@@ -142,7 +142,69 @@ shouldn't be made public before the photos become viewable. And that sorta takes
 <p>As much as I would <em>LOVE</em> to say that we had zero issues this year with our new tool, that just isn't the truth. We had some great failures, too.
 I mean, after all, just look at that guy on the right. Would you trust him to make something that didn't have at least one or two hiccups? Me neither.</p>
 <p>So here are all the little things that went wrong...</p>
-<h4>1)</h4>
+<h4>1) Not all Districts Were Accounted For</h4>
+<p>Ok. Admittedly, this isn't exactly a failure, but I wanted to call it out, anyway, since there was some work to be done here, and it emphasized a
+point of contention in our system. You see, we've got a hard-coded mechanism for managing district validation for the district selection. That selection
+is this little section here...</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/district-selection.png" style="width: 40%" align="center" alt="District Selection"></p>
+<p>In the code snippet below, you can see that there's a hard-coded number of options that are validated against. This isn't the only place though, the
+React.js frontend also has these values hard-coded. SO... We'll need to determine a way to make those selections more discrete, and customizable. Hmm...</p>
+<details>
+  <summary>Click to examine the district validator function...</summary>
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">validate_district</span><span class="p">(</span><span class="n">district_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ValidatedDistrict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    District Validation Function</span>
+
+<span class="sd">    This function validates a string providing the name of the district which</span>
+<span class="sd">    photos should be uploaded in association with. If the name is valid, it will</span>
+<span class="sd">    return `True` and the sanitized name, should the name NOT be valid, `False`</span>
+<span class="sd">    will be returned with an empty string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">district</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">district_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;eastern&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">district</span> <span class="o">=</span> <span class="s2">&quot;Eastern District&quot;</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">district_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;northern&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">district</span> <span class="o">=</span> <span class="s2">&quot;Northern District&quot;</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">district_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;central&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">district</span> <span class="o">=</span> <span class="s2">&quot;Central District&quot;</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">district_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;southern&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">district</span> <span class="o">=</span> <span class="s2">&quot;Southern District&quot;</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">district_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;washington&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">district</span> <span class="o">=</span> <span class="s2">&quot;Washington State&quot;</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;This isn&#39;t a district!&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;This is a weirdly named district!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">district</span>
+</code></pre></div>
+
+
+</details>
+
+<p>Ultimately, this came up last minute (Sunday night before the delegation arrived) when we were discussing the Washington-State delegation's participation
+in the district competitions. Since they would be participating, we'd need them added to the list. Thankfully, due to our automated build system (thank
+goodness I spent the time to get that thing working), I was able to make the code changes, verify that my changes had some bugs, fix the bugs, and deploy
+- all within the time of about a half-an-hour.</p>
+<p>So yeah, I'll call it a loss, but there was a hidden win, too!</p>
+<h4>2) Limited Number of Photos in an Upload Group</h4>
+<p>We've all heard that joke about assumptions, right?</p>
+<p>You know, the one that says something about making an a$$ out of you and me? That one... Well, is it not the case that in engineering, we have to make a
+LOT of assumptions? Oh yeah. We do.</p>
+<p>Well, we made an assumption about how many pictures people would want to upload at any given time. Guess we got those numbers a little wrong. We quickly
+learned that people wanted to upload a lot more than 10 pictures at any given time. Dang. Good thing GitLab has bug-tracking! So I went ahead and logged
+it already: https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader/-/issues/48  -- Love GitLab.</p>
+<h4>3) Limited Download Access</h4>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/20220619_172534.jpg" style="width: 40%" align="left" alt="Not Enough Access."></p>
+<p>Unfortunately, another thing that we learned the hard way this year was that downloading an entire album as a zipped file isn't as easy when you're not
+the web-admin (<em>coughs</em> that's me).</p>
     </div>
   </article>
 <!-- PHOTO plugin: article gallery -->
