@@ -76,8 +76,12 @@ is this little section here...
 
 <img src="{attach}/images/district-selection.png" style="width: 55%; margin: 10px;" align="left" alt="District Selection">
 
+<br><br>
+
 In the code snippet below, you can see that there's a hard-coded number of options that are validated against. This isn't the only place though, the
 React.js frontend also has these values hard-coded. SO... We'll need to determine a way to make those selections more discrete, and customizable. Hmm...
+
+<br><br><br>
 
 <details>
   <summary>Click to examine the district validator function...</summary>
