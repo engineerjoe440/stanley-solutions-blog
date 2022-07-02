@@ -29,7 +29,7 @@ events, and together we created this tool to help all of the adults, and all of 
 &lt;em&gt;THAT&lt;/em&gt; is the biggest win. We've definatively proven that the youth are more than capable of building their own infrastructure with guidance; and,
 after all, that's what 4-H is all about. The whole ethos really is &lt;em&gt;"learn by doing."&lt;/em&gt;&lt;/p&gt;
 &lt;h1&gt;Where's the Proof?&lt;/h1&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/20220619_172613.jpg" style="width: 40%; margin: 10px;" align="left" alt="Where is it all?"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/20220619_172613.jpg" style="width: 50%; margin: 10px;" align="left" alt="Where is it all?"&gt;&lt;/p&gt;
 &lt;p&gt;Oh! You want to see the uploader? The album-site? The photos? OK!&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -59,7 +59,7 @@ been moved after they've been filtered and cleaned.&lt;/p&gt;
 &lt;p&gt;Ah! But before you ask; yes, that filtering and cleaning &lt;em&gt;is&lt;/em&gt; a manual process. Someone has to go through all of them and look for anything that
 shouldn't be made public before the photos become viewable. And that sorta takes us into the next topic...&lt;/p&gt;
 &lt;h1&gt;Our Losses&lt;/h1&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/DSC_0630.JPG" style="width: 30%; margin: 10px;" align="right" alt="This clown..."&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/DSC_0630.JPG" style="width: 40%; margin: 10px;" align="right" alt="This clown..."&gt;&lt;/p&gt;
 &lt;p&gt;As much as I would &lt;em&gt;LOVE&lt;/em&gt; to say that we had zero issues this year with our new tool, that just isn't the truth. We had some great failures, too.
 I mean, after all, just look at that guy on the right. Would you trust him to make something that didn't have at least one or two hiccups? Me neither.&lt;/p&gt;
 &lt;p&gt;So here are all the little things that went wrong...&lt;/p&gt;
@@ -67,7 +67,7 @@ I mean, after all, just look at that guy on the right. Would you trust him to ma
 &lt;p&gt;Ok. Admittedly, this isn't exactly a failure, but I wanted to call it out, anyway, since there was some work to be done here, and it emphasized a
 point of contention in our system. You see, we've got a hard-coded mechanism for managing district validation for the district selection. That selection
 is this little section here...&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/district-selection.png" style="width: 40%; margin: 10px;" align="center" alt="District Selection"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/district-selection.png" style="width: 55%; margin: 10px;" align="left" alt="District Selection"&gt;&lt;/p&gt;
 &lt;p&gt;In the code snippet below, you can see that there's a hard-coded number of options that are validated against. This isn't the only place though, the
 React.js frontend also has these values hard-coded. SO... We'll need to determine a way to make those selections more discrete, and customizable. Hmm...&lt;/p&gt;
 &lt;details&gt;
@@ -146,7 +146,25 @@ those, anyway. But, we're working with youth. So there's always the possibility.
 for nothing else than to remove photos that just aren't flattering.&lt;/p&gt;
 &lt;h1&gt;Closing Thoughts and Special Thanks&lt;/h1&gt;
 &lt;p&gt;I truly love participating in this event. It excites me each year to watch these young people grow and find themselves, and become true leaders. They're
-going places, and I love seeing that.&lt;/p&gt;</content><category term="Youth"></category><category term="Python"></category><category term="React.Js"></category><category term="4H"></category><category term="Fastapi"></category><category term="Materialui"></category><category term="Linode"></category></entry><entry><title>Making Progress with Capstones</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/making-progress-with-capstones.html" rel="alternate"></link><published>2022-05-24T15:25:00-07:00</published><updated>2022-05-24T15:25:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-05-24:/stanley-solutions-blog/making-progress-with-capstones.html</id><summary type="html">&lt;p&gt;Over the last two years, I've become more involved as a project sponsor for some University of Idaho Engineering Capstone projects, and I'm very excited about their growth. Progress may be slow, but it's incremental, and we're approaching goals, which is always exciting!&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Quick! Recap what's being researched...&lt;/h3&gt;
+going places, and I love seeing that. I'm so happy to work alongside some really cool people who make the event possible.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/528FB398-BCDA-435E-A3E8-EC5AF00A1F4F.jpeg" style="width: 40%; margin: 10px;" align="left" alt="These Folks Rock!"&gt;
+&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/028EFD6B-950A-4995-B1E5-A98BF31BD10A.jpeg" style="width: 40%; margin: 10px;" align="right" alt="What goofs..."&gt;&lt;/p&gt;
+&lt;p&gt;This isn't everyone, but it's a solid group! From left-to-right, Tara, Teresa, (yours truly), SheilAnne, and Kandee. Not pictured are Carrie and Mike
+who help to "round out" the remaining adults on the STAC Steering Committe. They're all a great group of folks to work with, and spend time with. I
+couldn't be happier to collaborate with them. Of course, I'd be remiss to ignore the fact that there's plenty of youth wha also make up the team. They
+all make it so much fun to work on.&lt;/p&gt;
+&lt;h3&gt;Dr. Lindstrom&lt;/h3&gt;
+&lt;p&gt;I'm a bit of a sap, so I want to end on this sappy note. Think of that what you will.&lt;/p&gt;
+&lt;p&gt;It's hard to believe that nine years ago was &lt;em&gt;my&lt;/em&gt; first time attending this conference as a youth, myself. That year was a wild and wonderful ride; I
+learned so much. That was also Dr. Lindstrom's first year as the Idaho State 4-H Director.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/DSC_0925.JPG" style="width: 100%; margin: 10px;" align="right" alt="Dr. Lindstrom"&gt;&lt;/p&gt;
+&lt;p&gt;I don't want to spend too much time pounding on this point, but I want to leave a lasting "Thank You," right here. There's a lot that has gone on
+behind the scenes in the state. I'm glad to have been able to have seen some of these trials and tribulations, so that I might understand a small part
+of the process. It takes an army, not just a villiage, to keep a state 4-H program strong, and ours is. We have wonderful volunteers, leaders, parents
+youth, educators, and 4-H professionals. Many times, there are folks who wear several of those hats all at the same time.&lt;/p&gt;
+&lt;p&gt;Dr. Lindstrom has been behind this development for that entire time. He's worked diligently to keep the pipelines flowing and keep all of those folks
+engaged. I still remember sitting with Dr. Lindstrom at our formal banquet the first year at STAC and talking to him about what projects I was taking
+that year, and what I enjoyed about 4-H in the state.&lt;/p&gt;</content><category term="Youth"></category><category term="Python"></category><category term="React.Js"></category><category term="4H"></category><category term="Fastapi"></category><category term="Materialui"></category><category term="Linode"></category></entry><entry><title>Making Progress with Capstones</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/making-progress-with-capstones.html" rel="alternate"></link><published>2022-05-24T15:25:00-07:00</published><updated>2022-05-24T15:25:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-05-24:/stanley-solutions-blog/making-progress-with-capstones.html</id><summary type="html">&lt;p&gt;Over the last two years, I've become more involved as a project sponsor for some University of Idaho Engineering Capstone projects, and I'm very excited about their growth. Progress may be slow, but it's incremental, and we're approaching goals, which is always exciting!&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Quick! Recap what's being researched...&lt;/h3&gt;
 &lt;p&gt;This year, I'm very thankful that I've been able to sponsor two different projects. A continuation project from
 last year's &lt;a href="https://engineerjoe440.github.io/stanley-solutions-blog/hearing-fires-while-seeing-smoke.html"&gt;wildfire detection project&lt;/a&gt;
 and a continuation of my own Capstone project, a &lt;a href="http://mindworks.shoutwiki.com/wiki/Biochar_Production_System"&gt;biochar reactor&lt;/a&gt;.&lt;/p&gt;
