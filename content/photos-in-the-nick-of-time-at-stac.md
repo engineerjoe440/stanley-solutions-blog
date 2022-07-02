@@ -20,7 +20,7 @@ If you're not sure what I'm talking about, let me point you at some of the other
 * [Error Pages for Education](./error-pages-for-education)
 
 # Our Wins
-<img src="{attach}/images/stac-2022/FBAC19F1-F146-4038-BCFF-0D7CF2C3CCD5.jpeg" style="width: 30%" align="right" alt="Go Team!">
+<img src="{attach}/images/stac-2022/FBAC19F1-F146-4038-BCFF-0D7CF2C3CCD5.jpeg" style="width: 30%; margin: 10px;" align="right" alt="Go Team!">
 
 Yeah! We did have some big wins this year. First and foremost was that we had a great conference. The youth all really seemed to enjoy themselves,
 and minor challenges and hiccups aside, all things were good.
@@ -44,7 +44,7 @@ events, and together we created this tool to help all of the adults, and all of 
 after all, that's what 4-H is all about. The whole ethos really is *"learn by doing."*
 
 # Where's the Proof?
-<img src="{attach}/images/stac-2022/20220619_172613.jpg" style="width: 40%" align="left" alt="Where is it all?">
+<img src="{attach}/images/stac-2022/20220619_172613.jpg" style="width: 40%; margin: 10px;" align="left" alt="Where is it all?">
 
 Oh! You want to see the uploader? The album-site? The photos? OK!
 
@@ -62,7 +62,7 @@ Ah! But before you ask; yes, that filtering and cleaning *is* a manual process. 
 shouldn't be made public before the photos become viewable. And that sorta takes us into the next topic...
 
 # Our Losses
-<img src="{attach}/images/stac-2022/DSC_0630.JPG" style="width: 30%" align="right" alt="This clown...">
+<img src="{attach}/images/stac-2022/DSC_0630.JPG" style="width: 30%; margin: 10px;" align="right" alt="This clown...">
 
 As much as I would *LOVE* to say that we had zero issues this year with our new tool, that just isn't the truth. We had some great failures, too.
 I mean, after all, just look at that guy on the right. Would you trust him to make something that didn't have at least one or two hiccups? Me neither.
@@ -74,7 +74,7 @@ Ok. Admittedly, this isn't exactly a failure, but I wanted to call it out, anywa
 point of contention in our system. You see, we've got a hard-coded mechanism for managing district validation for the district selection. That selection
 is this little section here...
 
-<img src="{attach}/images/district-selection.png" style="width: 40%" align="center" alt="District Selection">
+<img src="{attach}/images/district-selection.png" style="width: 40%; margin: 10px;" align="center" alt="District Selection">
 
 In the code snippet below, you can see that there's a hard-coded number of options that are validated against. This isn't the only place though, the
 React.js frontend also has these values hard-coded. SO... We'll need to determine a way to make those selections more discrete, and customizable. Hmm...
@@ -136,7 +136,35 @@ learned that people wanted to upload a lot more than 10 pictures at any given ti
 it already: https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader/-/issues/48  -- Love GitLab.
 
 #### 3) Limited Download Access
-<img src="{attach}/images/stac-2022/20220619_172534.jpg" style="width: 40%" align="left" alt="Not Enough Access.">
+<img src="{attach}/images/stac-2022/20220619_172534.jpg" style="width: 40%; margin: 10px;" align="left" alt="Not Enough Access.">
 
 Unfortunately, another thing that we learned the hard way this year was that downloading an entire album as a zipped file isn't as easy when you're not
-the web-admin (*coughs* that's me).
+the web-admin (*coughs* that's me). The teen officers (who are in charge of putting together a slide-show with all of these pictures), had one heck of a
+time trying to interact with the Lychee albums app to get the pictures that they need. Now, admittedly, this is partly a combination of lack of teaching
+from me, and partly general technical challenges, but in total, this application is supposed to make things easier for these youth, lowering the barrier
+to entry and making the process simpler, so they have more time to enjoy the conference.
+
+There are learning points to take away from it, as a whole. There's the sentiment of:
+
+> There's no better time to learn something than the present.
+
+Still, if it's easier, overall, it could give the teen officers a greater opportunity to enjoy their conference. So we'll need to figure out a better
+way to make those images available for download in a zip.
+
+#### 4) Manually Screening Pictures
+
+You know me... I hate doing something that I think the computer can. That's why I consider myself an "automation engineer," I automate things; that's
+what I do.
+
+So when we still have to manually screen pictures and make sure that they're appropriate, that makes a small part of me cry inside. There HAS to be a
+better way. I still think there is, but I don't know what it is yet.
+
+I think I'd like to explore what those ever-present buzz-word technoligies might be able to provide. You know the ones; AI and ML. What can a little
+computer-learning bring to the table? Can it identify photos that would be considered explicit, or inappropriate? We're 4-H, so we *shouldn't* be seeing
+those, anyway. But, we're working with youth. So there's always the possibility. Right? So we should have some screening mechanism in place. Even if it's
+for nothing else than to remove photos that just aren't flattering.
+
+# Closing Thoughts and Special Thanks
+
+I truly love participating in this event. It excites me each year to watch these young people grow and find themselves, and become true leaders. They're
+going places, and I love seeing that.
