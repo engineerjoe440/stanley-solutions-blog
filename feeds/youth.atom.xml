@@ -13,12 +13,57 @@ But that's just how some of these things go, and overall, it was a phenominal su
 &lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/FBAC19F1-F146-4038-BCFF-0D7CF2C3CCD5.jpeg" style="width: 30%" align="right" alt="Go Team!"&gt;&lt;/p&gt;
 &lt;p&gt;Yeah! We did have some big wins this year. First and foremost was that we had a great conference. The youth all really seemed to enjoy themselves,
 and minor challenges and hiccups aside, all things were good.&lt;/p&gt;
+&lt;p&gt;You know, we even had more delegates than usual! Idaho invited Washington State to bring a small delegation of youth who are going to be involved
+in planning their own STAC-equivalent in Washington, next year. Pretty cool, huh?&lt;/p&gt;
 &lt;p&gt;Whats more, we had a successful first run of our Photo Uploader Site. Hmm... I think we still need a better name, don't we? Thoughts, anyone?
 Leave them in the comments. The site didn't crash, it didn't buckle, it didn't lose anything (that I didn't accidentally delete). And it didn't
 go haywire in some other way.&lt;/p&gt;
 &lt;p&gt;In total, we had more than 1200 photos uploaded to &lt;a href="https://albums.idaho4h.com/"&gt;&lt;code&gt;albums.idaho4h.com&lt;/code&gt;&lt;/a&gt;. Yeah, that's right. More than 1200 in
 less than 4 days. Whoop, whoop! Now, in reality, there's nothing terribly impressive about this. That's not really &lt;em&gt;that many&lt;/em&gt; pictures in today's
-world, but for an app built on weekends by two people who were both learning all the way through, it's a big win!&lt;/p&gt;</content><category term="Youth"></category><category term="Python"></category><category term="React.Js"></category><category term="4H"></category><category term="Fastapi"></category><category term="Materialui"></category><category term="Linode"></category></entry><entry><title>Error Pages for Education</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/error-pages-for-education.html" rel="alternate"></link><published>2022-03-29T17:04:00-07:00</published><updated>2022-03-29T17:04:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-03-29:/stanley-solutions-blog/error-pages-for-education.html</id><summary type="html">&lt;p&gt;What better way to learn, then by doing. That, after all, is the ethos of 4-H. The very esence of how 4-H teaches youth effective life-skills every day. This "photo upload app" that I've been working on relies on some of the newest, prettiest, fanciest web framework technologies available to make the common user-interaction experience very smooth so that youth may engage in digital activities easily, without having to learn new hoops to jump through. Still, it's being built &lt;em&gt;for&lt;/em&gt; youth, &lt;em&gt;by&lt;/em&gt; youth, so wouldn't it be disappointing if there weren't aspects that were clearly touched by youth? Clearly inspired by them? Sharing their energy and creativity?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Errors are a given when it comes to computers. Heck, they're a given when it comes to most technology. We're all familiar with the &lt;em&gt;"dreaded 404"&lt;/em&gt; that's
+world, but for an app built on weekends by two people who were both learning all the way through, it's a big win!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ok. Let me toot my own horn, one more time.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Our biggest win, is that &lt;em&gt;we&lt;/em&gt; built this thing. I worked with a youth member who's involved (and super-clever, might I add) in some of these state
+events, and together we created this tool to help all of the adults, and all of his peers to engage in a pleasant and simpler way. If you ask me,
+&lt;em&gt;THAT&lt;/em&gt; is the biggest win. We've definatively proven that the youth are more than capable of building their own infrastructure with guidance; and,
+after all, that's what 4-H is all about. The whole ethos really is &lt;em&gt;"learn by doing."&lt;/em&gt;&lt;/p&gt;
+&lt;h1&gt;Where's the Proof?&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/20220619_172613.jpg" style="width: 40%" align="left" alt="Where is it all?"&gt;&lt;/p&gt;
+&lt;p&gt;Oh! You want to see the uploader? The album-site? The photos? OK!&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Link&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Photo Uploader&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://photos.idaho4h.com/"&gt;&lt;code&gt;photos.idaho4h.com&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Albums and Pics&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://albums.idaho4h.com/"&gt;&lt;code&gt;albums.idaho4h.com&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Source Code&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader"&gt;StanleySolutions Gitlab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;You can go browse all of the source code that our team (one of the Steering Committee youth members and myself) created, or you can go look at the
+finished product (the uploader), and even take a look at the album site. The album site has a single public album where all of the photos have
+been moved after they've been filtered and cleaned.&lt;/p&gt;
+&lt;p&gt;Ah! But before you ask; yes, that filtering and cleaning &lt;em&gt;is&lt;/em&gt; a manual process. Someone has to go through all of them and look for anything that
+shouldn't be made public before the photos become viewable. And that sorta takes us into the next topic...&lt;/p&gt;
+&lt;h1&gt;Our Losses&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/stac-2022/DSC_0630.JPG" style="width: 30%" align="right" alt="This clown..."&gt;&lt;/p&gt;
+&lt;p&gt;As much as I would &lt;em&gt;LOVE&lt;/em&gt; to say that we had zero issues this year with our new tool, that just isn't the truth. We had some great failures, too.
+I mean, after all, just look at that guy on the right. Would you trust him to make something that didn't have at least one or two hiccups? Me neither.&lt;/p&gt;
+&lt;p&gt;So here are all the little things that went wrong...&lt;/p&gt;
+&lt;h4&gt;1)&lt;/h4&gt;</content><category term="Youth"></category><category term="Python"></category><category term="React.Js"></category><category term="4H"></category><category term="Fastapi"></category><category term="Materialui"></category><category term="Linode"></category></entry><entry><title>Error Pages for Education</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/error-pages-for-education.html" rel="alternate"></link><published>2022-03-29T17:04:00-07:00</published><updated>2022-03-29T17:04:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-03-29:/stanley-solutions-blog/error-pages-for-education.html</id><summary type="html">&lt;p&gt;What better way to learn, then by doing. That, after all, is the ethos of 4-H. The very esence of how 4-H teaches youth effective life-skills every day. This "photo upload app" that I've been working on relies on some of the newest, prettiest, fanciest web framework technologies available to make the common user-interaction experience very smooth so that youth may engage in digital activities easily, without having to learn new hoops to jump through. Still, it's being built &lt;em&gt;for&lt;/em&gt; youth, &lt;em&gt;by&lt;/em&gt; youth, so wouldn't it be disappointing if there weren't aspects that were clearly touched by youth? Clearly inspired by them? Sharing their energy and creativity?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Errors are a given when it comes to computers. Heck, they're a given when it comes to most technology. We're all familiar with the &lt;em&gt;"dreaded 404"&lt;/em&gt; that's
 presented to users when a page or resource can't be found. That doesn't mean that they have to be boring! After all, the text "404" on screen is plain;
 uninteresting. Wouldn't it be disingenuous to use just plain text for a web-service that's exciting and interesting?&lt;/p&gt;
 &lt;p&gt;I think it would be!&lt;/p&gt;
