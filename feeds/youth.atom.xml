@@ -68,8 +68,10 @@ I mean, after all, just look at that guy on the right. Would you trust him to ma
 point of contention in our system. You see, we've got a hard-coded mechanism for managing district validation for the district selection. That selection
 is this little section here...&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/district-selection.png" style="width: 55%; margin: 10px;" align="left" alt="District Selection"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;In the code snippet below, you can see that there's a hard-coded number of options that are validated against. This isn't the only place though, the
 React.js frontend also has these values hard-coded. SO... We'll need to determine a way to make those selections more discrete, and customizable. Hmm...&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;Click to examine the district validator function...&lt;/summary&gt;
 
