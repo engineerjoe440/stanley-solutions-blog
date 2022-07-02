@@ -44,7 +44,7 @@ events, and together we created this tool to help all of the adults, and all of 
 after all, that's what 4-H is all about. The whole ethos really is *"learn by doing."*
 
 # Where's the Proof?
-<img src="{attach}/images/stac-2022/20220619_172613.jpg" style="width: 40%; margin: 10px;" align="left" alt="Where is it all?">
+<img src="{attach}/images/stac-2022/20220619_172613.jpg" style="width: 50%; margin: 10px;" align="left" alt="Where is it all?">
 
 Oh! You want to see the uploader? The album-site? The photos? OK!
 
@@ -62,7 +62,7 @@ Ah! But before you ask; yes, that filtering and cleaning *is* a manual process. 
 shouldn't be made public before the photos become viewable. And that sorta takes us into the next topic...
 
 # Our Losses
-<img src="{attach}/images/stac-2022/DSC_0630.JPG" style="width: 30%; margin: 10px;" align="right" alt="This clown...">
+<img src="{attach}/images/stac-2022/DSC_0630.JPG" style="width: 40%; margin: 10px;" align="right" alt="This clown...">
 
 As much as I would *LOVE* to say that we had zero issues this year with our new tool, that just isn't the truth. We had some great failures, too.
 I mean, after all, just look at that guy on the right. Would you trust him to make something that didn't have at least one or two hiccups? Me neither.
@@ -74,7 +74,7 @@ Ok. Admittedly, this isn't exactly a failure, but I wanted to call it out, anywa
 point of contention in our system. You see, we've got a hard-coded mechanism for managing district validation for the district selection. That selection
 is this little section here...
 
-<img src="{attach}/images/district-selection.png" style="width: 40%; margin: 10px;" align="center" alt="District Selection">
+<img src="{attach}/images/district-selection.png" style="width: 55%; margin: 10px;" align="left" alt="District Selection">
 
 In the code snippet below, you can see that there's a hard-coded number of options that are validated against. This isn't the only place though, the
 React.js frontend also has these values hard-coded. SO... We'll need to determine a way to make those selections more discrete, and customizable. Hmm...
@@ -167,4 +167,30 @@ for nothing else than to remove photos that just aren't flattering.
 # Closing Thoughts and Special Thanks
 
 I truly love participating in this event. It excites me each year to watch these young people grow and find themselves, and become true leaders. They're
-going places, and I love seeing that.
+going places, and I love seeing that. I'm so happy to work alongside some really cool people who make the event possible.
+
+<img src="{attach}/images/stac-2022/528FB398-BCDA-435E-A3E8-EC5AF00A1F4F.jpeg" style="width: 40%; margin: 10px;" align="left" alt="These Folks Rock!">
+<img src="{attach}/images/stac-2022/028EFD6B-950A-4995-B1E5-A98BF31BD10A.jpeg" style="width: 40%; margin: 10px;" align="right" alt="What goofs...">
+
+This isn't everyone, but it's a solid group! From left-to-right, Tara, Teresa, (yours truly), SheilAnne, and Kandee. Not pictured are Carrie and Mike
+who help to "round out" the remaining adults on the STAC Steering Committe. They're all a great group of folks to work with, and spend time with. I
+couldn't be happier to collaborate with them. Of course, I'd be remiss to ignore the fact that there's plenty of youth wha also make up the team. They
+all make it so much fun to work on.
+
+### Dr. Lindstrom
+
+I'm a bit of a sap, so I want to end on this sappy note. Think of that what you will.
+
+It's hard to believe that nine years ago was *my* first time attending this conference as a youth, myself. That year was a wild and wonderful ride; I
+learned so much. That was also Dr. Lindstrom's first year as the Idaho State 4-H Director.
+
+<img src="{attach}/images/stac-2022/DSC_0925.JPG" style="width: 100%; margin: 10px;" align="right" alt="Dr. Lindstrom">
+
+I don't want to spend too much time pounding on this point, but I want to leave a lasting "Thank You," right here. There's a lot that has gone on
+behind the scenes in the state. I'm glad to have been able to have seen some of these trials and tribulations, so that I might understand a small part
+of the process. It takes an army, not just a villiage, to keep a state 4-H program strong, and ours is. We have wonderful volunteers, leaders, parents
+youth, educators, and 4-H professionals. Many times, there are folks who wear several of those hats all at the same time.
+
+Dr. Lindstrom has been behind this development for that entire time. He's worked diligently to keep the pipelines flowing and keep all of those folks
+engaged. I still remember sitting with Dr. Lindstrom at our formal banquet the first year at STAC and talking to him about what projects I was taking
+that year, and what I enjoyed about 4-H in the state.
