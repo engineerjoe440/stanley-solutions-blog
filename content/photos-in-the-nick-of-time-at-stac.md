@@ -69,4 +69,74 @@ I mean, after all, just look at that guy on the right. Would you trust him to ma
 
 So here are all the little things that went wrong...
 
-#### 1) 
+#### 1) Not all Districts Were Accounted For
+Ok. Admittedly, this isn't exactly a failure, but I wanted to call it out, anyway, since there was some work to be done here, and it emphasized a
+point of contention in our system. You see, we've got a hard-coded mechanism for managing district validation for the district selection. That selection
+is this little section here...
+
+<img src="{attach}/images/district-selection.png" style="width: 40%" align="center" alt="District Selection">
+
+In the code snippet below, you can see that there's a hard-coded number of options that are validated against. This isn't the only place though, the
+React.js frontend also has these values hard-coded. SO... We'll need to determine a way to make those selections more discrete, and customizable. Hmm...
+
+<details>
+  <summary>Click to examine the district validator function...</summary>
+```python
+def validate_district(district_name: str) -> ValidatedDistrict:
+    """
+    District Validation Function
+    
+    This function validates a string providing the name of the district which
+    photos should be uploaded in association with. If the name is valid, it will
+    return `True` and the sanitized name, should the name NOT be valid, `False`
+    will be returned with an empty string.
+    """
+    count = 0
+    district = ""
+    if district_name.lower().find("eastern") != -1:
+        district = "Eastern District"
+        count += 1
+    if district_name.lower().find("northern") != -1:
+        district = "Northern District"
+        count += 1
+    if district_name.lower().find("central") != -1:
+        district = "Central District"
+        count += 1
+    if district_name.lower().find("southern") != -1:
+        district = "Southern District"
+        count += 1
+    if district_name.lower().find("washington") != -1:
+        district = "Washington State"
+        count += 1
+    if count == 0:
+        return(False, "This isn't a district!")
+    elif count > 1:
+        return(False, "This is a weirdly named district!")
+    else:
+        return True, district
+```
+</details>
+
+Ultimately, this came up last minute (Sunday night before the delegation arrived) when we were discussing the Washington-State delegation's participation
+in the district competitions. Since they would be participating, we'd need them added to the list. Thankfully, due to our automated build system (thank
+goodness I spent the time to get that thing working), I was able to make the code changes, verify that my changes had some bugs, fix the bugs, and deploy
+- all within the time of about a half-an-hour.
+
+So yeah, I'll call it a loss, but there was a hidden win, too!
+
+#### 2) Limited Number of Photos in an Upload Group
+
+We've all heard that joke about assumptions, right?
+
+You know, the one that says something about making an a$$ out of you and me? That one... Well, is it not the case that in engineering, we have to make a
+LOT of assumptions? Oh yeah. We do.
+
+Well, we made an assumption about how many pictures people would want to upload at any given time. Guess we got those numbers a little wrong. We quickly
+learned that people wanted to upload a lot more than 10 pictures at any given time. Dang. Good thing GitLab has bug-tracking! So I went ahead and logged
+it already: https://gitlab.stanleysolutionsnw.com/idaho4h/4HPhotoUploader/-/issues/48  -- Love GitLab.
+
+#### 3) Limited Download Access
+<img src="{attach}/images/stac-2022/20220619_172534.jpg" style="width: 40%" align="left" alt="Not Enough Access.">
+
+Unfortunately, another thing that we learned the hard way this year was that downloading an entire album as a zipped file isn't as easy when you're not
+the web-admin (*coughs* that's me).
