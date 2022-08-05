@@ -6,18 +6,18 @@ I'll have to settle for something a little more practical. You see, I created a 
 &lt;p&gt;Well, that might be a little misleading.&lt;/p&gt;
 &lt;p&gt;The box itself isn't the gift; but rather, what's inside! The box is just to make it a bit more fun, and so I guess that does end up
 being part of the gift, anyway.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/lock-box/263718619_489805155698943_4659655016610554471_n.jpg" style="width: 75%" alt="Stanley Lock Box"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/263718619_489805155698943_4659655016610554471_n.jpg" style="width: 75%" alt="Stanley Lock Box"&gt;&lt;/p&gt;
 &lt;p&gt;A bit wild looking, don't you think? What's the point, anyway? Well, the box has two electronic locks that have to be bypassed before
 it will reveal its contents. Yep, you have to crack the code if you want in.&lt;/p&gt;
 &lt;p&gt;Right now, the two locks are just a combination of switches and a keypad. Set the switches in the right position, then punch in the
 correct code (which is stamped on the side of the box) and the box will magically unlock and allow you to open it!&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/lock-box/263745955_409049780964805_407698870180682018_n.jpg" style="width: 50%" alt="Do Not Open Until December 25"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/263745955_409049780964805_407698870180682018_n.jpg" style="width: 50%" alt="Do Not Open Until December 25"&gt;&lt;/p&gt;
 &lt;p&gt;With only two locks, it won't be &lt;em&gt;that hard&lt;/em&gt; to unlock, but I have plans to expand it. You see, I intend to give these boxes out on the
 condition that they return to me. The boxes will remain "mine" for the purpose of being built up over the years. Next year, I'll add
 one or two more locks, and the year after I'll do the same; so on, and so on.&lt;/p&gt;
 &lt;p&gt;This ought to be a fun little tradition, and I'm hopeful that my victims... errm... recipients... will have a good time cracking the
 "code".&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/lock-box/263380603_595182361758282_4319520950240861117_n.jpg" style="width: 75%"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/263380603_595182361758282_4319520950240861117_n.jpg" style="width: 75%"&gt;&lt;/p&gt;
 &lt;p&gt;You know, it occurs to me that I haven't provided any of the fun details! This project is all powered off a 12V SLA (sealed-lead-acid)
 battery, and is run by the brains of an Arduino. The Arduino takes input from the little touch-pad, and signals to a BUZ11A transistor
 that switches the solenoid responsible for &lt;em&gt;actually locking&lt;/em&gt; the box.&lt;/p&gt;
