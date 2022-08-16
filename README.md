@@ -10,3 +10,14 @@ or
 https://engineerjoe440.github.io/stanley-solutions-blog/
 
 (which will take you to the first link, anyway...)
+
+# About this Blog
+This blog is just a plain-and-simple static-site. It's built using some of the following technologies:
+
+* [Pelican](https://getpelican.com/)
+* [Pelican Render-Math](https://github.com/pelican-plugins/render-math)
+* [Pelican Photos](https://github.com/pelican-plugins/photos)
+* [Pelican Sitemap](https://github.com/pelican-plugins/sitemap)
+* [Isso Comments](https://isso-comments.de/)
+* [PlantUML](https://plantuml.com/)
+* [Github Actions](./.github/workflows/pelican-build.yml)
