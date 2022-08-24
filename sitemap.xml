@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2022-08-16T00:05:09-00:00</lastmod>
+<lastmod>2022-08-24T00:06:57-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/rheo-railroad-a-digital-toy-train.html</loc>
+<lastmod>2022-08-23T17:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -396,6 +403,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/model-railroading.html</loc>
+<lastmod>2022-08-23T17:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html</loc>
 <lastmod>2022-01-26T16:32:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -439,35 +453,56 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/arduino.html</loc>
-<lastmod>2022-08-04T15:52:00-07:53</lastmod>
+<lastmod>2022-08-23T17:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/electro-mechanical.html</loc>
-<lastmod>2022-08-04T15:52:00-07:53</lastmod>
+<lastmod>2022-08-23T17:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/smart-home.html</loc>
-<lastmod>2022-08-04T15:52:00-07:53</lastmod>
+<lastmod>2022-08-23T17:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/development.html</loc>
-<lastmod>2022-08-04T15:52:00-07:53</lastmod>
+<lastmod>2022-08-23T17:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/platformio.html</loc>
-<lastmod>2022-08-04T15:52:00-07:53</lastmod>
+<lastmod>2022-08-23T17:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/toy-trains.html</loc>
+<lastmod>2022-08-23T17:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/lionel.html</loc>
+<lastmod>2022-08-23T17:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/model-railroading.html</loc>
+<lastmod>2022-08-23T17:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1355,13 +1390,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/lionel.html</loc>
-<lastmod>2020-11-22T19:32:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/vintage.html</loc>
 <lastmod>2020-11-22T19:32:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -1433,7 +1461,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2022-08-04T15:52:00-07:53</lastmod>
+<lastmod>2022-08-23T17:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
