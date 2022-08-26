@@ -15,7 +15,6 @@
 * Home Metering Systems w/ SEL-734
 * Python/React Server System for DJ Calendar
 * MaterialUI dropzone issues
-* 4-H Photo uploader - Automated Deployments Using Jenkins
 * Automated server updates
 * SEL protocol testing infrastructure
 * Telnet vs Socket with Python SEL Protocol

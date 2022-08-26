@@ -99,7 +99,8 @@ AUTHOR_FEED_RSS = None
 
 
 # Blogroll
-LINKS = (('Joe On GitHub', 'https://github.com/engineerjoe440/'),
+LINKS = (('Stanley Solutions Website', 'https://stanleysolutionsnw.com'),
+         ('Joe On GitHub', 'https://github.com/engineerjoe440/'),
          ('ElectricPy Project', 'https://engineerjoe440.github.io/ElectricPy/'),
          ('SELProtoPy Project', 'https://engineerjoe440.github.io/selprotopy'),
          ('PyCEV Project', 'https://engineerjoe440.github.io/pycev'),
