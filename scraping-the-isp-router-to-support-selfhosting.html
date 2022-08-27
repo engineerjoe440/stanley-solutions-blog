@@ -79,7 +79,26 @@
       </ul>
     </header>
     <div class="content">
-      
+      <p>Routers have all kinds of "good stuff." A literal wealth of information, all we need is to tap that resource, right? That's just exactly what I'm working on.</p>
+<p>See, I've started working on <a href="https://github.com/engineerjoe440/ZiplyFrontierRouterStats">a project</a> to scrape all of those "goodies" from my Ziply (formerly
+Frontier) router. All the important, and relevant stuff is provided right there, in the front of the user-interface. My little project is pretty simple, I'll
+scrape all of the useful bits into a big dictionary, then getting any of that data is a cinch!</p>
+<p>Python's already got all the horsepower that I need. I can use <a href="https://pypi.org/project/requests/"><code>requests</code></a> to pull the web-page down, and then use a
+little <a href="https://pypi.org/project/beautifulsoup4/"><code>beautifulsoup</code></a> to parse everything into where I need it. Simple, right?</p>
+<h3><em>Exactly!</em></h3>
+<p>Now, I've got my little tool all spun up so I can use it directly on the command line, but I can also use it to host a little web-server with
+<a href="https://fastapi.tiangolo.com/"><code>FastAPI</code></a> and <a href="http://www.uvicorn.org/"><code>Uvicorn</code></a> to host a simple little app.</p>
+<ul>
+<li>Want to scrape the router statistics to your terminal? No Problem.</li>
+<li>Want to scrape the router statistics and serve them in an easily-consumed web API? You bet!!! Even easier!</li>
+</ul>
+<p>I don't have much else to say about the little project. Probably won't ever release it on PyPI, but if people ever asked, I suppose that I could. If you
+want to see it for yourself, go check it out on <a href="https://github.com/engineerjoe440/ZiplyFrontierRouterStats">my Github</a>.</p>
+<h2>What's Next?</h2>
+<p>Well, I'm going to use this little tool, in conjunction with some Porkbun scripts to automate my DNS refreshes for my home-servers. This'll let me
+bypass the reverse-DNS provided by DuckDNS (what I use right now), and let me get some better performance out of my system, as a whole! Namely,
+I'll be able to change the CNAME records out for something a little more reliable for my home-server needs!</p>
+<p>Leave a comment if you've got thoughts, questions, or just want to say hi!</p>
     </div>
   </article>
 <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
