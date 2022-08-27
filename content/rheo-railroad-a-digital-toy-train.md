@@ -47,7 +47,7 @@ old trains. What's advantageous of that old system *for me*, however, is that it
 to the other. That means that I could take it and add some jurry-rigged control systems. Namely, a piece of all-thread, and a stepper motor, controlled
 by a driver board and an ESP8266.
 
-<img src="{attach}/images/rheo-railroad/ima_d0da9c3.jpeg" alt="Rheo-Railroad Control">
+<img src="{attach}/images/rheo-railroad/ima_d0da9c3.jpeg" width="50%" alt="Rheo-Railroad Control">
 
 ### Neat, huh?
 
