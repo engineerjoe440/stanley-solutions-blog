@@ -41,6 +41,7 @@
     <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
       <p class="text-muted">Engineering and creativity - all under one hat.</p>
       <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
           <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">Joe On GitHub</a></li>
           <li class="list-inline-item"><a href="https://engineerjoe440.github.io/ElectricPy/" target="_blank">ElectricPy Project</a></li>
           <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
@@ -74,11 +75,46 @@
               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
           <li class="list-inline-item">
             <i class="fas fa-tag"></i>
-              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/arduino.html">#Arduino</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/electro-mechanical.html">#Electro-Mechanical</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/smart-home.html">#Smart-Home</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/development.html">#Development</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/platformio.html">#PlatformIO</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/toy-trains.html">#Toy-Trains</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/lionel.html">#Lionel</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/model-railroading.html">#Model-Railroading</a>          </li>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/arduino.html">#Arduino</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/electro-mechanical.html">#Electro-Mechanical</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/smart-home.html">#Smart-Home</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/development.html">#Development</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/platformio.html">#PlatformIO</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/toy-trains.html">#Toy-Trains</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/lionel.html">#Lionel</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/model-railroading.html">#Model-Railroading</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/esp8266.html">#ESP8266</a>          </li>
       </ul>
     </header>
     <div class="content">
-      <p>TBD</p>
+      <p>Well, I'm fairly certain that I've discussed this before. But on the off chance I haven't. I like trains.</p>
+<p>Yep, I'm one of those guys.</p>
+<p>When I was little, I remember spending countless hours with Thomas the Tank Engine playing so many wild adventures. But I also remember playing as many,
+if not more, countless hours with my Lionel Toy Trains. Those little electrical wonders. A teensy, tiny little motor, a handful of electric lights, and
+a really slick looking little die-cast metal body, and those trains were basically real. it's sort of a Christmas tradition for lots of families to set up
+a little Lionel layout around the Christmas tree. Now that I have my own house, it's no different for me! I've got my little loop of track, and my
+great-uncle's postwar Lionel Berkshire, all steamed up and ready to entertain!</p>
+<blockquote>
+<p>Me. Entertain me. That's about it.</p>
+</blockquote>
+<p>Anywho...</p>
+<p>Those Lionel trains are pretty slick with their bells, and whistles, but I thought I'd try something different. There's these new-fangled things called
+microcontrollers, and they work really well with this magic called WiFi. Have you heard of it? So I thought I'd give it a whack.</p>
+<hr>
+<p>You probably already know that I'm an avid home-automation enthusiast. I host a bunch of my own web-services, and I have my Home Assistant running on an
+ancient x86 PC (yeah, you can hear the spinning rust any time I ask it to do something). So I thought it would be neat to take it a step further, and
+automate my little toy trains. Mind you, Lionel's already gotten this perfected. They have a <em>way-cool</em> system called TMCC with their "Legacy" remote.
+They've even got bluetooth! Wild, huh? Well, that would all be well-and-good, except for the fact that I need to control OLD trains. Remember what I said
+earlier?</p>
+<blockquote>
+<p>"My great-uncle's postwar Lionel berkshire"?</p>
+</blockquote>
+<p>Yeah. That.</p>
+<hr>
+<p>Well, that wasn't going to stop me. I thought I'd build my own control. I could get all slick-and-fancy and build some cool digitally-controlled, smart
+power-supply; but where's the fun in that? Actually, I just didn't feel like doing the math, required... but maybe another time.</p>
+<p>I decided to use one of Lionel's early control mechanisms, a manual rheostat! That's right, they made variable resistors to slow down, or speed up those
+old trains. What's advantageous of that old system <em>for me</em>, however, is that it's a linear device. I mean, it moves in a straight line from one extreme,
+to the other. That means that I could take it and add some jurry-rigged control systems. Namely, a piece of all-thread, and a stepper motor, controlled
+by a driver board and an ESP8266.</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/rheo-railroad/ima_d0da9c3.jpeg" alt="Rheo-Railroad Control"></p>
+<h3>Neat, huh?</h3>
+<p>So that's one of the things I've been working on, as of late. Working on my own Lionel Toy Train control. I've still got plenty of work to do (isn't that
+what I always say, anymore), but it's a start! Just need to do the programming, now, and I think I'll be able to nail that with PlatformIO and some
+handy-dandy ESP8266 libraries. Gosh, I love libraries!</p>
+<p>Let me know what you think in the comments, below! Use those comments! That computer in my basement isn't just sitting there for nothin'!</p>
     </div>
   </article>
 <!-- PHOTO plugin: article gallery -->
