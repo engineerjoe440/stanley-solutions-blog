@@ -43,6 +43,7 @@ MARKDOWN = {
         'plantuml_markdown': {
             'server': "http://www.plantuml.com/plantuml",
         },
+        'schemdraw_markdown': {},
     },
     'output_format': 'html5',
 }
