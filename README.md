@@ -20,4 +20,5 @@ This blog is just a plain-and-simple static-site. It's built using some of the f
 * [Pelican Sitemap](https://github.com/pelican-plugins/sitemap)
 * [Isso Comments](https://isso-comments.de/)
 * [PlantUML](https://github.com/mikitex70/plantuml-markdown)
+* [Schemdraw](https://github.com/engineerjoe440/schemdraw-markdown)
 * [Github Actions](./.github/workflows/pelican-build.yml)
