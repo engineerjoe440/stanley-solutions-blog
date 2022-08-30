@@ -40,8 +40,8 @@ Want to see it in action? Here's a few samples:
 
 <details>
   <summary>Click to expand all the Schemdraw-Markdown Goodness!</summary>
-```
-::schemdraw:: alt="My super diagram" color="white"
+```markdown
+::_schemdraw_:: alt="My super diagram" color="white"
     += elm.Resistor().right().label('1Ω')
     += elm.Capacitor().down().label('10μF')
     += elm.Line().left()
@@ -56,9 +56,9 @@ Example [from Schemdraw Docs](https://schemdraw.readthedocs.io/en/latest/gallery
 
 ::schemdraw:: alt="Analog Circuit" color="white"
     (V1 := elm.SourceV().label('5V'))
-    elm.Line().right(d.unit*.75)
+    elm.Line().right(drawing.unit*.75)
     (S1 := elm.SwitchSpdt2(action='close').up().anchor('b').label('$t=0$', loc='rgt'))
-    elm.Line().right(d.unit*.75).at(S1.c)
+    elm.Line().right(drawing.unit*.75).at(S1.c)
     elm.Resistor().down().label('$100\Omega$').label(['+','$v_o$','-'], loc='bot')
     elm.Line().to(V1.start)
     elm.Capacitor().at(S1.a).toy(V1.start).label('1$\mu$F').dot()
@@ -66,12 +66,12 @@ Example [from Schemdraw Docs](https://schemdraw.readthedocs.io/en/latest/gallery
 
 <details>
   <summary>Click to expand all the Schemdraw-Markdown Goodness!</summary>
-```
-::schemdraw:: alt="Analog Circuit" color="white"
+```markdown
+::_schemdraw_:: alt="Analog Circuit" color="white"
     (V1 := elm.SourceV().label('5V'))
-    elm.Line().right(d.unit*.75)
+    elm.Line().right(drawing.unit*.75)
     (S1 := elm.SwitchSpdt2(action='close').up().anchor('b').label('$t=0$', loc='rgt'))
-    elm.Line().right(d.unit*.75).at(S1.c)
+    elm.Line().right(drawing.unit*.75).at(S1.c)
     elm.Resistor().down().label('$100\Omega$').label(['+','$v_o$','-'], loc='bot')
     elm.Line().to(V1.start)
     elm.Capacitor().at(S1.a).toy(V1.start).label('1$\mu$F').dot()
