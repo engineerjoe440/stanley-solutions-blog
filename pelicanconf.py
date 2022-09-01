@@ -101,8 +101,10 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (('Stanley Solutions Website', 'https://stanleysolutionsnw.com'),
-         ('Joe On GitHub', 'https://github.com/engineerjoe440/'),
-         ('ElectricPy Project', 'https://engineerjoe440.github.io/ElectricPy/'),
+         ('GitHub', 'https://github.com/engineerjoe440/'),
+         ('GitLab', 'https://gitlab.stanleysolutionsnw.com/engineerjoe440'),
+         ('Gitea', 'https://gitea.stanleysolutionsnw.com/engineerjoe440'),
+         ('ElectricPy Project', 'https://electricpy.readthedocs.io/en/latest/'),
          ('SELProtoPy Project', 'https://engineerjoe440.github.io/selprotopy'),
          ('PyCEV Project', 'https://engineerjoe440.github.io/pycev'),
          ('KRNC Project', 'https://github.com/engineerjoe440/KRNCApps/'),
