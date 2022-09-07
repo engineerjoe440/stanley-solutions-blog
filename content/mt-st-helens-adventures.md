@@ -10,7 +10,7 @@ Gallery: {photo}front-porch-celing
 
 ## Before
 
-<img src="{attach}/images/front-porch-celing/ima_46ba6d7.jpeg" width="30%" alt="ye olde celing" align="right">
+<img src="{attach}/images/front-porch-celing/ima_46ba6d7.jpeg" style="width: 30%; margin: 10px;" alt="ye olde celing" align="right">
 
 Well... before I could put up any new tongue-and-groove Cedar, I needed some help getting rid of the old lumber. I couldn't have done it without the
 help of my mother, either!!!
@@ -25,7 +25,7 @@ So, I recently was able to anchor a great deal on these Cedar boards (again, tha
 
 ## During
 
-<img src="{attach}/images/front-porch-celing/ima_2c5d0b8.jpeg" width="30%" alt="under the surface lies... more mess!">
+<img src="{attach}/images/front-porch-celing/ima_2c5d0b8.jpeg" style="width: 30%; margin: 10px;" alt="under the surface lies... more mess!">
 
 > What's that, under there?
 
@@ -34,7 +34,7 @@ lumber of an unknown age. It's in pretty rough shape, rotten, dry, and falling a
 
 Those old boards were quite "fun" to pull, and they led to quite the disaster... Let me introduce you to my history lesson for the weekend.
 
-<img src="{attach}/images/front-porch-celing/ima_2b4ed17.jpeg" width="30%" alt="what's all that black stuff?" align="right">
+<img src="{attach}/images/front-porch-celing/ima_2b4ed17.jpeg" style="width: 30%; margin: 10px;" alt="what's all that black stuff?" align="right">
 
 Oh yes... see all that black powder, covering everything you see? It was covering us, too. You do not want to picture the color of my bathwater... let me just
 say that.
@@ -49,7 +49,7 @@ half-century. (Weird to think that 1980 is that far back, isn't it?) From our ow
 
 ## After
 
-<img src="{attach}/images/front-porch-celing/ima_b58184b.jpeg" width="30%" alt="clean, but not too clean" align="right">
+<img src="{attach}/images/front-porch-celing/ima_b58184b.jpeg" style="width: 30%; margin: 10px;" alt="clean, but not too clean" align="right">
 
 Now with all that nastiness cleaned out, we were able to get the whole porch cleaned up, ready for me to run my new wiring for lights, speakers, and special
 effects (more on that later). Now... I just need to get all of that done.
