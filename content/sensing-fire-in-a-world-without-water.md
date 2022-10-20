@@ -23,7 +23,7 @@ briefly while also pointing out some interesting things popping up from around t
 I really don't have much to say here, but I did want to highlight an article that shows some of the drama of the water shortages that
 are appearing across the American Southwest.
 
-[Read the article (archived in my personal archive server)](https://archives.stanleysolutionsnw.com/archive/1644980067.3444/www.nbcnews.com/science/environment/us-megadrought-worst-least-1200-years-researchers-say-rcna16202.html)
+[Read the article (archived in my personal archive server)](https://archives.stanleysolutionsnw.com/archive/1651029667.381326/output.html)
 
 Makes me wish there were other ways I could get involved in researching additional technology in this area.
 

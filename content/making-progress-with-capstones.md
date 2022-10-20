@@ -25,20 +25,19 @@ above to the articles I've written previously. Otherwise, check out this year's 
 <script src="http://vjs.zencdn.net/4.0/video.js"></script>
 
 <video id="wildfire-wing-drop" class="video-js vjs-default-skin" controls
-preload="auto" width="683" height="384" poster="https://nextcloud.stanleysolutionsnw.com/index.php/s/tDFYif2AmHSpRHk/download/Image%20Final%20Assembly%20ISO.PNG"
+preload="auto" width="683" height="384" poster="https://nextcloud.stanleysolutionsnw.com/s/TtT5YzoM5NiC5xy/download/Image%20Final%20Assembly%20ISO.PNG"
 data-setup="{}">
-<source src="https://nextcloud.stanleysolutionsnw.com/index.php/s/egsCTGyZCGjLcgZ/download/20220426_155354.mp4" type='video/mp4'>
+<source src="https://nextcloud.stanleysolutionsnw.com/s/fTjxgg3MYJSZiFb/download/20220426_155354.mp4" type='video/mp4'>
 </video>
 
-<img src="https://nextcloud.stanleysolutionsnw.com/index.php/s/JCmy9eXoZgfmCZQ/download/PCB_v3_Layout.jpg" style="width: 100%" alt="FireSense PCB">
+<img src="https://nextcloud.stanleysolutionsnw.com/s/4EoeExXHspY5Mmt/download?path=&files=PCB_v3_Layout.jpg" style="width: 100%" alt="FireSense PCB">
 
 
 **Other Pictures and Videos**
 
-- [https://nextcloud.stanleysolutionsnw.com/index.php/s/eTZwdijf9taCxKp](https://nextcloud.stanleysolutionsnw.com/index.php/s/eTZwdijf9taCxKp)
-- [https://nextcloud.stanleysolutionsnw.com/index.php/s/PjxzwKxr72d8PdN](https://nextcloud.stanleysolutionsnw.com/index.php/s/PjxzwKxr72d8PdN)
-- [https://nextcloud.stanleysolutionsnw.com/index.php/s/LWt2TSwfTiJNxH5](https://nextcloud.stanleysolutionsnw.com/index.php/s/LWt2TSwfTiJNxH5)
-- [https://nextcloud.stanleysolutionsnw.com/index.php/s/NxWkwm9jbgKpejj](https://nextcloud.stanleysolutionsnw.com/index.php/s/NxWkwm9jbgKpejj)
+- [https://nextcloud.stanleysolutionsnw.com/s/Td3bLsJ4qxj6qqy](https://nextcloud.stanleysolutionsnw.com/s/Td3bLsJ4qxj6qqy)
+- [https://nextcloud.stanleysolutionsnw.com/s/5LpHagXFSzgqSon](https://nextcloud.stanleysolutionsnw.com/s/5LpHagXFSzgqSon)
+- [https://nextcloud.stanleysolutionsnw.com/s/4EoeExXHspY5Mmt](https://nextcloud.stanleysolutionsnw.com/s/4EoeExXHspY5Mmt)
 
 
 
@@ -53,19 +52,20 @@ Yeah.. anyway, feel free to leave a comment if you have questions!
 <script src="http://vjs.zencdn.net/4.0/video.js"></script>
 
 <video id="wildfire-wing-drop" class="video-js vjs-default-skin" controls
-preload="auto" width="683" height="384" poster="https://nextcloud.stanleysolutionsnw.com/index.php/s/oezex3fzeQnXMfT/download/Matt%20and%20Kaitlyn%20with%20Reactor%20%28Extra%20Insulation%29.JPG"
+preload="auto" width="683" height="384" poster="https://nextcloud.stanleysolutionsnw.com/s/L29wCAw6xtXJpRz/download?path=&files=Matt%20and%20Kaitlyn%20with%20Reactor%20(Extra%20Insulation).JPG"
 data-setup="{}">
-<source src="https://nextcloud.stanleysolutionsnw.com/index.php/s/9fzamRd8iqnf5xH/download/00-00%20Full%20Assembly_Final.mp4" type='video/mp4'>
+<source src="https://nextcloud.stanleysolutionsnw.com/s/booBGRygP5zFEmb/download?path=&files=00-00%20Full%20Assembly_Final.mp4" type='video/mp4'>
 </video>
 
-<img src="https://nextcloud.stanleysolutionsnw.com/index.php/s/K85yecCKHgcnEt6/download/System_Breakdown_GIF.gif" style="width: 100%" alt="System Breakdown">
+<img src="https://nextcloud.stanleysolutionsnw.com/s/booBGRygP5zFEmb/download?path=&files=System_Breakdown_GIF.gif" style="width: 100%" alt="System Breakdown">
 
 
 **Other Pictures and Videos**
 
-- [https://nextcloud.stanleysolutionsnw.com/index.php/s/tRi84GWsKpFi2Zf](https://nextcloud.stanleysolutionsnw.com/index.php/s/tRi84GWsKpFi2Zf)
-- [https://nextcloud.stanleysolutionsnw.com/index.php/s/fopwNKM2zEnm7nY](https://nextcloud.stanleysolutionsnw.com/index.php/s/fopwNKM2zEnm7nY)
-- [https://nextcloud.stanleysolutionsnw.com/index.php/s/tRi84GWsKpFi2Zf](https://nextcloud.stanleysolutionsnw.com/index.php/s/tRi84GWsKpFi2Zf)
-- [https://nextcloud.stanleysolutionsnw.com/index.php/s/6KDrz9kApReAtrb](https://nextcloud.stanleysolutionsnw.com/index.php/s/6KDrz9kApReAtrb)
+- [https://nextcloud.stanleysolutionsnw.com/s/KRNrAZidKwwiANC](https://nextcloud.stanleysolutionsnw.com/s/KRNrAZidKwwiANC)
+- [https://nextcloud.stanleysolutionsnw.com/s/booBGRygP5zFEmb](https://nextcloud.stanleysolutionsnw.com/s/booBGRygP5zFEmb)
+- [https://nextcloud.stanleysolutionsnw.com/s/pzeaXT55ffTioEE](https://nextcloud.stanleysolutionsnw.com/s/pzeaXT55ffTioEE)
+- [https://nextcloud.stanleysolutionsnw.com/s/L29wCAw6xtXJpRz](https://nextcloud.stanleysolutionsnw.com/s/L29wCAw6xtXJpRz)
+- [https://nextcloud.stanleysolutionsnw.com/s/KPN7QkCsZdSqYpq](https://nextcloud.stanleysolutionsnw.com/s/KPN7QkCsZdSqYpq)
 
 
