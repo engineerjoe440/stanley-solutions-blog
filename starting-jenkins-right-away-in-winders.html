@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Starting Jenkins Right Away in Winders | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/starting-jenkins-right-away-in-winders.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/jenkins.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/jenkins.rss.xml">  
+  <meta name="description" content="Jenkins is a powerful, albeit confusing, tool. You can structure all manner of automated processes to build source code, distribute packages, and automate the boring stuff. It's great! But Jenkins and Windows (or... Winders) don't always play nicely. I learned this the hard way in my "day-job" and had to find a technique to resolve some of this bad-behavior. So hopefully you might find this helpful!">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">GitHub</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank">GitLab</a></li>
+          <li class="list-inline-item"><a href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank">Gitea</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank">Calendar</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Starting Jenkins Right Away in Winders
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2022-10-24T16:25:00-07:00">
+          <i class="fas fa-clock"></i>
+          Mon 24 October 2022
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/jenkins.html">Jenkins</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/jenkins.html">#Jenkins</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/cicd.html">#CI/CD</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/continuous-integration.html">#Continuous-Integration</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/continuous-deployment.html">#Continuous-Deployment</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/build-systems.html">#Build-Systems</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/automation.html">#Automation</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/windows.html">#Windows</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <blockquote>
+<p>Let me begin by describing the circumstances.</p>
+</blockquote>
+<p>As it turns out, in some applications, Jenkins must be run in a full UI-based environment to function properly with some tools. Notably, some of the tools I use in my day-to-day
+work. A colleague and I were working on getting Jenkins running in build nodes to support automated package builds at work. Challenge is, we needed the full UI, and that's not
+a "standard" configuration for Jenkins nodes on Windows. So we had to do some exploring. </p>
+<p>Most commonly, Jenkins agents will run as part of a "scheduled task" on a Windows host. However, this has some inherent limitations that we ran into. Specifically, some very
+peculiar (and specific) C# challenges. As it turns out, those issues were only really present if the Jenkins agent was running as a desktop-environment-less task. That said,
+there's not a clean way (that I found, at least) to make a task run in a full desktop environment. This left us scratching our heads to find a way to make Jenkins run
+automagically in a desktop.</p>
+<blockquote>
+<p>Hmmm...</p>
+</blockquote>
+<p>Eventually, I stumbled upon a potential solution! We could define a "startup user" whose account is opened by default when the Windows system starts. Almost like some kind of
+"kiosk mode" for windows, but specifically for our application. Now, this still took some exploration, and learning, but I finally found a way to make a default user
+"automatically log in" when the system starts, and then make a simple startup script to run the Jenkins command.</p>
+<h5>References</h5>
+<ul>
+<li><a href="https://stackoverflow.com/questions/18906753/jenkins-windows-slave-service-does-not-interact-with-desktop">getting Jenkins to interact with Windows desktop</a></li>
+<li><a href="https://serverfault.com/questions/269832/windows-server-2008-automatic-user-logon-on-power-on/606130#606130">article on ServerFault</a></li>
+</ul>
+<h2>Instructions</h2>
+<h4>1) Create a batch file to start Jenkins agent</h4>
+<p>The Jenkins agent has to be run on the VM from the specified workspace directory (<code>C:\_jenkins</code> in this case), and with the appropriate token information.
+So create a batch file that you can store in the Windows startup folder for the specific user. Don't worry about it's location, now, we'll come back to that later.</p>
+<p>Create the file <code>jenkins_start.bat</code> with the following information (substituting information where needed from Jenkins' direction).</p>
+<div class="highlight"><pre><span></span><code><span class="k">cd</span> C:\_jenkins
+
+java -jar agent.jar -jnlpUrl https://<span class="p">&lt;</span> HOST <span class="p">&gt;</span>/computer/<span class="p">&lt;</span> AGENT-NAME <span class="p">&gt;</span>/jenkins-agent.jnlp -secret <span class="p">&lt;</span> SECRET <span class="p">&gt;</span> -workDir <span class="s2">&quot;c:\_jenkins&quot;</span>
+</code></pre></div>
+
+<h4>2) Move the startup script to the service-user's startup folder</h4>
+<p>To make the script run as the user would, we'll need to place it in the user's startup folder.</p>
+<ol>
+<li>As the service user, press Ctrl+r to open the "Run" launcher prompt. (or search for "Run" in the Windows start menu)</li>
+<li>Enter <code>shell:startup</code> in the prompt and press Enter/click "Run"</li>
+<li>Copy/Move the batch script you created previously into the startup folder which now appears on-screen</li>
+</ol>
+<p>If the above steps fail, you can manually browse to the start folder as follows:</p>
+<p><code>C:\Users\&lt; SERVICE-USERNAME &gt;\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</code></p>
+<h4>OPTIONALLY:</h4>
+<p>It may be valuable to restart the machine and log in as the service-user to confirm that the startup script is working as expected and connects back to the Jenkins master
+with a visible console window.</p>
+<h4>3) Modify the registry to make the service-user logon automatically after startup</h4>
+<p>As described in the <a href="https://serverfault.com/questions/269832/windows-server-2008-automatic-user-logon-on-power-on/606130#606130">article on ServerFault</a>, generate a file called <code>AutoLogon.reg</code> somewhere on the virtual machine with the following content</p>
+<div class="highlight"><pre><span></span><code><span class="na">Windows Registry Editor Version 5.00</span><span class="w"></span>
+
+<span class="k">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]</span><span class="w"></span>
+<span class="na">&quot;DefaultDomainName&quot;</span><span class="o">=</span><span class="s">&quot;SERVICE_ACCOUNT_DOMAIN&quot;</span><span class="w"></span>
+<span class="na">&quot;DefaultUserName&quot;</span><span class="o">=</span><span class="s">&quot;SERVICE_ACCOUNT_USER&quot;</span><span class="w"></span>
+<span class="na">&quot;DefaultPassword&quot;</span><span class="o">=</span><span class="s">&quot;SERVICE_ACCOUNT_PASSWORD&quot;</span><span class="w"></span>
+<span class="na">&quot;ForceAutoLogon&quot;</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="w"></span>
+<span class="na">&quot;AutoAdminLogon&quot;</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="w"></span>
+<span class="na">&quot;LegalNoticeCaption&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="na">&quot;LegalNoticeText&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w"></span>
+
+<span class="k">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\AutoLogonChecked]</span><span class="w"></span>
+<span class="na">@</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="w"></span>
+
+<span class="k">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system]</span><span class="w"></span>
+<span class="na">&quot;LegalNoticeCaption&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="na">&quot;LegalNoticeText&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w"></span>
+</code></pre></div>
+
+<p>After saving the file, right-click on it in a file explorer and select "Merge," you'll be prompted to confirm the operation; do so.</p>
+<h4>Restart the machine and confirm that it automatically connects to Jenkins</h4>
+<p>Restarting the machine should make use of the new registry edits and auto-login the service account user. In-so-doing will launch the startup batch-file script which will
+connect to the Jenkins master through the console in a graphical session.</p>
+<hr>
+<h2>Additional Improvement Notes</h2>
+<p>I think one thing I should call out is that this mechanism doesn't "restart" if a failure occurs. That is, if Jenkins crashes, it doesn't restart. But I think it could
+easily be added by using some kind of <code>FOR</code>/<code>WHILE</code> loop in the batch-file to script some kind of automatic retry. Nothing crazy, just worth noting!</p>
+<h5>Closing Thoughts</h5>
+<p>I know there's bound to be other ways of doing this. Let me know what you've done! Tell me about your Jenkins "woes;" I'd love to hear them! Hopefully my solution will
+give you some inspiration.</p>
+    </div>
+  </article>
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
