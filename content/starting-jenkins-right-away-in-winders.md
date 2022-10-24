@@ -1,8 +1,8 @@
 Title: Starting Jenkins Right Away in Winders
 Date: 2022-10-24 16:25
 Modified: 2022-10-24 16:25
-Tags: Jenkins, CI/CD, Continuous-Integration, Continuous-Deployment, Build-Systems, Automation, Windows
-Category: Jenkins
+Tags: DevOps, Jenkins, CI/CD, Continuous-Integration, Continuous-Deployment, Build-Systems, Automation, Windows
+Category: DevOps
 Slug: starting-jenkins-right-away-in-winders
 Authors: Joe Stanley
 Summary: Jenkins is a powerful, albeit confusing, tool. You can structure all manner of automated processes to build source code, distribute packages, and automate the boring stuff. It's great! But Jenkins and Windows (or... *Winders*) don't always play nicely. I learned this the hard way in my "day-job" and had to find a technique to resolve some of this bad-behavior. So hopefully you might find this helpful!
