@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2022-10-24T23:07:14-00:00</lastmod>
+<lastmod>2022-10-24T23:25:55-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/finding-broken-blog-links.html</loc>
+<lastmod>2022-10-24T16:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -362,7 +369,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/blogging.html</loc>
-<lastmod>2022-02-13T20:32:00-07:53</lastmod>
+<lastmod>2022-10-24T16:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -473,6 +480,62 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html</loc>
+<lastmod>2022-10-24T16:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/blogging.html</loc>
+<lastmod>2022-10-24T16:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/automation.html</loc>
+<lastmod>2022-10-24T16:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/github.html</loc>
+<lastmod>2022-10-24T16:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/github-actions.html</loc>
+<lastmod>2022-10-24T16:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/cicd.html</loc>
+<lastmod>2022-10-24T16:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/continuous-integration.html</loc>
+<lastmod>2022-10-24T16:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/continuous-deployment.html</loc>
+<lastmod>2022-10-24T16:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-improvement.html</loc>
 <lastmod>2022-09-06T19:43:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -529,13 +592,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/blogging.html</loc>
-<lastmod>2022-08-30T13:01:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/circuits.html</loc>
 <lastmod>2022-08-30T13:01:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -544,13 +600,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/schematics.html</loc>
-<lastmod>2022-08-30T13:01:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html</loc>
 <lastmod>2022-08-30T13:01:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -1033,13 +1082,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/github-actions.html</loc>
-<lastmod>2022-02-13T20:32:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/analog.html</loc>
 <lastmod>2022-02-09T07:54:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -1126,13 +1168,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/c.html</loc>
 <lastmod>2021-12-07T22:08:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/automation.html</loc>
-<lastmod>2021-11-25T14:01:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1355,13 +1390,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/cicd.html</loc>
-<lastmod>2021-02-14T20:40:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/dev-ops.html</loc>
 <lastmod>2021-02-14T20:40:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -1545,7 +1573,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2022-09-06T19:43:00-07:53</lastmod>
+<lastmod>2022-10-24T16:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

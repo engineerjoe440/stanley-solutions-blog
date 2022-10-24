@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Finding Broken Blog Links | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/finding-broken-blog-links.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/blogging.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/blogging.rss.xml">  
+  <meta name="description" content="Well, I just recently converted to a new Nextcloud instance at home. Gosh, I sure hope I wasn't using any of those links externally on any important websites like a blog, or anything... Oh. I was? Awkward...">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">GitHub</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank">GitLab</a></li>
+          <li class="list-inline-item"><a href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank">Gitea</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank">Calendar</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Finding Broken Blog Links
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2022-10-24T16:00:00-07:00">
+          <i class="fas fa-clock"></i>
+          Mon 24 October 2022
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/blogging.html">Blogging</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/blogging.html">#Blogging</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/automation.html">#Automation</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/github.html">#GitHub</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/github-actions.html">#Github-Actions</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/cicd.html">#CI/CD</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/continuous-integration.html">#Continuous-Integration</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/continuous-deployment.html">#Continuous-Deployment</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>It's something of a solved problem, but I thought I'd share the way that I solved it...</p>
+<p>That's right, finding dead links is a common practice with hosting websites of any form, or fashion. Just a matter of determining how they should be checked, right?
+Since I'm hosting my blog site from a GitHub-Pages GitHub-Action based deployment, I thought it would make the most sense to perform a little sanity check by way of
+another GitHub Action. If you'd like to go see it's source, you can check it out
+<a href="https://github.com/engineerjoe440/stanley-solutions-blog/blob/master/.github/workflows/broken-link-detector.yml">here</a>.</p>
+<p>Or you could just look at the code... that's an option, too.</p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Broken</span><span class="w"> </span><span class="n">Link</span><span class="w"> </span><span class="n">Detector</span><span class="w"></span>
+<span class="n">on</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">schedule</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">Runs</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">00</span><span class="n">AM</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">cron</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0 1 * * *&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="n">workflow_dispatch</span><span class="o">:</span><span class="w"></span>
+
+<span class="n">jobs</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">find</span><span class="o">-</span><span class="n">broken</span><span class="o">-</span><span class="n">links</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Find</span><span class="w"> </span><span class="n">Broken</span><span class="w"> </span><span class="n">Links</span><span class="w"></span>
+<span class="w">    </span><span class="n">runs</span><span class="o">-</span><span class="n">on</span><span class="o">:</span><span class="w"> </span><span class="n">ubuntu</span><span class="o">-</span><span class="n">latest</span><span class="w"></span>
+<span class="w">    </span><span class="n">steps</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="o">/</span><span class="n">checkout</span><span class="err">@</span><span class="n">v2</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="mf">3.10</span><span class="w"></span>
+<span class="w">      </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">python</span><span class="err">@</span><span class="n">v2</span><span class="w"></span>
+<span class="w">      </span><span class="k">with</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">python</span><span class="o">-</span><span class="n">version</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;3.10&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Install</span><span class="w"> </span><span class="n">dependencies</span><span class="w"></span>
+<span class="w">      </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="w">        </span><span class="n">python</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">--</span><span class="n">upgrade</span><span class="w"> </span><span class="n">pip</span><span class="w"></span>
+<span class="w">        </span><span class="n">python</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">--</span><span class="n">upgrade</span><span class="w"> </span><span class="n">lxml</span><span class="w"> </span><span class="n">beautifulsoup4</span><span class="w"> </span><span class="n">requests</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Find</span><span class="w"> </span><span class="n">Broken</span><span class="w"> </span><span class="n">Links</span><span class="w"></span>
+<span class="w">      </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="w">        </span><span class="n">python</span><span class="w"> </span><span class="n">broken</span><span class="o">-</span><span class="n">link</span><span class="o">-</span><span class="n">detector</span><span class="o">.</span><span class="na">py</span><span class="w"></span>
+</code></pre></div>
+
+<p>But that doesn't <em>actually</em> find the dead links, it just runs the script responsible for finding them. We leave that little bit up to Python!</p>
+<blockquote>
+<p>What else would you have expected me to use. I mean, c'mon... really?!</p>
+</blockquote>
+<p>I'll admit, I had some pretty helpful resources to lean on for ideas!</p>
+<ul>
+<li>https://brianli.com/2021/06/how-to-find-broken-links-with-python/</li>
+<li>https://www.webucator.com/article/checking-your-sitemap-for-broken-links-with-python/</li>
+</ul>
+<p>I took those resources and made a couple of functions to help me out...</p>
+<h4>Checking for Dead Resources on a Page</h4>
+<p>I need to look at a few things to verify whether they point at valid resources:</p>
+<ul>
+<li>Links (<code>&lt;a&gt;</code> tags)</li>
+<li>Images (<code>&lt;img&gt;</code> tags)</li>
+<li>Videos (posters with <code>&lt;video&gt;</code> tags and video files with <code>&lt;source&gt;</code> tags)</li>
+</ul>
+<p>This, with a little help from one of those other resources I mentioned, helped me to make a handy-dandy little function to find broken links on a page.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_broken_resources</span><span class="p">(</span><span class="n">html_text</span><span class="p">):</span>
+    <span class="n">failures</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Set root domain.</span>
+    <span class="n">root_domain</span> <span class="o">=</span> <span class="s2">&quot;stanleysolutionsnw.com&quot;</span>
+
+    <span class="c1"># Internal function for validating HTTP status code.</span>
+    <span class="k">def</span> <span class="nf">_validate_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Broken Link!</span><span class="se">\n</span><span class="s2">    &quot;</span> <span class="o">+</span> <span class="n">url</span><span class="p">)</span>
+            <span class="n">failures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+    <span class="c1"># Parse HTML from request.</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_text</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create a list containing all links with the root domain.</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_domain</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">l</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">)]</span>
+    <span class="n">imgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_domain</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)]</span>
+    <span class="n">vid_posters</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;video&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_domain</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">)]</span>
+    <span class="n">vids</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_domain</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)]</span>
+
+    <span class="c1"># Loop through links checking for 404 responses.</span>
+    <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_validate_url</span><span class="p">,</span> <span class="n">links</span><span class="p">)</span>
+
+    <span class="c1"># Loop through images checking for 404 responses.</span>
+    <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_validate_url</span><span class="p">,</span> <span class="n">imgs</span><span class="p">)</span>
+
+    <span class="c1"># Loop through videos checking for 404 responses.</span>
+    <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_validate_url</span><span class="p">,</span> <span class="n">vid_posters</span><span class="p">)</span>
+
+    <span class="c1"># Loop through videos checking for 404 responses.</span>
+    <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_validate_url</span><span class="p">,</span> <span class="n">vids</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">failures</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</code></pre></div>
+
+<p>But that only finds broken resources on a single page. How am I going to do the whole website?</p>
+<h4>Checking Each URL from the Sitemap</h4>
+<p>So, there's a function for that, I got this one started up so that it could find all of the pages from the sitemap, and use that to parse each page.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check_sitemap_urls</span><span class="p">(</span><span class="n">sitemap</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Attempts to resolve all urls in a sitemap and returns the results</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sitemap (str): A URL</span>
+<span class="sd">        limit (int, optional): The maximum number of URLs to check. Defaults to 50.</span>
+<span class="sd">            Pass None for no limit.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of tuples: [(status_code, history, url, msg)].</span>
+<span class="sd">            The history contains a list of redirects.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sitemap</span><span class="p">)</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">XML</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="c1"># xpath query for selecting all element nodes in namespace</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;descendant-or-self::*[namespace-uri()!=&#39;&#39;]&quot;</span>
+    <span class="c1"># for each element returned by the above xpath query...</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+        <span class="c1"># replace element name with its local name</span>
+        <span class="n">element</span><span class="o">.</span><span class="n">tag</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">QName</span><span class="p">(</span><span class="n">element</span><span class="p">)</span><span class="o">.</span><span class="n">localname</span>
+
+    <span class="c1"># get all the loc elements</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">&quot;.//loc&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">link</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">text</span>
+        <span class="k">if</span> <span class="s2">&quot;/tag/&quot;</span> <span class="ow">in</span> <span class="n">url</span><span class="p">:</span>
+            <span class="k">break</span> <span class="c1"># Don&#39;t go over all the tags</span>
+        <span class="n">load_fail</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">. Checking </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+                <span class="c1"># Locate any broken resources on the page</span>
+                <span class="n">success</span> <span class="o">&amp;=</span> <span class="n">find_broken_resources</span><span class="p">(</span><span class="n">html_text</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+                <span class="n">load_fail</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">break</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retry... caused by: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">load_fail</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">load_fail</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Failed to load page:</span><span class="se">\n</span><span class="s2">    &quot;</span> <span class="o">+</span> <span class="n">url</span><span class="p">)</span>
+            <span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">limit</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">limit</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">success</span>
+</code></pre></div>
+
+<h5>Closing Thoughts</h5>
+<p>So... Like I said. This isn't a new problem, or one that hasn't been solved before. But it's how <em>I</em> did it. Thanks for reading!</p>
+    </div>
+  </article>
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
