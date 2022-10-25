@@ -17,6 +17,13 @@ sitemaps = [
 
 
 def find_broken_resources(html_text):
+    """
+    Find broken resources on a single page:
+    * images (<img> tag)
+    * links (<a> tag)
+    * video posters (<video> tag)
+    * videos (<source> tag)
+    """
     failures = []
 
     # Set root domain.
@@ -54,7 +61,10 @@ def find_broken_resources(html_text):
     with ThreadPoolExecutor(max_workers=8) as executor:
         executor.map(_validate_url, vids)
         
-    return len(failures) > 0
+    if len(failures) > 0:
+        for failed_url in failures:
+            print(f"  Failed to access resource: {failed_url}")
+        return True
 
 
 def check_sitemap_urls(sitemap, limit=100):
@@ -84,8 +94,8 @@ def check_sitemap_urls(sitemap, limit=100):
     links = doc.xpath(".//loc")
     for i, link in enumerate(links, 1):
         url = link.text
-        if "/tag/" in url:
-            break # Don't go over all the tags
+        if "/tag/" in url or "/category/" in url:
+            break # Don't go over all the tags or categories
         load_fail = False
         for _ in range(10):
             try:
@@ -93,7 +103,7 @@ def check_sitemap_urls(sitemap, limit=100):
                 r = requests.get(url)
 
                 # Locate any broken resources on the page
-                success &= find_broken_resources(html_text=r.text)
+                success &= not find_broken_resources(html_text=r.text)
 
                 load_fail = False
                 break

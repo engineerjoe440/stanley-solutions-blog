@@ -66,6 +66,13 @@ This, with a little help from one of those other resources I mentioned, helped m
 
 ```python
 def find_broken_resources(html_text):
+    """
+    Find broken resources on a single page:
+    * images (<img> tag)
+    * links (<a> tag)
+    * video posters (<video> tag)
+    * videos (<source> tag)
+    """
     failures = []
 
     # Set root domain.
@@ -103,7 +110,10 @@ def find_broken_resources(html_text):
     with ThreadPoolExecutor(max_workers=8) as executor:
         executor.map(_validate_url, vids)
         
-    return len(failures) > 0
+    if len(failures) > 0:
+        for failed_url in failures:
+            print(f"  Failed to access resource: {failed_url}")
+        return True
 ```
 
 But that only finds broken resources on a single page. How am I going to do the whole website?
