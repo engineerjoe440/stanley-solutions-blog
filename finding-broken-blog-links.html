@@ -132,6 +132,13 @@ another GitHub Action. If you'd like to go see it's source, you can check it out
 </ul>
 <p>This, with a little help from one of those other resources I mentioned, helped me to make a handy-dandy little function to find broken links on a page.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_broken_resources</span><span class="p">(</span><span class="n">html_text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find broken resources on a single page:</span>
+<span class="sd">    * images (&lt;img&gt; tag)</span>
+<span class="sd">    * links (&lt;a&gt; tag)</span>
+<span class="sd">    * video posters (&lt;video&gt; tag)</span>
+<span class="sd">    * videos (&lt;source&gt; tag)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">failures</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="c1"># Set root domain.</span>
@@ -169,7 +176,10 @@ another GitHub Action. If you'd like to go see it's source, you can check it out
     <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
         <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_validate_url</span><span class="p">,</span> <span class="n">vids</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">failures</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">failures</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">failed_url</span> <span class="ow">in</span> <span class="n">failures</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Failed to access resource: </span><span class="si">{</span><span class="n">failed_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div>
 
 <p>But that only finds broken resources on a single page. How am I going to do the whole website?</p>
