@@ -40,3 +40,11 @@ data-setup="{}">
 ---
 
 [Here's a full set of pictures, go check them out!](https://nextcloud.stanleysolutionsnw.com/s/EAMNwBRgTm4zERa)
+
+---
+
+## UPDATE:
+
+A colleague shared this, and I thought it was too funny not to share...
+
+<img src="{attach}/images/2022-11-01_16-03-09.png" style="width: 100%" alt="A Good Laugh about a Lingering Problem...">
