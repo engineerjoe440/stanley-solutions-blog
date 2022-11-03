@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  My Way of Intalling Python on Windows in 2022 | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/my-way-of-installing-python-on-windows-in-2022.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="Finally! Python 3.11 is out! It's new, it's fast(er than previous Python versions), and it's got some dandy new features. And if you wanted to know how I go about putting it on a Windows machine, let me show you...">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">GitHub</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank">GitLab</a></li>
+          <li class="list-inline-item"><a href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank">Gitea</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank">Calendar</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  My Way of Intalling Python on Windows in 2022
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2022-11-02T18:41:00-07:00">
+          <i class="fas fa-clock"></i>
+          Wed 02 November 2022
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/windows.html">#Windows</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/development.html">#Development</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/installing.html">#Installing</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>Python is a bit of a tricky subject on Windows, and that's why I've developed my own "best practice" for installing it on my systems. Let me briefly walk you through the steps.</p>
+<h2>1) Download the latest version of Python</h2>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/installing-python-on-windows-2022/2022-11-02_16-36-36.png" style="width: 100%" alt="Step 1 - Download the Latest Python"></p>
+<h2>2) Run the installer</h2>
+<blockquote>
+<p>but make sure you check "Add Python to Path" and use the "Customize" option for installation
+<img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/installing-python-on-windows-2022/2022-11-02_16-37-12.png" style="width: 100%" alt="Step 2 - Run the Installer"></p>
+</blockquote>
+<h2>3) Select Everything!</h2>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/installing-python-on-windows-2022/2022-11-02_16-37-41.png" style="width: 100%" alt="Step 3 - Select Everything"></p>
+<h2>4) Select "Install for All Users" and Customize the Installation Path</h2>
+<p>This will make sure that Python is installed in a simple, and accessible place. I find it VERY helpful to have Python rooted at the <code>C:\</code> drive level. You can argue with me;
+that's fine. This is just the way <em>I</em> do it.
+<img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/installing-python-on-windows-2022/2022-11-02_16-40-03.png" style="width: 100%" alt="Step 4 - Change the Path"></p>
+<h2>5) Install!</h2>
+<h2>6) Verify the Path</h2>
+<p>It's time to make sure that Python got installed and the Path variable was set correctly.</p>
+<p>Press your Windows key and search for "path". Then open the "Edit the system environment variables" dialog.
+<img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/installing-python-on-windows-2022/2022-11-02_16-37-41.png" style="width: 100%" alt="Step 6 - Verify the Path"></p>
+<p>From the dialog, select "Environment Variables" in the bottom-right.</p>
+<p>Then, in the bottom window, make sure that you can see "<code>C:\Python311\Scripts\</code>" and "<code>C:\Python311\</code>" listed in the "Path" variable.
+If they're not there, double click on the "Path" variable, and add them!
+<img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/installing-python-on-windows-2022/2022-11-02_16-45-01.png" style="width: 100%" alt="Step 6 - Verify the Path"></p>
+<hr>
+<p>That's about it! Have fun with the faster, newer, Python, everyone!</p>
+    </div>
+  </article>
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
