@@ -14,6 +14,7 @@ Python is a bit of a tricky subject on Windows, and that's why I've developed my
 
 ## 2) Run the installer
 > but make sure you check "Add Python to Path" and use the "Customize" option for installation
+
 <img src="{attach}/images/installing-python-on-windows-2022/2022-11-02_16-37-12.png" style="width: 100%" alt="Step 2 - Run the Installer">
 
 ## 3) Select Everything!
