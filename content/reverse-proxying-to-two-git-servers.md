@@ -21,7 +21,7 @@ Glad you asked!
 A reverse proxy is a way of *proxying* web requests through a single machine to multiple services on a LAN (Local Area Network). That is, if you're hosting lots of web-services
 (like I am) behind a router, you can open the specific web ports (80 for HTTP, and 443 for HTTPS) such that internet traffic can access those ports on your proxy. From there, the proxy can determine where the trafic is destined (i.e., which server it needs to go to) and make the appropriate requests, funnelling all responses back to the user.
 
-::uml:: format="svg" alt="Basics of a Reverse Web Proxy" title="Basics of a Proxy" width="100%"
+::uml:: format="svg" alt="Basics of a Reverse Web Proxy" title="Basics of a Proxy" width="20%"
    !theme hacker
     skinparam actorStyle awesome
     actor GitUser
@@ -94,3 +94,21 @@ Well, my specific system looks something like this...
     genginx --> Gitea
 ::end-uml::
 
+## But, Joe, You Said Something about SSH?
+
+Yep! That's right!
+
+If you're not terribly familiar with Git, let me just say that you can clone either over HTTP(S) or SSH. In the following images, see how both GitLab and Gitea support
+HTTPS and SSH:
+
+<img src="{attach}/images/gitlab-clone.png" align="right" style="width: 30%; margin: 10%;" alt="GitLab Clone">
+<img src="{attach}/images/giea-clone.png" align="left" style="width: 30%; margin: 10%;" alt="Gitea Clone">
+
+<img src="{attach}/images/laughing-hysterically.gif" align="right" style="width: 20%" alt="Laughing Hysterically">
+
+SSH is often just a bit faster, and brings other perks, but it can't be proxied in quite the same way as HTTP traffic. That's because SSH doesn't use hostnames in headers
+in the way that HTTPS does. But, we can do some unique things to make some of this work to our liking.
+
+## So, what DO we do, then?
+
+In this case, we can customize the SSH services for both endpoints!
