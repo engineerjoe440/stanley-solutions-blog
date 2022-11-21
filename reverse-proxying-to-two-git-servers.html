@@ -107,7 +107,8 @@ HTTPS and SSH:</p>
 <p>SSH is often just a bit faster, and brings other perks, but it can't be proxied in quite the same way as HTTP traffic. That's because SSH doesn't use hostnames in headers
 in the way that HTTPS does. But, we can do some unique things to make some of this work to our liking.</p>
 <h2>So, what DO we do, then?</h2>
-<p>In this case, we can customize the SSH services for both endpoints!</p>
+<p>In this case, we can customize the SSH services for both endpoints! We just need to use non-standard ports, and inform both GitLab and Gitea that they're using those
+specific ports. That way when users clone repositories, the non-standard ports will be in the URL, and used automagically!</p>
     </div>
   </article>
 <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
