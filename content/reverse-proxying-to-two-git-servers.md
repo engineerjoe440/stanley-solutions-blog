@@ -111,4 +111,5 @@ in the way that HTTPS does. But, we can do some unique things to make some of th
 
 ## So, what DO we do, then?
 
-In this case, we can customize the SSH services for both endpoints!
+In this case, we can customize the SSH services for both endpoints! We just need to use non-standard ports, and inform both GitLab and Gitea that they're using those
+specific ports. That way when users clone repositories, the non-standard ports will be in the URL, and used automagically!
