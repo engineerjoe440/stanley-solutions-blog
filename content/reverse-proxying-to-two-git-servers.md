@@ -180,7 +180,7 @@ SSH_DOMAIN       = gitea.stanleysolutionsnw.com
 HTTP_PORT        = 3000
 ROOT_URL         = https://gitea.stanleysolutionsnw.com/
 DISABLE_SSH      = false
-SSH_PORT         = 8023     # This is the really important line, right here!
+SSH_PORT         = 8023     ; This is the really important line, right here!
 SSH_LISTEN_PORT  = 22
 LFS_START_SERVER = true
 LFS_CONTENT_PATH = /data/git/lfs
@@ -232,7 +232,7 @@ streams is relatively straight-forward, and I just added them to my NGINX config
 
 To do this, you can simply configure a `stream` block to have the respective "upstreams" and their listening services. Relatively simple!
 
-```conf
+```nginx
 ################################################################################
 #
 # Stanley Solutions SSH Proxies Including:
