@@ -6,10 +6,8 @@
   * NGINX Configuration
 * WLED Configuration with Home Assistant
 * Gitlab backups to Linode and Other
-* HTTPS/SSH proxy
 * VBAN Server for Streaming Audio
 * OpenWRT Access Points Etc.
-* TasmotaFresh Fan Controls
 * ISSO Comment System
 * Lab Control/Metering System
 * Home Metering Systems w/ SEL-734
