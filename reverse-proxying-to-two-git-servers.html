@@ -162,7 +162,7 @@ specific ports. That way when users clone repositories, the non-standard ports w
 <span class="na">HTTP_PORT</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s">3000</span><span class="w"></span>
 <span class="na">ROOT_URL</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">https://gitea.stanleysolutionsnw.com/</span><span class="w"></span>
 <span class="na">DISABLE_SSH</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
-<span class="na">SSH_PORT</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">8023     # This is the really important line, right here!</span><span class="w"></span>
+<span class="na">SSH_PORT</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">8023     ; This is the really important line, right here!</span><span class="w"></span>
 <span class="na">SSH_LISTEN_PORT</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">22</span><span class="w"></span>
 <span class="na">LFS_START_SERVER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
 <span class="na">LFS_CONTENT_PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/data/git/lfs</span><span class="w"></span>
@@ -208,37 +208,37 @@ specific ports. That way when users clone repositories, the non-standard ports w
 will receive the routed trafic. Instead, we need to perform a port-based approach -- thus the whole usage of 8022 and 8023 in the previous configuration samples. Adding
 streams is relatively straight-forward, and I just added them to my NGINX configuration file; you know, the one located at <code>/etc/nginx/nginx.conf</code>.</p>
 <p>To do this, you can simply configure a <code>stream</code> block to have the respective "upstreams" and their listening services. Relatively simple!</p>
-<div class="highlight"><pre><span></span><code><span class="err">################################################################################</span><span class="w"></span>
-<span class="err">#</span><span class="w"></span>
-<span class="err">#</span><span class="w"> </span><span class="nt">Stanley</span><span class="w"> </span><span class="nt">Solutions</span><span class="w"> </span><span class="nt">SSH</span><span class="w"> </span><span class="nt">Proxies</span><span class="w"> </span><span class="nt">Including</span><span class="o">:</span><span class="w"></span>
-<span class="err">#</span><span class="w">   </span><span class="nt">-</span><span class="w"> </span><span class="nt">GitLab</span><span class="w"></span>
-<span class="err">#</span><span class="w">   </span><span class="nt">-</span><span class="w"> </span><span class="nt">Gitea</span><span class="w"></span>
-<span class="err">#</span><span class="w"></span>
-<span class="err">################################################################################</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">################################################################################</span>
+<span class="c1">#</span>
+<span class="c1"># Stanley Solutions SSH Proxies Including:</span>
+<span class="c1">#   - GitLab</span>
+<span class="c1">#   - Gitea</span>
+<span class="c1">#</span>
+<span class="c1">################################################################################</span>
 
-<span class="nt">stream</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">stream</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-<span class="w">        </span><span class="err">upstream</span><span class="w"> </span><span class="err">gitlab-ssh</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">server</span><span class="w"> </span><span class="err">192.168.254.5:22</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">upstream</span><span class="w"> </span><span class="s">gitlab-ssh</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.254.5</span><span class="p">:</span><span class="mi">22</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">        </span><span class="nt">upstream</span><span class="w"> </span><span class="nt">gitea-ssh</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">server</span><span class="w"> </span><span class="err">192.168.254.12:8023</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">upstream</span><span class="w"> </span><span class="s">gitea-ssh</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.254.12</span><span class="p">:</span><span class="mi">8023</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nt">Gitlab</span><span class="w"></span>
-<span class="w">        </span><span class="nt">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">listen</span><span class="w"> </span><span class="err">8022</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="err">proxy_pass</span><span class="w"> </span><span class="err">gitlab-ssh</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="c1"># Gitlab</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kn">listen</span><span class="w"> </span><span class="mi">8022</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">gitlab-ssh</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nt">Gitea</span><span class="w"></span>
-<span class="w">        </span><span class="nt">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">listen</span><span class="w"> </span><span class="err">8023</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="err">proxy_pass</span><span class="w"> </span><span class="err">gitea-ssh</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="c1"># Gitea</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kn">listen</span><span class="w"> </span><span class="mi">8023</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">gitea-ssh</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-<span class="err">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
 <p>After this NGINX configuration is applied, it's just a matter of adding the port-forwardings to the router:</p>
