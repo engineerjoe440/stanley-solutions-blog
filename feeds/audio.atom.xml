@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Audio</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/audio.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-10-16T12:35:00-07:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Just Some Thoghts on a Song</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/just-some-thoghts-on-a-song.html" rel="alternate"></link><published>2021-09-23T13:58:00-07:00</published><updated>2021-10-16T12:35:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-09-23:/stanley-solutions-blog/just-some-thoghts-on-a-song.html</id><summary type="html">&lt;p&gt;Some songs have a hidden meaning, and one song that I really enjoy has something hidden so deeply, I just love it!&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img src="https://images.genius.com/526afafd58e01d4b67deca68f8840a80.1000x1000x1.jpg"
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Audio</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/audio.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2022-12-18T10:00:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Installing VBAN on Linux Systems with Pipewire</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/installing-vban-on-linux-with-pipewire.html" rel="alternate"></link><published>2022-12-18T10:00:00-08:00</published><updated>2022-12-18T10:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-12-18:/stanley-solutions-blog/installing-vban-on-linux-with-pipewire.html</id><summary type="html">&lt;p&gt;I recently decided to drop Windows (finally), and move to Linux, full-time. But that means moving to Pipewire; which is both exciting and slightly daugnting. You see, to make the move, I need to get VBAN working on Linux, and talking to Pipewire. Hmm. Time to do some digging...&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Reason for being here.&lt;/h3&gt;
+&lt;p&gt;That's right, I'm finally moving away from Windows as my daily driver at home. Making the move
+to Kubuntu. I'm much happier with the change, but I do need to fix a reasonable set of things
+and get VBAN working to make sure that my audio is still uninterrupted!&lt;/p&gt;
+&lt;p&gt;What's &lt;code&gt;VBAN&lt;/code&gt;, you ask? Well, go check out my other articles:
+* &lt;a href="https://blog.stanleysolutionsnw.com/networked-audio-using-vban-and-rpi.html"&gt;networked-audio-using-vban-and-rpi&lt;/a&gt;
+* &lt;a href="https://blog.stanleysolutionsnw.com/spam-the-vban-for-non-stop-audio.html"&gt;spam-the-vban-for-non-stop-audio&lt;/a&gt;
+* &lt;a href="https://blog.stanleysolutionsnw.com/a-better-way-to-integrate-with-voicemeeter.html"&gt;a-better-way-to-integrate-with-voicemeeter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In a nutshell, however, I use VBAN as a low-latency audio networking solution for my home.
+It's really helped to bring whole-home audio together quite nicely. Analog can still be "easier"
+in some regards, but it's more time and effor to run those wires, sometimes.&lt;/p&gt;
+&lt;h3&gt;Installing VBAN&lt;/h3&gt;
+&lt;p&gt;This hasn't really changed all that much since my article about
+&lt;a href="https://blog.stanleysolutionsnw.com/networked-audio-using-vban-and-rpi.html"&gt;installing VBAN on the Raspberry Pi&lt;/a&gt;. It starts with installing the basics.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install libasound-dev autoconf automake
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Cloning the repository...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/quiniouben/vban.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Running the autogen script...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;./autogen.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Setting up for only alsa...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;./configure --enable-alsa --disable-pulseaudio --disable-jack
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then install with &lt;code&gt;make&lt;/code&gt; like the &lt;a href="https://github.com/quiniouben/vban"&gt;docs&lt;/a&gt; show.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Wanna just run one script? Yeah, me too...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/bash&lt;/span&gt;
+sudo apt-get install libasound2-dev autoconf automake -y
+
+&lt;span class="nb"&gt;cd&lt;/span&gt; /home/&lt;span class="k"&gt;$(&lt;/span&gt;whoami&lt;span class="k"&gt;)&lt;/span&gt;/Downloads
+
+git clone https://github.com/quiniouben/vban.git
+
+&lt;span class="nb"&gt;cd&lt;/span&gt; vban
+
+./autogen.sh
+
+./configure --enable-alsa --disable-pulseaudio --disable-jack
+
+make
+
+&lt;span class="c1"&gt;# I needed sudo, you might not? Too lazy to bother checking...&lt;/span&gt;
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Getting Alsa Working?&lt;/h2&gt;
+&lt;p&gt;Well... that's the next step. I seem to be having "fun" with that, again. I'll have to
+dig around some more. I'm leaving this post incomplete, because I want to report back when I get
+the darned thing working.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;... more soon ...&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="Audio"></category><category term="vban"></category><category term="audio"></category><category term="networking"></category><category term="linux"></category><category term="pipewire"></category><category term="alsa"></category><category term="sound"></category></entry><entry><title>Just Some Thoghts on a Song</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/just-some-thoghts-on-a-song.html" rel="alternate"></link><published>2021-09-23T13:58:00-07:00</published><updated>2021-10-16T12:35:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-09-23:/stanley-solutions-blog/just-some-thoghts-on-a-song.html</id><summary type="html">&lt;p&gt;Some songs have a hidden meaning, and one song that I really enjoy has something hidden so deeply, I just love it!&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img src="https://images.genius.com/526afafd58e01d4b67deca68f8840a80.1000x1000x1.jpg"
     width="300" alt="LANCO" align="right"&gt;&lt;/p&gt;
 &lt;p&gt;I'm a fan of many music genres, but I most certainly grew up on country. I mean... Have you met me? I wear a cowboy hat,
 for pete-sake! I really lots of music, but I'll always have a soft spot for a good country love song.&lt;/p&gt;

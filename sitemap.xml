@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/</loc>
-<lastmod>2022-11-22T00:22:36-00:00</lastmod>
+<lastmod>2022-12-19T04:01:59-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/installing-vban-on-linux-with-pipewire.html</loc>
+<lastmod>2022-12-18T10:00:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -383,7 +390,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/category/audio.html</loc>
-<lastmod>2021-10-16T12:35:00-07:53</lastmod>
+<lastmod>2022-12-18T10:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -508,6 +515,55 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/vban.html</loc>
+<lastmod>2022-12-18T10:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/audio.html</loc>
+<lastmod>2022-12-18T10:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/networking.html</loc>
+<lastmod>2022-12-18T10:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/linux.html</loc>
+<lastmod>2022-12-18T10:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/pipewire.html</loc>
+<lastmod>2022-12-18T10:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/alsa.html</loc>
+<lastmod>2022-12-18T10:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/sound.html</loc>
+<lastmod>2022-12-18T10:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/git.html</loc>
 <lastmod>2022-11-21T13:54:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -607,13 +663,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/halloween.html</loc>
-<lastmod>2022-11-01T18:41:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/audio.html</loc>
 <lastmod>2022-11-01T18:41:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -951,13 +1000,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/agriculture.html</loc>
 <lastmod>2022-05-24T15:25:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/linux.html</loc>
-<lastmod>2022-05-23T15:23:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1474,13 +1516,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/vban.html</loc>
-<lastmod>2021-02-15T20:43:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/audio-network.html</loc>
 <lastmod>2021-02-15T20:43:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -1511,13 +1546,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/rugged-computer.html</loc>
 <lastmod>2021-02-07T16:19:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/networking.html</loc>
-<lastmod>2020-12-19T19:44:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1635,13 +1663,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/sound.html</loc>
-<lastmod>2020-09-10T20:39:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/tag/protection.html</loc>
 <lastmod>2020-09-10T20:39:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -1671,7 +1692,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html</loc>
-<lastmod>2022-11-21T13:54:00-07:53</lastmod>
+<lastmod>2022-12-18T10:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

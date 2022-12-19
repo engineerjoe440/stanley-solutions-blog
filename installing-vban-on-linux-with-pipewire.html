@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Installing VBAN on Linux Systems with Pipewire | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/installing-vban-on-linux-with-pipewire.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/audio.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/audio.rss.xml">  
+  <meta name="description" content="I recently decided to drop Windows (finally), and move to Linux, full-time. But that means moving to Pipewire; which is both exciting and slightly daugnting. You see, to make the move, I need to get VBAN working on Linux, and talking to Pipewire. Hmm. Time to do some digging...">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">GitHub</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank">GitLab</a></li>
+          <li class="list-inline-item"><a href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank">Gitea</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank">Calendar</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Installing VBAN on Linux Systems with Pipewire
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2022-12-18T10:00:00-08:00">
+          <i class="fas fa-clock"></i>
+          Sun 18 December 2022
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/audio.html">Audio</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/vban.html">#vban</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/audio.html">#audio</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/networking.html">#networking</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/linux.html">#linux</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/pipewire.html">#pipewire</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/alsa.html">#alsa</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sound.html">#sound</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <h3>Reason for being here.</h3>
+<p>That's right, I'm finally moving away from Windows as my daily driver at home. Making the move
+to Kubuntu. I'm much happier with the change, but I do need to fix a reasonable set of things
+and get VBAN working to make sure that my audio is still uninterrupted!</p>
+<p>What's <code>VBAN</code>, you ask? Well, go check out my other articles:
+* <a href="https://blog.stanleysolutionsnw.com/networked-audio-using-vban-and-rpi.html">networked-audio-using-vban-and-rpi</a>
+* <a href="https://blog.stanleysolutionsnw.com/spam-the-vban-for-non-stop-audio.html">spam-the-vban-for-non-stop-audio</a>
+* <a href="https://blog.stanleysolutionsnw.com/a-better-way-to-integrate-with-voicemeeter.html">a-better-way-to-integrate-with-voicemeeter</a></p>
+<p>In a nutshell, however, I use VBAN as a low-latency audio networking solution for my home.
+It's really helped to bring whole-home audio together quite nicely. Analog can still be "easier"
+in some regards, but it's more time and effor to run those wires, sometimes.</p>
+<h3>Installing VBAN</h3>
+<p>This hasn't really changed all that much since my article about
+<a href="https://blog.stanleysolutionsnw.com/networked-audio-using-vban-and-rpi.html">installing VBAN on the Raspberry Pi</a>. It starts with installing the basics.</p>
+<div class="highlight"><pre><span></span><code>sudo apt install libasound-dev autoconf automake
+</code></pre></div>
+
+<p>Cloning the repository...</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/quiniouben/vban.git
+</code></pre></div>
+
+<p>Running the autogen script...</p>
+<div class="highlight"><pre><span></span><code>./autogen.sh
+</code></pre></div>
+
+<p>Setting up for only alsa...</p>
+<div class="highlight"><pre><span></span><code>./configure --enable-alsa --disable-pulseaudio --disable-jack
+</code></pre></div>
+
+<p>Then install with <code>make</code> like the <a href="https://github.com/quiniouben/vban">docs</a> show.</p>
+<hr>
+<p>Wanna just run one script? Yeah, me too...</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+sudo apt-get install libasound2-dev autoconf automake -y
+
+<span class="nb">cd</span> /home/<span class="k">$(</span>whoami<span class="k">)</span>/Downloads
+
+git clone https://github.com/quiniouben/vban.git
+
+<span class="nb">cd</span> vban
+
+./autogen.sh
+
+./configure --enable-alsa --disable-pulseaudio --disable-jack
+
+make
+
+<span class="c1"># I needed sudo, you might not? Too lazy to bother checking...</span>
+sudo make install
+</code></pre></div>
+
+<h2>Getting Alsa Working?</h2>
+<p>Well... that's the next step. I seem to be having "fun" with that, again. I'll have to
+dig around some more. I'm leaving this post incomplete, because I want to report back when I get
+the darned thing working.</p>
+<blockquote>
+<p>... more soon ...</p>
+</blockquote>
+    </div>
+  </article>
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
