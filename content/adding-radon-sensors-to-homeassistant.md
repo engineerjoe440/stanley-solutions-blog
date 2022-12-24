@@ -42,7 +42,7 @@ Airthings' Wave Plus sensor is just what I needed. I picked one up last year fro
 you can see from [Airthings' store](https://shop.airthings.com/US_EN/wave-plus.html) that these
 things are a bit on the spendy side. Still not bad.
 
-<img src="https://shop.airthings.com/media/catalog/product/cache/2634002fa3d4cd41f308759bc7b7f687/a/i/airthings-wave-plus-hero-image-for-e-commerce-front.jpg" width="40%; margin: 10px;" alt="Airthings Wave Plus" align="left">
+<img src="https://shop.airthings.com/media/catalog/product/cache/2634002fa3d4cd41f308759bc7b7f687/a/i/airthings-wave-plus-hero-image-for-e-commerce-front.jpg" style="width: 40%; margin: 10px;" alt="Airthings Wave Plus" align="left">
 
 This little gadget supports Bluetooth Low Energy (BLE), and therefore, doesn't really need
 internet access. In fact, Airthings seems to know their audience, since they support some Python
@@ -65,7 +65,7 @@ To go over the background, quickly:
 
 My Home Assistant is being served from a Docker container on an old Compaq computer.
 
-<img src="{attach}/images/2022-12-24_11-46.png" width="60%; margin: 10px;" alt="My Old Compaq Computer" align="right">
+<img src="{attach}/images/2022-12-24_11-46.png" style="width: 60%; margin: 10px;" alt="My Old Compaq Computer" align="right">
 
 It's a 32-bit monster running Debian 11. Slow as heck, but it plugs along alright. I recently
 rebuilt the OS from the ground up to take advantage of a second hard-drive in the machine which,
