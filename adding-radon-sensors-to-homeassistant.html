@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Adding Radon Sensors to Home Assistant | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/adding-radon-sensors-to-homeassistant.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/home-improvement.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/home-improvement.rss.xml">  
+  <meta name="description" content="Radon - an colorless, oderless gas. Sounds familiar, right? But you've probably heard that phrase in relation to other gasses like the carbon-monoxide, or perhaps natural gas. Radon poses health threats, as well, but with the added benefit of radiation. Scared yet? Don't worry.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">GitHub</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank">GitLab</a></li>
+          <li class="list-inline-item"><a href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank">Gitea</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank">Calendar</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Adding Radon Sensors to Home Assistant
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2022-12-24T10:40:00-08:00">
+          <i class="fas fa-clock"></i>
+          Sat 24 December 2022
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/home-improvement.html">Home-Improvement</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/homeassistant.html">#homeassistant</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-assistant.html">#home-assistant</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/hasio.html">#hasio</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/airthings.html">#airthings</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/ble.html">#ble</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/bluetooth.html">#bluetooth</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/wireless.html">#wireless</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/radon.html">#radon</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/air.html">#air</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/quality.html">#quality</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <h2>What is Radon, Anyway?</h2>
+<p>The <a href="https://www.cdc.gov/nceh/features/protect-home-radon/index.html">CDC</a> explains that Radon is:</p>
+<blockquote>
+<p>" ...the second leading cause of lung cancer after cigarette smoking. If you smoke and live in a home with high radon levels, you increase your risk of developing lung cancer. Having your home tested is the only effective way to determine whether you and your family are at risk of high radon exposure.</p>
+<p>Radon is a radioactive gas that forms naturally when uranium, thorium, or radium, which are radioactive metals break down in rocks, soil and groundwater. People can be exposed to radon primarily from breathing radon in air that comes through cracks and gaps in buildings and homes. Because radon comes naturally from the earth, people are always exposed to it. "</p>
+</blockquote>
+<p>Luckily for me, I don't smoke. So some of that problem is a non-starter. Buuuut... Have you
+seen <a href="https://blog.stanleysolutionsnw.com/more-servers-in-the-basement.html">my basement</a>?
+Yeah... that's where this all comes from. And the photos in that post don't even capture the
+wet season.</p>
+<p>Hah!</p>
+<h2>What can be done?</h2>
+<p>The <a href="https://www.cdc.gov/nceh/features/protect-home-radon/index.html">CDC</a> goes into some detail about some options which exist to support annual tests for
+Radon, but there's also technology that can help; and, have you met me? Of course I want to use
+the technology! That's the fun part.</p>
+<p>Airthings is a pretty neat company. They offer a digital air-quality and Radon sensing solution,
+and they even make their technology accessible <em>without</em> needing the cloud! For self-hosters like
+me, that's pretty exciting. You can read more about
+<a href="https://www.airthings.com/resources/radon-detection">what thoughts Airthings share regarding Radon detection methods on their website</a>.</p>
+<h2>The Sensor</h2>
+<p>Airthings' Wave Plus sensor is just what I needed. I picked one up last year from Amazon, but
+you can see from <a href="https://shop.airthings.com/US_EN/wave-plus.html">Airthings' store</a> that these
+things are a bit on the spendy side. Still not bad.</p>
+<p><img src="https://shop.airthings.com/media/catalog/product/cache/2634002fa3d4cd41f308759bc7b7f687/a/i/airthings-wave-plus-hero-image-for-e-commerce-front.jpg" width="40%; margin: 2%;" alt="Airthings Wave Plus" align="left"></p>
+<p>This little gadget supports Bluetooth Low Energy (BLE), and therefore, doesn't really need
+internet access. In fact, Airthings seems to know their audience, since they support some Python
+scripts in <a href="https://github.com/Airthings/waveplus-reader">their GitHub repository</a>. Their
+documentation for using the scripts is nice and simple, too. Pretty straight-forward to get
+up-and-running if you've got Python 2.</p>
+<p>That's right. I said <em>Python 2</em>. Unfortunately, although there's a
+<a href="https://github.com/Airthings/waveplus-reader/pull/8">pull request</a> open to add Python 3 support,
+it hasn't been resolved yet.</p>
+<p>No matter!</p>
+<p>I've taken the liberty of snagging the updated Python 3 content where that PR originates from, and
+it certainly "checks out."</p>
+<h2>Incorporating Into Home Assistant</h2>
+<p>To go over the background, quickly:</p>
+<p>My Home Assistant is being served from a Docker container on an old Compaq computer.</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/2022-12-24_11-46.png" width="60%; margin: 2%;" alt="My Old Compaq Computer" align="right"></p>
+<p>It's a 32-bit monster running Debian 11. Slow as heck, but it plugs along alright. I recently
+rebuilt the OS from the ground up to take advantage of a second hard-drive in the machine which,
+frankly, I'd forgotten about until recently. That's meant that I can shove the whole config back
+into a single repository in my GitLab server. Quite nice, if you ask me.</p>
+<p>I digress.</p>
+<p>The server is WAY too old to support Bluetooth in its existing hardware. But that's what USB is for, right? So I hooked up a little USB dongle which provides BLE support. Now, I just needed to pass it all through to Home Assistant.</p>
+<p>I'll go through the steps I took, next, but I want to tell you; this isn't <em>exactly</em> the order
+that I used initially. Would you expect me to have been that smart? To have put it together
+correctly on the first pass?</p>
+<p><strong><em>As if!</em></strong></p>
+<h3>Installing the System Requirements</h3>
+<p>So, really, the only package that I <em>needed</em> was <code>bluez</code>, but for some of the Airthings scripts,
+there were a few others, so I'll list them all here...</p>
+<div class="highlight"><pre><span></span><code>sudo apt-get install bluez libglib2.0-dev -y
+</code></pre></div>
+
+<p>To get the Airthings scripts running, I also needed a few Python packages. They were installed
+with:</p>
+<div class="highlight"><pre><span></span><code>sudo python3 -m pip install bluepy tableprint
+</code></pre></div>
+
+<p>Again... not entirely necessary, but could be useful if you're like me, and like debugging.</p>
+<h3>Preparing the System</h3>
+<p>With <code>bluez</code> installed, I could now turn on the Bluetooth system. I'm not entirely sure whether
+this is necessary for Home Assistant's purposes, but it's useful from the Airthings script
+point-of-view.</p>
+<h5>Turn on Bluetooth!</h5>
+<div class="highlight"><pre><span></span><code>joestan@hasio:~$ sudo bluetoothctl
+<span class="o">[</span>bluetooth<span class="o">]</span><span class="c1"># power on</span>
+<span class="o">[</span>bluetooth<span class="o">]</span><span class="c1"># quit</span>
+joestan@hasio:~$
+</code></pre></div>
+
+<h5>Set Bluetooth Dongle to Specific Device Alias</h5>
+<p>Again, not totally sure if this was necesssary, but even if it wasn't, I like the outcome of
+having a specifically named USB device show up. Makes things nice!</p>
+<p>Listing my USB devices with <code>lsusb</code>, I was able to determine the appropriate device:</p>
+<p>```bashjoestan@hasio:~$ lsusb
+Bus 001 Device 002: ID 1a40:0101 Terminus Technology Inc. Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 003 Device 002: ID 0a5c:21e8 Broadcom Corp. BCM20702A0 Bluetooth 4.0
+Bus 003 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub</p>
+<div class="highlight"><pre><span></span><code>I needed to edit my udev-rules and add a custom alias.
+
+```bash
+sudo nano /etc/udev/rules.d/99-my_rules.rules
+</code></pre></div>
+
+<p>And then, since it's pretty clear that Bus 3 Device 2 is the one I'm looking for, I could update
+my udev file accordingly:</p>
+<div class="highlight"><pre><span></span><code>ACTION==&quot;add&quot;, ATTRS{idVendor}==&quot;0a5c&quot;, ATTRS{idProduct}==&quot;21e8&quot;, SYMLINK+=&quot;btooth&quot;
+</code></pre></div>
+
+<p>Now, after a restart, I've got that device listed properly when I <code>ls /dev</code>:</p>
+<div class="highlight"><pre><span></span><code>joestan@hasio:~$ ls /dev
+agpgart          mqueue    stderr  tty29  tty52    vcs3
+autofs           net       stdin   tty3   tty53    vcs4
+block            null      stdout  tty30  tty54    vcs5
+bsg              nvram     tty     tty31  tty55    vcs6
+btooth           parport0  tty0    tty32  tty56    vcsa        <span class="c1">#&lt;--- Look!</span>
+btrfs-control    port      tty1    tty33  tty57    vcsa1
+bus              ppp       tty10   tty34  tty58    vcsa2
+char             psaux     tty11   tty35  tty59    vcsa3
+console          ptmx      tty12   tty36  tty6     vcsa4
+core             pts       tty13   tty37  tty60    vcsa5
+cpu_dma_latency  random    tty14   tty38  tty61    vcsa6
+cuse             rfkill    tty15   tty39  tty62    vcsu
+disk             rtc       tty16   tty4   tty63    vcsu1
+fd               rtc0      tty17   tty40  tty7     vcsu2
+full             sda       tty18   tty41  tty8     vcsu3
+fuse             sda1      tty19   tty42  tty9     vcsu4
+hpet             sda2      tty2    tty43  ttyS0    vcsu5
+hugepages        sdb       tty20   tty44  ttyS1    vcsu6
+hwrng            sdb1      tty21   tty45  ttyS2    vfio
+initctl          sdb2      tty22   tty46  ttyS3    vga_arbiter
+input            sdb3      tty23   tty47  uhid     vhci
+kmsg             sg0       tty24   tty48  uinput   vhost-net
+log              sg1       tty25   tty49  urandom  vhost-vsock
+loop-control     shm       tty26   tty5   vcs      watchdog
+mapper           snapshot  tty27   tty50  vcs1     watchdog0
+mem              snd       tty28   tty51  vcs2     zero
+</code></pre></div>
+
+<h5>Update Docker Container Command</h5>
+<p>I'm lazy.</p>
+<p>Although I haven't converted this machine to use <code>docker-compose</code>, I use a shell script to do
+the heavy lifting for me, and get the latest container, update and redeploy it. So, when it came
+time to update the command and make sure that I pass the Bluetooth device and <code>dbus</code> into the
+container, it was pretty simple, just needed to add the arguments to the command...</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start HassIO</span>
+<span class="nb">echo</span> Starting Hasio
+sudo docker run -d --name homeassistant --restart<span class="o">=</span>unless-stopped <span class="se">\</span>
+  -v /home/joestan/stanleyassistant/homeassistant:/config -v /etc/localtime:/etc/localtime:ro <span class="se">\</span>
+  -v /run/dbus:/run/dbus:ro --privileged --network<span class="o">=</span>host --device /dev/btooth <span class="se">\</span>
+  ghcr.io/home-assistant/home-assistant:stable
+</code></pre></div>
+
+<p>Notice on the second line from the bottom, I'm using the following commands:</p>
+<ul>
+<li><code>-v /run/dbus:/run/dbus:ro</code>: This maps the <code>dbus</code> volume into the container appropriately.</li>
+<li><code>--device /dev/btooth</code>: For good measure, this maps the Bluetooth device into the container.</li>
+</ul>
+<p>Those were really the only additions that were needed. Then it was just a matter of restarting
+the container with the new arguments, and adding the config of the device in the HA Web-UI.</p>
+<h2>Closing Thoughts</h2>
+<p>Well, I think I learned a few things with this experience. Nothing terrible, or drastic. Just
+some good points and things to remember. Kind of a nice accomplishment on a Christmas Eve, if you
+ask me!</p>
+<p>I love the tight integrations that can be offered with Home Assistant, and I'm really pleased with
+my Airthings Wave Plus sensor. I love the fact that I can use it in my local system and start
+monitoring for "bad gas."</p>
+<p>Let me know if you have any thoughts or other experiences!</p>
+    </div>
+  </article>
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
