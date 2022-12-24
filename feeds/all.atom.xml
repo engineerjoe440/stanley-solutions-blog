@@ -22,7 +22,7 @@ me, that's pretty exciting. You can read more about
 &lt;p&gt;Airthings' Wave Plus sensor is just what I needed. I picked one up last year from Amazon, but
 you can see from &lt;a href="https://shop.airthings.com/US_EN/wave-plus.html"&gt;Airthings' store&lt;/a&gt; that these
 things are a bit on the spendy side. Still not bad.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://shop.airthings.com/media/catalog/product/cache/2634002fa3d4cd41f308759bc7b7f687/a/i/airthings-wave-plus-hero-image-for-e-commerce-front.jpg" width="40%; margin: 10px;" alt="Airthings Wave Plus" align="left"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://shop.airthings.com/media/catalog/product/cache/2634002fa3d4cd41f308759bc7b7f687/a/i/airthings-wave-plus-hero-image-for-e-commerce-front.jpg" style="width: 40%; margin: 10px;" alt="Airthings Wave Plus" align="left"&gt;&lt;/p&gt;
 &lt;p&gt;This little gadget supports Bluetooth Low Energy (BLE), and therefore, doesn't really need
 internet access. In fact, Airthings seems to know their audience, since they support some Python
 scripts in &lt;a href="https://github.com/Airthings/waveplus-reader"&gt;their GitHub repository&lt;/a&gt;. Their
@@ -37,7 +37,7 @@ it certainly "checks out."&lt;/p&gt;
 &lt;h2&gt;Incorporating Into Home Assistant&lt;/h2&gt;
 &lt;p&gt;To go over the background, quickly:&lt;/p&gt;
 &lt;p&gt;My Home Assistant is being served from a Docker container on an old Compaq computer.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/2022-12-24_11-46.png" width="60%; margin: 10px;" alt="My Old Compaq Computer" align="right"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/2022-12-24_11-46.png" style="width: 60%; margin: 10px;" alt="My Old Compaq Computer" align="right"&gt;&lt;/p&gt;
 &lt;p&gt;It's a 32-bit monster running Debian 11. Slow as heck, but it plugs along alright. I recently
 rebuilt the OS from the ground up to take advantage of a second hard-drive in the machine which,
 frankly, I'd forgotten about until recently. That's meant that I can shove the whole config back
