@@ -108,12 +108,12 @@ come together quite nicely.</p>
 subdomain-name. This is kinda critical. Each branch will end up getting its own subdomain under the <code>idaho4h.com</code> domain that's filed for this server.
 The process is pretty simple, really, just replace whitespace and slashes with dashes so that it's a "legal" subdomain.</p>
 <p>Here's the function I use to do it:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">def</span><span class="w"> </span><span class="nf">urlifyBranchName</span><span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;Sanitize&quot; the Branch Name as a Sub-Domain Name</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// i.e., https://&lt;branch-name&gt;.idaho4h.com/</span><span class="w"></span>
-<span class="w">    </span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BRANCH_NAME</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s2">&quot; &quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="o">).</span><span class="na">replaceAll</span><span class="o">(</span><span class="s2">&quot;/&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="o">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">echo</span><span class="w"> </span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kt">def</span><span class="w"> </span><span class="nf">urlifyBranchName</span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1">// &quot;Sanitize&quot; the Branch Name as a Sub-Domain Name</span>
+<span class="w">    </span><span class="c1">// i.e., https://&lt;branch-name&gt;.idaho4h.com/</span>
+<span class="w">    </span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BRANCH_NAME</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s2">&quot; &quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="o">).</span><span class="na">replaceAll</span><span class="o">(</span><span class="s2">&quot;/&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="o">)</span>
+<span class="w">    </span><span class="n">echo</span><span class="w"> </span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <h4>2) Test Python</h4>
@@ -121,15 +121,15 @@ The process is pretty simple, really, just replace whitespace and slashes with d
 integration tests, here - yet), but it allows us to check some of the simple sanitizer functions we're going to count on for the service.</p>
 <p>Adittedly, I had a bit of trouble with some of the virtual-environment stuff, and haven't gotten back around to fixing that yet, so for now just ignore
 the title of the function. The execution is pretty simple. pip-install the requirements we need, then run <code>pytest</code>. Voila!</p>
-<div class="highlight"><pre><span></span><code><span class="kt">def</span><span class="w"> </span><span class="nf">runPythonTestsInVirtualEnv</span><span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Test Python&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Install Requirements</span><span class="w"></span>
-<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;python3 -m pip install -r ${WORKSPACE}/${requirementsFile}&quot;&quot;&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kt">def</span><span class="w"> </span><span class="nf">runPythonTestsInVirtualEnv</span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Test Python&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1">// Install Requirements</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;python3 -m pip install -r ${WORKSPACE}/${requirementsFile}&quot;&quot;&quot;</span>
 
-<span class="w">        </span><span class="c1">// Run `pytest`</span><span class="w"></span>
-<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;pytest&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Run `pytest`</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;pytest&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <h4>3) Build the Frontend</h4>
@@ -139,20 +139,20 @@ frontend and shove it into the static folder of the backend. Python can then ser
 really (took a while to figure out, though).</p>
 <p>What this stage does can be summarized as follows: install npm resources, fix what audit warnings can be handled, build the artifacts. Fairly simple!
 Again though, I'll note that there is some prior setup required to make the whole npm ecosystem "happy" with the structure of the frontend folder.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">def</span><span class="w"> </span><span class="nf">buildReactFrontend</span><span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;React Frontend&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">dir</span><span class="o">(</span><span class="s2">&quot;frontend&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// Ensure all Packages are Installed</span><span class="w"></span>
-<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm install&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kt">def</span><span class="w"> </span><span class="nf">buildReactFrontend</span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;React Frontend&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="n">dir</span><span class="o">(</span><span class="s2">&quot;frontend&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="c1">// Ensure all Packages are Installed</span>
+<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm install&quot;</span>
 
-<span class="w">            </span><span class="c1">// Attempt to Resolve Reported Vulnerabilities</span><span class="w"></span>
-<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm audit fix || true&quot;</span><span class="w"> </span><span class="c1">// Don&#39;t fail on normal warning</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Attempt to Resolve Reported Vulnerabilities</span>
+<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm audit fix || true&quot;</span><span class="w"> </span><span class="c1">// Don&#39;t fail on normal warning</span>
 
-<span class="w">            </span><span class="c1">// Use the Build Tooling</span><span class="w"></span>
-<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm run build&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="o">}</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Use the Build Tooling</span>
+<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm run build&quot;</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <h4>4) Dockerize</h4>
@@ -162,9 +162,9 @@ Again though, I'll note that there is some prior setup required to make the whol
 
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/server</span>
 
-<span class="k">COPY</span><span class="w"> </span>./backend /server
+<span class="k">COPY</span><span class="w"> </span>./backend<span class="w"> </span>/server
 
-<span class="k">RUN</span><span class="w"> </span>pip install --no-cache-dir --upgrade -r /server/requirements.txt
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>--upgrade<span class="w"> </span>-r<span class="w"> </span>/server/requirements.txt
 
 <span class="c"># Run Server on localhost:8383 so Nginx can Hit it without Direct Extern. Access</span>
 <span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;uvicorn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;main:app&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--host&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--port&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;80&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--log-config&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;log_conf.yml&quot;</span><span class="p">]</span>
@@ -172,20 +172,20 @@ Again though, I'll note that there is some prior setup required to make the whol
 
 <p>Basically, we just dockerize the Python application after pulling all of its backend source contents into one spot. This whole container is then built and
 deployed with a little docker-compose magic:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
 
-<span class="c1"># Web-UI is Defined by Local &quot;Dockerfile&quot;, Must Be Rebuilt Each Time</span><span class="w"></span>
-<span class="nt">services</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">webui</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./</span><span class="w"></span>
-<span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./Dockerfile</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$NEXT_AVAIL_APP_PORT:80</span><span class="w"></span>
-<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$RESTART_POLICY</span><span class="w"></span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LYCHEE_API_USER</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LYCHEE_API_TOKEN</span><span class="w"></span>
+<span class="c1"># Web-UI is Defined by Local &quot;Dockerfile&quot;, Must Be Rebuilt Each Time</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">webui</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./</span>
+<span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./Dockerfile</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$NEXT_AVAIL_APP_PORT:80</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$RESTART_POLICY</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LYCHEE_API_USER</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LYCHEE_API_TOKEN</span>
 </code></pre></div>
 
 <p>Notice the use of a few things, we've got several environment variables in that docker-compose file:</p>
@@ -196,33 +196,33 @@ deployed with a little docker-compose magic:</p>
 <li><code>LYCHEE_API_TOKEN</code> As for the username, calls out reference to what Jenkins provides as the password (token) for the API access to Lychee.</li>
 </ul>
 <p>This, of course, is all leveraged in Jenkins:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">def</span><span class="w"> </span><span class="nf">buildDockerContainer</span><span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Docker Container&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kt">def</span><span class="w"> </span><span class="nf">buildDockerContainer</span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Docker Container&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
 
-<span class="w">        </span><span class="c1">// Check for &quot;Default&quot; Conditions</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// MAIN and DEVELOP Branches Should Have Consistent Ports</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Their Containers Should Also Restart Automatically</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8000&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">RESTART_POLICY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="o">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;develop&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8001&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">RESTART_POLICY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="o">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">echo</span><span class="w"> </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Check for &quot;Default&quot; Conditions</span>
+<span class="w">        </span><span class="c1">// MAIN and DEVELOP Branches Should Have Consistent Ports</span>
+<span class="w">        </span><span class="c1">// Their Containers Should Also Restart Automatically</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8000&quot;</span>
+<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">RESTART_POLICY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;always&quot;</span>
+<span class="w">        </span><span class="o">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;develop&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8001&quot;</span>
+<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">RESTART_POLICY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;always&quot;</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">        </span><span class="n">echo</span><span class="w"> </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span>
 
-<span class="w">        </span><span class="c1">// Provide credentials to the docker-compose script so that</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// container will reference the Lychee API credentials.</span><span class="w"></span>
-<span class="w">        </span><span class="n">withCredentials</span><span class="o">([</span><span class="w"></span>
-<span class="w">            </span><span class="n">usernamePassword</span><span class="o">(</span><span class="nl">credentialsId:</span><span class="w"> </span><span class="s1">&#39;idaho4hapi&#39;</span><span class="o">,</span><span class="w"></span>
-<span class="w">            </span><span class="nl">usernameVariable:</span><span class="w"> </span><span class="s1">&#39;LYCHEE_API_USER&#39;</span><span class="o">,</span><span class="w"></span>
-<span class="w">            </span><span class="nl">passwordVariable:</span><span class="w"> </span><span class="s1">&#39;LYCHEE_API_TOKEN&#39;</span><span class="o">)</span><span class="w"></span>
-<span class="w">        </span><span class="o">])</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// Build the Container - Using the Branch-Name as Env Var</span><span class="w"></span>
-<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;docker-compose up -d --build&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="o">}</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Provide credentials to the docker-compose script so that</span>
+<span class="w">        </span><span class="c1">// container will reference the Lychee API credentials.</span>
+<span class="w">        </span><span class="n">withCredentials</span><span class="o">([</span>
+<span class="w">            </span><span class="n">usernamePassword</span><span class="o">(</span><span class="nl">credentialsId:</span><span class="w"> </span><span class="s1">&#39;idaho4hapi&#39;</span><span class="o">,</span>
+<span class="w">            </span><span class="nl">usernameVariable:</span><span class="w"> </span><span class="s1">&#39;LYCHEE_API_USER&#39;</span><span class="o">,</span>
+<span class="w">            </span><span class="nl">passwordVariable:</span><span class="w"> </span><span class="s1">&#39;LYCHEE_API_TOKEN&#39;</span><span class="o">)</span>
+<span class="w">        </span><span class="o">])</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="c1">// Build the Container - Using the Branch-Name as Env Var</span>
+<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;docker-compose up -d --build&quot;</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <p>The Jenkins scripting is responsible for doing a few things. First and foremost, if the branch is one of the "static" branches (<code>main</code> or <code>develop</code>),
@@ -248,15 +248,15 @@ the Merriam-Webster dictionary:</p>
 </blockquote>
 <p>In my case, NGINX <em>proxies</em> or represents each of the various services and, in turn, passes web requests to them. So for each new branch, I need to create a new proxy for the associated, url-ified branch name to pass to the specific application port that the container is listening on.</p>
 <p>That's done pretty simply by running a little Python script to generate the NGINX configuration, then we restart NGINX to accept the new config.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">def</span><span class="w"> </span><span class="nf">deployContainerInNginx</span><span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Deploy in NGINX&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Generate the NGINX Config File</span><span class="w"></span>
-<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;python3 ./writeNginxConfig.py&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kt">def</span><span class="w"> </span><span class="nf">deployContainerInNginx</span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Deploy in NGINX&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1">// Generate the NGINX Config File</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;python3 ./writeNginxConfig.py&quot;</span>
 
-<span class="w">        </span><span class="c1">// Restart NGINX To Apply Config</span><span class="w"></span>
-<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;sudo /usr/bin/systemctl restart nginx&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Restart NGINX To Apply Config</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;sudo /usr/bin/systemctl restart nginx&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 <p>That little Python script helps us out too, it basically sucks in a few of the environmental variables to determine how the configuration should be written
@@ -373,130 +373,130 @@ the automated system keep it all moving along for us.</p>
 <span class="cm"> *</span>
 <span class="cm"> * 2021 - Stanley Solutions</span>
 <span class="cm"> * Joe Stanley</span>
-<span class="cm"> ******************************************************************************/</span><span class="w"></span>
+<span class="cm"> ******************************************************************************/</span>
 
-<span class="c1">// Global Variables</span><span class="w"></span>
-<span class="c1">// In Groovy, global variables are not given a type or proceeded by def</span><span class="w"></span>
-<span class="n">requirementsFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;backend/requirements.txt&quot;</span><span class="w"></span>
+<span class="c1">// Global Variables</span>
+<span class="c1">// In Groovy, global variables are not given a type or proceeded by def</span>
+<span class="n">requirementsFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;backend/requirements.txt&quot;</span>
 
-<span class="n">properties</span><span class="o">([[</span><span class="n">$class</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GitLabConnectionProperty&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">gitLabConnection:</span><span class="w"> </span><span class="s1">&#39;StanleySolutions GitLab&#39;</span><span class="o">]])</span><span class="w"></span>
+<span class="n">properties</span><span class="o">([[</span><span class="n">$class</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GitLabConnectionProperty&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">gitLabConnection:</span><span class="w"> </span><span class="s1">&#39;StanleySolutions GitLab&#39;</span><span class="o">]])</span>
 
-<span class="n">node</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;4happserver&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="n">node</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;4happserver&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
 
-<span class="w">    </span><span class="c1">// Set Up Environment Variables</span><span class="w"></span>
-<span class="w">    </span><span class="n">parameters</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">string</span><span class="o">(</span><span class="nl">name:</span><span class="w"> </span><span class="s1">&#39;DOCKER_BRANCH_NAME&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">defaultValue:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="o">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">string</span><span class="o">(</span><span class="nl">name:</span><span class="w"> </span><span class="s1">&#39;NEXT_AVAIL_APP_PORT&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">defaultValue:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="o">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">string</span><span class="o">(</span><span class="nl">name:</span><span class="w"> </span><span class="s1">&#39;RESTART_POLICY&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">defaultValue:</span><span class="w"> </span><span class="s1">&#39;no&#39;</span><span class="o">)</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Clean Workspace</span><span class="w"></span>
-<span class="w">    </span><span class="n">cleanWs</span><span class="o">()</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Set Up Environment Variables</span>
+<span class="w">    </span><span class="n">parameters</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="n">string</span><span class="o">(</span><span class="nl">name:</span><span class="w"> </span><span class="s1">&#39;DOCKER_BRANCH_NAME&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">defaultValue:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="o">)</span>
+<span class="w">        </span><span class="n">string</span><span class="o">(</span><span class="nl">name:</span><span class="w"> </span><span class="s1">&#39;NEXT_AVAIL_APP_PORT&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">defaultValue:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="o">)</span>
+<span class="w">        </span><span class="n">string</span><span class="o">(</span><span class="nl">name:</span><span class="w"> </span><span class="s1">&#39;RESTART_POLICY&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">defaultValue:</span><span class="w"> </span><span class="s1">&#39;no&#39;</span><span class="o">)</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">    </span><span class="c1">// Clean Workspace</span>
+<span class="w">    </span><span class="n">cleanWs</span><span class="o">()</span>
 
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Prep&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Prep&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
 
-<span class="w">        </span><span class="c1">// Check Out Source Code</span><span class="w"></span>
-<span class="w">        </span><span class="n">checkout</span><span class="w"> </span><span class="n">scm</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Check Out Source Code</span>
+<span class="w">        </span><span class="n">checkout</span><span class="w"> </span><span class="n">scm</span>
 
-<span class="w">        </span><span class="c1">// Load the Next Available Port as an Env Var</span><span class="w"></span>
-<span class="w">        </span><span class="n">load</span><span class="w"> </span><span class="s2">&quot;/home/jenkins/app-ports&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Load the Next Available Port as an Env Var</span>
+<span class="w">        </span><span class="n">load</span><span class="w"> </span><span class="s2">&quot;/home/jenkins/app-ports&quot;</span>
 
-<span class="w">        </span><span class="c1">// Clean Branch Name</span><span class="w"></span>
-<span class="w">        </span><span class="n">urlifyBranchName</span><span class="o">()</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Clean Branch Name</span>
+<span class="w">        </span><span class="n">urlifyBranchName</span><span class="o">()</span>
+<span class="w">    </span><span class="o">}</span>
 
-<span class="w">    </span><span class="c1">// Publish Status of All Contained Stages</span><span class="w"></span>
-<span class="w">    </span><span class="n">gitlabCommitStatus</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Publish Status of All Contained Stages</span>
+<span class="w">    </span><span class="n">gitlabCommitStatus</span><span class="w"> </span><span class="o">{</span>
 
-<span class="w">        </span><span class="c1">// Test Backend</span><span class="w"></span>
-<span class="w">        </span><span class="n">runPythonTestsInVirtualEnv</span><span class="o">()</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Test Backend</span>
+<span class="w">        </span><span class="n">runPythonTestsInVirtualEnv</span><span class="o">()</span>
 
-<span class="w">        </span><span class="c1">// Build Frontend</span><span class="w"></span>
-<span class="w">        </span><span class="n">buildReactFrontend</span><span class="o">()</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Build Frontend</span>
+<span class="w">        </span><span class="n">buildReactFrontend</span><span class="o">()</span>
 
-<span class="w">        </span><span class="c1">// Stand Up Container</span><span class="w"></span>
-<span class="w">        </span><span class="n">buildDockerContainer</span><span class="o">()</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Stand Up Container</span>
+<span class="w">        </span><span class="n">buildDockerContainer</span><span class="o">()</span>
 
-<span class="w">        </span><span class="c1">// Deploy Container</span><span class="w"></span>
-<span class="w">        </span><span class="n">deployContainerInNginx</span><span class="o">()</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Deploy Container</span>
+<span class="w">        </span><span class="n">deployContainerInNginx</span><span class="o">()</span>
 
-<span class="w">        </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Wrap Up&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// Update Port for Next Build</span><span class="w"></span>
-<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;python3 ./updatePort.py&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="o">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Wrap Up&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="c1">// Update Port for Next Build</span>
+<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;python3 ./updatePort.py&quot;</span>
+<span class="w">        </span><span class="o">}</span>
 
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
 
 
-<span class="kt">def</span><span class="w"> </span><span class="nf">urlifyBranchName</span><span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;Sanitize&quot; the Branch Name as a Sub-Domain Name</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// i.e., https://&lt;branch-name&gt;.idaho4h.com/</span><span class="w"></span>
-<span class="w">    </span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BRANCH_NAME</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s2">&quot; &quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="o">).</span><span class="na">replaceAll</span><span class="o">(</span><span class="s2">&quot;/&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="o">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">echo</span><span class="w"> </span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="kt">def</span><span class="w"> </span><span class="nf">urlifyBranchName</span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1">// &quot;Sanitize&quot; the Branch Name as a Sub-Domain Name</span>
+<span class="w">    </span><span class="c1">// i.e., https://&lt;branch-name&gt;.idaho4h.com/</span>
+<span class="w">    </span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BRANCH_NAME</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s2">&quot; &quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="o">).</span><span class="na">replaceAll</span><span class="o">(</span><span class="s2">&quot;/&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="o">)</span>
+<span class="w">    </span><span class="n">echo</span><span class="w"> </span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span>
+<span class="o">}</span>
 
-<span class="kt">def</span><span class="w"> </span><span class="nf">buildReactFrontend</span><span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;React Frontend&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">dir</span><span class="o">(</span><span class="s2">&quot;frontend&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// Ensure all Packages are Installed</span><span class="w"></span>
-<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm install&quot;</span><span class="w"></span>
+<span class="kt">def</span><span class="w"> </span><span class="nf">buildReactFrontend</span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;React Frontend&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="n">dir</span><span class="o">(</span><span class="s2">&quot;frontend&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="c1">// Ensure all Packages are Installed</span>
+<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm install&quot;</span>
 
-<span class="w">            </span><span class="c1">// Attempt to Resolve Reported Vulnerabilities</span><span class="w"></span>
-<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm audit fix || true&quot;</span><span class="w"> </span><span class="c1">// Don&#39;t fail on normal warning</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Attempt to Resolve Reported Vulnerabilities</span>
+<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm audit fix || true&quot;</span><span class="w"> </span><span class="c1">// Don&#39;t fail on normal warning</span>
 
-<span class="w">            </span><span class="c1">// Use the Build Tooling</span><span class="w"></span>
-<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm run build&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="o">}</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Use the Build Tooling</span>
+<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;npm run build&quot;</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kt">def</span><span class="w"> </span><span class="nf">buildDockerContainer</span><span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Docker Container&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="kt">def</span><span class="w"> </span><span class="nf">buildDockerContainer</span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Docker Container&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
 
-<span class="w">        </span><span class="c1">// Check for &quot;Default&quot; Conditions</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// MAIN and DEVELOP Branches Should Have Consistent Ports</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Their Containers Should Also Restart Automatically</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8000&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">RESTART_POLICY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="o">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;develop&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8001&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">RESTART_POLICY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="o">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">echo</span><span class="w"> </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Check for &quot;Default&quot; Conditions</span>
+<span class="w">        </span><span class="c1">// MAIN and DEVELOP Branches Should Have Consistent Ports</span>
+<span class="w">        </span><span class="c1">// Their Containers Should Also Restart Automatically</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8000&quot;</span>
+<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">RESTART_POLICY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;always&quot;</span>
+<span class="w">        </span><span class="o">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="n">env</span><span class="o">.</span><span class="na">DOCKER_BRANCH_NAME</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;develop&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8001&quot;</span>
+<span class="w">            </span><span class="n">env</span><span class="o">.</span><span class="na">RESTART_POLICY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;always&quot;</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">        </span><span class="n">echo</span><span class="w"> </span><span class="n">env</span><span class="o">.</span><span class="na">NEXT_AVAIL_APP_PORT</span>
 
-<span class="w">        </span><span class="c1">// Provide credentials to the docker-compose script so that</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// container will reference the Lychee API credentials.</span><span class="w"></span>
-<span class="w">        </span><span class="n">withCredentials</span><span class="o">([</span><span class="w"></span>
-<span class="w">            </span><span class="n">usernamePassword</span><span class="o">(</span><span class="nl">credentialsId:</span><span class="w"> </span><span class="s1">&#39;idaho4hapi&#39;</span><span class="o">,</span><span class="w"></span>
-<span class="w">            </span><span class="nl">usernameVariable:</span><span class="w"> </span><span class="s1">&#39;LYCHEE_API_USER&#39;</span><span class="o">,</span><span class="w"></span>
-<span class="w">            </span><span class="nl">passwordVariable:</span><span class="w"> </span><span class="s1">&#39;LYCHEE_API_TOKEN&#39;</span><span class="o">)</span><span class="w"></span>
-<span class="w">        </span><span class="o">])</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// Build the Container - Using the Branch-Name as Env Var</span><span class="w"></span>
-<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;docker-compose up -d --build&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="o">}</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Provide credentials to the docker-compose script so that</span>
+<span class="w">        </span><span class="c1">// container will reference the Lychee API credentials.</span>
+<span class="w">        </span><span class="n">withCredentials</span><span class="o">([</span>
+<span class="w">            </span><span class="n">usernamePassword</span><span class="o">(</span><span class="nl">credentialsId:</span><span class="w"> </span><span class="s1">&#39;idaho4hapi&#39;</span><span class="o">,</span>
+<span class="w">            </span><span class="nl">usernameVariable:</span><span class="w"> </span><span class="s1">&#39;LYCHEE_API_USER&#39;</span><span class="o">,</span>
+<span class="w">            </span><span class="nl">passwordVariable:</span><span class="w"> </span><span class="s1">&#39;LYCHEE_API_TOKEN&#39;</span><span class="o">)</span>
+<span class="w">        </span><span class="o">])</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="c1">// Build the Container - Using the Branch-Name as Env Var</span>
+<span class="w">            </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;docker-compose up -d --build&quot;</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kt">def</span><span class="w"> </span><span class="nf">deployContainerInNginx</span><span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Deploy in NGINX&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Generate the NGINX Config File</span><span class="w"></span>
-<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;python3 ./writeNginxConfig.py&quot;</span><span class="w"></span>
+<span class="kt">def</span><span class="w"> </span><span class="nf">deployContainerInNginx</span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Deploy in NGINX&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1">// Generate the NGINX Config File</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;python3 ./writeNginxConfig.py&quot;</span>
 
-<span class="w">        </span><span class="c1">// Restart NGINX To Apply Config</span><span class="w"></span>
-<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;sudo /usr/bin/systemctl restart nginx&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Restart NGINX To Apply Config</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;sudo /usr/bin/systemctl restart nginx&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kt">def</span><span class="w"> </span><span class="nf">runPythonTestsInVirtualEnv</span><span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Test Python&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Install Requirements</span><span class="w"></span>
-<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;python3 -m pip install -r ${WORKSPACE}/${requirementsFile}&quot;&quot;&quot;</span><span class="w"></span>
+<span class="kt">def</span><span class="w"> </span><span class="nf">runPythonTestsInVirtualEnv</span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">stage</span><span class="o">(</span><span class="s2">&quot;Test Python&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1">// Install Requirements</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;python3 -m pip install -r ${WORKSPACE}/${requirementsFile}&quot;&quot;&quot;</span>
 
-<span class="w">        </span><span class="c1">// Run `pytest`</span><span class="w"></span>
-<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;pytest&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Run `pytest`</span>
+<span class="w">        </span><span class="n">sh</span><span class="w"> </span><span class="s2">&quot;pytest&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 

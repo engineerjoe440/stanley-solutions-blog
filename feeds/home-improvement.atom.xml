@@ -51,12 +51,12 @@ correctly on the first pass?&lt;/p&gt;
 &lt;h3&gt;Installing the System Requirements&lt;/h3&gt;
 &lt;p&gt;So, really, the only package that I &lt;em&gt;needed&lt;/em&gt; was &lt;code&gt;bluez&lt;/code&gt;, but for some of the Airthings scripts,
 there were a few others, so I'll list them all here...&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt-get install bluez libglib2.0-dev -y
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;bluez&lt;span class="w"&gt; &lt;/span&gt;libglib2.0-dev&lt;span class="w"&gt; &lt;/span&gt;-y
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;To get the Airthings scripts running, I also needed a few Python packages. They were installed
 with:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo python3 -m pip install bluepy tableprint
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;python3&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;bluepy&lt;span class="w"&gt; &lt;/span&gt;tableprint
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Again... not entirely necessary, but could be useful if you're like me, and like debugging.&lt;/p&gt;
@@ -65,7 +65,7 @@ with:&lt;/p&gt;
 this is necessary for Home Assistant's purposes, but it's useful from the Airthings script
 point-of-view.&lt;/p&gt;
 &lt;h5&gt;Turn on Bluetooth!&lt;/h5&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;joestan@hasio:~$ sudo bluetoothctl
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;joestan@hasio:~$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;bluetoothctl
 &lt;span class="o"&gt;[&lt;/span&gt;bluetooth&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="c1"&gt;# power on&lt;/span&gt;
 &lt;span class="o"&gt;[&lt;/span&gt;bluetooth&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="c1"&gt;# quit&lt;/span&gt;
 joestan@hasio:~$
@@ -75,16 +75,16 @@ joestan@hasio:~$
 &lt;p&gt;Again, not totally sure if this was necesssary, but even if it wasn't, I like the outcome of
 having a specifically named USB device show up. Makes things nice!&lt;/p&gt;
 &lt;p&gt;Listing my USB devices with &lt;code&gt;lsusb&lt;/code&gt;, I was able to determine the appropriate device:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;joestan@hasio:~$ lsusb
-Bus &lt;span class="m"&gt;001&lt;/span&gt; Device &lt;span class="m"&gt;002&lt;/span&gt;: ID 1a40:0101 Terminus Technology Inc. Hub
-Bus &lt;span class="m"&gt;001&lt;/span&gt; Device &lt;span class="m"&gt;001&lt;/span&gt;: ID 1d6b:0002 Linux Foundation &lt;span class="m"&gt;2&lt;/span&gt;.0 root hub
-Bus &lt;span class="m"&gt;003&lt;/span&gt; Device &lt;span class="m"&gt;002&lt;/span&gt;: ID 0a5c:21e8 Broadcom Corp. BCM20702A0 Bluetooth &lt;span class="m"&gt;4&lt;/span&gt;.0
-Bus &lt;span class="m"&gt;003&lt;/span&gt; Device &lt;span class="m"&gt;001&lt;/span&gt;: ID 1d6b:0001 Linux Foundation &lt;span class="m"&gt;1&lt;/span&gt;.1 root hub
-Bus &lt;span class="m"&gt;002&lt;/span&gt; Device &lt;span class="m"&gt;001&lt;/span&gt;: ID 1d6b:0001 Linux Foundation &lt;span class="m"&gt;1&lt;/span&gt;.1 root hub
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;joestan@hasio:~$&lt;span class="w"&gt; &lt;/span&gt;lsusb
+Bus&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;001&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Device&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;002&lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;ID&lt;span class="w"&gt; &lt;/span&gt;1a40:0101&lt;span class="w"&gt; &lt;/span&gt;Terminus&lt;span class="w"&gt; &lt;/span&gt;Technology&lt;span class="w"&gt; &lt;/span&gt;Inc.&lt;span class="w"&gt; &lt;/span&gt;Hub
+Bus&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;001&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Device&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;001&lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;ID&lt;span class="w"&gt; &lt;/span&gt;1d6b:0002&lt;span class="w"&gt; &lt;/span&gt;Linux&lt;span class="w"&gt; &lt;/span&gt;Foundation&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;.0&lt;span class="w"&gt; &lt;/span&gt;root&lt;span class="w"&gt; &lt;/span&gt;hub
+Bus&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;003&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Device&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;002&lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;ID&lt;span class="w"&gt; &lt;/span&gt;0a5c:21e8&lt;span class="w"&gt; &lt;/span&gt;Broadcom&lt;span class="w"&gt; &lt;/span&gt;Corp.&lt;span class="w"&gt; &lt;/span&gt;BCM20702A0&lt;span class="w"&gt; &lt;/span&gt;Bluetooth&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;.0
+Bus&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;003&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Device&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;001&lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;ID&lt;span class="w"&gt; &lt;/span&gt;1d6b:0001&lt;span class="w"&gt; &lt;/span&gt;Linux&lt;span class="w"&gt; &lt;/span&gt;Foundation&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.1&lt;span class="w"&gt; &lt;/span&gt;root&lt;span class="w"&gt; &lt;/span&gt;hub
+Bus&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;002&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Device&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;001&lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;ID&lt;span class="w"&gt; &lt;/span&gt;1d6b:0001&lt;span class="w"&gt; &lt;/span&gt;Linux&lt;span class="w"&gt; &lt;/span&gt;Foundation&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;.1&lt;span class="w"&gt; &lt;/span&gt;root&lt;span class="w"&gt; &lt;/span&gt;hub
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;I needed to edit my udev-rules and add a custom alias.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo nano /etc/udev/rules.d/99-my_rules.rules
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;nano&lt;span class="w"&gt; &lt;/span&gt;/etc/udev/rules.d/99-my_rules.rules
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And then, since it's pretty clear that Bus 3 Device 2 is the one I'm looking for, I could update
@@ -93,33 +93,33 @@ my udev file accordingly:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now, after a restart, I've got that device listed properly when I &lt;code&gt;ls /dev&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;joestan@hasio:~$ ls /dev
-agpgart          mqueue    stderr  tty29  tty52    vcs3
-autofs           net       stdin   tty3   tty53    vcs4
-block            null      stdout  tty30  tty54    vcs5
-bsg              nvram     tty     tty31  tty55    vcs6
-btooth           parport0  tty0    tty32  tty56    vcsa        &lt;span class="c1"&gt;#&amp;lt;--- Look!&lt;/span&gt;
-btrfs-control    port      tty1    tty33  tty57    vcsa1
-bus              ppp       tty10   tty34  tty58    vcsa2
-char             psaux     tty11   tty35  tty59    vcsa3
-console          ptmx      tty12   tty36  tty6     vcsa4
-core             pts       tty13   tty37  tty60    vcsa5
-cpu_dma_latency  random    tty14   tty38  tty61    vcsa6
-cuse             rfkill    tty15   tty39  tty62    vcsu
-disk             rtc       tty16   tty4   tty63    vcsu1
-fd               rtc0      tty17   tty40  tty7     vcsu2
-full             sda       tty18   tty41  tty8     vcsu3
-fuse             sda1      tty19   tty42  tty9     vcsu4
-hpet             sda2      tty2    tty43  ttyS0    vcsu5
-hugepages        sdb       tty20   tty44  ttyS1    vcsu6
-hwrng            sdb1      tty21   tty45  ttyS2    vfio
-initctl          sdb2      tty22   tty46  ttyS3    vga_arbiter
-input            sdb3      tty23   tty47  uhid     vhci
-kmsg             sg0       tty24   tty48  uinput   vhost-net
-log              sg1       tty25   tty49  urandom  vhost-vsock
-loop-control     shm       tty26   tty5   vcs      watchdog
-mapper           snapshot  tty27   tty50  vcs1     watchdog0
-mem              snd       tty28   tty51  vcs2     zero
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;joestan@hasio:~$&lt;span class="w"&gt; &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;/dev
+agpgart&lt;span class="w"&gt;          &lt;/span&gt;mqueue&lt;span class="w"&gt;    &lt;/span&gt;stderr&lt;span class="w"&gt;  &lt;/span&gt;tty29&lt;span class="w"&gt;  &lt;/span&gt;tty52&lt;span class="w"&gt;    &lt;/span&gt;vcs3
+autofs&lt;span class="w"&gt;           &lt;/span&gt;net&lt;span class="w"&gt;       &lt;/span&gt;stdin&lt;span class="w"&gt;   &lt;/span&gt;tty3&lt;span class="w"&gt;   &lt;/span&gt;tty53&lt;span class="w"&gt;    &lt;/span&gt;vcs4
+block&lt;span class="w"&gt;            &lt;/span&gt;null&lt;span class="w"&gt;      &lt;/span&gt;stdout&lt;span class="w"&gt;  &lt;/span&gt;tty30&lt;span class="w"&gt;  &lt;/span&gt;tty54&lt;span class="w"&gt;    &lt;/span&gt;vcs5
+bsg&lt;span class="w"&gt;              &lt;/span&gt;nvram&lt;span class="w"&gt;     &lt;/span&gt;tty&lt;span class="w"&gt;     &lt;/span&gt;tty31&lt;span class="w"&gt;  &lt;/span&gt;tty55&lt;span class="w"&gt;    &lt;/span&gt;vcs6
+btooth&lt;span class="w"&gt;           &lt;/span&gt;parport0&lt;span class="w"&gt;  &lt;/span&gt;tty0&lt;span class="w"&gt;    &lt;/span&gt;tty32&lt;span class="w"&gt;  &lt;/span&gt;tty56&lt;span class="w"&gt;    &lt;/span&gt;vcsa&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;#&amp;lt;--- Look!&lt;/span&gt;
+btrfs-control&lt;span class="w"&gt;    &lt;/span&gt;port&lt;span class="w"&gt;      &lt;/span&gt;tty1&lt;span class="w"&gt;    &lt;/span&gt;tty33&lt;span class="w"&gt;  &lt;/span&gt;tty57&lt;span class="w"&gt;    &lt;/span&gt;vcsa1
+bus&lt;span class="w"&gt;              &lt;/span&gt;ppp&lt;span class="w"&gt;       &lt;/span&gt;tty10&lt;span class="w"&gt;   &lt;/span&gt;tty34&lt;span class="w"&gt;  &lt;/span&gt;tty58&lt;span class="w"&gt;    &lt;/span&gt;vcsa2
+char&lt;span class="w"&gt;             &lt;/span&gt;psaux&lt;span class="w"&gt;     &lt;/span&gt;tty11&lt;span class="w"&gt;   &lt;/span&gt;tty35&lt;span class="w"&gt;  &lt;/span&gt;tty59&lt;span class="w"&gt;    &lt;/span&gt;vcsa3
+console&lt;span class="w"&gt;          &lt;/span&gt;ptmx&lt;span class="w"&gt;      &lt;/span&gt;tty12&lt;span class="w"&gt;   &lt;/span&gt;tty36&lt;span class="w"&gt;  &lt;/span&gt;tty6&lt;span class="w"&gt;     &lt;/span&gt;vcsa4
+core&lt;span class="w"&gt;             &lt;/span&gt;pts&lt;span class="w"&gt;       &lt;/span&gt;tty13&lt;span class="w"&gt;   &lt;/span&gt;tty37&lt;span class="w"&gt;  &lt;/span&gt;tty60&lt;span class="w"&gt;    &lt;/span&gt;vcsa5
+cpu_dma_latency&lt;span class="w"&gt;  &lt;/span&gt;random&lt;span class="w"&gt;    &lt;/span&gt;tty14&lt;span class="w"&gt;   &lt;/span&gt;tty38&lt;span class="w"&gt;  &lt;/span&gt;tty61&lt;span class="w"&gt;    &lt;/span&gt;vcsa6
+cuse&lt;span class="w"&gt;             &lt;/span&gt;rfkill&lt;span class="w"&gt;    &lt;/span&gt;tty15&lt;span class="w"&gt;   &lt;/span&gt;tty39&lt;span class="w"&gt;  &lt;/span&gt;tty62&lt;span class="w"&gt;    &lt;/span&gt;vcsu
+disk&lt;span class="w"&gt;             &lt;/span&gt;rtc&lt;span class="w"&gt;       &lt;/span&gt;tty16&lt;span class="w"&gt;   &lt;/span&gt;tty4&lt;span class="w"&gt;   &lt;/span&gt;tty63&lt;span class="w"&gt;    &lt;/span&gt;vcsu1
+fd&lt;span class="w"&gt;               &lt;/span&gt;rtc0&lt;span class="w"&gt;      &lt;/span&gt;tty17&lt;span class="w"&gt;   &lt;/span&gt;tty40&lt;span class="w"&gt;  &lt;/span&gt;tty7&lt;span class="w"&gt;     &lt;/span&gt;vcsu2
+full&lt;span class="w"&gt;             &lt;/span&gt;sda&lt;span class="w"&gt;       &lt;/span&gt;tty18&lt;span class="w"&gt;   &lt;/span&gt;tty41&lt;span class="w"&gt;  &lt;/span&gt;tty8&lt;span class="w"&gt;     &lt;/span&gt;vcsu3
+fuse&lt;span class="w"&gt;             &lt;/span&gt;sda1&lt;span class="w"&gt;      &lt;/span&gt;tty19&lt;span class="w"&gt;   &lt;/span&gt;tty42&lt;span class="w"&gt;  &lt;/span&gt;tty9&lt;span class="w"&gt;     &lt;/span&gt;vcsu4
+hpet&lt;span class="w"&gt;             &lt;/span&gt;sda2&lt;span class="w"&gt;      &lt;/span&gt;tty2&lt;span class="w"&gt;    &lt;/span&gt;tty43&lt;span class="w"&gt;  &lt;/span&gt;ttyS0&lt;span class="w"&gt;    &lt;/span&gt;vcsu5
+hugepages&lt;span class="w"&gt;        &lt;/span&gt;sdb&lt;span class="w"&gt;       &lt;/span&gt;tty20&lt;span class="w"&gt;   &lt;/span&gt;tty44&lt;span class="w"&gt;  &lt;/span&gt;ttyS1&lt;span class="w"&gt;    &lt;/span&gt;vcsu6
+hwrng&lt;span class="w"&gt;            &lt;/span&gt;sdb1&lt;span class="w"&gt;      &lt;/span&gt;tty21&lt;span class="w"&gt;   &lt;/span&gt;tty45&lt;span class="w"&gt;  &lt;/span&gt;ttyS2&lt;span class="w"&gt;    &lt;/span&gt;vfio
+initctl&lt;span class="w"&gt;          &lt;/span&gt;sdb2&lt;span class="w"&gt;      &lt;/span&gt;tty22&lt;span class="w"&gt;   &lt;/span&gt;tty46&lt;span class="w"&gt;  &lt;/span&gt;ttyS3&lt;span class="w"&gt;    &lt;/span&gt;vga_arbiter
+input&lt;span class="w"&gt;            &lt;/span&gt;sdb3&lt;span class="w"&gt;      &lt;/span&gt;tty23&lt;span class="w"&gt;   &lt;/span&gt;tty47&lt;span class="w"&gt;  &lt;/span&gt;uhid&lt;span class="w"&gt;     &lt;/span&gt;vhci
+kmsg&lt;span class="w"&gt;             &lt;/span&gt;sg0&lt;span class="w"&gt;       &lt;/span&gt;tty24&lt;span class="w"&gt;   &lt;/span&gt;tty48&lt;span class="w"&gt;  &lt;/span&gt;uinput&lt;span class="w"&gt;   &lt;/span&gt;vhost-net
+log&lt;span class="w"&gt;              &lt;/span&gt;sg1&lt;span class="w"&gt;       &lt;/span&gt;tty25&lt;span class="w"&gt;   &lt;/span&gt;tty49&lt;span class="w"&gt;  &lt;/span&gt;urandom&lt;span class="w"&gt;  &lt;/span&gt;vhost-vsock
+loop-control&lt;span class="w"&gt;     &lt;/span&gt;shm&lt;span class="w"&gt;       &lt;/span&gt;tty26&lt;span class="w"&gt;   &lt;/span&gt;tty5&lt;span class="w"&gt;   &lt;/span&gt;vcs&lt;span class="w"&gt;      &lt;/span&gt;watchdog
+mapper&lt;span class="w"&gt;           &lt;/span&gt;snapshot&lt;span class="w"&gt;  &lt;/span&gt;tty27&lt;span class="w"&gt;   &lt;/span&gt;tty50&lt;span class="w"&gt;  &lt;/span&gt;vcs1&lt;span class="w"&gt;     &lt;/span&gt;watchdog0
+mem&lt;span class="w"&gt;              &lt;/span&gt;snd&lt;span class="w"&gt;       &lt;/span&gt;tty28&lt;span class="w"&gt;   &lt;/span&gt;tty51&lt;span class="w"&gt;  &lt;/span&gt;vcs2&lt;span class="w"&gt;     &lt;/span&gt;zero
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h5&gt;Update Docker Container Command&lt;/h5&gt;
@@ -129,11 +129,11 @@ the heavy lifting for me, and get the latest container, update and redeploy it. 
 time to update the command and make sure that I pass the Bluetooth device and &lt;code&gt;dbus&lt;/code&gt; into the
 container, it was pretty simple, just needed to add the arguments to the command...&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Start HassIO&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; Starting Hasio
-sudo docker run -d --name homeassistant --restart&lt;span class="o"&gt;=&lt;/span&gt;unless-stopped &lt;span class="se"&gt;\&lt;/span&gt;
-  -v /home/joestan/stanleyassistant/homeassistant:/config -v /etc/localtime:/etc/localtime:ro &lt;span class="se"&gt;\&lt;/span&gt;
-  -v /run/dbus:/run/dbus:ro --privileged --network&lt;span class="o"&gt;=&lt;/span&gt;host --device /dev/btooth &lt;span class="se"&gt;\&lt;/span&gt;
-  ghcr.io/home-assistant/home-assistant:stable
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Starting&lt;span class="w"&gt; &lt;/span&gt;Hasio
+sudo&lt;span class="w"&gt; &lt;/span&gt;docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;--name&lt;span class="w"&gt; &lt;/span&gt;homeassistant&lt;span class="w"&gt; &lt;/span&gt;--restart&lt;span class="o"&gt;=&lt;/span&gt;unless-stopped&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;/home/joestan/stanleyassistant/homeassistant:/config&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;/etc/localtime:/etc/localtime:ro&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;/run/dbus:/run/dbus:ro&lt;span class="w"&gt; &lt;/span&gt;--privileged&lt;span class="w"&gt; &lt;/span&gt;--network&lt;span class="o"&gt;=&lt;/span&gt;host&lt;span class="w"&gt; &lt;/span&gt;--device&lt;span class="w"&gt; &lt;/span&gt;/dev/btooth&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;ghcr.io/home-assistant/home-assistant:stable
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Notice on the second line from the bottom, I'm using the following commands:&lt;/p&gt;
@@ -255,11 +255,11 @@ kitchen, lab, and (yes) even bathroom. Now, the challenge with all that is that 
 of audio. Additionally, whenever I have virtual meetings in my study, I need to shut everything down around the house. Not very much fun.&lt;/p&gt;
 &lt;p&gt;I decided that I need a central control to allow easy Pianobar playback control, in addition to a "master mute" button that'll disable all audio streaming
 around the house. Now... I'm still working on the actual "control box" which will have all of the buttons, but the operational pannel is already set up.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_3d778f5.jpeg" style="width: 100%" alt="Audio Output Blocks"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/ima_3d778f5.jpeg" style="width: 100%" alt="Audio Output Blocks"&gt;&lt;/p&gt;
 &lt;p&gt;Since my analog stream is in stereo, I - of course - need to have four sets of terminals to make wiring easy. That's what's shown in the above picture;
 there's one for +R, -R, +L, and -L. Everything we need! They all connect to an input block by way of an ESP-8266 relay-breakout-board (shown in the upper-right
 of the image below).&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_eec766f.jpeg" style="width: 100%" alt="Audio Connector Control"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/ima_eec766f.jpeg" style="width: 100%" alt="Audio Connector Control"&gt;&lt;/p&gt;
 &lt;p&gt;When I get this set up (completely) the little ESP board will listen for &lt;a href="https://mqtt.org/"&gt;MQTT&lt;/a&gt; commands from my home-automation server that will tell it
 to open the normally-closed relay contacts and effectively shut down the whole analog audio network by disconnecting my study mixer from the rest of the
 house.&lt;/p&gt;
@@ -269,7 +269,7 @@ always. When I'm in the kitchen, if I'm cooking (which is often what I'm doing w
 So, I want to integrate the doorbell detection into some more intelligent operations and be able to send push notifications or even play audio chimes through
 the centralized audio system. Shouldn't be difficult, but I need to interface with one of my little &lt;a href="https://www.embeddedts.com/products/TS-7500"&gt;Technologic TS7500&lt;/a&gt;
 computers. Now... this computer has a 5VDC input. Not exactly ideal when the doorbell is running at about 16VAC.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_c71dcbc.jpeg" style="width: 100%" alt="Doorbell Conditioning Circuit"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/ima_c71dcbc.jpeg" style="width: 100%" alt="Doorbell Conditioning Circuit"&gt;&lt;/p&gt;
 &lt;p&gt;Thus, another part of my home-automation center was built up. I needed to consume the AC input, run it through a bridge rectifier (the grey square on the right),
 apply a little filtering and smoothing with a "reasonably big" capacitor, and then shove that into a 12VDC relay.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -286,11 +286,11 @@ wall (properly), and I'd rather have a true three-way-switch than the dumb littl
 &lt;p&gt;I've gone ahead and connected a nice, big, wiring block (shown in the upper-right of the image below) to allow for connections into the computer and the light
 itself. This should make it nice and convenient, and make a true 3-way switch possible where the computer and the light switch will always be responsive to
 control, and I won't have to wait for the dumb thing to boot up and initialize.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_a8b8778.jpeg" style="width: 100%" alt="Wiring Blocks for Lights"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/ima_a8b8778.jpeg" style="width: 100%" alt="Wiring Blocks for Lights"&gt;&lt;/p&gt;
 &lt;p&gt;The Technologic computer, of course, has its own relay-break-out-board which also sandwiches nicely into its fancy little aluminum case (shown below), and that
 is how I'm taking control of the light. Just like any other three-way-switch, I'm using the NO/NC contacts to wire opposite those of the three way switch I'll
 mount in the wall, and then I'll be able to control the light, either from a physical switch, or from the computer. Either way, no problem!&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_5caf4e9.jpeg" style="width: 100%" alt="Computer and all the Power Supplies"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/ima_5caf4e9.jpeg" style="width: 100%" alt="Computer and all the Power Supplies"&gt;&lt;/p&gt;
 &lt;p&gt;You might also notice that there's a couple of power supplies there. I've got a nice little "computer-style" power supply which provides 5V, and I've also got
 a little board that I salvaged from some old (crappy) DJ dance lights that provides 12V.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -313,7 +313,7 @@ other things. Who knows! If you've got some fun ideas, drop a note in the commen
 &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/home-automation-center/ima_fe0af05.jpeg" style="width: 100%" alt="The Wiring Blocks and Power Supplies"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/ima_fe0af05.jpeg" style="width: 100%" alt="The Wiring Blocks and Power Supplies"&gt;&lt;/p&gt;
 &lt;h2&gt;Wrapping Up&lt;/h2&gt;
 &lt;p&gt;It's fair to say that there's quite a bit more that I still need to do here. In fact, I've got a lot of wiring to do, still... But I'm excited that this
 project which, notably, is recycling the "box" that I used for my first foray into some home autoation is coming along nicely. In fact, this box contained
@@ -340,7 +340,7 @@ wooden crates for shadow boxes. They go very well with the rest of my "old stuff
 &lt;p&gt;I picked up a set of &lt;a href="https://www.amazon.com/gp/product/B01LMSYUP4/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&amp;amp;psc=1"&gt;under cabinet LED lights&lt;/a&gt;
 from Amazon, and some &lt;a href="https://www.amazon.com/gp/product/B00FEOB4EI/ref=ppx_yo_dt_b_asin_title_o04_s00?ie=UTF8&amp;amp;psc=1"&gt;12V DC supplies&lt;/a&gt;, combining
 those with my little generic board, I was able to make some nice little controls.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/shadow-box-lights/ima_906029b.jpeg" style="width: 100%" alt="Imagination in a Box!"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/ima_906029b.jpeg" style="width: 100%" alt="Imagination in a Box!"&gt;&lt;/p&gt;
 &lt;p&gt;I did struggle a bit with picking the right N-MOS transistor for controlling the LEDs. My go-to is a BUZ11A, which is normally good enough. It's
 rugged, general-purpose, and packs a punch for current control ability. Trouble is, that with my boards, the voltages weren't quite right. I
 discovered this late yesterday afternoon when powering up the little board and flipping the WiFi-enabled "on-switch", and the LEDs barely
@@ -348,7 +348,7 @@ illuminated enough to see a dim glow. Not ideal for a shadow box.&lt;/p&gt;
 &lt;p&gt;I scratched my head for a bit, and realized that the transistor's voltage thresholds weren't where I wanted them. Luckily enough, I had some options!
 I dug around in my hoarder-size-stash of electronics and found a set of logic-level transistors which were better suited for the job. Still being
 N-MOS, they were exactly what I needed. A bit of solder-wick later, I had my new transistors replaced, and my lights were working like a charm!&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/shadow-box-lights/ima_5049e25.jpeg" style="width: 100%" alt="Illuminating my Imagination"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/ima_5049e25.jpeg" style="width: 100%" alt="Illuminating my Imagination"&gt;&lt;/p&gt;
 &lt;p&gt;Now mind you, this isn't a story of all up-and-up success. This is the... third whack at the design. I started with some 4.5V supplies. Those were
 ample for the control circuit, but not for the LEDs themselves (since they're rated for closer to 12V). I then thought I'd get clever and use a
 boost converter to do my dirty work so I could leave the rest of the circuitry intact. Didn't I learn anywhere that it's tricky to use a boost
@@ -363,7 +363,7 @@ which produces pre-flashed Tasmota/ESPHome/WLED-enabled boards in enclosures des
 website, it's clear that English is not their first language, but I'm solidly impressed by their hardware. Simple, effective, and in clean packaging.
 They worked great, right out of the box, and I didn't have to fight those dumb boards that don't already come with Tasmota flashed. MARVELOUS!&lt;/p&gt;
 &lt;p&gt;So... I went crazy with installing these things all over my kitchen for above and below each of the cabinets... Just take a look!&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/shadow-box-lights/ima_4ee1367.jpeg" style="width: 100%" alt="Illuminating my Imagination"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/ima_4ee1367.jpeg" style="width: 100%" alt="Illuminating my Imagination"&gt;&lt;/p&gt;
 &lt;p&gt;That's basically the "orange" shade that Home-Assistant sets them with. But wow... when you come visit, remind me, and I'll show you the vibrance
 of the blues, greens, and reds... it's stunning!&lt;/p&gt;</content><category term="Home-Improvement"></category><category term="ESP8266"></category><category term="Tasmota"></category><category term="Smart-Home"></category><category term="Home-Assistant"></category><category term="MQTT"></category><category term="IOT"></category><category term="Lighting"></category><category term="Lights"></category><category term="Development"></category></entry><entry><title>Creepy, Killer Vibes?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/creepy-killer-vibes.html" rel="alternate"></link><published>2021-12-07T21:36:00-08:00</published><updated>2021-12-07T21:36:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-12-07:/stanley-solutions-blog/creepy-killer-vibes.html</id><summary type="html">&lt;p&gt;My 115-year old house is getting a bit of a face lift. Well... Something like that.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ok... I'm way behind on articles, so I'm gonna try to get this one out fast.&lt;/p&gt;
 &lt;p&gt;This is, or at least should be, one of many articles on the subject of my home-improvement endeavors. I know, it's bit of a tangent

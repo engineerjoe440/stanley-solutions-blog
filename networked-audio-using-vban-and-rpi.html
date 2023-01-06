@@ -127,30 +127,30 @@ project README, but I did deviate a little to get it working.</p>
 <ol class="arabic">
 <li><p class="first">After preparing my &quot;fresh install,&quot; I went ahead and installed the Raspberry Pi and Alsa
 headers so that they'd show up for the installation.</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; sudo apt-get install raspberrypi-kernel-headers
-<span class="gp">$</span>&gt; sudo apt-get install libasound-dev
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>raspberrypi-kernel-headers
+<span class="gp">$</span>&gt;<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libasound-dev
 </pre></div>
 </li>
 <li><p class="first">With my new headers installed, I was ready to clone the git repo and build it. I guess that at
 this point, I <em>should</em> mention that I'd previously installed git, but I suppose you might have
 been able to infer that on your own. Anyway, I cloned the repo to my home folder:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; git clone https://github.com/quiniouben/vban.git
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/quiniouben/vban.git
 </pre></div>
 </li>
 <li><p class="first">Now, I moved myself into that new directory with: <cite>cd vban</cite></p>
 </li>
 <li><p class="first">Before I could build the <cite>vban</cite> system by following the instructions on the GitHub repo, I
 needed to install the <cite>autoconf</cite> tools so that the autoconfiguration scripts would function.</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; sudo apt-get install autotools-dev
-<span class="gp">$</span>&gt; sudo apt-get install autoconf
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>autotools-dev
+<span class="gp">$</span>&gt;<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>autoconf
 </pre></div>
 </li>
 <li><p class="first">I then went ahead and followed the installation instructions from the <cite>vban</cite> project README,
 substituting a few extra arguments to satisfy the system requirements (Alsa only, no Pulse/Jack).</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; ./autogen.sh
-<span class="gp">$</span>&gt; ./configure --enable-alsa --disable-pulseaudio --disable-jack      <span class="c1"># Only using Alsa</span>
-<span class="gp">$</span>&gt; make
-<span class="gp">$</span>&gt; make install
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>./autogen.sh
+<span class="gp">$</span>&gt;<span class="w"> </span>./configure<span class="w"> </span>--enable-alsa<span class="w"> </span>--disable-pulseaudio<span class="w"> </span>--disable-jack<span class="w">      </span><span class="c1"># Only using Alsa</span>
+<span class="gp">$</span>&gt;<span class="w"> </span>make
+<span class="gp">$</span>&gt;<span class="w"> </span>make<span class="w"> </span>install
 </pre></div>
 </li>
 <li><p class="first">After I got all of that working, I was able to set up my Windows desktop running Banana Mixer
@@ -158,7 +158,7 @@ to stream to my Raspberry Pi using VBAN. I configured VBAN on my desktop to stre
 <img alt="Windows VBAN server configuration." src="https://engineerjoe440.github.io/stanley-solutions-blog/vban_desktop.png" style="width: 800px;" />
 </li>
 <li><p class="first">Then, I could simply issue the following command in my Raspberry Pi to start listening!</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; vban_receptor -i &lt;my-desktop-ip&gt; -p <span class="m">6980</span> -s StereoPi -d front -q <span class="m">0</span>
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>vban_receptor<span class="w"> </span>-i<span class="w"> </span>&lt;my-desktop-ip&gt;<span class="w"> </span>-p<span class="w"> </span><span class="m">6980</span><span class="w"> </span>-s<span class="w"> </span>StereoPi<span class="w"> </span>-d<span class="w"> </span>front<span class="w"> </span>-q<span class="w"> </span><span class="m">0</span>
 </pre></div>
 <p>This meant that I'd listen for a stream of name &quot;StereoPi&quot; from my desktop with it's specific
 IP address on port 6980. I'd then stream that audio to the &quot;front&quot; output in my Alsa config,
@@ -175,21 +175,21 @@ connection, say good bye to audio! Drat!</p>
 I could start and stop it easily enough (so if I want to use other audio services, they won't
 clash too terribly).</p>
 <p>So I wrote this:</p>
-<div class="highlight"><pre><span></span><span class="c1"># vbanstereorx.service</span><span class="w"></span>
-<span class="c1"># VBAN Receptor Stereo Service</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="c1"># vbanstereorx.service</span>
+<span class="c1"># VBAN Receptor Stereo Service</span>
 
-<span class="k">[Unit]</span><span class="w"></span>
-<span class="na">Description</span><span class="o">=</span><span class="w"> </span><span class="s">VBAN Stereo Receptor</span><span class="w"></span>
+<span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="w"> </span><span class="s">VBAN Stereo Receptor</span>
 
-<span class="k">[Service]</span><span class="w"></span>
-<span class="na">Type</span><span class="o">=</span><span class="s">simple</span><span class="w"></span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/vban_receptor  -i &lt;my-desktop-ip&gt; -p 6980 -s StereoPi -d front -q 0</span><span class="w"></span>
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/vban_receptor  -i &lt;my-desktop-ip&gt; -p 6980 -s StereoPi -d front -q 0</span>
 
-<span class="k">[Install]</span><span class="w"></span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span><span class="w"></span>
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
 </pre></div>
 <p>Then simply &quot;installed&quot; it with the following command:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; cp vbanstereorx.service /etc/systemd/system/vbanstereorx.service
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>cp<span class="w"> </span>vbanstereorx.service<span class="w"> </span>/etc/systemd/system/vbanstereorx.service
 </pre></div>
 <p>Now, I can just start or stop the reciever by issuing <cite>sudo systemctl start vbanstereorx</cite> or
 <cite>sudo systemctl stop vbanstereeorx</cite>, respectively!</p>

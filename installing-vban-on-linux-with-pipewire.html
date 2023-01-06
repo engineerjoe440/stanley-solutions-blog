@@ -95,11 +95,11 @@ in some regards, but it's more time and effor to run those wires, sometimes.</p>
 <h3>Installing VBAN</h3>
 <p>This hasn't really changed all that much since my article about
 <a href="https://blog.stanleysolutionsnw.com/networked-audio-using-vban-and-rpi.html">installing VBAN on the Raspberry Pi</a>. It starts with installing the basics.</p>
-<div class="highlight"><pre><span></span><code>sudo apt install libasound-dev autoconf automake
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libasound-dev<span class="w"> </span>autoconf<span class="w"> </span>automake
 </code></pre></div>
 
 <p>Cloning the repository...</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/quiniouben/vban.git
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/quiniouben/vban.git
 </code></pre></div>
 
 <p>Running the autogen script...</p>
@@ -107,29 +107,29 @@ in some regards, but it's more time and effor to run those wires, sometimes.</p>
 </code></pre></div>
 
 <p>Setting up for only alsa...</p>
-<div class="highlight"><pre><span></span><code>./configure --enable-alsa --disable-pulseaudio --disable-jack
+<div class="highlight"><pre><span></span><code>./configure<span class="w"> </span>--enable-alsa<span class="w"> </span>--disable-pulseaudio<span class="w"> </span>--disable-jack
 </code></pre></div>
 
 <p>Then install with <code>make</code> like the <a href="https://github.com/quiniouben/vban">docs</a> show.</p>
 <hr>
 <p>Wanna just run one script? Yeah, me too...</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
-sudo apt-get install libasound2-dev autoconf automake -y
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libasound2-dev<span class="w"> </span>autoconf<span class="w"> </span>automake<span class="w"> </span>-y
 
-<span class="nb">cd</span> /home/<span class="k">$(</span>whoami<span class="k">)</span>/Downloads
+<span class="nb">cd</span><span class="w"> </span>/home/<span class="k">$(</span>whoami<span class="k">)</span>/Downloads
 
-git clone https://github.com/quiniouben/vban.git
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/quiniouben/vban.git
 
-<span class="nb">cd</span> vban
+<span class="nb">cd</span><span class="w"> </span>vban
 
 ./autogen.sh
 
-./configure --enable-alsa --disable-pulseaudio --disable-jack
+./configure<span class="w"> </span>--enable-alsa<span class="w"> </span>--disable-pulseaudio<span class="w"> </span>--disable-jack
 
 make
 
 <span class="c1"># I needed sudo, you might not? Too lazy to bother checking...</span>
-sudo make install
+sudo<span class="w"> </span>make<span class="w"> </span>install
 </code></pre></div>
 
 <h2>Getting Alsa Working?</h2>

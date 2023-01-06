@@ -29,7 +29,7 @@ power-supply; but where's the fun in that? Actually, I just didn't feel like doi
 old trains. What's advantageous of that old system &lt;em&gt;for me&lt;/em&gt;, however, is that it's a linear device. I mean, it moves in a straight line from one extreme,
 to the other. That means that I could take it and add some jurry-rigged control systems. Namely, a piece of all-thread, and a stepper motor, controlled
 by a driver board and an ESP8266.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/rheo-railroad/ima_d0da9c3.jpeg" width="50%" alt="Rheo-Railroad Control"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/ima_d0da9c3.jpeg" width="50%" alt="Rheo-Railroad Control"&gt;&lt;/p&gt;
 &lt;h3&gt;Neat, huh?&lt;/h3&gt;
 &lt;p&gt;So that's one of the things I've been working on, as of late. Working on my own Lionel Toy Train control. I've still got plenty of work to do (isn't that
 what I always say, anymore), but it's a start! Just need to do the programming, now, and I think I'll be able to nail that with PlatformIO and some

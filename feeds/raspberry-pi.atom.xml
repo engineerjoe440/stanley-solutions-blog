@@ -59,20 +59,20 @@ happens very fast, and as I'd briefly mentioned earlier, it only seems to really
 play into the &amp;quot;mix&amp;quot; in-between songs anyway. So after building the script, giving
 it a nice little test drive, and scrutinizing my Raspberry Pi; I thought it was
 time to build it back into my simple little service.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# /etc/systemd/system/vbanstereorx.service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="c1"&gt;# vbanstereorx.service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="c1"&gt;# VBAN Receptor Stereo Service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# /etc/systemd/system/vbanstereorx.service&lt;/span&gt;
+&lt;span class="c1"&gt;# vbanstereorx.service&lt;/span&gt;
+&lt;span class="c1"&gt;# VBAN Receptor Stereo Service&lt;/span&gt;
 
-&lt;span class="k"&gt;[Unit]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;VBAN Stereo Receptor&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;[Unit]&lt;/span&gt;
+&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;VBAN Stereo Receptor&lt;/span&gt;
 
-&lt;span class="k"&gt;[Service]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;simple&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/bin/python3 /home/vbanner.py&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Restart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;always&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;[Service]&lt;/span&gt;
+&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;simple&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/bin/python3 /home/vbanner.py&lt;/span&gt;
+&lt;span class="na"&gt;Restart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;always&lt;/span&gt;
 
-&lt;span class="k"&gt;[Install]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;[Install]&lt;/span&gt;
+&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I'm sure I'll be back to crack the hood back open on this one at some point, but
 for now, I'm happy to stream my music back to my cabinet stereo with the power of
@@ -124,30 +124,30 @@ project README, but I did deviate a little to get it working.&lt;/p&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;After preparing my &amp;quot;fresh install,&amp;quot; I went ahead and installed the Raspberry Pi and Alsa
 headers so that they'd show up for the installation.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; sudo apt-get install raspberrypi-kernel-headers
-&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; sudo apt-get install libasound-dev
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;raspberrypi-kernel-headers
+&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;libasound-dev
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;With my new headers installed, I was ready to clone the git repo and build it. I guess that at
 this point, I &lt;em&gt;should&lt;/em&gt; mention that I'd previously installed git, but I suppose you might have
 been able to infer that on your own. Anyway, I cloned the repo to my home folder:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; git clone https://github.com/quiniouben/vban.git
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;https://github.com/quiniouben/vban.git
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Now, I moved myself into that new directory with: &lt;cite&gt;cd vban&lt;/cite&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Before I could build the &lt;cite&gt;vban&lt;/cite&gt; system by following the instructions on the GitHub repo, I
 needed to install the &lt;cite&gt;autoconf&lt;/cite&gt; tools so that the autoconfiguration scripts would function.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; sudo apt-get install autotools-dev
-&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; sudo apt-get install autoconf
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;autotools-dev
+&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;autoconf
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;I then went ahead and followed the installation instructions from the &lt;cite&gt;vban&lt;/cite&gt; project README,
 substituting a few extra arguments to satisfy the system requirements (Alsa only, no Pulse/Jack).&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; ./autogen.sh
-&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; ./configure --enable-alsa --disable-pulseaudio --disable-jack      &lt;span class="c1"&gt;# Only using Alsa&lt;/span&gt;
-&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; make
-&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; make install
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;./autogen.sh
+&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;./configure&lt;span class="w"&gt; &lt;/span&gt;--enable-alsa&lt;span class="w"&gt; &lt;/span&gt;--disable-pulseaudio&lt;span class="w"&gt; &lt;/span&gt;--disable-jack&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="c1"&gt;# Only using Alsa&lt;/span&gt;
+&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;make
+&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;make&lt;span class="w"&gt; &lt;/span&gt;install
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;After I got all of that working, I was able to set up my Windows desktop running Banana Mixer
@@ -155,7 +155,7 @@ to stream to my Raspberry Pi using VBAN. I configured VBAN on my desktop to stre
 &lt;img alt="Windows VBAN server configuration." src="https://engineerjoe440.github.io/stanley-solutions-blog/vban_desktop.png" style="width: 800px;" /&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Then, I could simply issue the following command in my Raspberry Pi to start listening!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; vban_receptor -i &amp;lt;my-desktop-ip&amp;gt; -p &lt;span class="m"&gt;6980&lt;/span&gt; -s StereoPi -d front -q &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;vban_receptor&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;my-desktop-ip&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;6980&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;StereoPi&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;front&lt;span class="w"&gt; &lt;/span&gt;-q&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This meant that I'd listen for a stream of name &amp;quot;StereoPi&amp;quot; from my desktop with it's specific
 IP address on port 6980. I'd then stream that audio to the &amp;quot;front&amp;quot; output in my Alsa config,
@@ -172,21 +172,21 @@ connection, say good bye to audio! Drat!&lt;/p&gt;
 I could start and stop it easily enough (so if I want to use other audio services, they won't
 clash too terribly).&lt;/p&gt;
 &lt;p&gt;So I wrote this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# vbanstereorx.service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="c1"&gt;# VBAN Receptor Stereo Service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# vbanstereorx.service&lt;/span&gt;
+&lt;span class="c1"&gt;# VBAN Receptor Stereo Service&lt;/span&gt;
 
-&lt;span class="k"&gt;[Unit]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;VBAN Stereo Receptor&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;[Unit]&lt;/span&gt;
+&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;VBAN Stereo Receptor&lt;/span&gt;
 
-&lt;span class="k"&gt;[Service]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;simple&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/local/bin/vban_receptor  -i &amp;lt;my-desktop-ip&amp;gt; -p 6980 -s StereoPi -d front -q 0&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;[Service]&lt;/span&gt;
+&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;simple&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/usr/local/bin/vban_receptor  -i &amp;lt;my-desktop-ip&amp;gt; -p 6980 -s StereoPi -d front -q 0&lt;/span&gt;
 
-&lt;span class="k"&gt;[Install]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;[Install]&lt;/span&gt;
+&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Then simply &amp;quot;installed&amp;quot; it with the following command:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt; cp vbanstereorx.service /etc/systemd/system/vbanstereorx.service
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;cp&lt;span class="w"&gt; &lt;/span&gt;vbanstereorx.service&lt;span class="w"&gt; &lt;/span&gt;/etc/systemd/system/vbanstereorx.service
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now, I can just start or stop the reciever by issuing &lt;cite&gt;sudo systemctl start vbanstereorx&lt;/cite&gt; or
 &lt;cite&gt;sudo systemctl stop vbanstereeorx&lt;/cite&gt;, respectively!&lt;/p&gt;

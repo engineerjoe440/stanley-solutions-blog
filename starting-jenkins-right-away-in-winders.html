@@ -126,23 +126,23 @@ java -jar agent.jar -jnlpUrl https://<span class="p">&lt;</span> HOST <span clas
 with a visible console window.</p>
 <h4>3) Modify the registry to make the service-user logon automatically after startup</h4>
 <p>As described in the <a href="https://serverfault.com/questions/269832/windows-server-2008-automatic-user-logon-on-power-on/606130#606130">article on ServerFault</a>, generate a file called <code>AutoLogon.reg</code> somewhere on the virtual machine with the following content</p>
-<div class="highlight"><pre><span></span><code><span class="na">Windows Registry Editor Version 5.00</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="na">Windows Registry Editor Version 5.00</span>
 
-<span class="k">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]</span><span class="w"></span>
-<span class="na">&quot;DefaultDomainName&quot;</span><span class="o">=</span><span class="s">&quot;SERVICE_ACCOUNT_DOMAIN&quot;</span><span class="w"></span>
-<span class="na">&quot;DefaultUserName&quot;</span><span class="o">=</span><span class="s">&quot;SERVICE_ACCOUNT_USER&quot;</span><span class="w"></span>
-<span class="na">&quot;DefaultPassword&quot;</span><span class="o">=</span><span class="s">&quot;SERVICE_ACCOUNT_PASSWORD&quot;</span><span class="w"></span>
-<span class="na">&quot;ForceAutoLogon&quot;</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="w"></span>
-<span class="na">&quot;AutoAdminLogon&quot;</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="w"></span>
-<span class="na">&quot;LegalNoticeCaption&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w"></span>
-<span class="na">&quot;LegalNoticeText&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="k">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]</span>
+<span class="na">&quot;DefaultDomainName&quot;</span><span class="o">=</span><span class="s">&quot;SERVICE_ACCOUNT_DOMAIN&quot;</span>
+<span class="na">&quot;DefaultUserName&quot;</span><span class="o">=</span><span class="s">&quot;SERVICE_ACCOUNT_USER&quot;</span>
+<span class="na">&quot;DefaultPassword&quot;</span><span class="o">=</span><span class="s">&quot;SERVICE_ACCOUNT_PASSWORD&quot;</span>
+<span class="na">&quot;ForceAutoLogon&quot;</span><span class="o">=</span><span class="s">&quot;1&quot;</span>
+<span class="na">&quot;AutoAdminLogon&quot;</span><span class="o">=</span><span class="s">&quot;1&quot;</span>
+<span class="na">&quot;LegalNoticeCaption&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+<span class="na">&quot;LegalNoticeText&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span>
 
-<span class="k">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\AutoLogonChecked]</span><span class="w"></span>
-<span class="na">@</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="w"></span>
+<span class="k">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\AutoLogonChecked]</span>
+<span class="na">@</span><span class="o">=</span><span class="s">&quot;1&quot;</span>
 
-<span class="k">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system]</span><span class="w"></span>
-<span class="na">&quot;LegalNoticeCaption&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w"></span>
-<span class="na">&quot;LegalNoticeText&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="k">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system]</span>
+<span class="na">&quot;LegalNoticeCaption&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+<span class="na">&quot;LegalNoticeText&quot;</span><span class="o">=</span><span class="s">&quot;&quot;</span>
 </code></pre></div>
 
 <p>After saving the file, right-click on it in a file explorer and select "Merge," you'll be prompted to confirm the operation; do so.</p>

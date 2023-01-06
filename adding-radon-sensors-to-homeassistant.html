@@ -133,12 +133,12 @@ correctly on the first pass?</p>
 <h3>Installing the System Requirements</h3>
 <p>So, really, the only package that I <em>needed</em> was <code>bluez</code>, but for some of the Airthings scripts,
 there were a few others, so I'll list them all here...</p>
-<div class="highlight"><pre><span></span><code>sudo apt-get install bluez libglib2.0-dev -y
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>bluez<span class="w"> </span>libglib2.0-dev<span class="w"> </span>-y
 </code></pre></div>
 
 <p>To get the Airthings scripts running, I also needed a few Python packages. They were installed
 with:</p>
-<div class="highlight"><pre><span></span><code>sudo python3 -m pip install bluepy tableprint
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>bluepy<span class="w"> </span>tableprint
 </code></pre></div>
 
 <p>Again... not entirely necessary, but could be useful if you're like me, and like debugging.</p>
@@ -147,7 +147,7 @@ with:</p>
 this is necessary for Home Assistant's purposes, but it's useful from the Airthings script
 point-of-view.</p>
 <h5>Turn on Bluetooth!</h5>
-<div class="highlight"><pre><span></span><code>joestan@hasio:~$ sudo bluetoothctl
+<div class="highlight"><pre><span></span><code>joestan@hasio:~$<span class="w"> </span>sudo<span class="w"> </span>bluetoothctl
 <span class="o">[</span>bluetooth<span class="o">]</span><span class="c1"># power on</span>
 <span class="o">[</span>bluetooth<span class="o">]</span><span class="c1"># quit</span>
 joestan@hasio:~$
@@ -157,16 +157,16 @@ joestan@hasio:~$
 <p>Again, not totally sure if this was necesssary, but even if it wasn't, I like the outcome of
 having a specifically named USB device show up. Makes things nice!</p>
 <p>Listing my USB devices with <code>lsusb</code>, I was able to determine the appropriate device:</p>
-<div class="highlight"><pre><span></span><code>joestan@hasio:~$ lsusb
-Bus <span class="m">001</span> Device <span class="m">002</span>: ID 1a40:0101 Terminus Technology Inc. Hub
-Bus <span class="m">001</span> Device <span class="m">001</span>: ID 1d6b:0002 Linux Foundation <span class="m">2</span>.0 root hub
-Bus <span class="m">003</span> Device <span class="m">002</span>: ID 0a5c:21e8 Broadcom Corp. BCM20702A0 Bluetooth <span class="m">4</span>.0
-Bus <span class="m">003</span> Device <span class="m">001</span>: ID 1d6b:0001 Linux Foundation <span class="m">1</span>.1 root hub
-Bus <span class="m">002</span> Device <span class="m">001</span>: ID 1d6b:0001 Linux Foundation <span class="m">1</span>.1 root hub
+<div class="highlight"><pre><span></span><code>joestan@hasio:~$<span class="w"> </span>lsusb
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">002</span>:<span class="w"> </span>ID<span class="w"> </span>1a40:0101<span class="w"> </span>Terminus<span class="w"> </span>Technology<span class="w"> </span>Inc.<span class="w"> </span>Hub
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0002<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">2</span>.0<span class="w"> </span>root<span class="w"> </span>hub
+Bus<span class="w"> </span><span class="m">003</span><span class="w"> </span>Device<span class="w"> </span><span class="m">002</span>:<span class="w"> </span>ID<span class="w"> </span>0a5c:21e8<span class="w"> </span>Broadcom<span class="w"> </span>Corp.<span class="w"> </span>BCM20702A0<span class="w"> </span>Bluetooth<span class="w"> </span><span class="m">4</span>.0
+Bus<span class="w"> </span><span class="m">003</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0001<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">1</span>.1<span class="w"> </span>root<span class="w"> </span>hub
+Bus<span class="w"> </span><span class="m">002</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0001<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">1</span>.1<span class="w"> </span>root<span class="w"> </span>hub
 </code></pre></div>
 
 <p>I needed to edit my udev-rules and add a custom alias.</p>
-<div class="highlight"><pre><span></span><code>sudo nano /etc/udev/rules.d/99-my_rules.rules
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/udev/rules.d/99-my_rules.rules
 </code></pre></div>
 
 <p>And then, since it's pretty clear that Bus 3 Device 2 is the one I'm looking for, I could update
@@ -175,33 +175,33 @@ my udev file accordingly:</p>
 </code></pre></div>
 
 <p>Now, after a restart, I've got that device listed properly when I <code>ls /dev</code>:</p>
-<div class="highlight"><pre><span></span><code>joestan@hasio:~$ ls /dev
-agpgart          mqueue    stderr  tty29  tty52    vcs3
-autofs           net       stdin   tty3   tty53    vcs4
-block            null      stdout  tty30  tty54    vcs5
-bsg              nvram     tty     tty31  tty55    vcs6
-btooth           parport0  tty0    tty32  tty56    vcsa        <span class="c1">#&lt;--- Look!</span>
-btrfs-control    port      tty1    tty33  tty57    vcsa1
-bus              ppp       tty10   tty34  tty58    vcsa2
-char             psaux     tty11   tty35  tty59    vcsa3
-console          ptmx      tty12   tty36  tty6     vcsa4
-core             pts       tty13   tty37  tty60    vcsa5
-cpu_dma_latency  random    tty14   tty38  tty61    vcsa6
-cuse             rfkill    tty15   tty39  tty62    vcsu
-disk             rtc       tty16   tty4   tty63    vcsu1
-fd               rtc0      tty17   tty40  tty7     vcsu2
-full             sda       tty18   tty41  tty8     vcsu3
-fuse             sda1      tty19   tty42  tty9     vcsu4
-hpet             sda2      tty2    tty43  ttyS0    vcsu5
-hugepages        sdb       tty20   tty44  ttyS1    vcsu6
-hwrng            sdb1      tty21   tty45  ttyS2    vfio
-initctl          sdb2      tty22   tty46  ttyS3    vga_arbiter
-input            sdb3      tty23   tty47  uhid     vhci
-kmsg             sg0       tty24   tty48  uinput   vhost-net
-log              sg1       tty25   tty49  urandom  vhost-vsock
-loop-control     shm       tty26   tty5   vcs      watchdog
-mapper           snapshot  tty27   tty50  vcs1     watchdog0
-mem              snd       tty28   tty51  vcs2     zero
+<div class="highlight"><pre><span></span><code>joestan@hasio:~$<span class="w"> </span>ls<span class="w"> </span>/dev
+agpgart<span class="w">          </span>mqueue<span class="w">    </span>stderr<span class="w">  </span>tty29<span class="w">  </span>tty52<span class="w">    </span>vcs3
+autofs<span class="w">           </span>net<span class="w">       </span>stdin<span class="w">   </span>tty3<span class="w">   </span>tty53<span class="w">    </span>vcs4
+block<span class="w">            </span>null<span class="w">      </span>stdout<span class="w">  </span>tty30<span class="w">  </span>tty54<span class="w">    </span>vcs5
+bsg<span class="w">              </span>nvram<span class="w">     </span>tty<span class="w">     </span>tty31<span class="w">  </span>tty55<span class="w">    </span>vcs6
+btooth<span class="w">           </span>parport0<span class="w">  </span>tty0<span class="w">    </span>tty32<span class="w">  </span>tty56<span class="w">    </span>vcsa<span class="w">        </span><span class="c1">#&lt;--- Look!</span>
+btrfs-control<span class="w">    </span>port<span class="w">      </span>tty1<span class="w">    </span>tty33<span class="w">  </span>tty57<span class="w">    </span>vcsa1
+bus<span class="w">              </span>ppp<span class="w">       </span>tty10<span class="w">   </span>tty34<span class="w">  </span>tty58<span class="w">    </span>vcsa2
+char<span class="w">             </span>psaux<span class="w">     </span>tty11<span class="w">   </span>tty35<span class="w">  </span>tty59<span class="w">    </span>vcsa3
+console<span class="w">          </span>ptmx<span class="w">      </span>tty12<span class="w">   </span>tty36<span class="w">  </span>tty6<span class="w">     </span>vcsa4
+core<span class="w">             </span>pts<span class="w">       </span>tty13<span class="w">   </span>tty37<span class="w">  </span>tty60<span class="w">    </span>vcsa5
+cpu_dma_latency<span class="w">  </span>random<span class="w">    </span>tty14<span class="w">   </span>tty38<span class="w">  </span>tty61<span class="w">    </span>vcsa6
+cuse<span class="w">             </span>rfkill<span class="w">    </span>tty15<span class="w">   </span>tty39<span class="w">  </span>tty62<span class="w">    </span>vcsu
+disk<span class="w">             </span>rtc<span class="w">       </span>tty16<span class="w">   </span>tty4<span class="w">   </span>tty63<span class="w">    </span>vcsu1
+fd<span class="w">               </span>rtc0<span class="w">      </span>tty17<span class="w">   </span>tty40<span class="w">  </span>tty7<span class="w">     </span>vcsu2
+full<span class="w">             </span>sda<span class="w">       </span>tty18<span class="w">   </span>tty41<span class="w">  </span>tty8<span class="w">     </span>vcsu3
+fuse<span class="w">             </span>sda1<span class="w">      </span>tty19<span class="w">   </span>tty42<span class="w">  </span>tty9<span class="w">     </span>vcsu4
+hpet<span class="w">             </span>sda2<span class="w">      </span>tty2<span class="w">    </span>tty43<span class="w">  </span>ttyS0<span class="w">    </span>vcsu5
+hugepages<span class="w">        </span>sdb<span class="w">       </span>tty20<span class="w">   </span>tty44<span class="w">  </span>ttyS1<span class="w">    </span>vcsu6
+hwrng<span class="w">            </span>sdb1<span class="w">      </span>tty21<span class="w">   </span>tty45<span class="w">  </span>ttyS2<span class="w">    </span>vfio
+initctl<span class="w">          </span>sdb2<span class="w">      </span>tty22<span class="w">   </span>tty46<span class="w">  </span>ttyS3<span class="w">    </span>vga_arbiter
+input<span class="w">            </span>sdb3<span class="w">      </span>tty23<span class="w">   </span>tty47<span class="w">  </span>uhid<span class="w">     </span>vhci
+kmsg<span class="w">             </span>sg0<span class="w">       </span>tty24<span class="w">   </span>tty48<span class="w">  </span>uinput<span class="w">   </span>vhost-net
+log<span class="w">              </span>sg1<span class="w">       </span>tty25<span class="w">   </span>tty49<span class="w">  </span>urandom<span class="w">  </span>vhost-vsock
+loop-control<span class="w">     </span>shm<span class="w">       </span>tty26<span class="w">   </span>tty5<span class="w">   </span>vcs<span class="w">      </span>watchdog
+mapper<span class="w">           </span>snapshot<span class="w">  </span>tty27<span class="w">   </span>tty50<span class="w">  </span>vcs1<span class="w">     </span>watchdog0
+mem<span class="w">              </span>snd<span class="w">       </span>tty28<span class="w">   </span>tty51<span class="w">  </span>vcs2<span class="w">     </span>zero
 </code></pre></div>
 
 <h5>Update Docker Container Command</h5>
@@ -211,11 +211,11 @@ the heavy lifting for me, and get the latest container, update and redeploy it. 
 time to update the command and make sure that I pass the Bluetooth device and <code>dbus</code> into the
 container, it was pretty simple, just needed to add the arguments to the command...</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Start HassIO</span>
-<span class="nb">echo</span> Starting Hasio
-sudo docker run -d --name homeassistant --restart<span class="o">=</span>unless-stopped <span class="se">\</span>
-  -v /home/joestan/stanleyassistant/homeassistant:/config -v /etc/localtime:/etc/localtime:ro <span class="se">\</span>
-  -v /run/dbus:/run/dbus:ro --privileged --network<span class="o">=</span>host --device /dev/btooth <span class="se">\</span>
-  ghcr.io/home-assistant/home-assistant:stable
+<span class="nb">echo</span><span class="w"> </span>Starting<span class="w"> </span>Hasio
+sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>homeassistant<span class="w"> </span>--restart<span class="o">=</span>unless-stopped<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/home/joestan/stanleyassistant/homeassistant:/config<span class="w"> </span>-v<span class="w"> </span>/etc/localtime:/etc/localtime:ro<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/run/dbus:/run/dbus:ro<span class="w"> </span>--privileged<span class="w"> </span>--network<span class="o">=</span>host<span class="w"> </span>--device<span class="w"> </span>/dev/btooth<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ghcr.io/home-assistant/home-assistant:stable
 </code></pre></div>
 
 <p>Notice on the second line from the bottom, I'm using the following commands:</p>

@@ -110,11 +110,11 @@ really just wanted to start fresh.</p>
 update the system!</p>
 </li>
 <li><p class="first">Install Java with:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; sudo apt-get install openjdk-11-jre
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>openjdk-11-jre
 </pre></div>
 </li>
 <li><p class="first">Verify Java Version with:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; java --version
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>java<span class="w"> </span>--version
 <span class="go">openjdk 11.0.9.1 2020-11-04</span>
 <span class="go">OpenJDK Runtime Environment (build 11.0.9.1+1-post-Raspbian-1deb10u2)</span>
 <span class="go">OpenJDK Server VM (build 11.0.9.1+1-post-Raspbian-1deb10u2, mixed mode)</span>
@@ -126,11 +126,11 @@ Python packages. I suppose this could really be done at any point during this
 whole process, but I felt like this was the most sensible time.</p>
 </li>
 <li><p class="first">Download and add the Jenkins Key with:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key <span class="p">|</span> sudo apt-key add -
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://pkg.jenkins.io/debian/jenkins.io.key<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
 </pre></div>
 </li>
 <li><p class="first">Open a new file:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; sudo nano /etc/apt/sources.list.d/jenkins.list
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apt/sources.list.d/jenkins.list
 </pre></div>
 <p>Then add the following line and save the file to add the Jenkins repository as
 a source:</p>
@@ -142,7 +142,7 @@ a source:</p>
 </li>
 <li><p class="first">Using the command listed below, you can grab the initial admin password to get
 started:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span>&gt; sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+<div class="highlight"><pre><span></span><span class="gp">$</span>&gt;<span class="w"> </span>sudo<span class="w"> </span>cat<span class="w"> </span>/var/lib/jenkins/secrets/initialAdminPassword
 </pre></div>
 </li>
 <li><p class="first">Now it's time to navigate to <cite>&lt;raspberry-pi-ip-address:8080</cite> and use that fancy

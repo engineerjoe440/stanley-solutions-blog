@@ -87,7 +87,7 @@ uninteresting. Wouldn't it be disingenuous to use just plain text for a web-serv
 <p>I think it would be!</p>
 <hr>
 <h3>Enter Youth-Designed Error Pages!</h3>
-<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/4h-err-pages/err404.png" style="width: 100%" alt="404 Error Page"></p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/err404.png" style="width: 100%" alt="404 Error Page"></p>
 <p>This 404 page was designed by the youth that I'm working with. It gives some flavor to the site when something goes wrong. Admittedly, it's never the goal
 for things <em>to go wrong,</em> but when it (inevitably) happens, we're ready!</p>
 <h2>Intent</h2>
@@ -120,18 +120,18 @@ interface. After all, isn't that the reason that most of the world uses MS Word 
 <p>When it comes time to publish these pages, it's pretty simple, the whole repository that we're working in is based around the separation of a frontend and
 a backend. The backend houses all the Python goodness, and all of the static and template files that are rendered and loaded for web-serving. That means
 that if we want to host specific files for error pages, we can split them up and distribute them accordingly into the backend directories like shown below.</p>
-<div class="highlight"><pre><span></span><code><span class="n">backend</span><span class="w"></span>
-<span class="o">|--</span><span class="w"> </span><span class="k">static</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="o">|--</span><span class="w"> </span><span class="n">someErrPage_files</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="o">|</span><span class="w">   </span><span class="o">|--</span><span class="w"> </span><span class="p">(</span><span class="n">css</span><span class="o">/</span><span class="n">js</span><span class="o">/</span><span class="n">other</span><span class="w"> </span><span class="n">supporting</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="n">here</span><span class="p">)</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="o">|</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="o">|--</span><span class="w"> </span><span class="n">someOtherErrPage_files</span><span class="w"></span>
-<span class="o">|</span><span class="w">       </span><span class="o">|--</span><span class="w"> </span><span class="p">(</span><span class="n">css</span><span class="o">/</span><span class="n">js</span><span class="o">/</span><span class="n">other</span><span class="w"> </span><span class="n">supporting</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="n">here</span><span class="p">)</span><span class="w"></span>
-<span class="o">|</span><span class="w"></span>
-<span class="o">|--</span><span class="w"> </span><span class="n">templates</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="o">|--</span><span class="w"> </span><span class="n">someErrPage</span><span class="p">.</span><span class="n">html</span><span class="w"></span>
-<span class="o">|</span><span class="w">   </span><span class="o">|--</span><span class="w"> </span><span class="n">someOtherErrPage</span><span class="p">.</span><span class="n">html</span><span class="w"></span>
-<span class="o">|</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">backend</span>
+<span class="o">|--</span><span class="w"> </span><span class="k">static</span>
+<span class="o">|</span><span class="w">   </span><span class="o">|--</span><span class="w"> </span><span class="n">someErrPage_files</span>
+<span class="o">|</span><span class="w">   </span><span class="o">|</span><span class="w">   </span><span class="o">|--</span><span class="w"> </span><span class="p">(</span><span class="n">css</span><span class="o">/</span><span class="n">js</span><span class="o">/</span><span class="n">other</span><span class="w"> </span><span class="n">supporting</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="n">here</span><span class="p">)</span>
+<span class="o">|</span><span class="w">   </span><span class="o">|</span>
+<span class="o">|</span><span class="w">   </span><span class="o">|--</span><span class="w"> </span><span class="n">someOtherErrPage_files</span>
+<span class="o">|</span><span class="w">       </span><span class="o">|--</span><span class="w"> </span><span class="p">(</span><span class="n">css</span><span class="o">/</span><span class="n">js</span><span class="o">/</span><span class="n">other</span><span class="w"> </span><span class="n">supporting</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="n">here</span><span class="p">)</span>
+<span class="o">|</span>
+<span class="o">|--</span><span class="w"> </span><span class="n">templates</span>
+<span class="o">|</span><span class="w">   </span><span class="o">|--</span><span class="w"> </span><span class="n">someErrPage</span><span class="p">.</span><span class="n">html</span>
+<span class="o">|</span><span class="w">   </span><span class="o">|--</span><span class="w"> </span><span class="n">someOtherErrPage</span><span class="p">.</span><span class="n">html</span>
+<span class="o">|</span>
 <span class="o">|</span><span class="c1">-- main.py</span>
 </code></pre></div>
 
@@ -152,7 +152,7 @@ rendering easy:</p>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s2">&quot;startup&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">startup_event</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Event that Only Runs When App is Starting&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Event that Only Runs When App is Starting&quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">TEMPLATES</span>
     <span class="c1"># Mount the Static File Path</span>
     <span class="n">app</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/static&quot;</span><span class="p">,</span> <span class="n">StaticFiles</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="s2">&quot;static&quot;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;static&quot;</span><span class="p">)</span>
@@ -165,10 +165,10 @@ hands in defeat. Now, that's not all bad, since they're all just plain files, we
 prefix where it's needed. It took me a bit to figure out exactly where this needed to be done, but when I did, it was very straight forward!</p>
 <h2>Results</h2>
 <p>I'll let you be the judge here. You've already seen the 404, but here's the 501 and 503:</p>
-<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/4h-err-pages/err501.png" style="width: 100%" alt="404 Error Page"></p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/err501.png" style="width: 100%" alt="404 Error Page"></p>
 <p>I'm very satisfied with the results; they pages are clever, cute, and most of all, they're genuine and showcase the very esence of learning and exploring
 with 4-H. That all makes me very happy.</p>
-<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/4h-err-pages/err503.png" style="width: 100%" alt="404 Error Page"></p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/err503.png" style="width: 100%" alt="404 Error Page"></p>
 <h2>Making Them Stand Out</h2>
 <p>I really wanted to be able to show off these pages whenever I want. After all, it would kinda suck to only be able to see them when there's a legitimate
 error. That would make it very difficult to show them to passers-by! So, we did a little function-crafting!</p>

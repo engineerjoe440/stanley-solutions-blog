@@ -13,11 +13,11 @@ in some regards, but it's more time and effor to run those wires, sometimes.&lt;
 &lt;h3&gt;Installing VBAN&lt;/h3&gt;
 &lt;p&gt;This hasn't really changed all that much since my article about
 &lt;a href="https://blog.stanleysolutionsnw.com/networked-audio-using-vban-and-rpi.html"&gt;installing VBAN on the Raspberry Pi&lt;/a&gt;. It starts with installing the basics.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install libasound-dev autoconf automake
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;libasound-dev&lt;span class="w"&gt; &lt;/span&gt;autoconf&lt;span class="w"&gt; &lt;/span&gt;automake
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Cloning the repository...&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/quiniouben/vban.git
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;https://github.com/quiniouben/vban.git
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Running the autogen script...&lt;/p&gt;
@@ -25,29 +25,29 @@ in some regards, but it's more time and effor to run those wires, sometimes.&lt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Setting up for only alsa...&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;./configure --enable-alsa --disable-pulseaudio --disable-jack
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;./configure&lt;span class="w"&gt; &lt;/span&gt;--enable-alsa&lt;span class="w"&gt; &lt;/span&gt;--disable-pulseaudio&lt;span class="w"&gt; &lt;/span&gt;--disable-jack
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then install with &lt;code&gt;make&lt;/code&gt; like the &lt;a href="https://github.com/quiniouben/vban"&gt;docs&lt;/a&gt; show.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Wanna just run one script? Yeah, me too...&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/bash&lt;/span&gt;
-sudo apt-get install libasound2-dev autoconf automake -y
+sudo&lt;span class="w"&gt; &lt;/span&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;libasound2-dev&lt;span class="w"&gt; &lt;/span&gt;autoconf&lt;span class="w"&gt; &lt;/span&gt;automake&lt;span class="w"&gt; &lt;/span&gt;-y
 
-&lt;span class="nb"&gt;cd&lt;/span&gt; /home/&lt;span class="k"&gt;$(&lt;/span&gt;whoami&lt;span class="k"&gt;)&lt;/span&gt;/Downloads
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/home/&lt;span class="k"&gt;$(&lt;/span&gt;whoami&lt;span class="k"&gt;)&lt;/span&gt;/Downloads
 
-git clone https://github.com/quiniouben/vban.git
+git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;https://github.com/quiniouben/vban.git
 
-&lt;span class="nb"&gt;cd&lt;/span&gt; vban
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;vban
 
 ./autogen.sh
 
-./configure --enable-alsa --disable-pulseaudio --disable-jack
+./configure&lt;span class="w"&gt; &lt;/span&gt;--enable-alsa&lt;span class="w"&gt; &lt;/span&gt;--disable-pulseaudio&lt;span class="w"&gt; &lt;/span&gt;--disable-jack
 
 make
 
 &lt;span class="c1"&gt;# I needed sudo, you might not? Too lazy to bother checking...&lt;/span&gt;
-sudo make install
+sudo&lt;span class="w"&gt; &lt;/span&gt;make&lt;span class="w"&gt; &lt;/span&gt;install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;Getting Alsa Working?&lt;/h2&gt;

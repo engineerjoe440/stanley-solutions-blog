@@ -132,74 +132,74 @@ specific ports. That way when users clone repositories, the non-standard ports w
 <span class="c1">##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP</span>
 <span class="c1">##! address from AWS. For more details, see:</span>
 <span class="c1">##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html</span>
-<span class="n">external_url</span> <span class="s2">&quot;https://gitlab.stanleysolutionsnw.com&quot;</span>
+<span class="n">external_url</span><span class="w"> </span><span class="s2">&quot;https://gitlab.stanleysolutionsnw.com&quot;</span>
 
-<span class="o">...</span> <span class="n">more</span> <span class="o">...</span>
+<span class="o">...</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="o">...</span>
 
 <span class="c1">##! **Override only if you use a reverse proxy**</span>
 <span class="c1">##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html#setting-the-nginx-listen-port</span>
-<span class="n">nginx</span><span class="o">[</span><span class="s1">&#39;listen_port&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">nginx</span><span class="o">[</span><span class="s1">&#39;listen_port&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">80</span>
 
 <span class="c1">##! **Override only if your reverse proxy internally communicates over HTTP**</span>
 <span class="c1">##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html#supporting-proxied-ssl</span>
-<span class="n">nginx</span><span class="o">[</span><span class="s1">&#39;listen_https&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">nginx</span><span class="o">[</span><span class="s1">&#39;listen_https&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">false</span>
 </code></pre></div>
 
 <h4>SSH Relevant Config</h4>
 <p>I'll also highlight the config options I needed to get SSH working in the way I wanted:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">### GitLab Shell settings for GitLab</span>
-<span class="n">gitlab_rails</span><span class="o">[</span><span class="s1">&#39;gitlab_shell_ssh_port&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="mi">8022</span>
+<span class="n">gitlab_rails</span><span class="o">[</span><span class="s1">&#39;gitlab_shell_ssh_port&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8022</span>
 <span class="c1"># gitlab_rails[&#39;gitlab_shell_git_timeout&#39;] = 800</span>
 </code></pre></div>
 
 <h2>Customizing Gitea</h2>
 <p>For Gitea, there were a few less things that I needed to tweak, but I did have to modify both the application's INI file, and the docker-compose configuration.</p>
 <h4>Application Config</h4>
-<div class="highlight"><pre><span></span><code><span class="k">[server]</span><span class="w"></span>
-<span class="na">APP_DATA_PATH</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">/data/gitea</span><span class="w"></span>
-<span class="na">DOMAIN</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s">gitea.stanleysolutionsnw.com</span><span class="w"></span>
-<span class="na">SSH_DOMAIN</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">gitea.stanleysolutionsnw.com</span><span class="w"></span>
-<span class="na">HTTP_PORT</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s">3000</span><span class="w"></span>
-<span class="na">ROOT_URL</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">https://gitea.stanleysolutionsnw.com/</span><span class="w"></span>
-<span class="na">DISABLE_SSH</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
-<span class="na">SSH_PORT</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">8023     ; This is the really important line, right here!</span><span class="w"></span>
-<span class="na">SSH_LISTEN_PORT</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">22</span><span class="w"></span>
-<span class="na">LFS_START_SERVER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
-<span class="na">LFS_CONTENT_PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/data/git/lfs</span><span class="w"></span>
-<span class="na">LFS_JWT_SECRET</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">FFqnGuw9L0Zaj6tPeJpqEQgp4yZHpPpvRcul5G9Nv1o</span><span class="w"></span>
-<span class="na">OFFLINE_MODE</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[server]</span>
+<span class="na">APP_DATA_PATH</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">/data/gitea</span>
+<span class="na">DOMAIN</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s">gitea.stanleysolutionsnw.com</span>
+<span class="na">SSH_DOMAIN</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">gitea.stanleysolutionsnw.com</span>
+<span class="na">HTTP_PORT</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s">3000</span>
+<span class="na">ROOT_URL</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">https://gitea.stanleysolutionsnw.com/</span>
+<span class="na">DISABLE_SSH</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+<span class="na">SSH_PORT</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">8023</span><span class="w">     </span><span class="c1">; This is the really important line, right here!</span>
+<span class="na">SSH_LISTEN_PORT</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">22</span>
+<span class="na">LFS_START_SERVER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">LFS_CONTENT_PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/data/git/lfs</span>
+<span class="na">LFS_JWT_SECRET</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">FFqnGuw9L0Zaj6tPeJpqEQgp4yZHpPpvRcul5G9Nv1o</span>
+<span class="na">OFFLINE_MODE</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
 </code></pre></div>
 
 <h4>Compose File</h4>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
 
-<span class="nt">networks</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">gitea</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="nt">networks</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gitea</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 
-<span class="nt">services</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">server</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitea/gitea:latest</span><span class="w"></span>
-<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitea</span><span class="w"></span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER_UID=1000</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER_GID=1000</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__database__DB_TYPE=postgres</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__database__HOST=db:5432</span><span class="w"></span>
-<span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span><span class="w"></span>
-<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitea</span><span class="w"></span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./gitea:/data</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/timezone:/etc/timezone:ro</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/localtime:/etc/localtime:ro</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3000:3000&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8023:22&quot;</span><span class="w"> </span><span class="c1"># This is the really important line, right here!</span><span class="w"></span>
-<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span><span class="w"></span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">server</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitea/gitea:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitea</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER_UID=1000</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USER_GID=1000</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__database__DB_TYPE=postgres</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITEA__database__HOST=db:5432</span>
+<span class="w">    </span><span class="nt">env_file</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitea</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./gitea:/data</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/timezone:/etc/timezone:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/localtime:/etc/localtime:ro</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3000:3000&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8023:22&quot;</span><span class="w"> </span><span class="c1"># This is the really important line, right here!</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
 </code></pre></div>
 
 <h2>Proxy-Server NGINX Streams</h2>
@@ -216,29 +216,29 @@ streams is relatively straight-forward, and I just added them to my NGINX config
 <span class="c1">#</span>
 <span class="c1">################################################################################</span>
 
-<span class="k">stream</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">stream</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">        </span><span class="kn">upstream</span><span class="w"> </span><span class="s">gitlab-ssh</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.254.5</span><span class="p">:</span><span class="mi">22</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kn">upstream</span><span class="w"> </span><span class="s">gitlab-ssh</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.254.5</span><span class="p">:</span><span class="mi">22</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="kn">upstream</span><span class="w"> </span><span class="s">gitea-ssh</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.254.12</span><span class="p">:</span><span class="mi">8023</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kn">upstream</span><span class="w"> </span><span class="s">gitea-ssh</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.254.12</span><span class="p">:</span><span class="mi">8023</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
 <span class="w">        </span><span class="c1"># Gitlab</span>
-<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kn">listen</span><span class="w"> </span><span class="mi">8022</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">gitlab-ssh</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">listen</span><span class="w"> </span><span class="mi">8022</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">gitlab-ssh</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
 <span class="w">        </span><span class="c1"># Gitea</span>
-<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kn">listen</span><span class="w"> </span><span class="mi">8023</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">gitea-ssh</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">listen</span><span class="w"> </span><span class="mi">8023</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">gitea-ssh</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>After this NGINX configuration is applied, it's just a matter of adding the port-forwardings to the router:</p>

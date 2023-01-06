@@ -141,7 +141,7 @@ functionality to retain null characters. Just check out this code snippet from t
 <span class="kn">from</span> <span class="nn">telnetlib</span> <span class="kn">import</span> <span class="n">IAC</span><span class="p">,</span> <span class="n">DO</span><span class="p">,</span> <span class="n">DONT</span><span class="p">,</span> <span class="n">WILL</span><span class="p">,</span> <span class="n">WONT</span><span class="p">,</span> <span class="n">SE</span><span class="p">,</span> <span class="n">NOOPT</span>
 
 <span class="k">def</span> <span class="nf">_process_rawq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Alteração da implementação desta função necessária pois telnetlib suprime 0x00 e \021 dos dados lidos</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Alteração da implementação desta função necessária pois telnetlib suprime 0x00 e \021 dos dados lidos</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">buf</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
     <span class="k">try</span><span class="p">:</span>
