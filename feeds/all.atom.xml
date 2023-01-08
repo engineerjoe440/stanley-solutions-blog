@@ -9,6 +9,10 @@ actually being presented to me. It's not intuitive, it's not robust, and for pit
 &lt;/blockquote&gt;
 &lt;p&gt;That's right, I'm not done with &lt;em&gt;audio&lt;/em&gt; in Linux. I'm done with ALSA.&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://i.imgur.com/ruxU5.png" width="100%" alt="seems about right..."&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you don't get the joke about their missing text, think about it... silence... there &lt;em&gt;should&lt;/em&gt; be words, but there's
+not... it's quiet when there clearly should be sound.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;I'm sick of trying to figure out which device I should use, and how to plumb it through the rest of my system. It's a
 constant uphill battle with ALSA. I'm calling it quits.&lt;/p&gt;
 &lt;p&gt;Luckily for me, there's Pipewire. &lt;em&gt;Beautiful, perfect, glorious, Pipewire.&lt;/em&gt;&lt;/p&gt;
