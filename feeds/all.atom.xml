@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2022-12-24T10:40:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Adding Radon Sensors to Home Assistant</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/adding-radon-sensors-to-homeassistant.html" rel="alternate"></link><published>2022-12-24T10:40:00-08:00</published><updated>2022-12-24T10:40:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-12-24:/stanley-solutions-blog/adding-radon-sensors-to-homeassistant.html</id><summary type="html">&lt;p&gt;Radon - an colorless, oderless gas. Sounds familiar, right? But you've probably heard that phrase in relation to other gasses like the carbon-monoxide, or perhaps natural gas. Radon poses health threats, as well, but with the added benefit of radiation. Scared yet? Don't worry.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;What is Radon, Anyway?&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2023-01-08T10:00:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>I'm Giving Up on Low-Level Audio in Linux</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html" rel="alternate"></link><published>2023-01-08T10:00:00-08:00</published><updated>2023-01-08T10:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-08:/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html</id><summary type="html">&lt;p&gt;I'm so fed up with low-level audio in Linux. It's a constant struggle, and I'm throwing in the towel. I'm done.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;I &lt;em&gt;want&lt;/em&gt; to love low-level audio in Linux.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;I really do.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;But wow. It's atrocious! I'm so tired of fighting with &lt;code&gt;aplay&lt;/code&gt; and &lt;code&gt;arecord&lt;/code&gt; trying to figure out what the heck is
+actually being presented to me. It's not intuitive, it's not robust, and for pity sake, I don't think it actually works.&lt;/p&gt;
+&lt;p&gt;So I'm giving up on &lt;em&gt;low-level&lt;/em&gt; audio in Linux.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Catch the drift?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That's right, I'm not done with &lt;em&gt;audio&lt;/em&gt; in Linux. I'm done with ALSA.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://i.imgur.com/ruxU5.png" width="100%" alt="seems about right..."&gt;&lt;/p&gt;
+&lt;p&gt;I'm sick of trying to figure out which device I should use, and how to plumb it through the rest of my system. It's a
+constant uphill battle with ALSA. I'm calling it quits.&lt;/p&gt;
+&lt;p&gt;Luckily for me, there's Pipewire. &lt;em&gt;Beautiful, perfect, glorious, Pipewire.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Pipewire bridges a gap that seems so perfect. It takes all of the lessons the Linux community has learned from ALSA,
+PulseAudio, and JACK and introduces something new. I know what you might be thinking: "something else, &lt;em&gt;new&lt;/em&gt;? Great..."
+But it's not just new &lt;em&gt;to be new&lt;/em&gt;. It's new to fix all of the mistakes from those older systems. PulseAudio is great,
+but it's often too simple. JACK is great for audio pros, but often is too much to just &lt;em&gt;dabble&lt;/em&gt; in. And ALSA?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Let's not talk about ALSA anymore, shall we?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ok... so it's true that ALSA is still being used underneath Pipewire, but &lt;em&gt;we&lt;/em&gt; don't have to deal with that nonsense.
+The Pipewire system takes care of all that garbage for us.&lt;/p&gt;
+&lt;p&gt;I'm going to have a whole slew of articles to follow this one, introducing lots of neat things with Pipewire, but for
+now, let me introduce you to a few cool things.&lt;/p&gt;
+&lt;h3&gt;Pipewire "Guide"&lt;/h3&gt;
+&lt;p&gt;I can't say whether this is the &lt;em&gt;definitive&lt;/em&gt; guide to all things Pipewire, but it's a great resource, and it covers most
+of the great tools I like to utilize: https://github.com/mikeroyal/PipeWire-Guide&lt;/p&gt;
+&lt;h3&gt;Pipewire Graph&lt;/h3&gt;
+&lt;p&gt;Ok, one thing I picked up from JACK was its super-neat graph utility. It's something I really enjoy to visualize the
+connections. I must be a bit old-school, huh? Well, there's something just as slick for Pipewire, actually, there's a
+few resources, but my preferred choice is &lt;a href="https://gitlab.freedesktop.org/rncbc/qpwgraph"&gt;QPWGraph&lt;/a&gt;. It's just stinkin'
+awesome, if you ask me.&lt;/p&gt;
+&lt;p&gt;Check out how it looks on my system! Granted, nothing's happening here, but it's still a good reference to see the
+default view!&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/pipewire-link/no-connections.png" width="100%" alt="qpwgraph on my system"&gt;&lt;/p&gt;</content><category term="Audio"></category><category term="linux"></category><category term="audio"></category><category term="networking"></category><category term="pipewire"></category><category term="alsa"></category><category term="sound"></category></entry><entry><title>Adding Radon Sensors to Home Assistant</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/adding-radon-sensors-to-homeassistant.html" rel="alternate"></link><published>2022-12-24T10:40:00-08:00</published><updated>2022-12-24T10:40:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2022-12-24:/stanley-solutions-blog/adding-radon-sensors-to-homeassistant.html</id><summary type="html">&lt;p&gt;Radon - an colorless, oderless gas. Sounds familiar, right? But you've probably heard that phrase in relation to other gasses like the carbon-monoxide, or perhaps natural gas. Radon poses health threats, as well, but with the added benefit of radiation. Scared yet? Don't worry.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;What is Radon, Anyway?&lt;/h2&gt;
 &lt;p&gt;The &lt;a href="https://www.cdc.gov/nceh/features/protect-home-radon/index.html"&gt;CDC&lt;/a&gt; explains that Radon is:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;" ...the second leading cause of lung cancer after cigarette smoking. If you smoke and live in a home with high radon levels, you increase your risk of developing lung cancer. Having your home tested is the only effective way to determine whether you and your family are at risk of high radon exposure.&lt;/p&gt;
@@ -763,7 +797,7 @@ and punch them into a custom &lt;code&gt;exec&lt;/code&gt; block. Yeah, that's r
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;right?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/techy-granny.jpg" width="100%" alt="Rheo-Railroad Control"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/techy-granny.jpg" width="100%" alt="Granny's got it..."&gt;&lt;/p&gt;
 &lt;p&gt;At any rate, there's no sense crying over that spilled milk, for the time-being, it's simple enough, and doesn't cause too much trouble. I clearly call out a
 warning in the README docs for the new package. And speaking of the "new package," it's already on &lt;a href="https://pypi.org/project/schemdraw-markdown/"&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To get started with it in your documentation, just go ahead and...&lt;/p&gt;

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  I'm Giving Up on Low-Level Audio in Linux | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/audio.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/audio.rss.xml">  
+  <meta name="description" content="I'm so fed up with low-level audio in Linux. It's a constant struggle, and I'm throwing in the towel. I'm done.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">GitHub</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank">GitLab</a></li>
+          <li class="list-inline-item"><a href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank">Gitea</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank">Calendar</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  I'm Giving Up on Low-Level Audio in Linux
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2023-01-08T10:00:00-08:00">
+          <i class="fas fa-clock"></i>
+          Sun 08 January 2023
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/audio.html">Audio</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/linux.html">#linux</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/audio.html">#audio</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/networking.html">#networking</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/pipewire.html">#pipewire</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/alsa.html">#alsa</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sound.html">#sound</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p><strong>I <em>want</em> to love low-level audio in Linux.</strong></p>
+<p><em>I really do.</em></p>
+<p>But wow. It's atrocious! I'm so tired of fighting with <code>aplay</code> and <code>arecord</code> trying to figure out what the heck is
+actually being presented to me. It's not intuitive, it's not robust, and for pity sake, I don't think it actually works.</p>
+<p>So I'm giving up on <em>low-level</em> audio in Linux.</p>
+<blockquote>
+<p>Catch the drift?</p>
+</blockquote>
+<p>That's right, I'm not done with <em>audio</em> in Linux. I'm done with ALSA.</p>
+<p><img src="https://i.imgur.com/ruxU5.png" width="100%" alt="seems about right..."></p>
+<p>I'm sick of trying to figure out which device I should use, and how to plumb it through the rest of my system. It's a
+constant uphill battle with ALSA. I'm calling it quits.</p>
+<p>Luckily for me, there's Pipewire. <em>Beautiful, perfect, glorious, Pipewire.</em></p>
+<p>Pipewire bridges a gap that seems so perfect. It takes all of the lessons the Linux community has learned from ALSA,
+PulseAudio, and JACK and introduces something new. I know what you might be thinking: "something else, <em>new</em>? Great..."
+But it's not just new <em>to be new</em>. It's new to fix all of the mistakes from those older systems. PulseAudio is great,
+but it's often too simple. JACK is great for audio pros, but often is too much to just <em>dabble</em> in. And ALSA?</p>
+<blockquote>
+<p>Let's not talk about ALSA anymore, shall we?</p>
+</blockquote>
+<p>Ok... so it's true that ALSA is still being used underneath Pipewire, but <em>we</em> don't have to deal with that nonsense.
+The Pipewire system takes care of all that garbage for us.</p>
+<p>I'm going to have a whole slew of articles to follow this one, introducing lots of neat things with Pipewire, but for
+now, let me introduce you to a few cool things.</p>
+<h3>Pipewire "Guide"</h3>
+<p>I can't say whether this is the <em>definitive</em> guide to all things Pipewire, but it's a great resource, and it covers most
+of the great tools I like to utilize: https://github.com/mikeroyal/PipeWire-Guide</p>
+<h3>Pipewire Graph</h3>
+<p>Ok, one thing I picked up from JACK was its super-neat graph utility. It's something I really enjoy to visualize the
+connections. I must be a bit old-school, huh? Well, there's something just as slick for Pipewire, actually, there's a
+few resources, but my preferred choice is <a href="https://gitlab.freedesktop.org/rncbc/qpwgraph">QPWGraph</a>. It's just stinkin'
+awesome, if you ask me.</p>
+<p>Check out how it looks on my system! Granted, nothing's happening here, but it's still a good reference to see the
+default view!</p>
+<p><img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/pipewire-link/no-connections.png" width="100%" alt="qpwgraph on my system"></p>
+    </div>
+  </article>
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
