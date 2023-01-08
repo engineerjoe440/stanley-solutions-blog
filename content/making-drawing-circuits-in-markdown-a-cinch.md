@@ -86,7 +86,7 @@ and punch them into a custom `exec` block. Yeah, that's right, the dreaded exec 
 
 > ***right?***
 
-<img src="{attach}/images/techy-granny.jpg" width="100%" alt="Rheo-Railroad Control">
+<img src="{attach}/images/techy-granny.jpg" width="100%" alt="Granny's got it...">
 
 At any rate, there's no sense crying over that spilled milk, for the time-being, it's simple enough, and doesn't cause too much trouble. I clearly call out a
 warning in the README docs for the new package. And speaking of the "new package," it's already on [PyPI](https://pypi.org/project/schemdraw-markdown/).
