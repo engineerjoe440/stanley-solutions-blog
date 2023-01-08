@@ -22,6 +22,9 @@ That's right, I'm not done with *audio* in Linux. I'm done with ALSA.
 
 <img src="https://i.imgur.com/ruxU5.png" width="100%" alt="seems about right...">
 
+> If you don't get the joke about their missing text, think about it... silence... there *should* be words, but there's
+> not... it's quiet when there clearly should be sound.
+
 I'm sick of trying to figure out which device I should use, and how to plumb it through the rest of my system. It's a
 constant uphill battle with ALSA. I'm calling it quits.
 
