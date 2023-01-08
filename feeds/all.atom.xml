@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2023-01-08T10:00:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>I'm Giving Up on Low-Level Audio in Linux</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html" rel="alternate"></link><published>2023-01-08T10:00:00-08:00</published><updated>2023-01-08T10:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-08:/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html</id><summary type="html">&lt;p&gt;I'm so fed up with low-level audio in Linux. It's a constant struggle, and I'm throwing in the towel. I'm done.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;I &lt;em&gt;want&lt;/em&gt; to love low-level audio in Linux.&lt;/strong&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2023-01-08T12:00:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>The Ranch (KRNC) Gets a Face Lift</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/the-ranch-gets-a-face-lift.html" rel="alternate"></link><published>2023-01-08T12:00:00-08:00</published><updated>2023-01-08T12:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-08:/stanley-solutions-blog/the-ranch-gets-a-face-lift.html</id><summary type="html">&lt;p&gt;So, I've got an old (1992) Ford pickup, and it's got a newer-ish stereo. I love keeping my favorite tunes on a USB stick that I can play everything from, but I HATE it when the volume changes from one song to the next. I go from barely being able to hear the music to having my eardrums blown out in 0.5 seconds. So, I've come to the conclusion that I need to fix that. With PYTHON!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Like I'd mentioned; I absolutely &lt;em&gt;HATE&lt;/em&gt; it when the audio in my car goes from practically inaudible to raising the dead.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Not fun.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So the question becomes, how do I do something about this problem of mine? What can I do to equalize the volume levels?
+Well, of course I can use an application to compress and normalize the volume of tracks. It's something I was quite
+accustomed to from my old radio days. You see, that's pretty common to do for a radio-station's imaging/branding tracks.
+You know... the little quips you hear between songs like "Your favorite station for the 90's through now!" etc. Most of
+those type of track go through some kind of compressor prior to be loaded into the on-air playback system, and what's
+more, most stations use a real-time compressor that takes the fully-mixed audio stream from the on-air studio and
+compresses that for going out on the air. That's twice the compression for those of you who are counting, but normally
+the compression used for the imaging tracks is specifically customized such that it will "play nicely" with the in-line
+compressor in the studio.&lt;/p&gt;
+&lt;p&gt;Ok, so that was a diversion from the root of this conversation, but I hope it gives you some of the background to
+understand the next bit of this topic.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Compression is a slick way of bringing the low-volume stuff up to make sure it's audible, and bringing the loud stuff
+down a bit, without making the whole thing sound terrible. I found a GIF that does its best to show some of this. It's
+not great, but I couldn't be bothered to make my own. Hah!&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://audiophilestyle.com/uploads/monthly_2019_08/510421229_GrundmanvsDownloadWavforms.gif.2fb2cdf545abce8f61fdc881d4ac9db0.gif" width="100%" alt="compressing audio"&gt;&lt;/p&gt;
+&lt;p&gt;There's a number of compressors available, and they're all a bit touchy, but there's some really cool ways to do it with
+Linux command-line utilities. Namely &lt;a href="https://ffmpeg.org/"&gt;&lt;code&gt;ffmpeg&lt;/code&gt;&lt;/a&gt; -- the universal, quintessential audio utility.&lt;/p&gt;
+&lt;p&gt;If there's an app on Linux or Windows that works with audio, it almost certainly has some compatibility or reliance on
+ffmpeg.&lt;/p&gt;
+&lt;p&gt;With ffmpeg, I can do lots of things with audio... basically whatever I wanted to... but to name a few things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;compress&lt;/li&gt;
+&lt;li&gt;normalize&lt;/li&gt;
+&lt;li&gt;filter&lt;/li&gt;
+&lt;li&gt;equalize&lt;/li&gt;
+&lt;li&gt;and much, &lt;em&gt;much&lt;/em&gt; more...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, I did some digital spelunking and found a handful of little sets of arguments I liked for some general filters:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What I call it&lt;/th&gt;
+&lt;th&gt;What the command is&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;"default"&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;-filter_complex compand=attacks=0:points=-80/-900\|-45/-15\|-27/-9\|0/-7\|20/-7:gain=5&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"normalize"&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;-filter:a "dynaudnorm"&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"light"&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;-filter:a compand=.3\|.3:1\|1:-90/-60\|-60/-40\|-40/-30\|-20/-20:6:0:-90:0.2&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"heavy"&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;-filter:a compand=0\|0:1\|1:-90/-900\|-70/-70\|-30/-9\|0/-3:6:0:0:0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;So clearly, I've got a good little set of compressors and filters. Still, would you remember any of those commands? I
+certainly won't. So I'd like to have a little tool do that for me.&lt;/p&gt;
+&lt;p&gt;At the same time, I've also been wanting to try out the new Python tool &lt;a href="https://flet.dev/"&gt;&lt;code&gt;Flet&lt;/code&gt;&lt;/a&gt; for building Flutter
+based applications. No, I don't want to write Dart applications, but I wouldn't mind if there's a layer between me and
+that mess.&lt;/p&gt;
+&lt;p&gt;So... I got to work and rebuilt my
+&lt;a href="https://gitlab.stanleysolutionsnw.com/krnc/usb-manager"&gt;"Universal Song Barn Manager" Application&lt;/a&gt;. Do you notice the
+play-on-words in the name? &lt;em&gt;USB&lt;/em&gt; Manager...&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://gitlab.stanleysolutionsnw.com/krnc/usb-manager/-/raw/master/images/SongBarn.png" width="100%" alt="KRNC - Universal Song Barn Manager"&gt;&lt;/p&gt;
+&lt;p&gt;I want to toot my own horn here a little bit. I built this app in &lt;em&gt;one, single day&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Admittedly, I went back and have touched up things in subsequent days, but the original application was written in one
+day. I'm kinda proud of that.&lt;/p&gt;
+&lt;p&gt;So, the application has a relatively simple workflow:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open app&lt;/li&gt;
+&lt;li&gt;Add songs to your "barn" (record file) with the app's "&lt;code&gt;+&lt;/code&gt;" button&lt;/li&gt;
+&lt;li&gt;Change the filtering selection as desired, change the track's "Title" if needed&lt;/li&gt;
+&lt;li&gt;Select the USB drive you want to store the files on&lt;/li&gt;
+&lt;li&gt;Load the drive&lt;/li&gt;
+&lt;li&gt;Listen and enjoy!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;Now... I've got some work left to do. I still want to get the app set up so that it can use a "Saddle Bag" system to
+support retrieving short audio clips as "radio imaging" because I'm just that kind of nerd. That'll have to come soon.&lt;/p&gt;
+&lt;p&gt;Take a look at the GitLab information if you'd like. Let me know what you think, and feel free to use it for your own
+needs if you'd like!&lt;/p&gt;</content><category term="Python"></category><category term="linux"></category><category term="audio"></category><category term="python"></category><category term="ffmpeg"></category><category term="sound"></category><category term="terminal"></category><category term="command-line"></category><category term="flet"></category><category term="flutter"></category><category term="application"></category><category term="krnc"></category></entry><entry><title>I'm Giving Up on Low-Level Audio in Linux</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html" rel="alternate"></link><published>2023-01-08T10:00:00-08:00</published><updated>2023-01-08T10:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-08:/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html</id><summary type="html">&lt;p&gt;I'm so fed up with low-level audio in Linux. It's a constant struggle, and I'm throwing in the towel. I'm done.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;I &lt;em&gt;want&lt;/em&gt; to love low-level audio in Linux.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;I really do.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;But wow. It's atrocious! I'm so tired of fighting with &lt;code&gt;aplay&lt;/code&gt; and &lt;code&gt;arecord&lt;/code&gt; trying to figure out what the heck is
 actually being presented to me. It's not intuitive, it's not robust, and for pity sake, I don't think it actually works.&lt;/p&gt;
