@@ -1,6 +1,6 @@
 Title: Using Pipewire Link to Bridge the Gaps
-Date: 2023-01-08 11:00
-Modified: 2023-01-08 11:00
+Date: 2023-01-09 09:00
+Modified: 2023-01-09 09:00
 Tags: linux, audio, networking, pipewire, alsa, sound, terminal, command-line
 Category: Audio
 Slug: using-pipewire-link-to-bridge-the-gaps
