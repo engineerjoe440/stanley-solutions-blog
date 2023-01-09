@@ -1,5 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Audio</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/audio.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2023-01-08T10:00:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>I'm Giving Up on Low-Level Audio in Linux</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html" rel="alternate"></link><published>2023-01-08T10:00:00-08:00</published><updated>2023-01-08T10:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-08:/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html</id><summary type="html">&lt;p&gt;I'm so fed up with low-level audio in Linux. It's a constant struggle, and I'm throwing in the towel. I'm done.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;I &lt;em&gt;want&lt;/em&gt; to love low-level audio in Linux.&lt;/strong&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Audio</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/audio.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2023-01-09T09:00:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Using Pipewire Link to Bridge the Gaps</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/using-pipewire-link-to-bridge-the-gaps.html" rel="alternate"></link><published>2023-01-09T09:00:00-08:00</published><updated>2023-01-09T09:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-09:/stanley-solutions-blog/using-pipewire-link-to-bridge-the-gaps.html</id><summary type="html">&lt;p&gt;I'm ready to manage my audio "wiring" a bit more virtually, these days, and I'm ready to do that with some of the cool new tools available in Linux. Luckily for me, Pipewire has some command-line applications that make doing that an absolute cinch! And what's better, I can do it from Python, and make it a little more automagic. Now THAT's what I'm talking about!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Are you a nerd like me?&lt;/p&gt;
+&lt;p&gt;Do you want to connect audio devices in a Linux system easily, programmatically, and with a little help from Python?&lt;/p&gt;
+&lt;p&gt;Ok, so you're probably not &lt;em&gt;quite&lt;/em&gt; a nerd like me, but if you'd probably still find some value from hearing about this
+cool sub-system in the Pipewire ecosystem.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Pipewire composes ports on devices to provide a mechanism to make connections between outputs (sources) and inputs
+(sinks). This makes it possible to connect applications and interfaces into any arbitrary connection set. There are even
+great tools like &lt;a href="https://gitlab.freedesktop.org/rncbc/qpwgraph"&gt;&lt;code&gt;qpwgraph&lt;/code&gt;&lt;/a&gt; which make it possible to connect these
+interface graphically, and make it all smooth and beautiful.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/images/pipewire-link/no-connections.png" width="100%" alt="qpwgraph on my system"&gt;&lt;/p&gt;
+&lt;p&gt;That graphical application is beautiful, but what if you want to make those connections a little more manually, or
+(if you're like &lt;em&gt;me&lt;/em&gt;), programmatically. Well, good news! Pipewire offers a whole system to make those connections from
+the command-line.&lt;/p&gt;
+&lt;h3&gt;Enter &lt;code&gt;pw-link&lt;/code&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;pw-link&lt;span class="w"&gt; &lt;/span&gt;--help
+pw-link&lt;span class="w"&gt; &lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;PipeWire&lt;span class="w"&gt; &lt;/span&gt;port&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;link&lt;span class="w"&gt; &lt;/span&gt;manager.
+Generic:&lt;span class="w"&gt; &lt;/span&gt;pw-link&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;options&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;-h,&lt;span class="w"&gt; &lt;/span&gt;--help&lt;span class="w"&gt;                            &lt;/span&gt;Show&lt;span class="w"&gt; &lt;/span&gt;this&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;help&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;--version&lt;span class="w"&gt;                         &lt;/span&gt;Show&lt;span class="w"&gt; &lt;/span&gt;version
+&lt;span class="w"&gt;  &lt;/span&gt;-r,&lt;span class="w"&gt; &lt;/span&gt;--remote&lt;span class="o"&gt;=&lt;/span&gt;NAME&lt;span class="w"&gt;                     &lt;/span&gt;Remote&lt;span class="w"&gt; &lt;/span&gt;daemon&lt;span class="w"&gt; &lt;/span&gt;name
+List:&lt;span class="w"&gt; &lt;/span&gt;pw-link&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;options&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;out-pattern&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;-pattern&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;-o,&lt;span class="w"&gt; &lt;/span&gt;--output&lt;span class="w"&gt;                          &lt;/span&gt;List&lt;span class="w"&gt; &lt;/span&gt;output&lt;span class="w"&gt; &lt;/span&gt;ports
+&lt;span class="w"&gt;  &lt;/span&gt;-i,&lt;span class="w"&gt; &lt;/span&gt;--input&lt;span class="w"&gt;                           &lt;/span&gt;List&lt;span class="w"&gt; &lt;/span&gt;input&lt;span class="w"&gt; &lt;/span&gt;ports
+&lt;span class="w"&gt;  &lt;/span&gt;-l,&lt;span class="w"&gt; &lt;/span&gt;--links&lt;span class="w"&gt;                           &lt;/span&gt;List&lt;span class="w"&gt; &lt;/span&gt;links
+&lt;span class="w"&gt;  &lt;/span&gt;-m,&lt;span class="w"&gt; &lt;/span&gt;--monitor&lt;span class="w"&gt;                         &lt;/span&gt;Monitor&lt;span class="w"&gt; &lt;/span&gt;links&lt;span class="w"&gt; &lt;/span&gt;and&lt;span class="w"&gt; &lt;/span&gt;ports
+&lt;span class="w"&gt;  &lt;/span&gt;-I,&lt;span class="w"&gt; &lt;/span&gt;--id&lt;span class="w"&gt;                              &lt;/span&gt;List&lt;span class="w"&gt; &lt;/span&gt;IDs
+&lt;span class="w"&gt;  &lt;/span&gt;-v,&lt;span class="w"&gt; &lt;/span&gt;--verbose&lt;span class="w"&gt;                         &lt;/span&gt;Verbose&lt;span class="w"&gt; &lt;/span&gt;port&lt;span class="w"&gt; &lt;/span&gt;properties
+Connect:&lt;span class="w"&gt; &lt;/span&gt;pw-link&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;options&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;output&lt;span class="w"&gt; &lt;/span&gt;input
+&lt;span class="w"&gt;  &lt;/span&gt;-L,&lt;span class="w"&gt; &lt;/span&gt;--linger&lt;span class="w"&gt;                          &lt;/span&gt;Linger&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;default,&lt;span class="w"&gt; &lt;/span&gt;unless&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;used&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;-P,&lt;span class="w"&gt; &lt;/span&gt;--passive&lt;span class="w"&gt;                         &lt;/span&gt;Passive&lt;span class="w"&gt; &lt;/span&gt;link
+&lt;span class="w"&gt;  &lt;/span&gt;-p,&lt;span class="w"&gt; &lt;/span&gt;--props&lt;span class="o"&gt;=&lt;/span&gt;PROPS&lt;span class="w"&gt;                     &lt;/span&gt;Properties&lt;span class="w"&gt; &lt;/span&gt;as&lt;span class="w"&gt; &lt;/span&gt;JSON&lt;span class="w"&gt; &lt;/span&gt;object
+Disconnect:&lt;span class="w"&gt; &lt;/span&gt;pw-link&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;options&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;output&lt;span class="w"&gt; &lt;/span&gt;input
+&lt;span class="w"&gt;            &lt;/span&gt;pw-link&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;options&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;link-id
+&lt;span class="w"&gt;  &lt;/span&gt;-d,&lt;span class="w"&gt; &lt;/span&gt;--disconnect&lt;span class="w"&gt;                      &lt;/span&gt;Disconnect&lt;span class="w"&gt; &lt;/span&gt;ports
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That's what the interface of the PW-Link command-line tool looks like. Simple, powerful, and &lt;em&gt;GREAT&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Want to list the sources (outputs)?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;pw-link&lt;span class="w"&gt; &lt;/span&gt;--output&lt;span class="w"&gt; &lt;/span&gt;--id
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;36&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Midi-Bridge:Midi&lt;span class="w"&gt; &lt;/span&gt;Through:&lt;span class="o"&gt;(&lt;/span&gt;capture_0&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Midi&lt;span class="w"&gt; &lt;/span&gt;Through&lt;span class="w"&gt; &lt;/span&gt;Port-0
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;43&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;v4l2_input.pci-0000_03_00.4-usb-0_4_1.0:out_0
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;47&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;alsa_output.pci-0000_03_00.6.analog-stereo:monitor_FL
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;49&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;alsa_output.pci-0000_03_00.6.analog-stereo:monitor_FR
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;50&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;alsa_input.pci-0000_03_00.6.analog-stereo:capture_FL
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;51&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;alsa_input.pci-0000_03_00.6.analog-stereo:capture_FR
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Or... how about the sinks (inputs)?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;pw-link&lt;span class="w"&gt; &lt;/span&gt;--input&lt;span class="w"&gt; &lt;/span&gt;--id
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;35&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Midi-Bridge:Midi&lt;span class="w"&gt; &lt;/span&gt;Through:&lt;span class="o"&gt;(&lt;/span&gt;playback_0&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Midi&lt;span class="w"&gt; &lt;/span&gt;Through&lt;span class="w"&gt; &lt;/span&gt;Port-0
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;46&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;alsa_output.pci-0000_03_00.6.analog-stereo:playback_FL
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;48&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;alsa_output.pci-0000_03_00.6.analog-stereo:playback_FR
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Marvelous, isn't it?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But how about getting those links created? How's it done? Can it be done programmatically? &lt;em&gt;With &lt;/em&gt;&lt;em&gt;Python&lt;/em&gt;&lt;em&gt;?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Heh.&lt;/p&gt;
+&lt;p&gt;Well, now it can!&lt;/p&gt;
+&lt;h3&gt;Enter &lt;code&gt;pipewire_python&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/pablodz/pipewire_python"&gt;&lt;code&gt;pipewire_python&lt;/code&gt;&lt;/a&gt; is the core grounds of a Python Pipewire wrapper. It was
+created by &lt;a href="https://github.com/pablodz"&gt;Pablo Diaz&lt;/a&gt; and offers some great functionality with Pipewire wrapped up in
+Python. Unfortunately, it didn't yet have &lt;code&gt;pw-link&lt;/code&gt; functionality to list, create, and modify links in Pipewire. That
+said, I've been able to add some of the functionality. It's in-progress in a
+&lt;a href="https://github.com/pablodz/pipewire_python/pull/15"&gt;pull-request&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The PR is only a draft at the time of this writing, however, I'm hopeful it will be something that I can open officially
+within a few days, and will be able to merge before the end of the week. When it &lt;em&gt;does&lt;/em&gt; merge, &lt;code&gt;pipewire_python&lt;/code&gt; will
+have functional support to list inputs, outputs, and links, and it will be able to create links as mono (single
+channel) or automatic-stereo (automated Left/Right channel pairing) connections. It'll be simple!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pipewire_python&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt;
+&lt;span class="n"&gt;inputs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list_inputs&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;outputs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list_outputs&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+
+&lt;span class="c1"&gt;# Connect the last output to the last input -- during testing it was found that&lt;/span&gt;
+&lt;span class="c1"&gt;# Midi channel is normally listed first, so this avoids that.&lt;/span&gt;
+&lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;outputs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;sink&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inputs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sink&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="c1"&gt;# Fun Fact! You can connect/disconnect in either order!&lt;/span&gt;
+&lt;span class="n"&gt;sink&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;disconnect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Tada!&lt;/span&gt;
+
+
+&lt;span class="c1"&gt;# Default Input/Output links will be made with left-left and right-right&lt;/span&gt;
+&lt;span class="c1"&gt;# connections; in other words, a straight stereo connection.&lt;/span&gt;
+&lt;span class="c1"&gt;# It&amp;#39;s possible to manually cross the lines, however!&lt;/span&gt;
+&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sink&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;left&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;left&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sink&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Won't that be slick?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Needless to say, I'm very excited. I'm going to use this for an automated system designed to support a VBAN streaming
+network built fully on Linux. It'll be a robust, low-latency audio streaming system for my home, and I won't have to use
+the &lt;em&gt;"dreaded Microsoft Windows"&lt;/em&gt;. Won't that be neat?&lt;/p&gt;
+&lt;p&gt;Stay tuned... I'll be sharing more on this project soon!&lt;/p&gt;</content><category term="Audio"></category><category term="linux"></category><category term="audio"></category><category term="networking"></category><category term="pipewire"></category><category term="alsa"></category><category term="sound"></category><category term="terminal"></category><category term="command-line"></category></entry><entry><title>I'm Giving Up on Low-Level Audio in Linux</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html" rel="alternate"></link><published>2023-01-08T10:00:00-08:00</published><updated>2023-01-08T10:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-08:/stanley-solutions-blog/giving-up-on-low-level-linux-audio.html</id><summary type="html">&lt;p&gt;I'm so fed up with low-level audio in Linux. It's a constant struggle, and I'm throwing in the towel. I'm done.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;I &lt;em&gt;want&lt;/em&gt; to love low-level audio in Linux.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;I really do.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;But wow. It's atrocious! I'm so tired of fighting with &lt;code&gt;aplay&lt;/code&gt; and &lt;code&gt;arecord&lt;/code&gt; trying to figure out what the heck is
 actually being presented to me. It's not intuitive, it's not robust, and for pity sake, I don't think it actually works.&lt;/p&gt;
