@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2023-01-08T12:00:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>The Ranch (KRNC) Gets a Face Lift</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/the-ranch-gets-a-face-lift.html" rel="alternate"></link><published>2023-01-08T12:00:00-08:00</published><updated>2023-01-08T12:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-08:/stanley-solutions-blog/the-ranch-gets-a-face-lift.html</id><summary type="html">&lt;p&gt;So, I've got an old (1992) Ford pickup, and it's got a newer-ish stereo. I love keeping my favorite tunes on a USB stick that I can play everything from, but I HATE it when the volume changes from one song to the next. I go from barely being able to hear the music to having my eardrums blown out in 0.5 seconds. So, I've come to the conclusion that I need to fix that. With PYTHON!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Like I'd mentioned; I absolutely &lt;em&gt;HATE&lt;/em&gt; it when the audio in my car goes from practically inaudible to raising the dead.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2023-01-15T13:52:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Python, Pianobar, and MQTT?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/python-pianobar-and-mqtt.html" rel="alternate"></link><published>2023-01-15T13:52:00-08:00</published><updated>2023-01-15T13:52:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-15:/stanley-solutions-blog/python-pianobar-and-mqtt.html</id><summary type="html">&lt;p&gt;We know that I'm something of an audio buff. I love having music around me all the time. But isn't that becoming more of a staple in the American home, anyway? I certainly think so. There's lots of folks who are also listening to music all the time. I have my own personal preferences, though. (Shocker, I know.) The thing is, I want my audio system to tie nicely into my home. I want play/pause buttons scattered around, and well... I've got more demands.&lt;/p&gt;</summary><content type="html">&lt;blockquote&gt;
+&lt;p&gt;Joe? Have Demands?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Psh! I know... Right? It's surprising... &lt;strong&gt;&lt;em&gt;NOT&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Anyway... I want to have music streaming in my home, but I want it to meet some requirements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I want to play Pandora using &lt;a href="https://github.com/PromyLOPh/pianobar"&gt;Pianobar&lt;/a&gt; -- The wonderful Linux-terminal, Pandora internet radio client.&lt;/li&gt;
+&lt;li&gt;I want to control the application over MQTT&lt;/li&gt;
+&lt;li&gt;I want to control the application over HTTP&lt;/li&gt;
+&lt;li&gt;I want the application to be resilient and restart itself if things go... awry&lt;/li&gt;
+&lt;li&gt;I want the application to give me information about what's playing&lt;/li&gt;
+&lt;li&gt;I want the application to be built with a modern Python framework&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;So... What exists, already?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Well, there's actually some pretty neat tools already out there:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pithos.github.io/"&gt;Pithos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://deviousfish.com/pianod/"&gt;Pianod&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://hackaday.com/2012/09/20/how-to-build-your-own-dedicated-pandora-radio/"&gt;Standalone Pandora Player&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.instructables.com/Pandoras-Box-An-Internet-Radio-player-made-with/"&gt;Pandora's Box&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://volumio.com/en/"&gt;Volumio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Unfortunately, for one reason or another, none of these really meet my objectives. In fact, I want to go on a rant some other time about why &lt;em&gt;Volumio&lt;/em&gt; doesn't
+really meet my needs as a tinkerer/hacker/general-nerd-extraordinaire.&lt;/p&gt;
+&lt;h2&gt;My Solution?&lt;/h2&gt;
+&lt;p&gt;So glad you asked...&lt;/p&gt;
+&lt;p&gt;I decided to write my own tool. Because that's &lt;em&gt;just what I need&lt;/em&gt;. Another project in my life. You know... because of all this free-time I have.&lt;/p&gt;
+&lt;p&gt;So, this project of mine will leverage the fantastic ecosystem for Pianobar, allowing me to interact with their phenomenal system of control and monitoring,
+and I'll add to that an MQTT and HTTP interface. Both the MQTT and HTTP interfaces will allow simple control, real-time information, and more!&lt;/p&gt;
+&lt;p&gt;I started this project back on December 26th, and I'm actually quite proud of how far it's come! I really am tailoring this just for me, but at the same
+time, I'd like for this to be something that others could pick up and play with, so most of the configuration is customizable. Things like what the MQTT
+topics are, what the MQTT broker uses for an IP address, etc. Those are all things that somebody could pick up and swap out in their own system.&lt;/p&gt;
+&lt;p&gt;I haven't fully deployed this, quite yet, but that's because I'm still working on getting some of the other Pipewire plumbing in place so that I can
+deploy it on my home audio server. We'll get there, soon! I'm excited about that!&lt;/p&gt;
+&lt;h2&gt;Where is this thing stored?&lt;/h2&gt;
+&lt;p&gt;Well, right now, I've put it all on my GitLab. I'm considering setting it up to push to GitHub automatically, that way I've got some move visible presence
+for the project as a whole, but you can go visit it here:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440/pianobarplayer"&gt;https://gitlab.stanleysolutionsnw.com/engineerjoe440/pianobarplayer&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I've picked up some interesting learnings from the project as a whole, but since I've been doing a lot with those same learnings elsewhere, I'll be
+writing some of my thoughts on configuration with TOML in Python soon!&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="Pianobar"></category><category term="MQTT"></category><category term="HTTP"></category><category term="Configuration"></category><category term="Pandora"></category><category term="Music"></category><category term="Streaming"></category><category term="Audio"></category><category term="Home-Automation"></category><category term="Home Networking"></category></entry><entry><title>The Ranch (KRNC) Gets a Face Lift</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/the-ranch-gets-a-face-lift.html" rel="alternate"></link><published>2023-01-08T12:00:00-08:00</published><updated>2023-01-08T12:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-08:/stanley-solutions-blog/the-ranch-gets-a-face-lift.html</id><summary type="html">&lt;p&gt;So, I've got an old (1992) Ford pickup, and it's got a newer-ish stereo. I love keeping my favorite tunes on a USB stick that I can play everything from, but I HATE it when the volume changes from one song to the next. I go from barely being able to hear the music to having my eardrums blown out in 0.5 seconds. So, I've come to the conclusion that I need to fix that. With PYTHON!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Like I'd mentioned; I absolutely &lt;em&gt;HATE&lt;/em&gt; it when the audio in my car goes from practically inaudible to raising the dead.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Not fun.&lt;/p&gt;
 &lt;/blockquote&gt;

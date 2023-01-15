@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Python, Pianobar, and MQTT? | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/python-pianobar-and-mqtt.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="We know that I'm something of an audio buff. I love having music around me all the time. But isn't that becoming more of a staple in the American home, anyway? I certainly think so. There's lots of folks who are also listening to music all the time. I have my own personal preferences, though. (Shocker, I know.) The thing is, I want my audio system to tie nicely into my home. I want play/pause buttons scattered around, and well... I've got more demands.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">GitHub</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank">GitLab</a></li>
+          <li class="list-inline-item"><a href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank">Gitea</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank">Calendar</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Python, Pianobar, and MQTT?
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2023-01-15T13:52:00-08:00">
+          <i class="fas fa-clock"></i>
+          Sun 15 January 2023
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/pianobar.html">#Pianobar</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/mqtt.html">#MQTT</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/http.html">#HTTP</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/configuration.html">#Configuration</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/pandora.html">#Pandora</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/music.html">#Music</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/streaming.html">#Streaming</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/audio.html">#Audio</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-automation.html">#Home-Automation</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-networking.html">#Home Networking</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <blockquote>
+<p>Joe? Have Demands?</p>
+</blockquote>
+<p>Psh! I know... Right? It's surprising... <strong><em>NOT</em></strong></p>
+<p>Anyway... I want to have music streaming in my home, but I want it to meet some requirements:</p>
+<ul>
+<li>I want to play Pandora using <a href="https://github.com/PromyLOPh/pianobar">Pianobar</a> -- The wonderful Linux-terminal, Pandora internet radio client.</li>
+<li>I want to control the application over MQTT</li>
+<li>I want to control the application over HTTP</li>
+<li>I want the application to be resilient and restart itself if things go... awry</li>
+<li>I want the application to give me information about what's playing</li>
+<li>I want the application to be built with a modern Python framework</li>
+</ul>
+<blockquote>
+<p>So... What exists, already?</p>
+</blockquote>
+<p>Well, there's actually some pretty neat tools already out there:</p>
+<ul>
+<li><a href="https://pithos.github.io/">Pithos</a></li>
+<li><a href="http://deviousfish.com/pianod/">Pianod</a></li>
+<li><a href="https://hackaday.com/2012/09/20/how-to-build-your-own-dedicated-pandora-radio/">Standalone Pandora Player</a></li>
+<li><a href="https://www.instructables.com/Pandoras-Box-An-Internet-Radio-player-made-with/">Pandora's Box</a></li>
+<li><a href="https://volumio.com/en/">Volumio</a></li>
+</ul>
+<p>Unfortunately, for one reason or another, none of these really meet my objectives. In fact, I want to go on a rant some other time about why <em>Volumio</em> doesn't
+really meet my needs as a tinkerer/hacker/general-nerd-extraordinaire.</p>
+<h2>My Solution?</h2>
+<p>So glad you asked...</p>
+<p>I decided to write my own tool. Because that's <em>just what I need</em>. Another project in my life. You know... because of all this free-time I have.</p>
+<p>So, this project of mine will leverage the fantastic ecosystem for Pianobar, allowing me to interact with their phenomenal system of control and monitoring,
+and I'll add to that an MQTT and HTTP interface. Both the MQTT and HTTP interfaces will allow simple control, real-time information, and more!</p>
+<p>I started this project back on December 26th, and I'm actually quite proud of how far it's come! I really am tailoring this just for me, but at the same
+time, I'd like for this to be something that others could pick up and play with, so most of the configuration is customizable. Things like what the MQTT
+topics are, what the MQTT broker uses for an IP address, etc. Those are all things that somebody could pick up and swap out in their own system.</p>
+<p>I haven't fully deployed this, quite yet, but that's because I'm still working on getting some of the other Pipewire plumbing in place so that I can
+deploy it on my home audio server. We'll get there, soon! I'm excited about that!</p>
+<h2>Where is this thing stored?</h2>
+<p>Well, right now, I've put it all on my GitLab. I'm considering setting it up to push to GitHub automatically, that way I've got some move visible presence
+for the project as a whole, but you can go visit it here:</p>
+<blockquote>
+<p><a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440/pianobarplayer">https://gitlab.stanleysolutionsnw.com/engineerjoe440/pianobarplayer</a></p>
+</blockquote>
+<p>I've picked up some interesting learnings from the project as a whole, but since I've been doing a lot with those same learnings elsewhere, I'll be
+writing some of my thoughts on configuration with TOML in Python soon!</p>
+    </div>
+  </article>
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
