@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Packaging Single File Python Projects | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/packaging-single-file-python-projects.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="Somehow, I've managed to build quite a few random Python package, and contribute to others. I've recently been working towards converting all of the Python projects I manage to the new pyproject.toml standards for packaging, and I've recently had to work through an interesting little challenge for some of the projects which only contain a sigle Python file. No module folder, no __init__.py. Just a single file.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">Engineering and creativity - all under one hat.</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/" target="_blank">GitHub</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank">GitLab</a></li>
+          <li class="list-inline-item"><a href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank">Gitea</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy Project</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV Project</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/KRNCApps/" target="_blank">KRNC Project</a></li>
+          <li class="list-inline-item"><a href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank">Calendar</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank">RSS Feed</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Packaging Single File Python Projects
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2023-01-16T09:50:00-08:00">
+          <i class="fas fa-clock"></i>
+          Mon 16 January 2023
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/packaging.html">#packaging</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/pyprojecttoml.html">#pyproject.toml</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/pypi.html">#pypi</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/development.html">#development</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/build.html">#build</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>So... I somehow seem to have become a maintainer for a number of projects. I don't claim to be a <em>good</em> maintainer. Just that I am a maintainer. After all,
+I'm involved, in one way, or another with each of the following projects.</p>
+<ul>
+<li><a href="https://github.com/engineerjoe440/ElectricPy"><code>ElectricPy</code></a> -- I'm the Primary maintainer for this one, after all, I was the original author.</li>
+<li><a href="https://github.com/engineerjoe440/pycev"><code>PyCEV</code></a> -- Again... Primary maintainer.</li>
+<li><a href="https://github.com/engineerjoe440/python-comtrade"><code>Python-COMTRADE</code></a> -- Ok... so this is my fork of the original project. I'm not <em>quite</em> that clever to put this one together by myself.</li>
+<li><a href="https://github.com/engineerjoe440/selprotopy"><code>SELProtoPy</code></a> -- Sole Maintainer.</li>
+<li><a href="https://github.com/engineerjoe440/schemdraw-markdown"><code>Schemdraw-Markdown</code></a> -- Sole Maintainer.</li>
+</ul>
+<p>Still, even <em>questionable</em> maintainers, such as myself, can exercise some good practices when it comes to package management.</p>
+<h2>What is <code>pyproject.toml</code> and why do we care?</h2>
+<p>Good question.</p>
+<p>It's one that lots of people have asked. So... I've put together a list of quick "finds" when I searched for <em>"why to move from setup.py to pyproject.toml"</em> on Google.</p>
+<ul>
+<li>http://ivory.idyll.org/blog/2021-transition-to-pyproject.toml-example.html</li>
+<li>https://stackoverflow.com/questions/72352801/migration-from-setup-py-to-pyproject-toml-how-to-specify-package-name</li>
+<li>https://ianhopkinson.org.uk/2022/02/understanding-setup-py-setup-cfg-and-pyproject-toml-in-python/</li>
+<li>https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html</li>
+</ul>
+<p>There's plenty of other well-informed articles out there; I just picked the first couple. I'll rehash, though for what its worth.</p>
+<p>The <code>setup.py</code> file is much what it sounds like. It's an executable Python file which is largely responsible for demarking the particular packaging parameters needed
+for a Python project. Nothing too crazy about it, but as the industry has grown, it's become increasingly clear that having a package's installation managed in an
+executable script is less than ideal.</p>
+<p>Along came <code>pyproject.toml</code>. Offering all the same great flavors that <code>setup.py</code> brought to the table, with half the fat and fewer calories... I mean, without the
+need for any executable scripts being run during installation. Bingo!</p>
+<h2>What's so special about packaging single-file Python projects?</h2>
+<p>Well, let's look at a common Python package layout:</p>
+<div class="highlight"><pre><span></span><code>|- my_package/
+|  |- __init__.py
+|  |- some_other_file.py
+|
+|- pyproject.toml
+|- setup.py
+</code></pre></div>
+
+<p>See that in this case, the "package" is all contained under the <code>my_package/</code> folder, which contains the appropriate <code>__init__.py</code> necessary to make the folder work
+as a true Python package.</p>
+<p>I want to do something a little <em>different</em> though. I mean, let's be honest; is it really all that surprising that I, <em>Joe Stanley</em> want to do things <em>differently</em>?</p>
+<blockquote>
+<p>Nope.</p>
+</blockquote>
+<hr>
+<p>I want a flat package like the one shown below. A package that only contains a single Python file, because that's all that it needs. No extra bloatware!</p>
+<div class="highlight"><pre><span></span><code>|- my_package.py
+|- pyproject.toml
+|- setup.py
+</code></pre></div>
+
+<blockquote>
+<p>But... How do I do that?</p>
+</blockquote>
+<h2>Making <code>pyproject.toml</code> do my bidding...</h2>
+<p>So... after a bit of research on <a href="https://flit.pypa.io/en/stable/pyproject_toml.html?highlight=tool.flit.module#module-section"><code>flit</code>'s documentation</a>, and
+found a nice, concise way of declaring the particular module that's available in the package. See the example below from
+<a href="https://github.com/engineerjoe440/python-comtrade/blob/master/pyproject.toml">my fork of <code>python-comtrade</code></a></p>
+<div class="highlight"><pre><span></span><code><span class="k">[build-system]</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;flit_core &gt;=3.2,&lt;4&quot;</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;flit_core.buildapi&quot;</span>
+
+<span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;python-comtrade&quot;</span>
+<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;David Parrini&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Joe Stanley&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;engineerjoe440@yahoo.com&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="n">maintainers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Joe Stanley&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;engineerjoe440@yahoo.com&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;A Python 3 module designed to read Common Format for Transient Data Exchange (COMTRADE) files.&quot;</span>
+<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;README.md&quot;</span>
+<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LICENSE&quot;</span><span class="p">}</span>
+<span class="n">classifiers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s">&quot;License :: OSI Approved :: MIT License&quot;</span>
+<span class="p">]</span>
+<span class="n">dynamic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;version&quot;</span><span class="p">]</span>
+
+<span class="k">[project.urls]</span>
+<span class="n">Home</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/engineerjoe440/python-comtrade&quot;</span>
+
+<span class="c1"># Here&#39;s where the magic happens....</span>
+<span class="k">[tool.flit.module]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;comtrade&quot;</span>
+</code></pre></div>
+
+<p>And just like that... This package is ready to publish just the one little-ol'-Python-file without any heartache.</p>
+    </div>
+  </article>
+<script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>

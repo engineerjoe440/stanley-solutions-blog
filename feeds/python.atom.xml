@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2023-01-15T13:52:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Python, Pianobar, and MQTT?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/python-pianobar-and-mqtt.html" rel="alternate"></link><published>2023-01-15T13:52:00-08:00</published><updated>2023-01-15T13:52:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-15:/stanley-solutions-blog/python-pianobar-and-mqtt.html</id><summary type="html">&lt;p&gt;We know that I'm something of an audio buff. I love having music around me all the time. But isn't that becoming more of a staple in the American home, anyway? I certainly think so. There's lots of folks who are also listening to music all the time. I have my own personal preferences, though. (Shocker, I know.) The thing is, I want my audio system to tie nicely into my home. I want play/pause buttons scattered around, and well... I've got more demands.&lt;/p&gt;</summary><content type="html">&lt;blockquote&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2023-01-16T09:50:00-08:00</updated><subtitle>Engineering and creativity - all under one hat.</subtitle><entry><title>Packaging Single File Python Projects</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/packaging-single-file-python-projects.html" rel="alternate"></link><published>2023-01-16T09:50:00-08:00</published><updated>2023-01-16T09:50:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-16:/stanley-solutions-blog/packaging-single-file-python-projects.html</id><summary type="html">&lt;p&gt;Somehow, I've managed to build quite a few random Python package, and contribute to others. I've recently been working towards converting all of the Python projects I manage to the new pyproject.toml standards for packaging, and I've recently had to work through an interesting little challenge for some of the projects which only contain a sigle Python file. No module folder, no &lt;code&gt;__init__.py&lt;/code&gt;. Just a single file.&lt;/p&gt;</summary><content type="html">&lt;p&gt;So... I somehow seem to have become a maintainer for a number of projects. I don't claim to be a &lt;em&gt;good&lt;/em&gt; maintainer. Just that I am a maintainer. After all,
+I'm involved, in one way, or another with each of the following projects.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/engineerjoe440/ElectricPy"&gt;&lt;code&gt;ElectricPy&lt;/code&gt;&lt;/a&gt; -- I'm the Primary maintainer for this one, after all, I was the original author.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/engineerjoe440/pycev"&gt;&lt;code&gt;PyCEV&lt;/code&gt;&lt;/a&gt; -- Again... Primary maintainer.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/engineerjoe440/python-comtrade"&gt;&lt;code&gt;Python-COMTRADE&lt;/code&gt;&lt;/a&gt; -- Ok... so this is my fork of the original project. I'm not &lt;em&gt;quite&lt;/em&gt; that clever to put this one together by myself.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/engineerjoe440/selprotopy"&gt;&lt;code&gt;SELProtoPy&lt;/code&gt;&lt;/a&gt; -- Sole Maintainer.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/engineerjoe440/schemdraw-markdown"&gt;&lt;code&gt;Schemdraw-Markdown&lt;/code&gt;&lt;/a&gt; -- Sole Maintainer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Still, even &lt;em&gt;questionable&lt;/em&gt; maintainers, such as myself, can exercise some good practices when it comes to package management.&lt;/p&gt;
+&lt;h2&gt;What is &lt;code&gt;pyproject.toml&lt;/code&gt; and why do we care?&lt;/h2&gt;
+&lt;p&gt;Good question.&lt;/p&gt;
+&lt;p&gt;It's one that lots of people have asked. So... I've put together a list of quick "finds" when I searched for &lt;em&gt;"why to move from setup.py to pyproject.toml"&lt;/em&gt; on Google.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;http://ivory.idyll.org/blog/2021-transition-to-pyproject.toml-example.html&lt;/li&gt;
+&lt;li&gt;https://stackoverflow.com/questions/72352801/migration-from-setup-py-to-pyproject-toml-how-to-specify-package-name&lt;/li&gt;
+&lt;li&gt;https://ianhopkinson.org.uk/2022/02/understanding-setup-py-setup-cfg-and-pyproject-toml-in-python/&lt;/li&gt;
+&lt;li&gt;https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There's plenty of other well-informed articles out there; I just picked the first couple. I'll rehash, though for what its worth.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;setup.py&lt;/code&gt; file is much what it sounds like. It's an executable Python file which is largely responsible for demarking the particular packaging parameters needed
+for a Python project. Nothing too crazy about it, but as the industry has grown, it's become increasingly clear that having a package's installation managed in an
+executable script is less than ideal.&lt;/p&gt;
+&lt;p&gt;Along came &lt;code&gt;pyproject.toml&lt;/code&gt;. Offering all the same great flavors that &lt;code&gt;setup.py&lt;/code&gt; brought to the table, with half the fat and fewer calories... I mean, without the
+need for any executable scripts being run during installation. Bingo!&lt;/p&gt;
+&lt;h2&gt;What's so special about packaging single-file Python projects?&lt;/h2&gt;
+&lt;p&gt;Well, let's look at a common Python package layout:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;|- my_package/
+|  |- __init__.py
+|  |- some_other_file.py
+|
+|- pyproject.toml
+|- setup.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;See that in this case, the "package" is all contained under the &lt;code&gt;my_package/&lt;/code&gt; folder, which contains the appropriate &lt;code&gt;__init__.py&lt;/code&gt; necessary to make the folder work
+as a true Python package.&lt;/p&gt;
+&lt;p&gt;I want to do something a little &lt;em&gt;different&lt;/em&gt; though. I mean, let's be honest; is it really all that surprising that I, &lt;em&gt;Joe Stanley&lt;/em&gt; want to do things &lt;em&gt;differently&lt;/em&gt;?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nope.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;I want a flat package like the one shown below. A package that only contains a single Python file, because that's all that it needs. No extra bloatware!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;|- my_package.py
+|- pyproject.toml
+|- setup.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;But... How do I do that?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Making &lt;code&gt;pyproject.toml&lt;/code&gt; do my bidding...&lt;/h2&gt;
+&lt;p&gt;So... after a bit of research on &lt;a href="https://flit.pypa.io/en/stable/pyproject_toml.html?highlight=tool.flit.module#module-section"&gt;&lt;code&gt;flit&lt;/code&gt;'s documentation&lt;/a&gt;, and
+found a nice, concise way of declaring the particular module that's available in the package. See the example below from
+&lt;a href="https://github.com/engineerjoe440/python-comtrade/blob/master/pyproject.toml"&gt;my fork of &lt;code&gt;python-comtrade&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[build-system]&lt;/span&gt;
+&lt;span class="n"&gt;requires&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;flit_core &amp;gt;=3.2,&amp;lt;4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;build-backend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;flit_core.buildapi&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;[project]&lt;/span&gt;
+&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;python-comtrade&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;authors&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;David Parrini&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Joe Stanley&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;engineerjoe440@yahoo.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;maintainers&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Joe Stanley&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;engineerjoe440@yahoo.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;A Python 3 module designed to read Common Format for Transient Data Exchange (COMTRADE) files.&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;readme&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;README.md&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;license&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;LICENSE&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;classifiers&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;License :: OSI Approved :: MIT License&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;dynamic&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;version&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;[project.urls]&lt;/span&gt;
+&lt;span class="n"&gt;Home&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://github.com/engineerjoe440/python-comtrade&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Here&amp;#39;s where the magic happens....&lt;/span&gt;
+&lt;span class="k"&gt;[tool.flit.module]&lt;/span&gt;
+&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;comtrade&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And just like that... This package is ready to publish just the one little-ol'-Python-file without any heartache.&lt;/p&gt;</content><category term="Python"></category><category term="python"></category><category term="packaging"></category><category term="pyproject.toml"></category><category term="pypi"></category><category term="development"></category><category term="build"></category></entry><entry><title>Python, Pianobar, and MQTT?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/python-pianobar-and-mqtt.html" rel="alternate"></link><published>2023-01-15T13:52:00-08:00</published><updated>2023-01-15T13:52:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-01-15:/stanley-solutions-blog/python-pianobar-and-mqtt.html</id><summary type="html">&lt;p&gt;We know that I'm something of an audio buff. I love having music around me all the time. But isn't that becoming more of a staple in the American home, anyway? I certainly think so. There's lots of folks who are also listening to music all the time. I have my own personal preferences, though. (Shocker, I know.) The thing is, I want my audio system to tie nicely into my home. I want play/pause buttons scattered around, and well... I've got more demands.&lt;/p&gt;</summary><content type="html">&lt;blockquote&gt;
 &lt;p&gt;Joe? Have Demands?&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Psh! I know... Right? It's surprising... &lt;strong&gt;&lt;em&gt;NOT&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
