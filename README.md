@@ -15,6 +15,7 @@ https://engineerjoe440.github.io/stanley-solutions-blog/
 This blog is just a plain-and-simple static-site. It's built using some of the following technologies:
 
 * [Pelican](https://getpelican.com/)
+* [Pelican-Alchemy](https://github.com/nairobilug/pelican-alchemy)
 * [Pelican Render-Math](https://github.com/pelican-plugins/render-math)
 * [Pelican Photos](https://github.com/pelican-plugins/photos)
 * [Pelican Sitemap](https://github.com/pelican-plugins/sitemap)

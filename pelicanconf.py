@@ -102,6 +102,9 @@ AUTHOR_FEED_RSS = None
 # Blogroll
 LINKS = (
     ('Stanley Solutions Website', 'https://stanleysolutionsnw.com'),
+    ('GitHub', 'https://github.com/engineerjoe440/'),
+    ('GitLab', 'https://gitlab.stanleysolutionsnw.com/engineerjoe440'),
+    ('Gitea', 'https://gitea.stanleysolutionsnw.com/engineerjoe440'),
     ('ElectricPy', 'https://electricpy.readthedocs.io/en/latest/'),
     ('SELProtoPy', 'https://engineerjoe440.github.io/selprotopy'),
     ('PyCEV', 'https://engineerjoe440.github.io/pycev'),
@@ -111,11 +114,13 @@ LINKS = (
     ('RSS Feed', 'feeds/all.rss.xml'),
 )
 
-# Social widget
-SOCIAL = (
-    ('GitHub', 'https://github.com/engineerjoe440/'),
-    ('GitLab', 'https://gitlab.stanleysolutionsnw.com/engineerjoe440'),
-    ('Gitea', 'https://gitea.stanleysolutionsnw.com/engineerjoe440'),
+# Icons
+ICONS = (
+    ('github', 'https://github.com/engineerjoe440/'),
+    ('gitlab', 'https://gitlab.stanleysolutionsnw.com/engineerjoe440'),
+    ('mug-tea', 'https://gitea.stanleysolutionsnw.com/engineerjoe440'),
+    ('calendar-days', 'https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles'),
+    ('rss', 'feeds/all.rss.xml'),
 )
 
 DEFAULT_PAGINATION = 10
