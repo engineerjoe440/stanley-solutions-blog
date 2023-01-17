@@ -111,10 +111,11 @@ LINKS = (
 
 # Icons
 ICONS = (
+    ('fa fa-comments-o', 'https://matrix.to/#/@engineerjoe440:stanleysolutionsnw.com'),
     ('github', 'https://github.com/engineerjoe440/'),
     ('gitlab', 'https://gitlab.stanleysolutionsnw.com/engineerjoe440'),
-    ('coffee', 'https://gitea.stanleysolutionsnw.com/engineerjoe440'),
-    ('calendar', 'https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles'),
+    ('fa fa-coffee', 'https://gitea.stanleysolutionsnw.com/engineerjoe440'),
+    ('fa fa-calendar', 'https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles'),
     ('rss', 'feeds/all.rss.xml'),
 )
 
