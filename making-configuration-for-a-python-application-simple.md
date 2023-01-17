@@ -1,6 +1,6 @@
 Title: Making Configuration for a Python Application Simple!
-Date: 2023-01-15 14:23
-Modified: 2023-01-15 14:23
+Date: 2023-01-17 14:23
+Modified: 2023-01-17 14:23
 Tags: Python, Toml, Configuration, Development, Environment-Variables, Dot-Files
 Category: Python
 Slug: making-configuration-for-a-python-application-simple
@@ -120,6 +120,124 @@ class ExampleConfiguration(BaseConfig):
         )
         # Another Section of Settings
         self._config.add_section('Clients').set(
-            clients=list(os.getenv("CLIENTS", ""))
+            clients=os.getenv("CLIENTS", "").split(',')
         )
+        # Populate the Class Variables
+        self._do_load()
 ```
+
+There's a lot to that sample of code, so let me break it down a bit.
+
+### Monkey-Patch an Update Method into the `Config` Class
+
+Alright, so this isn't *entirely* necessary, but I find it to be extremely useful. Furthermore, it isn't entirely necessary to add the monkey-patch
+because I've [successfully merged a pull-request](https://github.com/SemenovAV/toml_config/pull/1) into the `toml_config` project that provides this
+same functionality, directly. That means that it's not entirely necessary to use this monkey-patch, yourself.
+
+```python
+# Inject helper method to simplify modifying values on the fly.
+def update(self: Config, key_name: str, value: str):
+    """Update the Specified Key Name - Section Independent."""
+    for section, data in self.config.items():
+        if key_name in list(data.keys()):
+            self.get_section(section)
+            self.set(**{key_name: value})
+Config.update = update
+```
+
+What this really does for us, is it provides a convenient mechanism to update values in the config on-the-fly and with relative ease. What's more,
+is that it allows us to do a little magic of our own to make attributes a bit more *magic*.
+
+### Making Configuration Attributes *MAGIC*
+
+I'm using this pattern with some high-school students, so I really wanted to impress upon them just how "magic" and easy some things can be in a
+solid, modern language like Python. So, I spent some time figuring out how I could make it such that the configuration class would support some
+intelligent attribute updates, and save the configuration file when the attributes are applied. To make that happen, and to make it possible to
+build upon the framework extensibly, I built a base class.
+
+```python
+class BaseConfig(object):
+    """Base Configuration Object: Used for Inheritance for Additional Config."""
+    _config: Config
+
+    @property
+    def config(self):
+        """Return the Full Configuration."""
+        return self._config.config
+
+    # THIS IS THE IMPORTANT PART, RIGHT HERE!!!
+    def __setattr__(self, name: str, value: Any) -> None:
+        """Magic Attribute Setter: Update the Config Object at the Same Time."""
+        self.__dict__[name] = value
+        self._config.update(name, value)
+
+    def _do_load(self):
+        # Load Class Attributes
+        for _, data in self._config.config.items():
+            for key, value in data.items():
+                self.__dict__[key] = value
+```
+
+The real magic here comes from the use of the Python *magic-method*: `__setattr__`. This method is called when an attribute is modified, and
+allows me to do some fun things. Namely when I update a configuration value such as:
+
+```python
+>>> my_config = ExampleConfiguration("path/to/config.toml")
+>>> my_config.port
+8080
+>>> my_config.port = 5050 # This will change the value, and modify the config file
+>>> my_config.port
+5050
+```
+
+The configuration will magically apply the change *and* update the configuration file, just to make sure everything's set!
+
+> Marvelous!
+
+### Pre-Loading the Data
+
+Like I mentioned earlier, I want this thing to be somewhat intelligent, allowing me to set environment variables that can pre-load data for me so
+that I don't have to deal with constructing the original TOML file, if I don't want to. And let's be honest. I'm lazy, I don't want to.
+But setting this up is easy. I just use `os.getenv` to retrieve the necessary values, and use those as defaults for the config file!
+
+```python
+class ExampleConfiguration(BaseConfig):
+    """
+    An Example Configuration to Demonstrate the TOML Config Paradigm.
+    """
+    # Generic Web-Server Parameters
+    host: str
+    port: int
+    # Another Section
+    clients: List[str]
+
+    def __init__(self, config_path: str):
+        """Construct the Demonstration Configuration."""
+        pathlib.Path(config_path).parent.mkdir(parents=True, exist_ok=True)
+        self._config = Config(config_path)
+        # Generic Web-Server Settings
+        self._config.add_section('WebApp').set(
+            host=os.getenv("WEB_HOST", "127.0.0.1"),
+            port=int(os.getenv("WEB_PORT", "8080")),
+        )
+        # Another Section of Settings
+        self._config.add_section('Clients').set(
+            clients=os.getenv("CLIENTS", "").split(',')
+        )
+        # Populate the Class Variables
+        self._do_load()
+```
+
+See in that little snippet, I use `Config`'s system of adding sections with their respective names, then I set the data for each of the fields
+contained within each section. Namely, here there's two sections: `WebApp` and `Clients`. For each value in those sections, I use `os.getenv`
+to pull in the appropriate initialization value, or fall back to a default if no such environment variable exists.
+
+## Closing Thoughts
+
+I think this is a pretty simple, and convenient code-pattern to support configuration from environment variables and from TOML, while at the
+same time, providing a convenient update mechanism. This isn't as secure, or as robust as something with a database might be. After all, it's
+entirely possible for on-disk-data to be corrupted because of improper shutdown during the data write; however unlikely that may be.
+
+Either way, it's simple, convenient, and I enjoy it!
+
+Happy coding!
