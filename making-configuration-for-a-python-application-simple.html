@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Making Configuration for a Python Application Simple! | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/making-configuration-for-a-python-application-simple.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+  <meta name="description" content="If you're a nerd like me, you can probably think of your favorite self-hosted application right now. Better yet, you can probably think of all the reasons you love it. You know, one of the staples of a great self-hosted application is its ability to make the configuration your own and do so easily! I've been working on a number of little applications lately and they all need configuration, so I've started setting this up with the help of Python and TOML!">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">engineering and creativity - all under one hat</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/krnc/usb-manager" target="_blank">KRNC Barn Manager</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/schemdraw-markdown" target="_blank">Schemdraw-Markdown</a></li>
+            <li class=" list-inline-item text-muted">|</li>
+          <li class="list-inline-item"><a class="fas fa-comments" href="https://matrix.to/#/@engineerjoe440:stanleysolutionsnw.com" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-github" href="https://github.com/engineerjoe440/" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-gitlab" href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-coffee" href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-rss" href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank"></a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Making Configuration for a Python Application Simple!
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2023-01-17T14:23:00-08:00">
+          <i class="fas fa-clock"></i>
+          Tue 17 January 2023
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/toml.html">#Toml</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/configuration.html">#Configuration</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/development.html">#Development</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/environment-variables.html">#Environment-Variables</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/dot-files.html">#Dot-Files</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>If you know me, you'll know that I often have <em>way too many projects</em> all in process <em>at the same dang time</em>.</p>
+<blockquote>
+<p>So proud. So proud...</p>
+</blockquote>
+<p>Well, as a result of this, lately, I've been able to capitalize on some common work. Primarily surrounding the configuration management for these apps.
+Configuration is a bit of a tricky subject, sometimes. Because often-times, it depends greatly on how the application will be hosted, how the configuration
+should be set-up. But also, different dev-ops folks will like different mechanisms to apply their config. After all, some folks like using nothing more than
+environment variables for EVERYTHING. This makes configuring an app with tools like <a href="https://docs.docker.com/get-started/08_using_compose/"><code>docker-compose</code></a>
+a cinch. However, there are others who would rather set up their configuration with the file, itself. Thus, marrying the options can be a bit challenging at times.</p>
+<p>I've recently come into the awareness of the Python package <a href="https://pypi.org/project/toml-config/"><code>toml-config</code></a>. This simple little package wraps other
+Python libraries to support using TOML as the basis of configuration files.</p>
+<h2>What is TOML, anyway?</h2>
+<p>Well, if you'd like to go read for yourself, you can visit <a href="https://toml.io/en/">the TOML website</a>. But here's a simple example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># This is a TOML document</span>
+
+<span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;TOML Example&quot;</span>
+
+<span class="k">[owner]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Tom Preston-Werner&quot;</span>
+<span class="n">dob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1979-05-27T07:32:00-08:00</span>
+
+<span class="k">[database]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">ports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span><span class="w"> </span><span class="mi">8001</span><span class="p">,</span><span class="w"> </span><span class="mi">8002</span><span class="w"> </span><span class="p">]</span>
+<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;delta&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phi&quot;</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">3.14</span><span class="p">]</span><span class="w"> </span><span class="p">]</span>
+<span class="n">temp_targets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">79.5</span><span class="p">,</span><span class="w"> </span><span class="n">case</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">72.0</span><span class="w"> </span><span class="p">}</span>
+
+<span class="k">[servers]</span>
+
+<span class="k">[servers.alpha]</span>
+<span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10.0.0.1&quot;</span>
+<span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;frontend&quot;</span>
+
+<span class="k">[servers.beta]</span>
+<span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10.0.0.2&quot;</span>
+<span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;backend&quot;</span>
+</code></pre></div>
+
+<p>TOML is the basis for the modern Python packaging standard providing <code>pyproject.toml</code> files in place of the executable <code>setup.py</code>. That's another
+conversation, for a different day, perhaps I'll dive into that sometime soon.</p>
+<p>Anyway, TOML is a nice, concise way of describing settings and configuration options in an easily readable format. I'm a big fan of JSON as a general
+rule, but TOML makes configuration pretty easy to get started with.</p>
+<h2>How do I connect TOML and Environment Variables Easily?</h2>
+<p>Well, with that slick little tool, <code>toml-config</code>, I've been able to create a really nice little framework.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">from</span> <span class="nn">toml_config.core</span> <span class="kn">import</span> <span class="n">Config</span>
+
+
+<span class="c1"># Inject helper method to simplify modifying values on the fly.</span>
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Config</span><span class="p">,</span> <span class="n">key_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Update the Specified Key Name - Section Independent.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">section</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key_name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="n">key_name</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+<span class="n">Config</span><span class="o">.</span><span class="n">update</span> <span class="o">=</span> <span class="n">update</span>
+
+
+
+<span class="k">class</span> <span class="nc">BaseConfig</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base Configuration Object: Used for Inheritance for Additional Config.&quot;&quot;&quot;</span>
+    <span class="n">_config</span><span class="p">:</span> <span class="n">Config</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the Full Configuration.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">config</span>
+
+    <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Magic Attribute Setter: Update the Config Object at the Same Time.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_do_load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Load Class Attributes</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+
+<span class="k">class</span> <span class="nc">ExampleConfiguration</span><span class="p">(</span><span class="n">BaseConfig</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An Example Configuration to Demonstrate the TOML Config Paradigm.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Generic Web-Server Parameters</span>
+    <span class="n">host</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">port</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="c1"># Another Section</span>
+    <span class="n">clients</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct the Demonstration Configuration.&quot;&quot;&quot;</span>
+        <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">config_path</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">config_path</span><span class="p">)</span>
+        <span class="c1"># Generic Web-Server Settings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s1">&#39;WebApp&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+            <span class="n">host</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;WEB_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">),</span>
+            <span class="n">port</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;WEB_PORT&quot;</span><span class="p">,</span> <span class="s2">&quot;8080&quot;</span><span class="p">)),</span>
+        <span class="p">)</span>
+        <span class="c1"># Another Section of Settings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s1">&#39;Clients&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+            <span class="n">clients</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;CLIENTS&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="c1"># Populate the Class Variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_do_load</span><span class="p">()</span>
+</code></pre></div>
+
+<p>There's a lot to that sample of code, so let me break it down a bit.</p>
+<h3>Monkey-Patch an Update Method into the <code>Config</code> Class</h3>
+<p>Alright, so this isn't <em>entirely</em> necessary, but I find it to be extremely useful. Furthermore, it isn't entirely necessary to add the monkey-patch
+because I've <a href="https://github.com/SemenovAV/toml_config/pull/1">successfully merged a pull-request</a> into the <code>toml_config</code> project that provides this
+same functionality, directly. That means that it's not entirely necessary to use this monkey-patch, yourself.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Inject helper method to simplify modifying values on the fly.</span>
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Config</span><span class="p">,</span> <span class="n">key_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Update the Specified Key Name - Section Independent.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">section</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key_name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="n">key_name</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+<span class="n">Config</span><span class="o">.</span><span class="n">update</span> <span class="o">=</span> <span class="n">update</span>
+</code></pre></div>
+
+<p>What this really does for us, is it provides a convenient mechanism to update values in the config on-the-fly and with relative ease. What's more,
+is that it allows us to do a little magic of our own to make attributes a bit more <em>magic</em>.</p>
+<h3>Making Configuration Attributes <em>MAGIC</em></h3>
+<p>I'm using this pattern with some high-school students, so I really wanted to impress upon them just how "magic" and easy some things can be in a
+solid, modern language like Python. So, I spent some time figuring out how I could make it such that the configuration class would support some
+intelligent attribute updates, and save the configuration file when the attributes are applied. To make that happen, and to make it possible to
+build upon the framework extensibly, I built a base class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BaseConfig</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base Configuration Object: Used for Inheritance for Additional Config.&quot;&quot;&quot;</span>
+    <span class="n">_config</span><span class="p">:</span> <span class="n">Config</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the Full Configuration.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">config</span>
+
+    <span class="c1"># THIS IS THE IMPORTANT PART, RIGHT HERE!!!</span>
+    <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Magic Attribute Setter: Update the Config Object at the Same Time.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_do_load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Load Class Attributes</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</code></pre></div>
+
+<p>The real magic here comes from the use of the Python <em>magic-method</em>: <code>__setattr__</code>. This method is called when an attribute is modified, and
+allows me to do some fun things. Namely when I update a configuration value such as:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">my_config</span> <span class="o">=</span> <span class="n">ExampleConfiguration</span><span class="p">(</span><span class="s2">&quot;path/to/config.toml&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_config</span><span class="o">.</span><span class="n">port</span>
+<span class="mi">8080</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_config</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">5050</span> <span class="c1"># This will change the value, and modify the config file</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_config</span><span class="o">.</span><span class="n">port</span>
+<span class="mi">5050</span>
+</code></pre></div>
+
+<p>The configuration will magically apply the change <em>and</em> update the configuration file, just to make sure everything's set!</p>
+<blockquote>
+<p>Marvelous!</p>
+</blockquote>
+<h3>Pre-Loading the Data</h3>
+<p>Like I mentioned earlier, I want this thing to be somewhat intelligent, allowing me to set environment variables that can pre-load data for me so
+that I don't have to deal with constructing the original TOML file, if I don't want to. And let's be honest. I'm lazy, I don't want to.
+But setting this up is easy. I just use <code>os.getenv</code> to retrieve the necessary values, and use those as defaults for the config file!</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ExampleConfiguration</span><span class="p">(</span><span class="n">BaseConfig</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An Example Configuration to Demonstrate the TOML Config Paradigm.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Generic Web-Server Parameters</span>
+    <span class="n">host</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">port</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="c1"># Another Section</span>
+    <span class="n">clients</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct the Demonstration Configuration.&quot;&quot;&quot;</span>
+        <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">config_path</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">config_path</span><span class="p">)</span>
+        <span class="c1"># Generic Web-Server Settings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s1">&#39;WebApp&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+            <span class="n">host</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;WEB_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">),</span>
+            <span class="n">port</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;WEB_PORT&quot;</span><span class="p">,</span> <span class="s2">&quot;8080&quot;</span><span class="p">)),</span>
+        <span class="p">)</span>
+        <span class="c1"># Another Section of Settings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s1">&#39;Clients&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+            <span class="n">clients</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;CLIENTS&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="c1"># Populate the Class Variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_do_load</span><span class="p">()</span>
+</code></pre></div>
+
+<p>See in that little snippet, I use <code>Config</code>'s system of adding sections with their respective names, then I set the data for each of the fields
+contained within each section. Namely, here there's two sections: <code>WebApp</code> and <code>Clients</code>. For each value in those sections, I use <code>os.getenv</code>
+to pull in the appropriate initialization value, or fall back to a default if no such environment variable exists.</p>
+<h2>Closing Thoughts</h2>
+<p>I think this is a pretty simple, and convenient code-pattern to support configuration from environment variables and from TOML, while at the
+same time, providing a convenient update mechanism. This isn't as secure, or as robust as something with a database might be. After all, it's
+entirely possible for on-disk-data to be corrupted because of improper shutdown during the data write; however unlikely that may be.</p>
+<p>Either way, it's simple, convenient, and I enjoy it!</p>
+<p>Happy coding!</p>
+    </div>
+  </article>
+<!-- <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section> -->
+<script src="https://giscus.app/client.js"
+        data-repo="engineerjoe440/stanley-solutions-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyODk0MDQ2ODE="
+        data-category="Comments"
+        data-category-id="DIC_kwDOET_3Cc4CTonj"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
