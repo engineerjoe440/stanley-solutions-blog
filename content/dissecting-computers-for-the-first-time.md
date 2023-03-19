@@ -68,4 +68,5 @@ I'm hopeful that I'll be able to take the activity to other counties soon, and c
 
 ## See All the Pictures!
 
-Check out more on my Nextcloud instance: https://nextcloud.stanleysolutionsnw.com/s/otMmsgzgyGHAr9j?
+Check out more on my Nextcloud instance:
+***[https://nextcloud.stanleysolutionsnw.com/s/otMmsgzgyGHAr9j](https://nextcloud.stanleysolutionsnw.com/s/otMmsgzgyGHAr9j?)***
