@@ -6,7 +6,6 @@ Category: Youth
 Slug: dissecting-computers-for-the-first-time
 Authors: Joe Stanley
 Summary: Computers are so intricate, complex, and finely tuned that it can be scary for young folks to spend any significant time getting their hands on the hardware, and really exploring. What's more, it's not common for people to really understand what parts make up a computer, and how they can be used.
-Gallery: {photo}front-porch-celing
 
 I'm very happy that I've been able to participate in a new style of workshop with 4-H; dissecting computers -- tearing them apart and learning about
 what parts they consist of, how they're put together, and how they might be refurbished.
@@ -66,7 +65,6 @@ again if given the chance. We were able to identify some computer hardware that 
 recycling.
 
 I'm hopeful that I'll be able to take the activity to other counties soon, and continue to bring the event to others!
-
 
 ## See All the Pictures!
 
