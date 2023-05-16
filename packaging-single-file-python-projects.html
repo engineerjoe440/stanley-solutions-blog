@@ -111,12 +111,12 @@ executable script is less than ideal.</p>
 need for any executable scripts being run during installation. Bingo!</p>
 <h2>What's so special about packaging single-file Python projects?</h2>
 <p>Well, let's look at a common Python package layout:</p>
-<div class="highlight"><pre><span></span><code>|- my_package/
-|  |- __init__.py
-|  |- some_other_file.py
-|
-|- pyproject.toml
-|- setup.py
+<div class="highlight"><pre><span></span><code><span class="o">|-</span><span class="w"> </span><span class="nx">my_package</span><span class="o">/</span>
+<span class="o">|</span><span class="w">  </span><span class="o">|-</span><span class="w"> </span><span class="nx">__init__</span><span class="p">.</span><span class="nx">py</span>
+<span class="o">|</span><span class="w">  </span><span class="o">|-</span><span class="w"> </span><span class="nx">some_other_file</span><span class="p">.</span><span class="nx">py</span>
+<span class="o">|</span>
+<span class="o">|-</span><span class="w"> </span><span class="nx">pyproject</span><span class="p">.</span><span class="nx">toml</span>
+<span class="o">|-</span><span class="w"> </span><span class="nx">setup</span><span class="p">.</span><span class="nx">py</span>
 </code></pre></div>
 
 <p>See that in this case, the "package" is all contained under the <code>my_package/</code> folder, which contains the appropriate <code>__init__.py</code> necessary to make the folder work
@@ -127,9 +127,9 @@ as a true Python package.</p>
 </blockquote>
 <hr>
 <p>I want a flat package like the one shown below. A package that only contains a single Python file, because that's all that it needs. No extra bloatware!</p>
-<div class="highlight"><pre><span></span><code>|- my_package.py
-|- pyproject.toml
-|- setup.py
+<div class="highlight"><pre><span></span><code><span class="o">|-</span><span class="w"> </span><span class="nx">my_package</span><span class="p">.</span><span class="nx">py</span>
+<span class="o">|-</span><span class="w"> </span><span class="nx">pyproject</span><span class="p">.</span><span class="nx">toml</span>
+<span class="o">|-</span><span class="w"> </span><span class="nx">setup</span><span class="p">.</span><span class="nx">py</span>
 </code></pre></div>
 
 <blockquote>
