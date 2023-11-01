@@ -7,7 +7,7 @@ Slug: custom-lightning-on-demand
 Authors: Joe Stanley
 Summary: Clearly I haven't written in a while. I've been busy with all manner of projects, of late. However, since this will be mostly video and image posting, I thought it couldn't hurt to get a quick article up.
 
-<img src="blob:https://immich.stanleysolutionsnw.com/b90cbef2-f564-424e-9a13-87d40e611ced" style="width: 40%; margin: 10px;" alt="Stanley on Spruce" align="right">
+<img src="{attach}/images/IMG_2605.HEIC" style="width: 40%; margin: 10px;" alt="Stanley on Spruce" align="right">
 
 And yet another halloween has come...
 
@@ -19,7 +19,7 @@ Ah, but 'twas spooky!
 
 This year, I added a new Shelly control to be able to support Home-Assistant based control of my front porch lights. Notably, it's really only the ability to turn them on or off, not changing any of the special effects settings. If you want to see what that's all about, go [check out my article from last year](https://blog.stanleysolutionsnw.com/spooky-scary-porch-projects.html).
 
-<img src="blob:https://immich.stanleysolutionsnw.com/5c2e56c1-5ecb-47ee-83d2-6a8276d5179b" style="width: 20%; margin: 10px;" alt="Shelly Control" align="left">
+<img src="{attach}/images/IMG_2596.HEIC" style="width: 20%; margin: 10px;" alt="Shelly Control" align="left">
 
 Always fun, and now I think there's a few new tricks that I want to add to my bag.... Hmm... gonna have to start working on those soon.
 
