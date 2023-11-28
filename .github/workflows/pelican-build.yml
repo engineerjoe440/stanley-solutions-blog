@@ -23,12 +23,11 @@ jobs:
           wget https://files.stork-search.net/releases/v1.6.0/stork-ubuntu-20-04 -O stork
           chmod +x stork
           echo $(pwd) >> $GITHUB_PATH
-          echo $(pwd)
           pip install -r requirements.txt
       - name: Build Pelican Pages
         if: success()
         run: |
-          echo $PATH
+          echo "Working Directory: ${PATH}"
           pelican -s pelicanconf.py --fatal errors
 
       - name: Deploy
