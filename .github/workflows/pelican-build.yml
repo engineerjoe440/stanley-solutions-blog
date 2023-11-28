@@ -18,14 +18,11 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Collect Toolchain Requirments
+      - name: Install Dependencies
         run: |
           wget https://files.stork-search.net/releases/v1.6.0/stork-ubuntu-20-04
           chmod +x stork-ubuntu-20-04
-          echo "${pwd}"
-          echo "${pwd}" >> $GITHUB_PATH
-      - name: Install Dependencies
-        run: |
+          echo "$(pwd)" >> $GITHUB_PATH
           pip install -r requirements.txt
       - name: Build Pelican Pages
         if: success()
