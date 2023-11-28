@@ -99,27 +99,27 @@ Python libraries to support using TOML as the basis of configuration files.</p>
 <p>Well, if you'd like to go read for yourself, you can visit <a href="https://toml.io/en/">the TOML website</a>. But here's a simple example:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># This is a TOML document</span>
 
-<span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;TOML Example&quot;</span>
+<span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;TOML Example&quot;</span>
 
 <span class="k">[owner]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Tom Preston-Werner&quot;</span>
-<span class="n">dob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1979-05-27T07:32:00-08:00</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Tom Preston-Werner&quot;</span>
+<span class="n">dob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ld">1979-05-27T07:32:00-08:00</span>
 
 <span class="k">[database]</span>
 <span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="n">ports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span><span class="w"> </span><span class="mi">8001</span><span class="p">,</span><span class="w"> </span><span class="mi">8002</span><span class="w"> </span><span class="p">]</span>
-<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;delta&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phi&quot;</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">3.14</span><span class="p">]</span><span class="w"> </span><span class="p">]</span>
-<span class="n">temp_targets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">79.5</span><span class="p">,</span><span class="w"> </span><span class="n">case</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">72.0</span><span class="w"> </span><span class="p">}</span>
+<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;delta&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;phi&quot;</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">3.14</span><span class="p">]</span><span class="w"> </span><span class="p">]</span>
+<span class="n">temp_targets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cpu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">79.5</span><span class="p">,</span><span class="w"> </span><span class="n">case</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">72.0</span><span class="w"> </span><span class="p">}</span>
 
 <span class="k">[servers]</span>
 
 <span class="k">[servers.alpha]</span>
-<span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10.0.0.1&quot;</span>
-<span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;frontend&quot;</span>
+<span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.0.1&quot;</span>
+<span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;frontend&quot;</span>
 
 <span class="k">[servers.beta]</span>
-<span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10.0.0.2&quot;</span>
-<span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;backend&quot;</span>
+<span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.0.2&quot;</span>
+<span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;backend&quot;</span>
 </code></pre></div>
 
 <p>TOML is the basis for the modern Python packaging standard providing <code>pyproject.toml</code> files in place of the executable <code>setup.py</code>. That's another
