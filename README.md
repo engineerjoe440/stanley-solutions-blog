@@ -23,3 +23,4 @@ This blog is just a plain-and-simple static-site. It's built using some of the f
 * [Schemdraw](https://github.com/engineerjoe440/schemdraw-markdown)
 * [Github Actions](./.github/workflows/pelican-build.yml)
 * [Giscus](https://giscus.app/)
+* [Pelican Search](https://github.com/pelican-plugins/search)
