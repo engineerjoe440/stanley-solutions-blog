@@ -24,11 +24,11 @@ jobs:
           chmod +x stork-ubuntu-20-04
           echo $(pwd) >> $GITHUB_PATH
           echo $(pwd)
-          echo $PATH
           pip install -r requirements.txt
       - name: Build Pelican Pages
         if: success()
         run: |
+          echo $PATH
           pelican -s pelicanconf.py --fatal errors
 
       - name: Deploy
