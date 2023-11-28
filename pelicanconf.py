@@ -25,7 +25,7 @@ PLUGINS=[
     'render_math',
     'photos',
     'sitemap',
-    'search',
+    #'search',
 ]
 
 PHOTO_LIBRARY = os.path.join(os.getcwd(), "content", "images")
