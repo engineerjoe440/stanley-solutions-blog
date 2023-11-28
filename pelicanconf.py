@@ -62,6 +62,9 @@ SITEMAP = {
         "pages": "monthly"
     }
 }
+STORK_INPUT_OPTIONS = {
+    html_selector = "article.main"
+}
 
 PATH = 'content'
 STATIC_PATHS = [
