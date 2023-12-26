@@ -98,7 +98,7 @@ permit the construction of some form of server index, and live searching capabil
 <p>... wait ... that sounds kinda awful for somebody who's a Python fan through-and-through.</p>
 <p>Thank goodness there's some tools out there, already that make this all possible!</p>
 <hr>
-<p><img src="https://blog.stanleysolutionsnw.com/images/stanley-solutions-blog-search.png" style="width: 40%; margin: 10px;" alt="Behold! Search..." align="right"></p>
+<p><img src="https://blog.stanleysolutionsnw.com/images/stanley-solutions-blog-search.png" style="width: 60%; margin: 10px;" alt="Behold! Search..." align="right"></p>
 <h2>Introducing: <a href="https://pypi.org/project/pelican-search/"><code>pelican-search</code></a></h2>
 <p>As the name implies, this Pelican plugin incorporates search capabilities into a Python <a href="https://getpelican.com/"><em>Pelican</em></a>-based system. Simply put,
 at the time of generation, the plugin indexes all of the content in the blog's many pages and puts together one big "cheat-sheet" from which a few Javascript
@@ -130,13 +130,18 @@ schemdraw-markdown
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/nairobilug/pelican-alchemy<span class="w"> </span>themes/pelican-alchemy
 </code></pre></div>
 
-<p>A little editing in my <code>pelicanconf.py</code> file, later, and I was now ready to use the submodule-style theme.</p>
+<p>A little editing in my <code>pelicanconf.py</code> file, later, and I was now ready to use the submodule-style theme. Oh! While I'm at it,
+I'll also call out the reference for the new CSS stylings I'll need to get the theme for Stork working, nicely.</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- import alchemy</span>
 <span class="gd">- THEME = alchemy.path()</span>
 <span class="gi">+ THEME = &#39;themes/pelican-alchemy/alchemy&#39;</span>
 THEME_TEMPLATES_OVERRIDES = [&#39;content/templates&#39;]
 BOOTSTRAP_CSS = &#39;https://bootswatch.com/4/darkly/bootstrap.css&#39;
 THEME_CSS_OVERRIDES = [
+<span class="w"> </span>   &#39;/custom.css&#39;,
+<span class="gi">+    &#39;https://files.stork-search.net/dark.css&#39;</span>
+]
+SITESUBTITLE = &#39;engineering and creativity - all under one hat&#39;
 </code></pre></div>
 
 <blockquote>
@@ -160,7 +165,7 @@ THEME_CSS_OVERRIDES = [
 <p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"><em>source</em></a></p>
 </blockquote>
 <p>Now... with the full source of <code>Python-Alchemy</code> in my repo, I got to some spelunking...</p>
-<p><img src="https://blog.stanleysolutionsnw.com/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Such beauty, such grace... it's commit doge!" align="left"></p>
+<p><img src="https://blog.stanleysolutionsnw.com/images/commit-doge-such-wow.png" style="width: 50%; margin: 10px;" alt="Such beauty, such grace... it's commit doge!" align="left"></p>
 <blockquote>
 <p>I've just got to stop and show you this. While I was poking around in there, I saw this commit message... Just look at this thing.</p>
 <p>Glorious.</p>
@@ -202,8 +207,42 @@ exact copy of the original Alchemy template, with the addition of the <code>main
 <blockquote>
 <p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/63aa1174389e90212a8fad25407fbdc769129a95#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"><em>source</em></a></p>
 </blockquote>
-<p>I decided to continue with my dark theme, opting to use the Dark theme <a href="https://stork-search.net/themes">provided for Stork</a>,
-which definitely looks clean on the site.</p>
+<p>I decided to continue with my dark theme, opting to use the Dark theme <a href="https://stork-search.net/themes">provided for Stork</a>, which
+definitely looks clean on the site. This just took me adding the following to a customized <code>content/templates/include/header.html</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>         &lt;li class=&quot;list-inline-item&quot;&gt;&lt;a class=&quot;{{ fa(icon) }}&quot; href=&quot;{{ url(link) }}&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+<span class="w"> </span>       {% endfor %}
+<span class="w"> </span>     &lt;/ul&gt;
+<span class="w"> </span>   {% endif %}
+<span class="gi">+    &lt;div class=&quot;stork-wrapper-dark&quot;&gt;</span>
+<span class="gi">+      &lt;input data-stork=&quot;sitesearch&quot; class=&quot;stork-input&quot; placeholder=&quot;search&quot;/&gt;</span>
+<span class="gi">+      &lt;div data-stork=&quot;sitesearch-output&quot; class=&quot;stork-output&quot;&gt;&lt;/div&gt;</span>
+<span class="gi">+    &lt;/div&gt;</span>
+<span class="gi">+    &lt;script&gt;</span>
+<span class="gi">+      stork.register(&quot;sitesearch&quot;, &quot;{{ SITEURL }}/search-index.st&quot;);</span>
+<span class="gi">+    &lt;/script&gt;</span>
+<span class="w"> </span> &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div>
+
+<blockquote>
+<p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/f718252d6c776d60a4206df595836bf3908424d2#diff-5d5d17acf95c9b8def158afca8c40d2c3c99f8df6d471c6605d81d4376ad8c5f"><em>source</em></a></p>
+</blockquote>
+<p>And a little bit to a customized <code>content/templates/base.html</code></p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> {% for stylesheet in THEME_CSS_OVERRIDES or () %}
+<span class="w"> </span> &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ url(stylesheet) }}&quot;&gt;
+<span class="w"> </span> {% endfor %}
+<span class="gi">+  &lt;script src=&quot;https://files.stork-search.net/releases/v1.6.0/stork.js&quot;&gt;&lt;/script&gt;</span>
+
+<span class="w"> </span> {% include &#39;include/xml_feeds.html&#39; %}
+<span class="w"> </span> {% block head %}{% endblock %}
+<span class="w"> </span> {% include &#39;include/analytics.html&#39; %}
+</code></pre></div>
+
+<blockquote>
+<p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/f718252d6c776d60a4206df595836bf3908424d2#diff-f52c71daaaacd19772a9f70cb8921269f9a68114b6a2c3d4f92f3a8ee320c473"><em>source</em></a></p>
+</blockquote>
+<hr>
+<p>Certainly a good number of changes for this, but really, it's not all that bad. And now, I've got search!</p>
       </div>
     </article>
   </main>
