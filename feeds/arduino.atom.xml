@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Arduino</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/arduino.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2021-12-07T22:08:00-08:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>A "Different" Way to Wrap Gifts</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/a-different-way-to-wrap-gifts.html" rel="alternate"></link><published>2021-12-07T22:08:00-08:00</published><updated>2021-12-07T22:08:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2021-12-07:/stanley-solutions-blog/a-different-way-to-wrap-gifts.html</id><summary type="html">&lt;p&gt;When it comes to wrapping Christmas gifts, I've used wrapping paper, tissue paper, even newspaper. This year, I'm going a little further up the chain though. I'm using wood!&lt;/p&gt;</summary><content type="html">&lt;h3&gt;What could possibly be more fun than ripping all that Christmas paper off on December 25th?&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Arduino</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"></link><link href="https://blog.stanleysolutionsnw.com/feeds/arduino.atom.xml" rel="self"></link><id>https://blog.stanleysolutionsnw.com/</id><updated>2021-12-07T22:08:00-08:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>A "Different" Way to Wrap Gifts</title><link href="https://blog.stanleysolutionsnw.com/a-different-way-to-wrap-gifts.html" rel="alternate"></link><published>2021-12-07T22:08:00-08:00</published><updated>2021-12-07T22:08:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2021-12-07:/a-different-way-to-wrap-gifts.html</id><summary type="html">&lt;p&gt;When it comes to wrapping Christmas gifts, I've used wrapping paper, tissue paper, even newspaper. This year, I'm going a little further up the chain though. I'm using wood!&lt;/p&gt;</summary><content type="html">&lt;h3&gt;What could possibly be more fun than ripping all that Christmas paper off on December 25th?&lt;/h3&gt;
 &lt;p&gt;Unlocking a box, of course!!!&lt;/p&gt;
 &lt;p&gt;I've always wanted to make one of those &lt;a href="https://www.youtube.com/watch?v=apVR5Htz0K4"&gt;useless box&lt;/a&gt;, but until I get off my laurels,
 I'll have to settle for something a little more practical. You see, I created a new "lock-box" as a Christmas gift.&lt;/p&gt;
 &lt;p&gt;Well, that might be a little misleading.&lt;/p&gt;
 &lt;p&gt;The box itself isn't the gift; but rather, what's inside! The box is just to make it a bit more fun, and so I guess that does end up
 being part of the gift, anyway.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/263718619_489805155698943_4659655016610554471_n.jpg" style="width: 75%" alt="Stanley Lock Box"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/263718619_489805155698943_4659655016610554471_n.jpg" style="width: 75%" alt="Stanley Lock Box"&gt;&lt;/p&gt;
 &lt;p&gt;A bit wild looking, don't you think? What's the point, anyway? Well, the box has two electronic locks that have to be bypassed before
 it will reveal its contents. Yep, you have to crack the code if you want in.&lt;/p&gt;
 &lt;p&gt;Right now, the two locks are just a combination of switches and a keypad. Set the switches in the right position, then punch in the
 correct code (which is stamped on the side of the box) and the box will magically unlock and allow you to open it!&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/263745955_409049780964805_407698870180682018_n.jpg" style="width: 50%" alt="Do Not Open Until December 25"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/263745955_409049780964805_407698870180682018_n.jpg" style="width: 50%" alt="Do Not Open Until December 25"&gt;&lt;/p&gt;
 &lt;p&gt;With only two locks, it won't be &lt;em&gt;that hard&lt;/em&gt; to unlock, but I have plans to expand it. You see, I intend to give these boxes out on the
 condition that they return to me. The boxes will remain "mine" for the purpose of being built up over the years. Next year, I'll add
 one or two more locks, and the year after I'll do the same; so on, and so on.&lt;/p&gt;
 &lt;p&gt;This ought to be a fun little tradition, and I'm hopeful that my victims... errm... recipients... will have a good time cracking the
 "code".&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://engineerjoe440.github.io/stanley-solutions-blog/263380603_595182361758282_4319520950240861117_n.jpg" style="width: 75%"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/263380603_595182361758282_4319520950240861117_n.jpg" style="width: 75%"&gt;&lt;/p&gt;
 &lt;p&gt;You know, it occurs to me that I haven't provided any of the fun details! This project is all powered off a 12V SLA (sealed-lead-acid)
 battery, and is run by the brains of an Arduino. The Arduino takes input from the little touch-pad, and signals to a BUZ11A transistor
 that switches the solenoid responsible for &lt;em&gt;actually locking&lt;/em&gt; the box.&lt;/p&gt;

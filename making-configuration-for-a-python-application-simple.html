@@ -8,21 +8,21 @@
 
   <title>  Making Configuration for a Python Application Simple! | Stanley Solutions Blog
 </title>
-  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/making-configuration-for-a-python-application-simple.html">
+  <link rel="canonical" href="https://blog.stanleysolutionsnw.com/making-configuration-for-a-python-application-simple.html">
 
 
   <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
-  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
-  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
-  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
-  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/theme.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/custom.css">
 
   <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
-        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+        href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml">
   <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
-        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
-        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
-        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/python.rss.xml">  
+        href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/python.rss.xml">  
   <meta name="description" content="If you're a nerd like me, you can probably think of your favorite self-hosted application right now. Better yet, you can probably think of all the reasons you love it. You know, one of the staples of a great self-hosted application is its ability to make the configuration your own and do so easily! I've been working on a number of little applications lately and they all need configuration, so I've started setting this up with the help of Python and TOML!">
 
 
@@ -33,12 +33,12 @@
     <div class="container">
 <div class="row">
     <div class="col-sm-4">
-      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
-        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      <a href="https://blog.stanleysolutionsnw.com/">
+        <img class="img-fluid rounded" src=https://blog.stanleysolutionsnw.com/logo.png alt="Stanley Solutions Blog">
       </a>
     </div>
   <div class="col-sm-8">
-    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+    <h1 class="title"><a href="https://blog.stanleysolutionsnw.com/">Stanley Solutions Blog</a></h1>
       <p class="text-muted">engineering and creativity - all under one hat</p>
       <ul class="list-inline">
           <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
@@ -53,7 +53,7 @@
           <li class="list-inline-item"><a class="fab fa-gitlab" href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
           <li class="list-inline-item"><a class="fas fa-coffee" href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
           <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
-          <li class="list-inline-item"><a class="fas fa-rss" href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-rss" href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml" target="_blank"></a></li>
       </ul>
   </div>
 </div>    </div>
@@ -64,27 +64,28 @@
       <h1>  Making Configuration for a Python Application Simple!
 </h1>
       <hr>
-  <article class="article">
-    <header>
-      <ul class="list-inline">
-        <li class="list-inline-item text-muted" title="2023-01-17T14:23:00-08:00">
-          <i class="fas fa-clock"></i>
-          Tue 17 January 2023
-        </li>
-        <li class="list-inline-item">
-          <i class="fas fa-folder-open"></i>
-          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/python.html">Python</a>
-        </li>
+  <main>
+    <article class="article">
+      <header>
+        <ul class="list-inline">
+          <li class="list-inline-item text-muted" title="2023-01-17T14:23:00-08:00">
+            <i class="fas fa-clock"></i>
+            Tue 17 January 2023
+          </li>
           <li class="list-inline-item">
-            <i class="fas fa-user"></i>
-              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
-          <li class="list-inline-item">
-            <i class="fas fa-tag"></i>
-              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/python.html">#Python</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/toml.html">#Toml</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/configuration.html">#Configuration</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/development.html">#Development</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/environment-variables.html">#Environment-Variables</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/dot-files.html">#Dot-Files</a>          </li>
-      </ul>
-    </header>
-    <div class="content">
-      <p>If you know me, you'll know that I often have <em>way too many projects</em> all in process <em>at the same dang time</em>.</p>
+            <i class="fas fa-folder-open"></i>
+            <a href="https://blog.stanleysolutionsnw.com/category/python.html">Python</a>
+          </li>
+            <li class="list-inline-item">
+              <i class="fas fa-user"></i>
+                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
+            <li class="list-inline-item">
+              <i class="fas fa-tag"></i>
+                <a href="https://blog.stanleysolutionsnw.com/tag/python.html">#Python</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/toml.html">#Toml</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/configuration.html">#Configuration</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/development.html">#Development</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/environment-variables.html">#Environment-Variables</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/dot-files.html">#Dot-Files</a>            </li>
+        </ul>
+      </header>
+      <div class="content">
+        <p>If you know me, you'll know that I often have <em>way too many projects</em> all in process <em>at the same dang time</em>.</p>
 <blockquote>
 <p>So proud. So proud...</p>
 </blockquote>
@@ -291,8 +292,9 @@ same time, providing a convenient update mechanism. This isn't as secure, or as 
 entirely possible for on-disk-data to be corrupted because of improper shutdown during the data write; however unlikely that may be.</p>
 <p>Either way, it's simple, convenient, and I enjoy it!</p>
 <p>Happy coding!</p>
-    </div>
-  </article>
+      </div>
+    </article>
+  </main>
 <!-- <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
 <section class="comments" id="comments">
     <h3 class="panel">Comments</h3>
@@ -319,10 +321,10 @@ entirely possible for on-disk-data to be corrupted because of improper shutdown 
     <div class="container">
 <div class="row">
   <ul class="col-sm-6 list-inline">
-      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
-    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
-    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
-      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/tags.html">Tags</a></li>
   </ul>
   <p class="col-sm-6 text-sm-right text-muted">
     Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>

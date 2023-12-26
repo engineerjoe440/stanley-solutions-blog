@@ -8,21 +8,21 @@
 
   <title>  Scraping the ISP Router to Support Self-Hosting | Stanley Solutions Blog
 </title>
-  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/scraping-the-isp-router-to-support-selfhosting.html">
+  <link rel="canonical" href="https://blog.stanleysolutionsnw.com/scraping-the-isp-router-to-support-selfhosting.html">
 
 
   <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
-  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
-  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
-  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
-  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/theme.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/custom.css">
 
   <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
-        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+        href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml">
   <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
-        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
-        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/self-hosting.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
-        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/self-hosting.rss.xml">  
+        href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/self-hosting.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/self-hosting.rss.xml">  
   <meta name="description" content="To host my home services, I need to be able to have a dynamic-DNS, and to do that, I've been using DuckDNS (a great service, by the way), but it's time that I start getting more serious, and remove theCNAME from my domain, and get something a little more proper. But... to do that, I'll need my public IP. Good thing my ISP-provided-router displays that on the front page! Now, it's time for just a little Python...">
 
 
@@ -33,12 +33,12 @@
     <div class="container">
 <div class="row">
     <div class="col-sm-4">
-      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
-        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      <a href="https://blog.stanleysolutionsnw.com/">
+        <img class="img-fluid rounded" src=https://blog.stanleysolutionsnw.com/logo.png alt="Stanley Solutions Blog">
       </a>
     </div>
   <div class="col-sm-8">
-    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+    <h1 class="title"><a href="https://blog.stanleysolutionsnw.com/">Stanley Solutions Blog</a></h1>
       <p class="text-muted">engineering and creativity - all under one hat</p>
       <ul class="list-inline">
           <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
@@ -53,7 +53,7 @@
           <li class="list-inline-item"><a class="fab fa-gitlab" href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
           <li class="list-inline-item"><a class="fas fa-coffee" href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
           <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
-          <li class="list-inline-item"><a class="fas fa-rss" href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-rss" href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml" target="_blank"></a></li>
       </ul>
   </div>
 </div>    </div>
@@ -64,27 +64,28 @@
       <h1>  Scraping the ISP Router to Support Self-Hosting
 </h1>
       <hr>
-  <article class="article">
-    <header>
-      <ul class="list-inline">
-        <li class="list-inline-item text-muted" title="2022-08-26T16:27:00-07:00">
-          <i class="fas fa-clock"></i>
-          Fri 26 August 2022
-        </li>
-        <li class="list-inline-item">
-          <i class="fas fa-folder-open"></i>
-          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/self-hosting.html">Self-Hosting</a>
-        </li>
+  <main>
+    <article class="article">
+      <header>
+        <ul class="list-inline">
+          <li class="list-inline-item text-muted" title="2022-08-26T16:27:00-07:00">
+            <i class="fas fa-clock"></i>
+            Fri 26 August 2022
+          </li>
           <li class="list-inline-item">
-            <i class="fas fa-user"></i>
-              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
-          <li class="list-inline-item">
-            <i class="fas fa-tag"></i>
-              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/self-hosting.html">#Self-Hosting</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/isp.html">#Isp</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/router.html">#Router</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/networks.html">#Networks</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/ethernet.html">#Ethernet</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/servers.html">#Servers</a>          </li>
-      </ul>
-    </header>
-    <div class="content">
-      <p>Routers have all kinds of "good stuff." A literal wealth of information, all we need is to tap that resource, right? That's just exactly what I'm working on.</p>
+            <i class="fas fa-folder-open"></i>
+            <a href="https://blog.stanleysolutionsnw.com/category/self-hosting.html">Self-Hosting</a>
+          </li>
+            <li class="list-inline-item">
+              <i class="fas fa-user"></i>
+                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
+            <li class="list-inline-item">
+              <i class="fas fa-tag"></i>
+                <a href="https://blog.stanleysolutionsnw.com/tag/self-hosting.html">#Self-Hosting</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/isp.html">#Isp</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/router.html">#Router</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/networks.html">#Networks</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/ethernet.html">#Ethernet</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/servers.html">#Servers</a>            </li>
+        </ul>
+      </header>
+      <div class="content">
+        <p>Routers have all kinds of "good stuff." A literal wealth of information, all we need is to tap that resource, right? That's just exactly what I'm working on.</p>
 <p>See, I've started working on <a href="https://github.com/engineerjoe440/ZiplyFrontierRouterStats">a project</a> to scrape all of those "goodies" from my Ziply (formerly
 Frontier) router. All the important, and relevant stuff is provided right there, in the front of the user-interface. My little project is pretty simple, I'll
 scrape all of the useful bits into a big dictionary, then getting any of that data is a cinch!</p>
@@ -104,8 +105,9 @@ want to see it for yourself, go check it out on <a href="https://github.com/engi
 bypass the reverse-DNS provided by DuckDNS (what I use right now), and let me get some better performance out of my system, as a whole! Namely,
 I'll be able to change the CNAME records out for something a little more reliable for my home-server needs!</p>
 <p>Leave a comment if you've got thoughts, questions, or just want to say hi!</p>
-    </div>
-  </article>
+      </div>
+    </article>
+  </main>
 <!-- <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
 <section class="comments" id="comments">
     <h3 class="panel">Comments</h3>
@@ -132,10 +134,10 @@ I'll be able to change the CNAME records out for something a little more reliabl
     <div class="container">
 <div class="row">
   <ul class="col-sm-6 list-inline">
-      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
-    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
-    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
-      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/tags.html">Tags</a></li>
   </ul>
   <p class="col-sm-6 text-sm-right text-muted">
     Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
