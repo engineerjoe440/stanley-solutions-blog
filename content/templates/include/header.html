@@ -45,12 +45,12 @@ fab fa-{{icon}}
         {% endfor %}
       </ul>
     {% endif %}
-    <script>
-      stork.register("sitesearch", "{{ SITEURL }}/search-index.st");
-    </script>
     <div class="stork-wrapper-dark">
       <input data-stork="sitesearch" class="stork-input" placeholder="search"/>
       <div data-stork="sitesearch-output" class="stork-output"></div>
     </div>
+    <script>
+      stork.register("sitesearch", "{{ SITEURL }}/search-index.st");
+    </script>
   </div>
 </div>

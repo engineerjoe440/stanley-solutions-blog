@@ -138,3 +138,6 @@ With those additions now in place, the changes I'd made *ages ago* to support us
 ```
 
 > [*source*](https://github.com/engineerjoe440/stanley-solutions-blog/commit/63aa1174389e90212a8fad25407fbdc769129a95#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49)
+
+I decided to continue with my dark theme, opting to use the Dark theme [provided for Stork](https://stork-search.net/themes),
+which definitely looks clean on the site.
