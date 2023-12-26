@@ -33,10 +33,7 @@
   {% for stylesheet in THEME_CSS_OVERRIDES or () %}
   <link rel="stylesheet" href="{{ url(stylesheet) }}">
   {% endfor %}
-  <script src="https://files.stork-search.net/releases/v1.5.0/stork.js"></script>
-  <script>
-      stork.register("sitesearch", "{{ SITEURL }}/search-index.st");
-  </script>
+  <script src="https://files.stork-search.net/releases/v1.6.0/stork.js"></script>
 
   {% include 'include/xml_feeds.html' %}
   {% block head %}{% endblock %}
@@ -57,6 +54,10 @@
       {% block content %}{% endblock %}
     </div>
   </div>
+
+  <script>
+    stork.register("sitesearch", "{{ SITEURL }}/search-index.st");
+  </script>
 
   <footer class="footer">
     <div class="container">
