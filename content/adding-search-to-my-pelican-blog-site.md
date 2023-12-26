@@ -20,7 +20,7 @@ Thank goodness there's some tools out there, already that make this all possible
 
 ---
 
-<img src="{attach}/images/stanley-solutions-blog-search.png" style="width: 40%; margin: 10px;" alt="Behold! Search..." align="right">
+<img src="{attach}/images/stanley-solutions-blog-search.png" style="width: 60%; margin: 10px;" alt="Behold! Search..." align="right">
 
 ## Introducing: [`pelican-search`](https://pypi.org/project/pelican-search/)
 
@@ -60,7 +60,8 @@ And in case you're wondering, I just needed to run the following command to add 
 git submodule add https://github.com/nairobilug/pelican-alchemy themes/pelican-alchemy
 ```
 
-A little editing in my `pelicanconf.py` file, later, and I was now ready to use the submodule-style theme.
+A little editing in my `pelicanconf.py` file, later, and I was now ready to use the submodule-style theme. Oh! While I'm at it,
+I'll also call out the reference for the new CSS stylings I'll need to get the theme for Stork working, nicely.
 
 ```diff
 - import alchemy
@@ -69,6 +70,10 @@ A little editing in my `pelicanconf.py` file, later, and I was now ready to use 
 THEME_TEMPLATES_OVERRIDES = ['content/templates']
 BOOTSTRAP_CSS = 'https://bootswatch.com/4/darkly/bootstrap.css'
 THEME_CSS_OVERRIDES = [
+    '/custom.css',
++    'https://files.stork-search.net/dark.css'
+]
+SITESUBTITLE = 'engineering and creativity - all under one hat'
 ```
 
 > [*source*](https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-d65cf0288f1d9a86915f40ad4e588bbbb59fd7b1f932ea9beaa39927e3bcf18c)
@@ -93,7 +98,7 @@ Oh! and don't forget that we need to use submodules when we do the checkout in G
 
 Now... with the full source of `Python-Alchemy` in my repo, I got to some spelunking...
 
-<img src="{attach}/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Such beauty, such grace... it's commit doge!" align="left">
+<img src="{attach}/images/commit-doge-such-wow.png" style="width: 50%; margin: 10px;" alt="Such beauty, such grace... it's commit doge!" align="left">
 
 > I've just got to stop and show you this. While I was poking around in there, I saw this commit message... Just look at this thing.
 >
@@ -139,5 +144,43 @@ With those additions now in place, the changes I'd made *ages ago* to support us
 
 > [*source*](https://github.com/engineerjoe440/stanley-solutions-blog/commit/63aa1174389e90212a8fad25407fbdc769129a95#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49)
 
-I decided to continue with my dark theme, opting to use the Dark theme [provided for Stork](https://stork-search.net/themes),
-which definitely looks clean on the site.
+I decided to continue with my dark theme, opting to use the Dark theme [provided for Stork](https://stork-search.net/themes), which
+definitely looks clean on the site. This just took me adding the following to a customized `content/templates/include/header.html` file:
+
+```diff
+          <li class="list-inline-item"><a class="{{ fa(icon) }}" href="{{ url(link) }}" target="_blank"></a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
++    <div class="stork-wrapper-dark">
++      <input data-stork="sitesearch" class="stork-input" placeholder="search"/>
++      <div data-stork="sitesearch-output" class="stork-output"></div>
++    </div>
++    <script>
++      stork.register("sitesearch", "{{ SITEURL }}/search-index.st");
++    </script>
+  </div>
+</div>
+
+```
+
+> [*source*](https://github.com/engineerjoe440/stanley-solutions-blog/commit/f718252d6c776d60a4206df595836bf3908424d2#diff-5d5d17acf95c9b8def158afca8c40d2c3c99f8df6d471c6605d81d4376ad8c5f)
+
+And a little bit to a customized `content/templates/base.html`
+
+```diff
+  {% for stylesheet in THEME_CSS_OVERRIDES or () %}
+  <link rel="stylesheet" href="{{ url(stylesheet) }}">
+  {% endfor %}
++  <script src="https://files.stork-search.net/releases/v1.6.0/stork.js"></script>
+
+  {% include 'include/xml_feeds.html' %}
+  {% block head %}{% endblock %}
+  {% include 'include/analytics.html' %}
+```
+
+> [*source*](https://github.com/engineerjoe440/stanley-solutions-blog/commit/f718252d6c776d60a4206df595836bf3908424d2#diff-f52c71daaaacd19772a9f70cb8921269f9a68114b6a2c3d4f92f3a8ee320c473)
+
+---
+
+Certainly a good number of changes for this, but really, it's not all that bad. And now, I've got search!
