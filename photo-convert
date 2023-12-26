@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+# Simple HEIC Conversion Utility (so Joe doesn't need to remember)
+for file in $1/*.HEIC
+do
+    echo "Converting: $file"
+    heif-convert "$file" "${file%.*}.png"
+    rm $file
+done
