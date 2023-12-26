@@ -44,10 +44,7 @@ def tagerizer(prompt=False):
         return ''
     tags = re.split(r', ?',keymap['tags'])
     for i,tag in enumerate(tags):
-        if not tag.isupper():
-            tags[i] = tag.title()
-        else:
-            tags[i] = tag
+        tags[i] = tag.lower()
     return ', '.join(tags)
 
 def slugerizer(prompt=False):

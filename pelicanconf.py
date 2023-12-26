@@ -32,6 +32,9 @@ THEME_CSS_OVERRIDES = [
     '/custom.css',
     'https://files.stork-search.net/dark.css'
 ]
+THEME_JS_OVERRIDES = [
+    'https://files.stork-search.net/releases/v1.6.0/stork.js'
+]
 SITESUBTITLE = 'engineering and creativity - all under one hat'
 PYGMENTS_STYLE = 'monokai'
 SITEIMAGE = 'logo.png'
@@ -81,6 +84,8 @@ SITEMAP = {
         "pages": "monthly"
     }
 }
+
+HIDE_AUTHORS = True
 
 PATH = 'content'
 STATIC_PATHS = [
