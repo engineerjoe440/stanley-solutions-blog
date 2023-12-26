@@ -3,6 +3,11 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
+path = "adding-search-to-my-pelican-blog-site.html"
+url = "/adding-search-to-my-pelican-blog-site.html"
+title = "Adding Search to my Pelican Blog Site"
+
+[[input.files]]
 path = "how-many-protocols-does-it-take-to-open-a-door.html"
 url = "/how-many-protocols-does-it-take-to-open-a-door.html"
 title = "How Many Protocols Does it Take to Open a Door?"

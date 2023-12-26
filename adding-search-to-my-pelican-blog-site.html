@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Adding Search to my Pelican Blog Site | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://blog.stanleysolutionsnw.com/adding-search-to-my-pelican-blog-site.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/theme.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/custom.css">
+  <link rel="stylesheet" href="https://files.stork-search.net/dark.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/python.rss.xml">  
+  <meta name="description" content="I'm quickly approaching the mark of 50 blog posts, which is wonderful! But it also means that finding that "thing" I wrote some time ago is becoming an increasing challenge. So... I need to add search to my blog site. But how? It's a static site, after all, there's not really a "backend" to do the search functionality for me... Luckily, there's some wonderful folks who've written tooling to add just this functionality. Here's how I added it to my blog site!">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://blog.stanleysolutionsnw.com/">
+        <img class="img-fluid rounded" src=https://blog.stanleysolutionsnw.com/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://blog.stanleysolutionsnw.com/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">engineering and creativity - all under one hat</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/krnc/usb-manager" target="_blank">KRNC Barn Manager</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/schemdraw-markdown" target="_blank">Schemdraw-Markdown</a></li>
+            <li class=" list-inline-item text-muted">|</li>
+          <li class="list-inline-item"><a class="fas fa-comments" href="https://matrix.to/#/@engineerjoe440:stanleysolutionsnw.com" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-github" href="https://github.com/engineerjoe440/" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-gitlab" href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-coffee" href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-rss" href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml" target="_blank"></a></li>
+      </ul>
+    <script>
+      stork.register("sitesearch", "https://blog.stanleysolutionsnw.com/search-index.st");
+    </script>
+    <div class="stork-wrapper-dark">
+      <input data-stork="sitesearch" class="stork-input" placeholder="search"/>
+      <div data-stork="sitesearch-output" class="stork-output"></div>
+    </div>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Adding Search to my Pelican Blog Site
+</h1>
+      <hr>
+  <main>
+    <article class="article">
+      <header>
+        <ul class="list-inline">
+          <li class="list-inline-item text-muted" title="2023-12-26T11:45:00-08:00">
+            <i class="fas fa-clock"></i>
+            Tue 26 December 2023
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-folder-open"></i>
+            <a href="https://blog.stanleysolutionsnw.com/category/python.html">Python</a>
+          </li>
+            <li class="list-inline-item">
+              <i class="fas fa-tag"></i>
+                <a href="https://blog.stanleysolutionsnw.com/tag/blog.html">#Blog</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/search.html">#Search</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/python.html">#Python</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/stork.html">#Stork</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/static-site.html">#Static-Site</a>            </li>
+        </ul>
+      </header>
+      <div class="content">
+        <p>Search is never easy, right? Especially when we're adding it to a static website, which by its very definition does not have any server-side tools to
+permit the construction of some form of server index, and live searching capability.</p>
+<p>So how do we do it?</p>
+<p><em>With Javascript, of course!</em></p>
+<p>... wait ... that sounds kinda awful for somebody who's a Python fan through-and-through.</p>
+<p>Thank goodness there's some tools out there, already that make this all possible!</p>
+<hr>
+<p><img src="https://blog.stanleysolutionsnw.com/images/stanley-solutions-blog-search.png" style="width: 40%; margin: 10px;" alt="Behold! Search..." align="right"></p>
+<h2>Introducing: <a href="https://pypi.org/project/pelican-search/"><code>pelican-search</code></a></h2>
+<p>As the name implies, this Pelican plugin incorporates search capabilities into a Python <a href="https://getpelican.com/"><em>Pelican</em></a>-based system. Simply put,
+at the time of generation, the plugin indexes all of the content in the blog's many pages and puts together one big "cheat-sheet" from which a few Javascript
+utilities may pull references to support a search functionality. The end product looks like what I've shown here, on the right.</p>
+<p>Pelican Search relies heavily on <a href="https://stork-search.net/">Stork Search</a>, a Rust-powered
+(<em>insert audio effect from <a href="https://www.jupiterbroadcasting.com/">Jupiter Broadcasting</a> here...</em>) search tool that markets itself as:</p>
+<blockquote>
+<p>Impossibly fast web search, made for static sites.</p>
+</blockquote>
+<p>I started working on this a few months ago, in a little "free time" (basically non-existent for me these days), and didn't have much success.
+Most notably, my current system was not using a <code>&lt;main&gt;...&lt;/main&gt;</code> tag to contain the body of the page as is
+<a href="https://github.com/pelican-plugins/search?tab=readme-ov-file#stork-html-selector">documented in their repository</a>, and although I'd tried a few of their
+other incantations, nothing was quite working as I needed.</p>
+<p>To further complicate things, my primary Pelican theme (<a href="https://github.com/nairobilug/pelican-alchemy/tree/master"><code>Pelican-Alchemy</code></a>), was being loaded
+into my project simply by installing the tarball, directly from GitHub. This meant that although I was pulling the most-up-to-date source, it wasn't
+available directly in my blog's repository.</p>
+<p>So... There's my first task. Remove the tarball from my <code>requirements.txt</code> file and make <code>Pelican-Alchemy</code> a proper git submodule in my project.</p>
+<div class="highlight"><pre><span></span><code>pelican
+<span class="gd">- https://github.com/nairobilug/pelican-alchemy/tarball/master</span>
+Markdown
+plantuml-markdown
+schemdraw-markdown
+</code></pre></div>
+
+<blockquote>
+<p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-4d7c51b1efe9043e44439a949dfd92e5827321b34082903477fd04876edb7552L2"><em>source</em></a></p>
+</blockquote>
+<p>And in case you're wondering, I just needed to run the following command to add the package as a git submodule:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/nairobilug/pelican-alchemy<span class="w"> </span>themes/pelican-alchemy
+</code></pre></div>
+
+<p>A little editing in my <code>pelicanconf.py</code> file, later, and I was now ready to use the submodule-style theme.</p>
+<div class="highlight"><pre><span></span><code><span class="gd">- import alchemy</span>
+<span class="gd">- THEME = alchemy.path()</span>
+<span class="gi">+ THEME = &#39;themes/pelican-alchemy/alchemy&#39;</span>
+THEME_TEMPLATES_OVERRIDES = [&#39;content/templates&#39;]
+BOOTSTRAP_CSS = &#39;https://bootswatch.com/4/darkly/bootstrap.css&#39;
+THEME_CSS_OVERRIDES = [
+</code></pre></div>
+
+<blockquote>
+<p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-d65cf0288f1d9a86915f40ad4e588bbbb59fd7b1f932ea9beaa39927e3bcf18c"><em>source</em></a></p>
+</blockquote>
+<p>Oh! and don't forget that we need to use submodules when we do the checkout in GitHub actions!</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>   name: Build
+<span class="w"> </span>   runs-on: ubuntu-latest
+<span class="w"> </span>   steps:
+<span class="gd">-      - uses: actions/checkout@v2</span>
+<span class="gi">+      - name: Checkout</span>
+<span class="gi">+        uses: actions/checkout@v4</span>
+<span class="gi">+        with:</span>
+<span class="gi">+          submodules: true</span>
+<span class="w"> </span>     - name: Install Python
+<span class="w"> </span>       uses: actions/setup-python@v1
+<span class="w"> </span>       with:
+</code></pre></div>
+
+<blockquote>
+<p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"><em>source</em></a></p>
+</blockquote>
+<p>Now... with the full source of <code>Python-Alchemy</code> in my repo, I got to some spelunking...</p>
+<p><img src="https://blog.stanleysolutionsnw.com/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Behold! Search..." align="left"></p>
+<blockquote>
+<p>I've just got to stop and show you this. While I was poking around in there, I saw this commit message... Just look at this thing.</p>
+<p>Glorious.</p>
+</blockquote>
+<p>Anyway...</p>
+<p>I started poking around, and found that if I over-rode the <code>article.html</code> Jinja template, I could add the <code>&lt;main&gt;...&lt;/main&gt;</code> that I so
+desperately wanted. So, I did! I added a new file called <code>article.html</code> to my <code>content/templates/</code> directory. This file was almost an
+exact copy of the original Alchemy template, with the addition of the <code>main</code> tag as shown here.</p>
+<div class="highlight"><pre><span></span><code>...
+{% endblock %}
+
+{% block content %}
+<span class="gi">+  &lt;main&gt;</span>
+<span class="w"> </span>   &lt;article class=&quot;article&quot;&gt;
+<span class="w"> </span>     &lt;header&gt;
+...
+<span class="w"> </span>     &lt;/div&gt;
+<span class="w"> </span>   &lt;/article&gt;
+<span class="gi">+  &lt;/main&gt;</span>
+<span class="w"> </span> {% include &#39;include/comments.html&#39; %}
+{% endblock %}
+</code></pre></div>
+
+<blockquote>
+<p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-6b66599ff6ea4101dd39c64fe73d90e190fea2325620fc0ea1dbb477f12a6b4b"><em>source</em></a></p>
+</blockquote>
+      </div>
+    </article>
+  </main>
+<!-- <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section> -->
+<script src="https://giscus.app/client.js"
+        data-repo="engineerjoe440/stanley-solutions-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyODk0MDQ2ODE="
+        data-category="Comments"
+        data-category-id="DIC_kwDOET_3Cc4CTonj"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+  <script type="text/javascript" src="https://files.stork-search.net/releases/v1.6.0/stork.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

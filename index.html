@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/theme.css">
   <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/custom.css">
   <link rel="stylesheet" href="https://files.stork-search.net/dark.css">
-  <script src="https://files.stork-search.net/releases/v1.6.0/stork.js"></script>
 
   <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
         href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml">
@@ -55,6 +54,9 @@
           <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
           <li class="list-inline-item"><a class="fas fa-rss" href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml" target="_blank"></a></li>
       </ul>
+    <script>
+      stork.register("sitesearch", "https://blog.stanleysolutionsnw.com/search-index.st");
+    </script>
     <div class="stork-wrapper-dark">
       <input data-stork="sitesearch" class="stork-input" placeholder="search"/>
       <div data-stork="sitesearch-output" class="stork-output"></div>
@@ -71,6 +73,29 @@
     <article class="row teaser">
       <header class="col-sm-4 text-muted">
         <ul>
+          <li title="2023-12-26T11:45:00-08:00">
+            <i class="fas fa-clock"></i>
+            Tue 26 December 2023
+          </li>
+          <li>
+            <i class="fas fa-folder-open"></i>
+            <a href="https://blog.stanleysolutionsnw.com/category/python.html">Python</a>
+          </li>
+        </ul>
+      </header>
+      <div class="col-sm-8">
+        <h4 class="title">
+          <a href="https://blog.stanleysolutionsnw.com/adding-search-to-my-pelican-blog-site.html">Adding Search to my Pelican Blog Site</a>
+        </h4>
+        <div class="content">
+          I'm quickly approaching the mark of 50 blog posts, which is wonderful! But it also means that finding that "thing" I wrote some time ago is becoming an increasing challenge. So... I need to add search to my blog site. But how? It's a static site, after all, there's not really a "backend" to do the search functionality for me... Luckily, there's some wonderful folks who've written tooling to add just this functionality. Here's how I added it to my blog site!
+        </div>
+      </div>
+    </article>
+      <hr>
+    <article class="row teaser">
+      <header class="col-sm-4 text-muted">
+        <ul>
           <li title="2023-12-25T14:45:00-08:00">
             <i class="fas fa-clock"></i>
             Mon 25 December 2023
@@ -79,9 +104,6 @@
             <i class="fas fa-folder-open"></i>
             <a href="https://blog.stanleysolutionsnw.com/category/home-automation.html">Home-Automation</a>
           </li>
-            <li>
-              <i class="fas fa-user"></i>
-                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
         </ul>
       </header>
       <div class="col-sm-8">
@@ -105,9 +127,6 @@
             <i class="fas fa-folder-open"></i>
             <a href="https://blog.stanleysolutionsnw.com/category/home-improvement.html">Home-Improvement</a>
           </li>
-            <li>
-              <i class="fas fa-user"></i>
-                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
         </ul>
       </header>
       <div class="col-sm-8">
@@ -131,9 +150,6 @@
             <i class="fas fa-folder-open"></i>
             <a href="https://blog.stanleysolutionsnw.com/category/youth.html">Youth</a>
           </li>
-            <li>
-              <i class="fas fa-user"></i>
-                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
         </ul>
       </header>
       <div class="col-sm-8">
@@ -157,9 +173,6 @@
             <i class="fas fa-folder-open"></i>
             <a href="https://blog.stanleysolutionsnw.com/category/youth.html">Youth</a>
           </li>
-            <li>
-              <i class="fas fa-user"></i>
-                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
         </ul>
       </header>
       <div class="col-sm-8">
@@ -183,9 +196,6 @@
             <i class="fas fa-folder-open"></i>
             <a href="https://blog.stanleysolutionsnw.com/category/capstone.html">Capstone</a>
           </li>
-            <li>
-              <i class="fas fa-user"></i>
-                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
         </ul>
       </header>
       <div class="col-sm-8">
@@ -209,9 +219,6 @@
             <i class="fas fa-folder-open"></i>
             <a href="https://blog.stanleysolutionsnw.com/category/python.html">Python</a>
           </li>
-            <li>
-              <i class="fas fa-user"></i>
-                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
         </ul>
       </header>
       <div class="col-sm-8">
@@ -235,9 +242,6 @@
             <i class="fas fa-folder-open"></i>
             <a href="https://blog.stanleysolutionsnw.com/category/python.html">Python</a>
           </li>
-            <li>
-              <i class="fas fa-user"></i>
-                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
         </ul>
       </header>
       <div class="col-sm-8">
@@ -261,9 +265,6 @@
             <i class="fas fa-folder-open"></i>
             <a href="https://blog.stanleysolutionsnw.com/category/python.html">Python</a>
           </li>
-            <li>
-              <i class="fas fa-user"></i>
-                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
         </ul>
       </header>
       <div class="col-sm-8">
@@ -287,9 +288,6 @@
             <i class="fas fa-folder-open"></i>
             <a href="https://blog.stanleysolutionsnw.com/category/audio.html">Audio</a>
           </li>
-            <li>
-              <i class="fas fa-user"></i>
-                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
         </ul>
       </header>
       <div class="col-sm-8">
@@ -298,32 +296,6 @@
         </h4>
         <div class="content">
           I'm ready to manage my audio "wiring" a bit more virtually, these days, and I'm ready to do that with some of the cool new tools available in Linux. Luckily for me, Pipewire has some command-line applications that make doing that an absolute cinch! And what's better, I can do it from Python, and make it a little more automagic. Now THAT's what I'm talking about!
-        </div>
-      </div>
-    </article>
-      <hr>
-    <article class="row teaser">
-      <header class="col-sm-4 text-muted">
-        <ul>
-          <li title="2023-01-08T12:00:00-08:00">
-            <i class="fas fa-clock"></i>
-            Sun 08 January 2023
-          </li>
-          <li>
-            <i class="fas fa-folder-open"></i>
-            <a href="https://blog.stanleysolutionsnw.com/category/python.html">Python</a>
-          </li>
-            <li>
-              <i class="fas fa-user"></i>
-                <a href="https://blog.stanleysolutionsnw.com/author/joe-stanley.html">Joe Stanley</a>            </li>
-        </ul>
-      </header>
-      <div class="col-sm-8">
-        <h4 class="title">
-          <a href="https://blog.stanleysolutionsnw.com/the-ranch-gets-a-face-lift.html">The Ranch (KRNC) Gets a Face Lift</a>
-        </h4>
-        <div class="content">
-          So, I've got an old (1992) Ford pickup, and it's got a newer-ish stereo. I love keeping my favorite tunes on a USB stick that I can play everything from, but I HATE it when the volume changes from one song to the next. I go from barely being able to hear the music to having my eardrums blown out in 0.5 seconds. So, I've come to the conclusion that I need to fix that. With PYTHON!
         </div>
       </div>
     </article>
@@ -342,15 +314,10 @@
     </div>
   </div>
 
-  <script>
-    stork.register("sitesearch", "https://blog.stanleysolutionsnw.com/search-index.st");
-  </script>
-
   <footer class="footer">
     <div class="container">
 <div class="row">
   <ul class="col-sm-6 list-inline">
-      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/authors.html">Authors</a></li>
     <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/archives.html">Archives</a></li>
     <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/categories.html">Categories</a></li>
       <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/tags.html">Tags</a></li>
@@ -362,6 +329,7 @@
 </div>    </div>
   </footer>
 
+  <script type="text/javascript" src="https://files.stork-search.net/releases/v1.6.0/stork.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

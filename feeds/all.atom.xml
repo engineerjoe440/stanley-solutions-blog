@@ -1,5 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"></link><link href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.stanleysolutionsnw.com/</id><updated>2023-12-25T14:45:00-08:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>How Many Protocols Does it Take to Open a Door?</title><link href="https://blog.stanleysolutionsnw.com/how-many-protocols-does-it-take-to-open-a-door.html" rel="alternate"></link><published>2023-12-25T14:45:00-08:00</published><updated>2023-12-25T14:45:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-12-25:/how-many-protocols-does-it-take-to-open-a-door.html</id><summary type="html">&lt;p&gt;It's just a garage door, right? It's just a switch, right? How hard can it be to automate it? In this article, I explore the connections between a number of projects which I've been working on for quite some time, now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Holy smokes. Really? How many protocols &lt;em&gt;does&lt;/em&gt; it take?&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"></link><link href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.stanleysolutionsnw.com/</id><updated>2023-12-26T11:45:00-08:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>Adding Search to my Pelican Blog Site</title><link href="https://blog.stanleysolutionsnw.com/adding-search-to-my-pelican-blog-site.html" rel="alternate"></link><published>2023-12-26T11:45:00-08:00</published><updated>2023-12-26T11:45:00-08:00</updated><author><name>joestan</name></author><id>tag:blog.stanleysolutionsnw.com,2023-12-26:/adding-search-to-my-pelican-blog-site.html</id><summary type="html">&lt;p&gt;I'm quickly approaching the mark of 50 blog posts, which is wonderful! But it also means that finding that "thing" I wrote some time ago is becoming an increasing challenge. So... I need to add search to my blog site. But how? It's a static site, after all, there's not really a "backend" to do the search functionality for me... Luckily, there's some wonderful folks who've written tooling to add just this functionality. Here's how I added it to my blog site!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Search is never easy, right? Especially when we're adding it to a static website, which by its very definition does not have any server-side tools to
+permit the construction of some form of server index, and live searching capability.&lt;/p&gt;
+&lt;p&gt;So how do we do it?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;With Javascript, of course!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;... wait ... that sounds kinda awful for somebody who's a Python fan through-and-through.&lt;/p&gt;
+&lt;p&gt;Thank goodness there's some tools out there, already that make this all possible!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/stanley-solutions-blog-search.png" style="width: 40%; margin: 10px;" alt="Behold! Search..." align="right"&gt;&lt;/p&gt;
+&lt;h2&gt;Introducing: &lt;a href="https://pypi.org/project/pelican-search/"&gt;&lt;code&gt;pelican-search&lt;/code&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;As the name implies, this Pelican plugin incorporates search capabilities into a Python &lt;a href="https://getpelican.com/"&gt;&lt;em&gt;Pelican&lt;/em&gt;&lt;/a&gt;-based system. Simply put,
+at the time of generation, the plugin indexes all of the content in the blog's many pages and puts together one big "cheat-sheet" from which a few Javascript
+utilities may pull references to support a search functionality. The end product looks like what I've shown here, on the right.&lt;/p&gt;
+&lt;p&gt;Pelican Search relies heavily on &lt;a href="https://stork-search.net/"&gt;Stork Search&lt;/a&gt;, a Rust-powered
+(&lt;em&gt;insert audio effect from &lt;a href="https://www.jupiterbroadcasting.com/"&gt;Jupiter Broadcasting&lt;/a&gt; here...&lt;/em&gt;) search tool that markets itself as:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Impossibly fast web search, made for static sites.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I started working on this a few months ago, in a little "free time" (basically non-existent for me these days), and didn't have much success.
+Most notably, my current system was not using a &lt;code&gt;&amp;lt;main&amp;gt;...&amp;lt;/main&amp;gt;&lt;/code&gt; tag to contain the body of the page as is
+&lt;a href="https://github.com/pelican-plugins/search?tab=readme-ov-file#stork-html-selector"&gt;documented in their repository&lt;/a&gt;, and although I'd tried a few of their
+other incantations, nothing was quite working as I needed.&lt;/p&gt;
+&lt;p&gt;To further complicate things, my primary Pelican theme (&lt;a href="https://github.com/nairobilug/pelican-alchemy/tree/master"&gt;&lt;code&gt;Pelican-Alchemy&lt;/code&gt;&lt;/a&gt;), was being loaded
+into my project simply by installing the tarball, directly from GitHub. This meant that although I was pulling the most-up-to-date source, it wasn't
+available directly in my blog's repository.&lt;/p&gt;
+&lt;p&gt;So... There's my first task. Remove the tarball from my &lt;code&gt;requirements.txt&lt;/code&gt; file and make &lt;code&gt;Pelican-Alchemy&lt;/code&gt; a proper git submodule in my project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pelican
+&lt;span class="gd"&gt;- https://github.com/nairobilug/pelican-alchemy/tarball/master&lt;/span&gt;
+Markdown
+plantuml-markdown
+schemdraw-markdown
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-4d7c51b1efe9043e44439a949dfd92e5827321b34082903477fd04876edb7552L2"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And in case you're wondering, I just needed to run the following command to add the package as a git submodule:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;submodule&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;https://github.com/nairobilug/pelican-alchemy&lt;span class="w"&gt; &lt;/span&gt;themes/pelican-alchemy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;A little editing in my &lt;code&gt;pelicanconf.py&lt;/code&gt; file, later, and I was now ready to use the submodule-style theme.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gd"&gt;- import alchemy&lt;/span&gt;
+&lt;span class="gd"&gt;- THEME = alchemy.path()&lt;/span&gt;
+&lt;span class="gi"&gt;+ THEME = &amp;#39;themes/pelican-alchemy/alchemy&amp;#39;&lt;/span&gt;
+THEME_TEMPLATES_OVERRIDES = [&amp;#39;content/templates&amp;#39;]
+BOOTSTRAP_CSS = &amp;#39;https://bootswatch.com/4/darkly/bootstrap.css&amp;#39;
+THEME_CSS_OVERRIDES = [
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-d65cf0288f1d9a86915f40ad4e588bbbb59fd7b1f932ea9beaa39927e3bcf18c"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Oh! and don't forget that we need to use submodules when we do the checkout in GitHub actions!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt; &lt;/span&gt;   name: Build
+&lt;span class="w"&gt; &lt;/span&gt;   runs-on: ubuntu-latest
+&lt;span class="w"&gt; &lt;/span&gt;   steps:
+&lt;span class="gd"&gt;-      - uses: actions/checkout@v2&lt;/span&gt;
+&lt;span class="gi"&gt;+      - name: Checkout&lt;/span&gt;
+&lt;span class="gi"&gt;+        uses: actions/checkout@v4&lt;/span&gt;
+&lt;span class="gi"&gt;+        with:&lt;/span&gt;
+&lt;span class="gi"&gt;+          submodules: true&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;     - name: Install Python
+&lt;span class="w"&gt; &lt;/span&gt;       uses: actions/setup-python@v1
+&lt;span class="w"&gt; &lt;/span&gt;       with:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now... with the full source of &lt;code&gt;Python-Alchemy&lt;/code&gt; in my repo, I got to some spelunking...&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Behold! Search..." align="left"&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I've just got to stop and show you this. While I was poking around in there, I saw this commit message... Just look at this thing.&lt;/p&gt;
+&lt;p&gt;Glorious.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Anyway...&lt;/p&gt;
+&lt;p&gt;I started poking around, and found that if I over-rode the &lt;code&gt;article.html&lt;/code&gt; Jinja template, I could add the &lt;code&gt;&amp;lt;main&amp;gt;...&amp;lt;/main&amp;gt;&lt;/code&gt; that I so
+desperately wanted. So, I did! I added a new file called &lt;code&gt;article.html&lt;/code&gt; to my &lt;code&gt;content/templates/&lt;/code&gt; directory. This file was almost an
+exact copy of the original Alchemy template, with the addition of the &lt;code&gt;main&lt;/code&gt; tag as shown here.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;...
+{% endblock %}
+
+{% block content %}
+&lt;span class="gi"&gt;+  &amp;lt;main&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;   &amp;lt;article class=&amp;quot;article&amp;quot;&amp;gt;
+&lt;span class="w"&gt; &lt;/span&gt;     &amp;lt;header&amp;gt;
+...
+&lt;span class="w"&gt; &lt;/span&gt;     &amp;lt;/div&amp;gt;
+&lt;span class="w"&gt; &lt;/span&gt;   &amp;lt;/article&amp;gt;
+&lt;span class="gi"&gt;+  &amp;lt;/main&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt; {% include &amp;#39;include/comments.html&amp;#39; %}
+{% endblock %}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-6b66599ff6ea4101dd39c64fe73d90e190fea2325620fc0ea1dbb477f12a6b4b"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="Python"></category><category term="Blog"></category><category term="Search"></category><category term="Python"></category><category term="Stork"></category><category term="Static-Site"></category></entry><entry><title>How Many Protocols Does it Take to Open a Door?</title><link href="https://blog.stanleysolutionsnw.com/how-many-protocols-does-it-take-to-open-a-door.html" rel="alternate"></link><published>2023-12-25T14:45:00-08:00</published><updated>2023-12-25T14:45:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-12-25:/how-many-protocols-does-it-take-to-open-a-door.html</id><summary type="html">&lt;p&gt;It's just a garage door, right? It's just a switch, right? How hard can it be to automate it? In this article, I explore the connections between a number of projects which I've been working on for quite some time, now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Holy smokes. Really? How many protocols &lt;em&gt;does&lt;/em&gt; it take?&lt;/p&gt;
 &lt;p&gt;I'm about to find out.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;A few years ago, I endeavored to start creating an SEL protocol parser in Python. Why? Well, because I want to use some second-hand protection relays for
