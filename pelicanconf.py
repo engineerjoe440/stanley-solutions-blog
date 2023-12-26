@@ -1,13 +1,31 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+################################################################################
+"""
+Stanley Solutions Blog Site Configuration
+
+Building:
+
+    pelican -s pelicanconf.py --fatal errors
+
+
+Local Development and Testing:
+
+    pelican -s pelicanconf.py -l -r
+"""
+################################################################################
 import os
 
 AUTHOR = 'Joe Stanley'
 SITENAME = 'Stanley Solutions Blog'
-SITEURL = 'https://engineerjoe440.github.io/stanley-solutions-blog'
+if os.getenv("GITHUB_ACTIONS") is not None:
+    # Running GitHub Actions
+    SITEURL = 'https://blog.stanleysolutionsnw.com'
+else:
+    SITEURL = 'localhost:8000'
 
-import alchemy
-THEME = alchemy.path()
+
+THEME = 'themes/pelican-alchemy/alchemy'
 THEME_TEMPLATES_OVERRIDES = ['content/templates']
 BOOTSTRAP_CSS = 'https://bootswatch.com/4/darkly/bootstrap.css'
 THEME_CSS_OVERRIDES = [

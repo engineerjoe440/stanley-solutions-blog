@@ -1,5 +1,4 @@
 pelican
-https://github.com/nairobilug/pelican-alchemy/tarball/master
 Markdown
 plantuml-markdown
 schemdraw-markdown
