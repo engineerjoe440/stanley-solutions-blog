@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  How Many Protocols Does it Take to Open a Door? | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://engineerjoe440.github.io/stanley-solutions-blog/how-many-protocols-does-it-take-to-open-a-door.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/theme/css/theme.css">
+  <link rel="stylesheet" href="https://engineerjoe440.github.io/stanley-solutions-blog/custom.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/home-automation.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/home-automation.rss.xml">  
+  <meta name="description" content="It's just a garage door, right? It's just a switch, right? How hard can it be to automate it? In this article, I explore the connections between a number of projects which I've been working on for quite some time, now.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://engineerjoe440.github.io/stanley-solutions-blog/">
+        <img class="img-fluid rounded" src=https://engineerjoe440.github.io/stanley-solutions-blog/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">engineering and creativity - all under one hat</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/krnc/usb-manager" target="_blank">KRNC Barn Manager</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/schemdraw-markdown" target="_blank">Schemdraw-Markdown</a></li>
+            <li class=" list-inline-item text-muted">|</li>
+          <li class="list-inline-item"><a class="fas fa-comments" href="https://matrix.to/#/@engineerjoe440:stanleysolutionsnw.com" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-github" href="https://github.com/engineerjoe440/" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-gitlab" href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-coffee" href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-rss" href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/all.rss.xml" target="_blank"></a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  How Many Protocols Does it Take to Open a Door?
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2023-12-25T14:45:00-08:00">
+          <i class="fas fa-clock"></i>
+          Mon 25 December 2023
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="https://engineerjoe440.github.io/stanley-solutions-blog/category/home-automation.html">Home-Automation</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-user"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/author/joe-stanley.html">Joe Stanley</a>          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-automation.html">#Home-Automation</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/home-assistant.html">#Home-Assistant</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/mqtt.html">#Mqtt</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sel.html">#SEL</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/sel-protocol.html">#Sel-Protocol</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/open-source.html">#Open-Source</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/relay.html">#Relay</a>,               <a href="https://engineerjoe440.github.io/stanley-solutions-blog/tag/automation.html">#Automation</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <p>Holy smokes. Really? How many protocols <em>does</em> it take?</p>
+<p>I'm about to find out.</p>
+<hr>
+<p>A few years ago, I endeavored to start creating an SEL protocol parser in Python. Why? Well, because I want to use some second-hand protection relays for
+a variety of my home-automation needs. They're ultra-robust, well-understood, and pretty much un-breakable. With all of that, they've got great (and simple)
+input/output capabilities for both analog and digital needs. For me, that's excellent!</p>
+<p>But why the protocol? Well, I've got to be able to talk to them, of course!</p>
+<p>So way back in 2020 (yeah, Covid times) I started on <a href="/sel-protocol-coming-to-python.html"><code>selprotopy</code></a>. It's a relatively simple system. At the time it
+just used Telnet, and it was super rickety... I've recently updated the <a href="https://selprotopy.readthedocs.io/en/latest/">documentation website</a> to use a
+more modern theme, and to run on ReadTheDocs. But so far, I've only talked about one protocol. What others are there?</p>
+<p>Well, a few years ago, I "hung" an older SEL-351S relay in my garage so that I could interface with the garage door openers. Realistically, it's only a
+few hundred feet of cable (at most) from the relay's mounting point to the control-side in my house. Even with this short run, I decided that I'd prefer to
+go with an RS-485 serial connection over the RS-232 form. After all, RS-485 can span much greater differences due to the nature of its differential signal.
+This lead me down the rabbit hole of getting re-familiarized with RS-485. I've monkeyed with it, before, in a more professional setting, but only to test a
+known-good system with a "questionable" one, so that was relatively straight-forward.</p>
+<p>Here, at home, I wanted to interface my SEL-351S relay with a Raspberry Pi 4. To do this, I needed a 485 adapter. I started out with the
+<a href="https://www.amazon.com/RS485-CAN-HAT-Long-Distance-Communication/dp/B07VMB1ZKH/">Waveshare RS485 CAN HAT for Raspberry Pi</a>, but as I came to learn, this
+wasn't the best option for me, as it only supports a half-duplex connection (true RS-485). As I re-learned, the SEL relay that I'm interfacing with (as
+all SEL relays) is a full-duplex device. That means that it can simultaneously receive and transmit data. That's part of what makes SEL protocol so neat.</p>
+<p>So I sat with PuTTy and banged away, trying to get some form of communications, and only ever got gibberish.</p>
+<blockquote>
+<p>Not ideal.</p>
+</blockquote>
+<p>I ended up picking up one of these <a href="https://www.amazon.com/dp/B07B416CPK">nifty little USB RS-485/RS-422 converters from Amazon</a> to do a little more testing.
+Sure enough, with a properly configured, full duplex system my relay became quite the chatty little box.</p>
+<p>... or ... at least as chatty as an SEL relay can get. Which really isn't very chatty at all, actually.</p>
+<p>So, after proving out my little theory. I decided that I should get something that would be a little easier to mount. That lead me to this <em>other</em> USB to
+RS-485/RS-422 converter: <a href="https://www.amazon.com/dp/B083XSG1RG">DSD TECH SH-U11F Isolated USB to RS485 RS422 Converter</a>. That really did the trick, plus,
+I could nicely mount it in my "lab control panel."</p>
+<hr>
+<p>Wait a second. How many protocols are we up to?</p>
+<p>Oh, right... only 2. (because I consider RS-485 its own protocol in this context)</p>
+<p>That's not so bad, right? Well, I still haven't tied this system into the rest of my home automation!</p>
+<hr>
+<p>To connect my system to the automation center of my home (my Home-Assistant instance), I'd like to use my trusty friend, MQTT!</p>
+<p>So, I needed a little service to subscribe to the specific topics where my controls would be published. Not so bad. This little application would also need
+to manage the SEL protocol control, and be easily modified (with a configuration file). So I pulled out my handy little Python cookbook and started one of my
+famous "feverish coding sessions." That lead me to produce this little application:
+<a href="https://gitlab.stanleysolutionsnw.com/stanleysolutionsinfra/lab-automation/-/tree/master">Lab-Automation</a> Go have a look for yourself!</p>
+<p>With this application, I'm able to read from a configuration file just exactly what topics I should be using, and how to interface them to the operations with the
+relay. Really, it's a pretty simple pattern that I've used in a few places around the house, now. That's been very nice to re-use the pattern.</p>
+<p>Now, to teach Home-Assistant to "talk relay," I really just needed to configure a few buttons (in the <code>yaml</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">garage_door_1</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Garage Door 1</span>
+<span class="w">  </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mdi:garage-variant</span>
+
+<span class="nt">garage_door_2</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Garage Door 2</span>
+<span class="w">  </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mdi:garage-variant</span>
+</code></pre></div>
+
+<p>And some automation scripts to tie it all together:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">####################################################</span>
+<span class="c1"># Garage Door Triggers</span>
+<span class="c1">####################################################</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garage_door_1_trigger</span>
+<span class="w">  </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trigger Garage Door 1</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
+<span class="w">  </span><span class="nt">trigger</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
+<span class="w">    </span><span class="nt">entity_id</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">input_button.garage_door_1</span>
+<span class="w">  </span><span class="nt">action</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mqtt.publish</span>
+<span class="w">    </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">topic</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ctrl/stanley/lab/garage/door&quot;</span>
+<span class="w">      </span><span class="nt">payload</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">queued</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garage_door_2_trigger</span>
+<span class="w">  </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trigger Garage Door 2</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
+<span class="w">  </span><span class="nt">trigger</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
+<span class="w">    </span><span class="nt">entity_id</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">input_button.garage_door_2</span>
+<span class="w">  </span><span class="nt">action</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mqtt.publish</span>
+<span class="w">    </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">topic</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ctrl/stanley/lab/garage/door&quot;</span>
+<span class="w">      </span><span class="nt">payload</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2&quot;</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">queued</span>
+</code></pre></div>
+
+<hr>
+<p>So that's it, all 3 protocols to make some garage doors work. So, I guess that's not really <em>too bad</em>, but it was more than I'd originally planned. Hah!</p>
+<p>Still fun, and <strong>WONDERFUL</strong> to have the garage doors tied into my home automation system. Having that control really has been terrific. Have a gander at the gallery
+of pictures from the project. There aren't too many, but maybe it'll give you a sense of the project, and inspire you to go do something cool!</p>
+<p>https://immich.stanleysolutionsnw.com/share/YgHn0kfhbethMOSJ3ke8QODAm0hkEevMiA7NHYcWOz1S46gh95DBbQLWo8JC7mRBuI0</p>
+    </div>
+  </article>
+<!-- <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section> -->
+<script src="https://giscus.app/client.js"
+        data-repo="engineerjoe440/stanley-solutions-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyODk0MDQ2ODE="
+        data-category="Comments"
+        data-category-id="DIC_kwDOET_3Cc4CTonj"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://engineerjoe440.github.io/stanley-solutions-blog/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Home-Automation</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/" rel="alternate"></link><link href="https://engineerjoe440.github.io/stanley-solutions-blog/feeds/home-automation.atom.xml" rel="self"></link><id>https://engineerjoe440.github.io/stanley-solutions-blog/</id><updated>2023-12-25T14:45:00-08:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>How Many Protocols Does it Take to Open a Door?</title><link href="https://engineerjoe440.github.io/stanley-solutions-blog/how-many-protocols-does-it-take-to-open-a-door.html" rel="alternate"></link><published>2023-12-25T14:45:00-08:00</published><updated>2023-12-25T14:45:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:engineerjoe440.github.io,2023-12-25:/stanley-solutions-blog/how-many-protocols-does-it-take-to-open-a-door.html</id><summary type="html">&lt;p&gt;It's just a garage door, right? It's just a switch, right? How hard can it be to automate it? In this article, I explore the connections between a number of projects which I've been working on for quite some time, now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Holy smokes. Really? How many protocols &lt;em&gt;does&lt;/em&gt; it take?&lt;/p&gt;
+&lt;p&gt;I'm about to find out.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;A few years ago, I endeavored to start creating an SEL protocol parser in Python. Why? Well, because I want to use some second-hand protection relays for
+a variety of my home-automation needs. They're ultra-robust, well-understood, and pretty much un-breakable. With all of that, they've got great (and simple)
+input/output capabilities for both analog and digital needs. For me, that's excellent!&lt;/p&gt;
+&lt;p&gt;But why the protocol? Well, I've got to be able to talk to them, of course!&lt;/p&gt;
+&lt;p&gt;So way back in 2020 (yeah, Covid times) I started on &lt;a href="/sel-protocol-coming-to-python.html"&gt;&lt;code&gt;selprotopy&lt;/code&gt;&lt;/a&gt;. It's a relatively simple system. At the time it
+just used Telnet, and it was super rickety... I've recently updated the &lt;a href="https://selprotopy.readthedocs.io/en/latest/"&gt;documentation website&lt;/a&gt; to use a
+more modern theme, and to run on ReadTheDocs. But so far, I've only talked about one protocol. What others are there?&lt;/p&gt;
+&lt;p&gt;Well, a few years ago, I "hung" an older SEL-351S relay in my garage so that I could interface with the garage door openers. Realistically, it's only a
+few hundred feet of cable (at most) from the relay's mounting point to the control-side in my house. Even with this short run, I decided that I'd prefer to
+go with an RS-485 serial connection over the RS-232 form. After all, RS-485 can span much greater differences due to the nature of its differential signal.
+This lead me down the rabbit hole of getting re-familiarized with RS-485. I've monkeyed with it, before, in a more professional setting, but only to test a
+known-good system with a "questionable" one, so that was relatively straight-forward.&lt;/p&gt;
+&lt;p&gt;Here, at home, I wanted to interface my SEL-351S relay with a Raspberry Pi 4. To do this, I needed a 485 adapter. I started out with the
+&lt;a href="https://www.amazon.com/RS485-CAN-HAT-Long-Distance-Communication/dp/B07VMB1ZKH/"&gt;Waveshare RS485 CAN HAT for Raspberry Pi&lt;/a&gt;, but as I came to learn, this
+wasn't the best option for me, as it only supports a half-duplex connection (true RS-485). As I re-learned, the SEL relay that I'm interfacing with (as
+all SEL relays) is a full-duplex device. That means that it can simultaneously receive and transmit data. That's part of what makes SEL protocol so neat.&lt;/p&gt;
+&lt;p&gt;So I sat with PuTTy and banged away, trying to get some form of communications, and only ever got gibberish.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Not ideal.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I ended up picking up one of these &lt;a href="https://www.amazon.com/dp/B07B416CPK"&gt;nifty little USB RS-485/RS-422 converters from Amazon&lt;/a&gt; to do a little more testing.
+Sure enough, with a properly configured, full duplex system my relay became quite the chatty little box.&lt;/p&gt;
+&lt;p&gt;... or ... at least as chatty as an SEL relay can get. Which really isn't very chatty at all, actually.&lt;/p&gt;
+&lt;p&gt;So, after proving out my little theory. I decided that I should get something that would be a little easier to mount. That lead me to this &lt;em&gt;other&lt;/em&gt; USB to
+RS-485/RS-422 converter: &lt;a href="https://www.amazon.com/dp/B083XSG1RG"&gt;DSD TECH SH-U11F Isolated USB to RS485 RS422 Converter&lt;/a&gt;. That really did the trick, plus,
+I could nicely mount it in my "lab control panel."&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Wait a second. How many protocols are we up to?&lt;/p&gt;
+&lt;p&gt;Oh, right... only 2. (because I consider RS-485 its own protocol in this context)&lt;/p&gt;
+&lt;p&gt;That's not so bad, right? Well, I still haven't tied this system into the rest of my home automation!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;To connect my system to the automation center of my home (my Home-Assistant instance), I'd like to use my trusty friend, MQTT!&lt;/p&gt;
+&lt;p&gt;So, I needed a little service to subscribe to the specific topics where my controls would be published. Not so bad. This little application would also need
+to manage the SEL protocol control, and be easily modified (with a configuration file). So I pulled out my handy little Python cookbook and started one of my
+famous "feverish coding sessions." That lead me to produce this little application:
+&lt;a href="https://gitlab.stanleysolutionsnw.com/stanleysolutionsinfra/lab-automation/-/tree/master"&gt;Lab-Automation&lt;/a&gt; Go have a look for yourself!&lt;/p&gt;
+&lt;p&gt;With this application, I'm able to read from a configuration file just exactly what topics I should be using, and how to interface them to the operations with the
+relay. Really, it's a pretty simple pattern that I've used in a few places around the house, now. That's been very nice to re-use the pattern.&lt;/p&gt;
+&lt;p&gt;Now, to teach Home-Assistant to "talk relay," I really just needed to configure a few buttons (in the &lt;code&gt;yaml&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;garage_door_1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;Garage Door 1&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;icon&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;mdi:garage-variant&lt;/span&gt;
+
+&lt;span class="nt"&gt;garage_door_2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;Garage Door 2&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;icon&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;mdi:garage-variant&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And some automation scripts to tie it all together:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;####################################################&lt;/span&gt;
+&lt;span class="c1"&gt;# Garage Door Triggers&lt;/span&gt;
+&lt;span class="c1"&gt;####################################################&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;garage_door_1_trigger&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;alias&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;Trigger Garage Door 1&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;trigger&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;platform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;state&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;entity_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;input_button.garage_door_1&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;action&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;service&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;mqtt.publish&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;topic&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ctrl/stanley/lab/garage/door&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;payload&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;mode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;queued&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;garage_door_2_trigger&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;alias&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;Trigger Garage Door 2&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;trigger&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;platform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;state&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;entity_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;input_button.garage_door_2&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;action&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;service&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;mqtt.publish&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;topic&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ctrl/stanley/lab/garage/door&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;payload&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;mode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;queued&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p&gt;So that's it, all 3 protocols to make some garage doors work. So, I guess that's not really &lt;em&gt;too bad&lt;/em&gt;, but it was more than I'd originally planned. Hah!&lt;/p&gt;
+&lt;p&gt;Still fun, and &lt;strong&gt;WONDERFUL&lt;/strong&gt; to have the garage doors tied into my home automation system. Having that control really has been terrific. Have a gander at the gallery
+of pictures from the project. There aren't too many, but maybe it'll give you a sense of the project, and inspire you to go do something cool!&lt;/p&gt;
+&lt;p&gt;https://immich.stanleysolutionsnw.com/share/YgHn0kfhbethMOSJ3ke8QODAm0hkEevMiA7NHYcWOz1S46gh95DBbQLWo8JC7mRBuI0&lt;/p&gt;</content><category term="Home-Automation"></category><category term="Home-Automation"></category><category term="Home-Assistant"></category><category term="Mqtt"></category><category term="SEL"></category><category term="Sel-Protocol"></category><category term="Open-Source"></category><category term="Relay"></category><category term="Automation"></category></entry></feed>
