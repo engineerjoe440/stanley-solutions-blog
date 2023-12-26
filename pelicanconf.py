@@ -29,7 +29,8 @@ THEME = 'themes/pelican-alchemy/alchemy'
 THEME_TEMPLATES_OVERRIDES = ['content/templates']
 BOOTSTRAP_CSS = 'https://bootswatch.com/4/darkly/bootstrap.css'
 THEME_CSS_OVERRIDES = [
-    '/custom.css'
+    '/custom.css',
+    'https://files.stork-search.net/dark.css'
 ]
 SITESUBTITLE = 'engineering and creativity - all under one hat'
 PYGMENTS_STYLE = 'monokai'
@@ -43,7 +44,7 @@ PLUGINS=[
     'render_math',
     'photos',
     'sitemap',
-    #'search',
+    'search',
 ]
 
 PHOTO_LIBRARY = os.path.join(os.getcwd(), "content", "images")
@@ -79,9 +80,6 @@ SITEMAP = {
         "indexes": "daily",
         "pages": "monthly"
     }
-}
-STORK_INPUT_OPTIONS = {
-    "html_selector": "article.main"
 }
 
 PATH = 'content'

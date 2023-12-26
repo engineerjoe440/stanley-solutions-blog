@@ -121,4 +121,4 @@ So that's it, all 3 protocols to make some garage doors work. So, I guess that's
 Still fun, and **WONDERFUL** to have the garage doors tied into my home automation system. Having that control really has been terrific. Have a gander at the gallery
 of pictures from the project. There aren't too many, but maybe it'll give you a sense of the project, and inspire you to go do something cool!
 
-https://immich.stanleysolutionsnw.com/share/YgHn0kfhbethMOSJ3ke8QODAm0hkEevMiA7NHYcWOz1S46gh95DBbQLWo8JC7mRBuI0
+[Garage Automation with SEL Protocol Album](https://immich.stanleysolutionsnw.com/share/YgHn0kfhbethMOSJ3ke8QODAm0hkEevMiA7NHYcWOz1S46gh95DBbQLWo8JC7mRBuI0)
