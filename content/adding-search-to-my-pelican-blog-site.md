@@ -93,7 +93,7 @@ Oh! and don't forget that we need to use submodules when we do the checkout in G
 
 Now... with the full source of `Python-Alchemy` in my repo, I got to some spelunking...
 
-<img src="{attach}/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Behold! Search..." align="left">
+<img src="{attach}/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Such beauty, such grace... it's commit doge!" align="left">
 
 > I've just got to stop and show you this. While I was poking around in there, I saw this commit message... Just look at this thing.
 >
@@ -123,4 +123,18 @@ exact copy of the original Alchemy template, with the addition of the `main` tag
 
 > [*source*](https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-6b66599ff6ea4101dd39c64fe73d90e190fea2325620fc0ea1dbb477f12a6b4b)
 
+With those additions now in place, the changes I'd made *ages ago* to support using Stork in the GitHub Actions workflow would now work!
 
+```diff
+-      - name: Install dependencies
+
++      - name: Collect Toolchain Requirments
++        run: |
++          wget https://files.stork-search.net/releases/v1.6.0/stork-ubuntu-20-04
++          chmod +x stork-ubuntu-20-04
++      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+```
+
+> [*source*](https://github.com/engineerjoe440/stanley-solutions-blog/commit/63aa1174389e90212a8fad25407fbdc769129a95#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49)
