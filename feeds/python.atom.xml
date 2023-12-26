@@ -68,7 +68,7 @@ THEME_CSS_OVERRIDES = [
 &lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Now... with the full source of &lt;code&gt;Python-Alchemy&lt;/code&gt; in my repo, I got to some spelunking...&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Behold! Search..." align="left"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Such beauty, such grace... it's commit doge!" align="left"&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I've just got to stop and show you this. While I was poking around in there, I saw this commit message... Just look at this thing.&lt;/p&gt;
 &lt;p&gt;Glorious.&lt;/p&gt;
@@ -94,6 +94,21 @@ exact copy of the original Alchemy template, with the addition of the &lt;code&g
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-6b66599ff6ea4101dd39c64fe73d90e190fea2325620fc0ea1dbb477f12a6b4b"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;With those additions now in place, the changes I'd made &lt;em&gt;ages ago&lt;/em&gt; to support using Stork in the GitHub Actions workflow would now work!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gd"&gt;-      - name: Install dependencies&lt;/span&gt;
+
+&lt;span class="gi"&gt;+      - name: Collect Toolchain Requirments&lt;/span&gt;
+&lt;span class="gi"&gt;+        run: |&lt;/span&gt;
+&lt;span class="gi"&gt;+          wget https://files.stork-search.net/releases/v1.6.0/stork-ubuntu-20-04&lt;/span&gt;
+&lt;span class="gi"&gt;+          chmod +x stork-ubuntu-20-04&lt;/span&gt;
+&lt;span class="gi"&gt;+      - name: Install Dependencies&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;       run: |
+&lt;span class="w"&gt; &lt;/span&gt;         pip install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/63aa1174389e90212a8fad25407fbdc769129a95#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content><category term="Python"></category><category term="Blog"></category><category term="Search"></category><category term="Python"></category><category term="Stork"></category><category term="Static-Site"></category></entry><entry><title>Making Configuration for a Python Application Simple!</title><link href="https://blog.stanleysolutionsnw.com/making-configuration-for-a-python-application-simple.html" rel="alternate"></link><published>2023-01-17T14:23:00-08:00</published><updated>2023-01-17T14:23:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-01-17:/making-configuration-for-a-python-application-simple.html</id><summary type="html">&lt;p&gt;If you're a nerd like me, you can probably think of your favorite self-hosted application right now. Better yet, you can probably think of all the reasons you love it. You know, one of the staples of a great self-hosted application is its ability to make the configuration &lt;em&gt;your own&lt;/em&gt; and do so easily! I've been working on a number of little applications lately and they all need configuration, so I've started setting this up with the help of Python and TOML!&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you know me, you'll know that I often have &lt;em&gt;way too many projects&lt;/em&gt; all in process &lt;em&gt;at the same dang time&lt;/em&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;So proud. So proud...&lt;/p&gt;

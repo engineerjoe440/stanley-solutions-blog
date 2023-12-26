@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/theme.css">
   <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/custom.css">
   <link rel="stylesheet" href="https://files.stork-search.net/dark.css">
+  <script src="https://files.stork-search.net/releases/v1.6.0/stork.js"></script>
 
   <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
         href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml">
@@ -159,7 +160,7 @@ THEME_CSS_OVERRIDES = [
 <p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"><em>source</em></a></p>
 </blockquote>
 <p>Now... with the full source of <code>Python-Alchemy</code> in my repo, I got to some spelunking...</p>
-<p><img src="https://blog.stanleysolutionsnw.com/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Behold! Search..." align="left"></p>
+<p><img src="https://blog.stanleysolutionsnw.com/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Such beauty, such grace... it's commit doge!" align="left"></p>
 <blockquote>
 <p>I've just got to stop and show you this. While I was poking around in there, I saw this commit message... Just look at this thing.</p>
 <p>Glorious.</p>
@@ -185,6 +186,21 @@ exact copy of the original Alchemy template, with the addition of the <code>main
 
 <blockquote>
 <p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-6b66599ff6ea4101dd39c64fe73d90e190fea2325620fc0ea1dbb477f12a6b4b"><em>source</em></a></p>
+</blockquote>
+<p>With those additions now in place, the changes I'd made <em>ages ago</em> to support using Stork in the GitHub Actions workflow would now work!</p>
+<div class="highlight"><pre><span></span><code><span class="gd">-      - name: Install dependencies</span>
+
+<span class="gi">+      - name: Collect Toolchain Requirments</span>
+<span class="gi">+        run: |</span>
+<span class="gi">+          wget https://files.stork-search.net/releases/v1.6.0/stork-ubuntu-20-04</span>
+<span class="gi">+          chmod +x stork-ubuntu-20-04</span>
+<span class="gi">+      - name: Install Dependencies</span>
+<span class="w"> </span>       run: |
+<span class="w"> </span>         pip install -r requirements.txt
+</code></pre></div>
+
+<blockquote>
+<p><a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/63aa1174389e90212a8fad25407fbdc769129a95#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"><em>source</em></a></p>
 </blockquote>
       </div>
     </article>
@@ -226,7 +242,6 @@ exact copy of the original Alchemy template, with the addition of the <code>main
 </div>    </div>
   </footer>
 
-  <script type="text/javascript" src="https://files.stork-search.net/releases/v1.6.0/stork.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -68,7 +68,7 @@ THEME_CSS_OVERRIDES = [
 &lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Now... with the full source of &lt;code&gt;Python-Alchemy&lt;/code&gt; in my repo, I got to some spelunking...&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Behold! Search..." align="left"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/commit-doge-such-wow.png" style="width: 30%; margin: 10px;" alt="Such beauty, such grace... it's commit doge!" align="left"&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I've just got to stop and show you this. While I was poking around in there, I saw this commit message... Just look at this thing.&lt;/p&gt;
 &lt;p&gt;Glorious.&lt;/p&gt;
@@ -94,6 +94,21 @@ exact copy of the original Alchemy template, with the addition of the &lt;code&g
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-6b66599ff6ea4101dd39c64fe73d90e190fea2325620fc0ea1dbb477f12a6b4b"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;With those additions now in place, the changes I'd made &lt;em&gt;ages ago&lt;/em&gt; to support using Stork in the GitHub Actions workflow would now work!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gd"&gt;-      - name: Install dependencies&lt;/span&gt;
+
+&lt;span class="gi"&gt;+      - name: Collect Toolchain Requirments&lt;/span&gt;
+&lt;span class="gi"&gt;+        run: |&lt;/span&gt;
+&lt;span class="gi"&gt;+          wget https://files.stork-search.net/releases/v1.6.0/stork-ubuntu-20-04&lt;/span&gt;
+&lt;span class="gi"&gt;+          chmod +x stork-ubuntu-20-04&lt;/span&gt;
+&lt;span class="gi"&gt;+      - name: Install Dependencies&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;       run: |
+&lt;span class="w"&gt; &lt;/span&gt;         pip install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/63aa1174389e90212a8fad25407fbdc769129a95#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content><category term="Python"></category><category term="Blog"></category><category term="Search"></category><category term="Python"></category><category term="Stork"></category><category term="Static-Site"></category></entry><entry><title>How Many Protocols Does it Take to Open a Door?</title><link href="https://blog.stanleysolutionsnw.com/how-many-protocols-does-it-take-to-open-a-door.html" rel="alternate"></link><published>2023-12-25T14:45:00-08:00</published><updated>2023-12-25T14:45:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-12-25:/how-many-protocols-does-it-take-to-open-a-door.html</id><summary type="html">&lt;p&gt;It's just a garage door, right? It's just a switch, right? How hard can it be to automate it? In this article, I explore the connections between a number of projects which I've been working on for quite some time, now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Holy smokes. Really? How many protocols &lt;em&gt;does&lt;/em&gt; it take?&lt;/p&gt;
 &lt;p&gt;I'm about to find out.&lt;/p&gt;
 &lt;hr&gt;
