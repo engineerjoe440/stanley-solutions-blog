@@ -49,7 +49,158 @@ should be rendered as HTML pages for the Pelican site. After enough monkeying ar
 &lt;span class="w"&gt; &lt;/span&gt; {% else %}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/add-subscription-to-blog.png" style="width: 100%" alt="Making Subscribing WAY Easier"&gt;&lt;/p&gt;</content><category term="Blogging"></category><category term="blog"></category><category term="website"></category><category term="html"></category><category term="python"></category><category term="pelican"></category><category term="jinja2"></category><category term="static-sites"></category><category term="mailing-list"></category><category term="listmonk"></category><category term="email"></category><category term="newsletter"></category></entry><entry><title>Finding Broken Blog Links</title><link href="https://blog.stanleysolutionsnw.com/finding-broken-blog-links.html" rel="alternate"></link><published>2022-10-24T16:00:00-07:00</published><updated>2022-10-24T16:00:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2022-10-24:/finding-broken-blog-links.html</id><summary type="html">&lt;p&gt;Well, I just recently converted to a new Nextcloud instance at home. Gosh, I sure hope I wasn't using any of those links externally on any important websites like a blog, or anything... Oh. I was? Awkward...&lt;/p&gt;</summary><content type="html">&lt;p&gt;It's something of a solved problem, but I thought I'd share the way that I solved it...&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/add-subscription-to-blog.png" style="width: 100%" alt="Making Subscribing WAY Easier"&gt;&lt;/p&gt;</content><category term="Blogging"></category><category term="blog"></category><category term="website"></category><category term="html"></category><category term="python"></category><category term="pelican"></category><category term="jinja2"></category><category term="static-site"></category><category term="mailing-list"></category><category term="listmonk"></category><category term="email"></category><category term="newsletter"></category></entry><entry><title>Adding Search to my Pelican Blog Site</title><link href="https://blog.stanleysolutionsnw.com/adding-search-to-my-pelican-blog-site.html" rel="alternate"></link><published>2023-12-26T11:45:00-08:00</published><updated>2023-12-26T11:45:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-12-26:/adding-search-to-my-pelican-blog-site.html</id><summary type="html">&lt;p&gt;I'm quickly approaching the mark of 50 blog posts, which is wonderful! But it also means that finding that "thing" I wrote some time ago is becoming an increasing challenge. So... I need to add search to my blog site. But how? It's a static site, after all, there's not really a "backend" to do the search functionality for me... Luckily, there's some wonderful folks who've written tooling to add just this functionality. Here's how I added it to my blog site!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Search is never easy, right? Especially when we're adding it to a static website, which by its very definition does not have any server-side tools to
+permit the construction of some form of server index, and live searching capability.&lt;/p&gt;
+&lt;p&gt;So how do we do it?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;With Javascript, of course!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;... wait ... that sounds kinda awful for somebody who's a Python fan through-and-through.&lt;/p&gt;
+&lt;p&gt;Thank goodness there's some tools out there, already that make this all possible!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/stanley-solutions-blog-search.png" style="width: 60%; margin: 10px;" alt="Behold! Search..." align="right"&gt;&lt;/p&gt;
+&lt;h2&gt;Introducing: &lt;a href="https://pypi.org/project/pelican-search/"&gt;&lt;code&gt;pelican-search&lt;/code&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;As the name implies, this Pelican plugin incorporates search capabilities into a Python &lt;a href="https://getpelican.com/"&gt;&lt;em&gt;Pelican&lt;/em&gt;&lt;/a&gt;-based system. Simply put,
+at the time of generation, the plugin indexes all of the content in the blog's many pages and puts together one big "cheat-sheet" from which a few Javascript
+utilities may pull references to support a search functionality. The end product looks like what I've shown here, on the right.&lt;/p&gt;
+&lt;p&gt;Pelican Search relies heavily on &lt;a href="https://stork-search.net/"&gt;Stork Search&lt;/a&gt;, a Rust-powered
+(&lt;em&gt;insert audio effect from &lt;a href="https://www.jupiterbroadcasting.com/"&gt;Jupiter Broadcasting&lt;/a&gt; here...&lt;/em&gt;) search tool that markets itself as:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Impossibly fast web search, made for static sites.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I started working on this a few months ago, in a little "free time" (basically non-existent for me these days), and didn't have much success.
+Most notably, my current system was not using a &lt;code&gt;&amp;lt;main&amp;gt;...&amp;lt;/main&amp;gt;&lt;/code&gt; tag to contain the body of the page as is
+&lt;a href="https://github.com/pelican-plugins/search?tab=readme-ov-file#stork-html-selector"&gt;documented in their repository&lt;/a&gt;, and although I'd tried a few of their
+other incantations, nothing was quite working as I needed.&lt;/p&gt;
+&lt;p&gt;To further complicate things, my primary Pelican theme (&lt;a href="https://github.com/nairobilug/pelican-alchemy/tree/master"&gt;&lt;code&gt;Pelican-Alchemy&lt;/code&gt;&lt;/a&gt;), was being loaded
+into my project simply by installing the tarball, directly from GitHub. This meant that although I was pulling the most-up-to-date source, it wasn't
+available directly in my blog's repository.&lt;/p&gt;
+&lt;p&gt;So... There's my first task. Remove the tarball from my &lt;code&gt;requirements.txt&lt;/code&gt; file and make &lt;code&gt;Pelican-Alchemy&lt;/code&gt; a proper git submodule in my project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pelican
+&lt;span class="gd"&gt;- https://github.com/nairobilug/pelican-alchemy/tarball/master&lt;/span&gt;
+Markdown
+plantuml-markdown
+schemdraw-markdown
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-4d7c51b1efe9043e44439a949dfd92e5827321b34082903477fd04876edb7552L2"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And in case you're wondering, I just needed to run the following command to add the package as a git submodule:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;submodule&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;https://github.com/nairobilug/pelican-alchemy&lt;span class="w"&gt; &lt;/span&gt;themes/pelican-alchemy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;A little editing in my &lt;code&gt;pelicanconf.py&lt;/code&gt; file, later, and I was now ready to use the submodule-style theme. Oh! While I'm at it,
+I'll also call out the reference for the new CSS stylings I'll need to get the theme for Stork working, nicely.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gd"&gt;- import alchemy&lt;/span&gt;
+&lt;span class="gd"&gt;- THEME = alchemy.path()&lt;/span&gt;
+&lt;span class="gi"&gt;+ THEME = &amp;#39;themes/pelican-alchemy/alchemy&amp;#39;&lt;/span&gt;
+THEME_TEMPLATES_OVERRIDES = [&amp;#39;content/templates&amp;#39;]
+BOOTSTRAP_CSS = &amp;#39;https://bootswatch.com/4/darkly/bootstrap.css&amp;#39;
+THEME_CSS_OVERRIDES = [
+&lt;span class="w"&gt; &lt;/span&gt;   &amp;#39;/custom.css&amp;#39;,
+&lt;span class="gi"&gt;+    &amp;#39;https://files.stork-search.net/dark.css&amp;#39;&lt;/span&gt;
+]
+SITESUBTITLE = &amp;#39;engineering and creativity - all under one hat&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-d65cf0288f1d9a86915f40ad4e588bbbb59fd7b1f932ea9beaa39927e3bcf18c"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Oh! and don't forget that we need to use submodules when we do the checkout in GitHub actions!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt; &lt;/span&gt;   name: Build
+&lt;span class="w"&gt; &lt;/span&gt;   runs-on: ubuntu-latest
+&lt;span class="w"&gt; &lt;/span&gt;   steps:
+&lt;span class="gd"&gt;-      - uses: actions/checkout@v2&lt;/span&gt;
+&lt;span class="gi"&gt;+      - name: Checkout&lt;/span&gt;
+&lt;span class="gi"&gt;+        uses: actions/checkout@v4&lt;/span&gt;
+&lt;span class="gi"&gt;+        with:&lt;/span&gt;
+&lt;span class="gi"&gt;+          submodules: true&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;     - name: Install Python
+&lt;span class="w"&gt; &lt;/span&gt;       uses: actions/setup-python@v1
+&lt;span class="w"&gt; &lt;/span&gt;       with:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now... with the full source of &lt;code&gt;Python-Alchemy&lt;/code&gt; in my repo, I got to some spelunking...&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/commit-doge-such-wow.png" style="width: 50%; margin: 10px;" alt="Such beauty, such grace... it's commit doge!" align="left"&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I've just got to stop and show you this. While I was poking around in there, I saw this commit message... Just look at this thing.&lt;/p&gt;
+&lt;p&gt;Glorious.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Anyway...&lt;/p&gt;
+&lt;p&gt;I started poking around, and found that if I over-rode the &lt;code&gt;article.html&lt;/code&gt; Jinja template, I could add the &lt;code&gt;&amp;lt;main&amp;gt;...&amp;lt;/main&amp;gt;&lt;/code&gt; that I so
+desperately wanted. So, I did! I added a new file called &lt;code&gt;article.html&lt;/code&gt; to my &lt;code&gt;content/templates/&lt;/code&gt; directory. This file was almost an
+exact copy of the original Alchemy template, with the addition of the &lt;code&gt;main&lt;/code&gt; tag as shown here.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;...
+{% endblock %}
+
+{% block content %}
+&lt;span class="gi"&gt;+  &amp;lt;main&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;   &amp;lt;article class=&amp;quot;article&amp;quot;&amp;gt;
+&lt;span class="w"&gt; &lt;/span&gt;     &amp;lt;header&amp;gt;
+...
+&lt;span class="w"&gt; &lt;/span&gt;     &amp;lt;/div&amp;gt;
+&lt;span class="w"&gt; &lt;/span&gt;   &amp;lt;/article&amp;gt;
+&lt;span class="gi"&gt;+  &amp;lt;/main&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt; {% include &amp;#39;include/comments.html&amp;#39; %}
+{% endblock %}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-6b66599ff6ea4101dd39c64fe73d90e190fea2325620fc0ea1dbb477f12a6b4b"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;With those additions now in place, the changes I'd made &lt;em&gt;ages ago&lt;/em&gt; to support using Stork in the GitHub Actions workflow would now work!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gd"&gt;-      - name: Install dependencies&lt;/span&gt;
+
+&lt;span class="gi"&gt;+      - name: Collect Toolchain Requirments&lt;/span&gt;
+&lt;span class="gi"&gt;+        run: |&lt;/span&gt;
+&lt;span class="gi"&gt;+          wget https://files.stork-search.net/releases/v1.6.0/stork-ubuntu-20-04&lt;/span&gt;
+&lt;span class="gi"&gt;+          chmod +x stork-ubuntu-20-04&lt;/span&gt;
+&lt;span class="gi"&gt;+      - name: Install Dependencies&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;       run: |
+&lt;span class="w"&gt; &lt;/span&gt;         pip install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/63aa1174389e90212a8fad25407fbdc769129a95#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I decided to continue with my dark theme, opting to use the Dark theme &lt;a href="https://stork-search.net/themes"&gt;provided for Stork&lt;/a&gt;, which
+definitely looks clean on the site. This just took me adding the following to a customized &lt;code&gt;content/templates/include/header.html&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt; &lt;/span&gt;         &amp;lt;li class=&amp;quot;list-inline-item&amp;quot;&amp;gt;&amp;lt;a class=&amp;quot;{{ fa(icon) }}&amp;quot; href=&amp;quot;{{ url(link) }}&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+&lt;span class="w"&gt; &lt;/span&gt;       {% endfor %}
+&lt;span class="w"&gt; &lt;/span&gt;     &amp;lt;/ul&amp;gt;
+&lt;span class="w"&gt; &lt;/span&gt;   {% endif %}
+&lt;span class="gi"&gt;+    &amp;lt;div class=&amp;quot;stork-wrapper-dark&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="gi"&gt;+      &amp;lt;input data-stork=&amp;quot;sitesearch&amp;quot; class=&amp;quot;stork-input&amp;quot; placeholder=&amp;quot;search&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="gi"&gt;+      &amp;lt;div data-stork=&amp;quot;sitesearch-output&amp;quot; class=&amp;quot;stork-output&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="gi"&gt;+    &amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="gi"&gt;+    &amp;lt;script&amp;gt;&lt;/span&gt;
+&lt;span class="gi"&gt;+      stork.register(&amp;quot;sitesearch&amp;quot;, &amp;quot;{{ SITEURL }}/search-index.st&amp;quot;);&lt;/span&gt;
+&lt;span class="gi"&gt;+    &amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt; &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/f718252d6c776d60a4206df595836bf3908424d2#diff-5d5d17acf95c9b8def158afca8c40d2c3c99f8df6d471c6605d81d4376ad8c5f"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And a little bit to a customized &lt;code&gt;content/templates/base.html&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt; &lt;/span&gt; {% for stylesheet in THEME_CSS_OVERRIDES or () %}
+&lt;span class="w"&gt; &lt;/span&gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{{ url(stylesheet) }}&amp;quot;&amp;gt;
+&lt;span class="w"&gt; &lt;/span&gt; {% endfor %}
+&lt;span class="gi"&gt;+  &amp;lt;script src=&amp;quot;https://files.stork-search.net/releases/v1.6.0/stork.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+
+&lt;span class="w"&gt; &lt;/span&gt; {% include &amp;#39;include/xml_feeds.html&amp;#39; %}
+&lt;span class="w"&gt; &lt;/span&gt; {% block head %}{% endblock %}
+&lt;span class="w"&gt; &lt;/span&gt; {% include &amp;#39;include/analytics.html&amp;#39; %}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/f718252d6c776d60a4206df595836bf3908424d2#diff-f52c71daaaacd19772a9f70cb8921269f9a68114b6a2c3d4f92f3a8ee320c473"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;Certainly a good number of changes for this, but really, it's not all that bad. And now, I've got search!&lt;/p&gt;</content><category term="Blogging"></category><category term="blog"></category><category term="search"></category><category term="python"></category><category term="stork"></category><category term="static-site"></category><category term="html"></category><category term="jinja2"></category><category term="website"></category></entry><entry><title>Finding Broken Blog Links</title><link href="https://blog.stanleysolutionsnw.com/finding-broken-blog-links.html" rel="alternate"></link><published>2022-10-24T16:00:00-07:00</published><updated>2022-10-24T16:00:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2022-10-24:/finding-broken-blog-links.html</id><summary type="html">&lt;p&gt;Well, I just recently converted to a new Nextcloud instance at home. Gosh, I sure hope I wasn't using any of those links externally on any important websites like a blog, or anything... Oh. I was? Awkward...&lt;/p&gt;</summary><content type="html">&lt;p&gt;It's something of a solved problem, but I thought I'd share the way that I solved it...&lt;/p&gt;
 &lt;p&gt;That's right, finding dead links is a common practice with hosting websites of any form, or fashion. Just a matter of determining how they should be checked, right?
 Since I'm hosting my blog site from a GitHub-Pages GitHub-Action based deployment, I thought it would make the most sense to perform a little sanity check by way of
 another GitHub Action. If you'd like to go see it's source, you can check it out
@@ -208,7 +359,7 @@ another GitHub Action. If you'd like to go see it's source, you can check it out
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h5&gt;Closing Thoughts&lt;/h5&gt;
-&lt;p&gt;So... Like I said. This isn't a new problem, or one that hasn't been solved before. But it's how &lt;em&gt;I&lt;/em&gt; did it. Thanks for reading!&lt;/p&gt;</content><category term="Blogging"></category><category term="Python"></category><category term="Blogging"></category><category term="Automation"></category><category term="GitHub"></category><category term="Github-Actions"></category><category term="CI/CD"></category><category term="Continuous-Integration"></category><category term="Continuous-Deployment"></category></entry><entry><title>Adding PlantUML to Pelican Without Installing Java?</title><link href="https://blog.stanleysolutionsnw.com/adding-plantuml-to-pelican-without-installing-java.html" rel="alternate"></link><published>2022-02-13T19:54:00-08:00</published><updated>2022-02-13T20:32:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2022-02-13:/adding-plantuml-to-pelican-without-installing-java.html</id><summary type="html">&lt;p&gt;We know that I don't like to do anything that computers can do for me. We also know that I like Python, and am not a huge fan of Java. So how am I going to get PlantUML integrated into my blog without actually needing to install the Java packages? Let me show you...&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've recently wanted to start adding &lt;a href="https://plantuml.com/"&gt;PlantUML&lt;/a&gt; drawings to my blog-posts for a variety of reasons.
+&lt;p&gt;So... Like I said. This isn't a new problem, or one that hasn't been solved before. But it's how &lt;em&gt;I&lt;/em&gt; did it. Thanks for reading!&lt;/p&gt;</content><category term="Blogging"></category><category term="python"></category><category term="blogging"></category><category term="automation"></category><category term="github"></category><category term="github-actions"></category><category term="ci/cd"></category><category term="continuous-integration"></category><category term="continuous-deployment"></category></entry><entry><title>Adding PlantUML to Pelican Without Installing Java?</title><link href="https://blog.stanleysolutionsnw.com/adding-plantuml-to-pelican-without-installing-java.html" rel="alternate"></link><published>2022-02-13T19:54:00-08:00</published><updated>2022-02-13T20:32:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2022-02-13:/adding-plantuml-to-pelican-without-installing-java.html</id><summary type="html">&lt;p&gt;We know that I don't like to do anything that computers can do for me. We also know that I like Python, and am not a huge fan of Java. So how am I going to get PlantUML integrated into my blog without actually needing to install the Java packages? Let me show you...&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've recently wanted to start adding &lt;a href="https://plantuml.com/"&gt;PlantUML&lt;/a&gt; drawings to my blog-posts for a variety of reasons.
 Trouble is, PlantUML requires Java. My blog-site is built in GitHub actions, and adding PlantUML as some kind of CLI
 utility to a GitHub action sounds... well... gross!&lt;/p&gt;
 &lt;p&gt;Thankfully, I've found a way around that with the help of &lt;a href="https://pypi.org/project/plantuml-markdown/"&gt;&lt;code&gt;PlantUML-Markdown&lt;/code&gt;&lt;/a&gt;,
@@ -275,4 +426,4 @@ server option I needed to let &lt;code&gt;PlantUML-Markdown&lt;/code&gt; do its 
 &lt;p&gt;And of course, I added &lt;code&gt;plantuml-markdown&lt;/code&gt; to &lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/blob/master/requires.txt"&gt;my &lt;code&gt;requires.txt&lt;/code&gt; file&lt;/a&gt;
 so that &lt;code&gt;pip&lt;/code&gt; will pull it in for the rendering.&lt;/p&gt;
 &lt;h6&gt;Voila!&lt;/h6&gt;
-&lt;p&gt;Magic, don't you think? So, hopefully this means I'll start doing a little more "drawing" in my articles.&lt;/p&gt;</content><category term="Blogging"></category><category term="Python"></category><category term="Pelican"></category><category term="Blogging"></category><category term="Static-Sites"></category><category term="Html"></category><category term="Plantuml"></category><category term="Diagrams"></category><category term="Github-Actions"></category></entry></feed>
+&lt;p&gt;Magic, don't you think? So, hopefully this means I'll start doing a little more "drawing" in my articles.&lt;/p&gt;</content><category term="Blogging"></category><category term="python"></category><category term="pelican"></category><category term="blogging"></category><category term="static-sites"></category><category term="html"></category><category term="plantuml"></category><category term="diagrams"></category><category term="github-actions"></category></entry></feed>

@@ -1,162 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"></link><link href="https://blog.stanleysolutionsnw.com/feeds/python.atom.xml" rel="self"></link><id>https://blog.stanleysolutionsnw.com/</id><updated>2023-12-26T11:45:00-08:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>Adding Search to my Pelican Blog Site</title><link href="https://blog.stanleysolutionsnw.com/adding-search-to-my-pelican-blog-site.html" rel="alternate"></link><published>2023-12-26T11:45:00-08:00</published><updated>2023-12-26T11:45:00-08:00</updated><author><name>joestan</name></author><id>tag:blog.stanleysolutionsnw.com,2023-12-26:/adding-search-to-my-pelican-blog-site.html</id><summary type="html">&lt;p&gt;I'm quickly approaching the mark of 50 blog posts, which is wonderful! But it also means that finding that "thing" I wrote some time ago is becoming an increasing challenge. So... I need to add search to my blog site. But how? It's a static site, after all, there's not really a "backend" to do the search functionality for me... Luckily, there's some wonderful folks who've written tooling to add just this functionality. Here's how I added it to my blog site!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Search is never easy, right? Especially when we're adding it to a static website, which by its very definition does not have any server-side tools to
-permit the construction of some form of server index, and live searching capability.&lt;/p&gt;
-&lt;p&gt;So how do we do it?&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;With Javascript, of course!&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;... wait ... that sounds kinda awful for somebody who's a Python fan through-and-through.&lt;/p&gt;
-&lt;p&gt;Thank goodness there's some tools out there, already that make this all possible!&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/stanley-solutions-blog-search.png" style="width: 60%; margin: 10px;" alt="Behold! Search..." align="right"&gt;&lt;/p&gt;
-&lt;h2&gt;Introducing: &lt;a href="https://pypi.org/project/pelican-search/"&gt;&lt;code&gt;pelican-search&lt;/code&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;As the name implies, this Pelican plugin incorporates search capabilities into a Python &lt;a href="https://getpelican.com/"&gt;&lt;em&gt;Pelican&lt;/em&gt;&lt;/a&gt;-based system. Simply put,
-at the time of generation, the plugin indexes all of the content in the blog's many pages and puts together one big "cheat-sheet" from which a few Javascript
-utilities may pull references to support a search functionality. The end product looks like what I've shown here, on the right.&lt;/p&gt;
-&lt;p&gt;Pelican Search relies heavily on &lt;a href="https://stork-search.net/"&gt;Stork Search&lt;/a&gt;, a Rust-powered
-(&lt;em&gt;insert audio effect from &lt;a href="https://www.jupiterbroadcasting.com/"&gt;Jupiter Broadcasting&lt;/a&gt; here...&lt;/em&gt;) search tool that markets itself as:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Impossibly fast web search, made for static sites.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I started working on this a few months ago, in a little "free time" (basically non-existent for me these days), and didn't have much success.
-Most notably, my current system was not using a &lt;code&gt;&amp;lt;main&amp;gt;...&amp;lt;/main&amp;gt;&lt;/code&gt; tag to contain the body of the page as is
-&lt;a href="https://github.com/pelican-plugins/search?tab=readme-ov-file#stork-html-selector"&gt;documented in their repository&lt;/a&gt;, and although I'd tried a few of their
-other incantations, nothing was quite working as I needed.&lt;/p&gt;
-&lt;p&gt;To further complicate things, my primary Pelican theme (&lt;a href="https://github.com/nairobilug/pelican-alchemy/tree/master"&gt;&lt;code&gt;Pelican-Alchemy&lt;/code&gt;&lt;/a&gt;), was being loaded
-into my project simply by installing the tarball, directly from GitHub. This meant that although I was pulling the most-up-to-date source, it wasn't
-available directly in my blog's repository.&lt;/p&gt;
-&lt;p&gt;So... There's my first task. Remove the tarball from my &lt;code&gt;requirements.txt&lt;/code&gt; file and make &lt;code&gt;Pelican-Alchemy&lt;/code&gt; a proper git submodule in my project.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pelican
-&lt;span class="gd"&gt;- https://github.com/nairobilug/pelican-alchemy/tarball/master&lt;/span&gt;
-Markdown
-plantuml-markdown
-schemdraw-markdown
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-4d7c51b1efe9043e44439a949dfd92e5827321b34082903477fd04876edb7552L2"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;And in case you're wondering, I just needed to run the following command to add the package as a git submodule:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;submodule&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;https://github.com/nairobilug/pelican-alchemy&lt;span class="w"&gt; &lt;/span&gt;themes/pelican-alchemy
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;A little editing in my &lt;code&gt;pelicanconf.py&lt;/code&gt; file, later, and I was now ready to use the submodule-style theme. Oh! While I'm at it,
-I'll also call out the reference for the new CSS stylings I'll need to get the theme for Stork working, nicely.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gd"&gt;- import alchemy&lt;/span&gt;
-&lt;span class="gd"&gt;- THEME = alchemy.path()&lt;/span&gt;
-&lt;span class="gi"&gt;+ THEME = &amp;#39;themes/pelican-alchemy/alchemy&amp;#39;&lt;/span&gt;
-THEME_TEMPLATES_OVERRIDES = [&amp;#39;content/templates&amp;#39;]
-BOOTSTRAP_CSS = &amp;#39;https://bootswatch.com/4/darkly/bootstrap.css&amp;#39;
-THEME_CSS_OVERRIDES = [
-&lt;span class="w"&gt; &lt;/span&gt;   &amp;#39;/custom.css&amp;#39;,
-&lt;span class="gi"&gt;+    &amp;#39;https://files.stork-search.net/dark.css&amp;#39;&lt;/span&gt;
-]
-SITESUBTITLE = &amp;#39;engineering and creativity - all under one hat&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-d65cf0288f1d9a86915f40ad4e588bbbb59fd7b1f932ea9beaa39927e3bcf18c"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Oh! and don't forget that we need to use submodules when we do the checkout in GitHub actions!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt; &lt;/span&gt;   name: Build
-&lt;span class="w"&gt; &lt;/span&gt;   runs-on: ubuntu-latest
-&lt;span class="w"&gt; &lt;/span&gt;   steps:
-&lt;span class="gd"&gt;-      - uses: actions/checkout@v2&lt;/span&gt;
-&lt;span class="gi"&gt;+      - name: Checkout&lt;/span&gt;
-&lt;span class="gi"&gt;+        uses: actions/checkout@v4&lt;/span&gt;
-&lt;span class="gi"&gt;+        with:&lt;/span&gt;
-&lt;span class="gi"&gt;+          submodules: true&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;     - name: Install Python
-&lt;span class="w"&gt; &lt;/span&gt;       uses: actions/setup-python@v1
-&lt;span class="w"&gt; &lt;/span&gt;       with:
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Now... with the full source of &lt;code&gt;Python-Alchemy&lt;/code&gt; in my repo, I got to some spelunking...&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/commit-doge-such-wow.png" style="width: 50%; margin: 10px;" alt="Such beauty, such grace... it's commit doge!" align="left"&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I've just got to stop and show you this. While I was poking around in there, I saw this commit message... Just look at this thing.&lt;/p&gt;
-&lt;p&gt;Glorious.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Anyway...&lt;/p&gt;
-&lt;p&gt;I started poking around, and found that if I over-rode the &lt;code&gt;article.html&lt;/code&gt; Jinja template, I could add the &lt;code&gt;&amp;lt;main&amp;gt;...&amp;lt;/main&amp;gt;&lt;/code&gt; that I so
-desperately wanted. So, I did! I added a new file called &lt;code&gt;article.html&lt;/code&gt; to my &lt;code&gt;content/templates/&lt;/code&gt; directory. This file was almost an
-exact copy of the original Alchemy template, with the addition of the &lt;code&gt;main&lt;/code&gt; tag as shown here.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;...
-{% endblock %}
-
-{% block content %}
-&lt;span class="gi"&gt;+  &amp;lt;main&amp;gt;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;   &amp;lt;article class=&amp;quot;article&amp;quot;&amp;gt;
-&lt;span class="w"&gt; &lt;/span&gt;     &amp;lt;header&amp;gt;
-...
-&lt;span class="w"&gt; &lt;/span&gt;     &amp;lt;/div&amp;gt;
-&lt;span class="w"&gt; &lt;/span&gt;   &amp;lt;/article&amp;gt;
-&lt;span class="gi"&gt;+  &amp;lt;/main&amp;gt;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt; {% include &amp;#39;include/comments.html&amp;#39; %}
-{% endblock %}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/69ec5d9c17c009db95154cde95855c096c469232#diff-6b66599ff6ea4101dd39c64fe73d90e190fea2325620fc0ea1dbb477f12a6b4b"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;With those additions now in place, the changes I'd made &lt;em&gt;ages ago&lt;/em&gt; to support using Stork in the GitHub Actions workflow would now work!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gd"&gt;-      - name: Install dependencies&lt;/span&gt;
-
-&lt;span class="gi"&gt;+      - name: Collect Toolchain Requirments&lt;/span&gt;
-&lt;span class="gi"&gt;+        run: |&lt;/span&gt;
-&lt;span class="gi"&gt;+          wget https://files.stork-search.net/releases/v1.6.0/stork-ubuntu-20-04&lt;/span&gt;
-&lt;span class="gi"&gt;+          chmod +x stork-ubuntu-20-04&lt;/span&gt;
-&lt;span class="gi"&gt;+      - name: Install Dependencies&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;       run: |
-&lt;span class="w"&gt; &lt;/span&gt;         pip install -r requirements.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/63aa1174389e90212a8fad25407fbdc769129a95#diff-38c69d4be1b4265f1a6d512ddf513406b8ab04ce80c69d55c88bb945f5e0aa49"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I decided to continue with my dark theme, opting to use the Dark theme &lt;a href="https://stork-search.net/themes"&gt;provided for Stork&lt;/a&gt;, which
-definitely looks clean on the site. This just took me adding the following to a customized &lt;code&gt;content/templates/include/header.html&lt;/code&gt; file:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt; &lt;/span&gt;         &amp;lt;li class=&amp;quot;list-inline-item&amp;quot;&amp;gt;&amp;lt;a class=&amp;quot;{{ fa(icon) }}&amp;quot; href=&amp;quot;{{ url(link) }}&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-&lt;span class="w"&gt; &lt;/span&gt;       {% endfor %}
-&lt;span class="w"&gt; &lt;/span&gt;     &amp;lt;/ul&amp;gt;
-&lt;span class="w"&gt; &lt;/span&gt;   {% endif %}
-&lt;span class="gi"&gt;+    &amp;lt;div class=&amp;quot;stork-wrapper-dark&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class="gi"&gt;+      &amp;lt;input data-stork=&amp;quot;sitesearch&amp;quot; class=&amp;quot;stork-input&amp;quot; placeholder=&amp;quot;search&amp;quot;/&amp;gt;&lt;/span&gt;
-&lt;span class="gi"&gt;+      &amp;lt;div data-stork=&amp;quot;sitesearch-output&amp;quot; class=&amp;quot;stork-output&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class="gi"&gt;+    &amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class="gi"&gt;+    &amp;lt;script&amp;gt;&lt;/span&gt;
-&lt;span class="gi"&gt;+      stork.register(&amp;quot;sitesearch&amp;quot;, &amp;quot;{{ SITEURL }}/search-index.st&amp;quot;);&lt;/span&gt;
-&lt;span class="gi"&gt;+    &amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt; &amp;lt;/div&amp;gt;
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/f718252d6c776d60a4206df595836bf3908424d2#diff-5d5d17acf95c9b8def158afca8c40d2c3c99f8df6d471c6605d81d4376ad8c5f"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;And a little bit to a customized &lt;code&gt;content/templates/base.html&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt; &lt;/span&gt; {% for stylesheet in THEME_CSS_OVERRIDES or () %}
-&lt;span class="w"&gt; &lt;/span&gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{{ url(stylesheet) }}&amp;quot;&amp;gt;
-&lt;span class="w"&gt; &lt;/span&gt; {% endfor %}
-&lt;span class="gi"&gt;+  &amp;lt;script src=&amp;quot;https://files.stork-search.net/releases/v1.6.0/stork.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-
-&lt;span class="w"&gt; &lt;/span&gt; {% include &amp;#39;include/xml_feeds.html&amp;#39; %}
-&lt;span class="w"&gt; &lt;/span&gt; {% block head %}{% endblock %}
-&lt;span class="w"&gt; &lt;/span&gt; {% include &amp;#39;include/analytics.html&amp;#39; %}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href="https://github.com/engineerjoe440/stanley-solutions-blog/commit/f718252d6c776d60a4206df595836bf3908424d2#diff-f52c71daaaacd19772a9f70cb8921269f9a68114b6a2c3d4f92f3a8ee320c473"&gt;&lt;em&gt;source&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;Certainly a good number of changes for this, but really, it's not all that bad. And now, I've got search!&lt;/p&gt;</content><category term="Python"></category><category term="Blog"></category><category term="Search"></category><category term="Python"></category><category term="Stork"></category><category term="Static-Site"></category></entry><entry><title>Making Configuration for a Python Application Simple!</title><link href="https://blog.stanleysolutionsnw.com/making-configuration-for-a-python-application-simple.html" rel="alternate"></link><published>2023-01-17T14:23:00-08:00</published><updated>2023-01-17T14:23:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-01-17:/making-configuration-for-a-python-application-simple.html</id><summary type="html">&lt;p&gt;If you're a nerd like me, you can probably think of your favorite self-hosted application right now. Better yet, you can probably think of all the reasons you love it. You know, one of the staples of a great self-hosted application is its ability to make the configuration &lt;em&gt;your own&lt;/em&gt; and do so easily! I've been working on a number of little applications lately and they all need configuration, so I've started setting this up with the help of Python and TOML!&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you know me, you'll know that I often have &lt;em&gt;way too many projects&lt;/em&gt; all in process &lt;em&gt;at the same dang time&lt;/em&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"></link><link href="https://blog.stanleysolutionsnw.com/feeds/python.atom.xml" rel="self"></link><id>https://blog.stanleysolutionsnw.com/</id><updated>2023-01-17T14:23:00-08:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>Making Configuration for a Python Application Simple!</title><link href="https://blog.stanleysolutionsnw.com/making-configuration-for-a-python-application-simple.html" rel="alternate"></link><published>2023-01-17T14:23:00-08:00</published><updated>2023-01-17T14:23:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-01-17:/making-configuration-for-a-python-application-simple.html</id><summary type="html">&lt;p&gt;If you're a nerd like me, you can probably think of your favorite self-hosted application right now. Better yet, you can probably think of all the reasons you love it. You know, one of the staples of a great self-hosted application is its ability to make the configuration &lt;em&gt;your own&lt;/em&gt; and do so easily! I've been working on a number of little applications lately and they all need configuration, so I've started setting this up with the help of Python and TOML!&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you know me, you'll know that I often have &lt;em&gt;way too many projects&lt;/em&gt; all in process &lt;em&gt;at the same dang time&lt;/em&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;So proud. So proud...&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Well, as a result of this, lately, I've been able to capitalize on some common work. Primarily surrounding the configuration management for these apps.
 Configuration is a bit of a tricky subject, sometimes. Because often-times, it depends greatly on how the application will be hosted, how the configuration
-should be set-up. But also, different dev-ops folks will like different mechanisms to apply their config. After all, some folks like using nothing more than
+should be set-up. But also, different devops folks will like different mechanisms to apply their config. After all, some folks like using nothing more than
 environment variables for EVERYTHING. This makes configuring an app with tools like &lt;a href="https://docs.docker.com/get-started/08_using_compose/"&gt;&lt;code&gt;docker-compose&lt;/code&gt;&lt;/a&gt;
 a cinch. However, there are others who would rather set up their configuration with the file, itself. Thus, marrying the options can be a bit challenging at times.&lt;/p&gt;
 &lt;p&gt;I've recently come into the awareness of the Python package &lt;a href="https://pypi.org/project/toml-config/"&gt;&lt;code&gt;toml-config&lt;/code&gt;&lt;/a&gt;. This simple little package wraps other
@@ -356,7 +205,7 @@ to pull in the appropriate initialization value, or fall back to a default if no
 same time, providing a convenient update mechanism. This isn't as secure, or as robust as something with a database might be. After all, it's
 entirely possible for on-disk-data to be corrupted because of improper shutdown during the data write; however unlikely that may be.&lt;/p&gt;
 &lt;p&gt;Either way, it's simple, convenient, and I enjoy it!&lt;/p&gt;
-&lt;p&gt;Happy coding!&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="Toml"></category><category term="Configuration"></category><category term="Development"></category><category term="Environment-Variables"></category><category term="Dot-Files"></category></entry><entry><title>Packaging Single File Python Projects</title><link href="https://blog.stanleysolutionsnw.com/packaging-single-file-python-projects.html" rel="alternate"></link><published>2023-01-16T09:50:00-08:00</published><updated>2023-01-16T09:50:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-01-16:/packaging-single-file-python-projects.html</id><summary type="html">&lt;p&gt;Somehow, I've managed to build quite a few random Python package, and contribute to others. I've recently been working towards converting all of the Python projects I manage to the new pyproject.toml standards for packaging, and I've recently had to work through an interesting little challenge for some of the projects which only contain a sigle Python file. No module folder, no &lt;code&gt;__init__.py&lt;/code&gt;. Just a single file.&lt;/p&gt;</summary><content type="html">&lt;p&gt;So... I somehow seem to have become a maintainer for a number of projects. I don't claim to be a &lt;em&gt;good&lt;/em&gt; maintainer. Just that I am a maintainer. After all,
+&lt;p&gt;Happy coding!&lt;/p&gt;</content><category term="Python"></category><category term="python"></category><category term="toml"></category><category term="configuration"></category><category term="development"></category><category term="environment-variables"></category><category term="dot-files"></category></entry><entry><title>Packaging Single File Python Projects</title><link href="https://blog.stanleysolutionsnw.com/packaging-single-file-python-projects.html" rel="alternate"></link><published>2023-01-16T09:50:00-08:00</published><updated>2023-01-16T09:50:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-01-16:/packaging-single-file-python-projects.html</id><summary type="html">&lt;p&gt;Somehow, I've managed to build quite a few random Python package, and contribute to others. I've recently been working towards converting all of the Python projects I manage to the new pyproject.toml standards for packaging, and I've recently had to work through an interesting little challenge for some of the projects which only contain a sigle Python file. No module folder, no &lt;code&gt;__init__.py&lt;/code&gt;. Just a single file.&lt;/p&gt;</summary><content type="html">&lt;p&gt;So... I somehow seem to have become a maintainer for a number of projects. I don't claim to be a &lt;em&gt;good&lt;/em&gt; maintainer. Just that I am a maintainer. After all,
 I'm involved, in one way, or another with each of the following projects.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/engineerjoe440/ElectricPy"&gt;&lt;code&gt;ElectricPy&lt;/code&gt;&lt;/a&gt; -- I'm the Primary maintainer for this one, after all, I was the original author.&lt;/li&gt;
@@ -483,7 +332,7 @@ for the project as a whole, but you can go visit it here:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://gitlab.stanleysolutionsnw.com/engineerjoe440/pianobarplayer"&gt;https://gitlab.stanleysolutionsnw.com/engineerjoe440/pianobarplayer&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;I've picked up some interesting learnings from the project as a whole, but since I've been doing a lot with those same learnings elsewhere, I'll be
-writing some of my thoughts on configuration with TOML in Python soon!&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="Pianobar"></category><category term="MQTT"></category><category term="HTTP"></category><category term="Configuration"></category><category term="Pandora"></category><category term="Music"></category><category term="Streaming"></category><category term="Audio"></category><category term="Home-Automation"></category><category term="Home Networking"></category></entry><entry><title>The Ranch (KRNC) Gets a Face Lift</title><link href="https://blog.stanleysolutionsnw.com/the-ranch-gets-a-face-lift.html" rel="alternate"></link><published>2023-01-08T12:00:00-08:00</published><updated>2023-01-08T12:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-01-08:/the-ranch-gets-a-face-lift.html</id><summary type="html">&lt;p&gt;So, I've got an old (1992) Ford pickup, and it's got a newer-ish stereo. I love keeping my favorite tunes on a USB stick that I can play everything from, but I HATE it when the volume changes from one song to the next. I go from barely being able to hear the music to having my eardrums blown out in 0.5 seconds. So, I've come to the conclusion that I need to fix that. With PYTHON!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Like I'd mentioned; I absolutely &lt;em&gt;HATE&lt;/em&gt; it when the audio in my car goes from practically inaudible to raising the dead.&lt;/p&gt;
+writing some of my thoughts on configuration with TOML in Python soon!&lt;/p&gt;</content><category term="Python"></category><category term="python"></category><category term="pianobar"></category><category term="mqtt"></category><category term="http"></category><category term="configuration"></category><category term="pandora"></category><category term="music"></category><category term="streaming"></category><category term="audio"></category><category term="home-automation"></category><category term="networking"></category></entry><entry><title>The Ranch (KRNC) Gets a Face Lift</title><link href="https://blog.stanleysolutionsnw.com/the-ranch-gets-a-face-lift.html" rel="alternate"></link><published>2023-01-08T12:00:00-08:00</published><updated>2023-01-08T12:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-01-08:/the-ranch-gets-a-face-lift.html</id><summary type="html">&lt;p&gt;So, I've got an old (1992) Ford pickup, and it's got a newer-ish stereo. I love keeping my favorite tunes on a USB stick that I can play everything from, but I HATE it when the volume changes from one song to the next. I go from barely being able to hear the music to having my eardrums blown out in 0.5 seconds. So, I've come to the conclusion that I need to fix that. With PYTHON!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Like I'd mentioned; I absolutely &lt;em&gt;HATE&lt;/em&gt; it when the audio in my car goes from practically inaudible to raising the dead.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Not fun.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -591,7 +440,7 @@ that's fine. This is just the way &lt;em&gt;I&lt;/em&gt; do it.
 If they're not there, double click on the "Path" variable, and add them!
 &lt;img src="https://blog.stanleysolutionsnw.com/2022-11-02_16-45-01.png" style="width: 100%" alt="Step 6 - Verify the Path"&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;That's about it! Have fun with the faster, newer, Python, everyone!&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="Windows"></category><category term="Development"></category><category term="Installing"></category></entry><entry><title>Making Drawing Circuits in Markdown a Cinch!</title><link href="https://blog.stanleysolutionsnw.com/making-drawing-circuits-in-markdown-a-cinch.html" rel="alternate"></link><published>2022-08-30T13:01:00-07:00</published><updated>2022-08-30T13:01:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2022-08-30:/making-drawing-circuits-in-markdown-a-cinch.html</id><summary type="html">&lt;p&gt;I've talked about how someone can make PlantUML diagrams come to life, directly in markdown for blog-sites, and I've touched on other automation techniques I use to make blogs come together from plain text, but how about some circuit diagrams? Well, there wasn't a neat tool to help make this a possibility, until now!&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, wouldn't it be nice to be able to draw circuits right in your markdown? The same way that PlantUML drawings can be carved out from plain-text.&lt;/p&gt;
+&lt;p&gt;That's about it! Have fun with the faster, newer, Python, everyone!&lt;/p&gt;</content><category term="Python"></category><category term="python"></category><category term="windows"></category><category term="development"></category><category term="installing"></category></entry><entry><title>Making Drawing Circuits in Markdown a Cinch!</title><link href="https://blog.stanleysolutionsnw.com/making-drawing-circuits-in-markdown-a-cinch.html" rel="alternate"></link><published>2022-08-30T13:01:00-07:00</published><updated>2022-08-30T13:01:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2022-08-30:/making-drawing-circuits-in-markdown-a-cinch.html</id><summary type="html">&lt;p&gt;I've talked about how someone can make PlantUML diagrams come to life, directly in markdown for blog-sites, and I've touched on other automation techniques I use to make blogs come together from plain text, but how about some circuit diagrams? Well, there wasn't a neat tool to help make this a possibility, until now!&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, wouldn't it be nice to be able to draw circuits right in your markdown? The same way that PlantUML drawings can be carved out from plain-text.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Sure, but that technology doesn't exist... right?&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -656,7 +505,7 @@ warning in the README docs for the new package. And speaking of the "new package
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;pip3&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;schemdraw-markdown
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;And let me know what you think in the comments below!&lt;/p&gt;</content><category term="Python"></category><category term="Markdown"></category><category term="Pelican"></category><category term="Blogging"></category><category term="Circuits"></category><category term="Schematics"></category><category term="Python"></category></entry><entry><title>Telnetlib, Python, and SEL Protocol</title><link href="https://blog.stanleysolutionsnw.com/telnetlib-python-and-sel-protocol.html" rel="alternate"></link><published>2022-01-26T16:32:00-08:00</published><updated>2022-01-26T16:32:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2022-01-26:/telnetlib-python-and-sel-protocol.html</id><summary type="html">&lt;p&gt;Python's telnetlib library doesn't like null-characters, SEL protocol does, that makes for some interesting challenges.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Zeros don't matter, right?&lt;/h3&gt;
+&lt;p&gt;And let me know what you think in the comments below!&lt;/p&gt;</content><category term="Python"></category><category term="markdown"></category><category term="pelican"></category><category term="blogging"></category><category term="circuits"></category><category term="schematics"></category><category term="python"></category></entry><entry><title>Telnetlib, Python, and SEL Protocol</title><link href="https://blog.stanleysolutionsnw.com/telnetlib-python-and-sel-protocol.html" rel="alternate"></link><published>2022-01-26T16:32:00-08:00</published><updated>2022-01-26T16:32:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2022-01-26:/telnetlib-python-and-sel-protocol.html</id><summary type="html">&lt;p&gt;Python's telnetlib library doesn't like null-characters, SEL protocol does, that makes for some interesting challenges.&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Zeros don't matter, right?&lt;/h3&gt;
 &lt;p&gt;Well, that depends on who, (&lt;em&gt;or what&lt;/em&gt;) you're talking to. If it happens to be an SEL relay, those zeros are pretty important.&lt;/p&gt;
 &lt;p&gt;How important? Well, every byte tells a story... so that means that every zero is important.&lt;/p&gt;
 &lt;h3&gt;Where did this start?&lt;/h3&gt;
@@ -791,7 +640,7 @@ functionality to retain null characters. Just check out this code snippet from t
 working, but sending the same commands over a plain TCP socket works without failure. Hmm... Weird. That one's
 going to take some more research. I'll be sure to post what I find, when I find it!&lt;/p&gt;
 &lt;p&gt;If you have questions, thoughts, or just want to say "hi", feel free to drop me a note in my new comments system
-below!&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="SEL"></category><category term="Communications"></category><category term="Telnet"></category><category term="Libraries"></category><category term="Monkey-Patch"></category></entry><entry><title>Automating Python Releases with GitHub Actions</title><link href="https://blog.stanleysolutionsnw.com/automating-python-releases-with-github-actions.html" rel="alternate"></link><published>2021-11-25T14:01:00-08:00</published><updated>2021-11-25T14:01:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2021-11-25:/automating-python-releases-with-github-actions.html</id><summary type="html">&lt;p&gt;I'm pretty lazy... We've covered that already, but wouldn't it be exceptionally nice if I could make GitHub automate Python package releases for me? Lets do that...&lt;/p&gt;</summary><content type="html">&lt;p&gt;Oh yes. I'm lazy.&lt;/p&gt;
+below!&lt;/p&gt;</content><category term="Python"></category><category term="python"></category><category term="sel"></category><category term="communications"></category><category term="telnet"></category><category term="libraries"></category><category term="monkey-patch"></category></entry><entry><title>Automating Python Releases with GitHub Actions</title><link href="https://blog.stanleysolutionsnw.com/automating-python-releases-with-github-actions.html" rel="alternate"></link><published>2021-11-25T14:01:00-08:00</published><updated>2021-11-25T14:01:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2021-11-25:/automating-python-releases-with-github-actions.html</id><summary type="html">&lt;p&gt;I'm pretty lazy... We've covered that already, but wouldn't it be exceptionally nice if I could make GitHub automate Python package releases for me? Lets do that...&lt;/p&gt;</summary><content type="html">&lt;p&gt;Oh yes. I'm lazy.&lt;/p&gt;
 &lt;p&gt;Haven't we established that, yet? Well, we're going to hit that nail home with this topic...&lt;/p&gt;
 &lt;p&gt;We've established previously that I manage a number of random Python packages, including &lt;em&gt;ElectricPy&lt;/em&gt;, &lt;em&gt;SELProtoPy&lt;/em&gt;, and &lt;em&gt;PyCEV&lt;/em&gt;.
 I've come to the realization that I need all the help I can get with releasing updates on a regular basis. So... How shall we do
@@ -914,7 +763,7 @@ tag to the repository so it's easy to back-track the code.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Wrapping Up&lt;/h3&gt;
 &lt;p&gt;This might not be the biggest accomplishment, but it's a huge relief because it makes automating releases
-and pushing out updates MUCH easier. So, let's bring on the new features and updates!!!&lt;/p&gt;</content><category term="Python"></category><category term="Automation"></category><category term="Python"></category><category term="Github Actions"></category><category term="PyPI"></category></entry><entry><title>DJ Joe Playlister</title><link href="https://blog.stanleysolutionsnw.com/dj-joe-playlister.html" rel="alternate"></link><published>2021-10-16T12:03:00-07:00</published><updated>2021-10-16T12:03:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2021-10-16:/dj-joe-playlister.html</id><summary type="html">&lt;p&gt;I've been going a bit crazy with the web-app craze lately. Let me show you what I've been up to...&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been working up a fever on web-apps recently. Ones that I'm developing, ones that I'm deploying, and ones that
+and pushing out updates MUCH easier. So, let's bring on the new features and updates!!!&lt;/p&gt;</content><category term="Python"></category><category term="automation"></category><category term="python"></category><category term="github actions"></category><category term="pypi"></category></entry><entry><title>DJ Joe Playlister</title><link href="https://blog.stanleysolutionsnw.com/dj-joe-playlister.html" rel="alternate"></link><published>2021-10-16T12:03:00-07:00</published><updated>2021-10-16T12:03:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2021-10-16:/dj-joe-playlister.html</id><summary type="html">&lt;p&gt;I've been going a bit crazy with the web-app craze lately. Let me show you what I've been up to...&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been working up a fever on web-apps recently. Ones that I'm developing, ones that I'm deploying, and ones that
 I'm reviewing. That goes for both work and home. Gosh... I think I need a vacation. Maybe next lifetime.&lt;/p&gt;
 &lt;p&gt;Recently, at home, my focus has been on several "DJ Joe Services," things that I can utilize for my mobile DJ work and
 that will help me make those processes easier. Remember, I'm lazy! I want to find the easiest way to do things. Right
@@ -977,7 +826,7 @@ and some more packages and I've got a full web-application. Still full Python, a
 with a lot of other tools. Imagine if I had started with some Excel macro, or some bash script. It would've been very
 difficult to scale those apps out to something that's actually useful in the context that I need.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Not with Python!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Preaching session over. Chat again soon, goodbye!&lt;/p&gt;</content><category term="Python"></category><category term="Spotify"></category><category term="Apple-Music"></category><category term="Python"></category><category term="Web-Apps"></category><category term="DJ"></category><category term="Docker"></category></entry><entry><title>A Better Way to Integrate with VoiceMeeter?</title><link href="https://blog.stanleysolutionsnw.com/a-better-way-to-integrate-with-voicemeeter.html" rel="alternate"></link><published>2021-09-12T17:07:00-07:00</published><updated>2021-09-15T17:38:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2021-09-12:/a-better-way-to-integrate-with-voicemeeter.html</id><summary type="html">&lt;p&gt;Wait... What? There's an API for VoiceMeeter? And there's already a Python API for it? Sign me up!&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, I finally sucked it up and bought an Intel NUC to run as my own mini audio-server. For what purpose,
+&lt;p&gt;Preaching session over. Chat again soon, goodbye!&lt;/p&gt;</content><category term="Python"></category><category term="spotify"></category><category term="apple-music"></category><category term="python"></category><category term="web-apps"></category><category term="dj"></category><category term="docker"></category></entry><entry><title>A Better Way to Integrate with VoiceMeeter?</title><link href="https://blog.stanleysolutionsnw.com/a-better-way-to-integrate-with-voicemeeter.html" rel="alternate"></link><published>2021-09-12T17:07:00-07:00</published><updated>2021-09-15T17:38:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2021-09-12:/a-better-way-to-integrate-with-voicemeeter.html</id><summary type="html">&lt;p&gt;Wait... What? There's an API for VoiceMeeter? And there's already a Python API for it? Sign me up!&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, I finally sucked it up and bought an Intel NUC to run as my own mini audio-server. For what purpose,
 you ask? Well, so that I can have an "always on" &lt;a href="https://vb-audio.com/Voicemeeter/vban.htm"&gt;VBAN&lt;/a&gt; server
 where I can route audio through-out my house. From my desktop, my laptop, my mixer, my stereo.... All
 over!&lt;/p&gt;
@@ -1050,7 +899,7 @@ like:&lt;/p&gt;
 &lt;h3&gt;What Else Will Come?&lt;/h3&gt;
 &lt;p&gt;Goodness, there's so many other things that I can do with this now. Imagine having a full web-based front
 end that I could use to control it! That would be pretty awesome, wouldn't it? I'll really have to do
-some more exploring with this!&lt;/p&gt;</content><category term="Python"></category><category term="Audio"></category><category term="Voicemeeter"></category><category term="Api"></category><category term="Sdk"></category><category term="Mixer"></category><category term="Python"></category></entry><entry><title>GitLab, Jenkins, Python, and the Raspberry Pi!</title><link href="https://blog.stanleysolutionsnw.com/gitlab-jenkins-and-the-rpi.html" rel="alternate"></link><published>2020-12-21T19:07:00-08:00</published><updated>2021-01-04T21:07:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2020-12-21:/gitlab-jenkins-and-the-rpi.html</id><summary type="html">&lt;p class="first"&gt;I'm finally getting around to setting up some CI/CD systems for my self-hosted GitLab server... About Time!&lt;/p&gt;
+some more exploring with this!&lt;/p&gt;</content><category term="Python"></category><category term="audio"></category><category term="voicemeeter"></category><category term="api"></category><category term="sdk"></category><category term="mixer"></category><category term="python"></category></entry><entry><title>GitLab, Jenkins, Python, and the Raspberry Pi!</title><link href="https://blog.stanleysolutionsnw.com/gitlab-jenkins-and-the-rpi.html" rel="alternate"></link><published>2020-12-21T19:07:00-08:00</published><updated>2021-01-04T21:07:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2020-12-21:/gitlab-jenkins-and-the-rpi.html</id><summary type="html">&lt;p class="first"&gt;I'm finally getting around to setting up some CI/CD systems for my self-hosted GitLab server... About Time!&lt;/p&gt;
 &lt;p class="last"&gt;CI/CD, Dev Ops, Pipelines, Workflows, Automated Deployment&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Think that's enough buzz words to catch the Google SEO engine's eye?&lt;/p&gt;
 &lt;p&gt;Probably not, I know, but I'm not going to spend anymore time on it at the moment. See,
@@ -1161,7 +1010,7 @@ of what my configuration might look like.&lt;/p&gt;
 &lt;p&gt;Well, that's a pretty rough intro into what I've been doing in Jenkins and GitLab.
 Kinda rough, but I hope I'll be looking to add more in the near future.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Python"></category><category term="Python"></category><category term="Jenkins"></category><category term="Gitlab"></category><category term="Raspberry Pi"></category><category term="Dev Ops"></category><category term="GIT"></category><category term="CI/CD"></category></entry><entry><title>pycev - A Python CEV Reader</title><link href="https://blog.stanleysolutionsnw.com/pycev-a-python-cev-reader.html" rel="alternate"></link><published>2020-12-12T10:59:00-08:00</published><updated>2020-12-12T10:59:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2020-12-12:/pycev-a-python-cev-reader.html</id><summary type="html">&lt;p class="first last"&gt;Another new project? Well, why not? This time, we'll be tackling reading CEV files from SEL in Python.&lt;/p&gt;
+</content><category term="Python"></category><category term="python"></category><category term="jenkins"></category><category term="gitlab"></category><category term="raspberry pi"></category><category term="dev ops"></category><category term="git"></category><category term="ci/cd"></category></entry><entry><title>pycev - A Python CEV Reader</title><link href="https://blog.stanleysolutionsnw.com/pycev-a-python-cev-reader.html" rel="alternate"></link><published>2020-12-12T10:59:00-08:00</published><updated>2020-12-12T10:59:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2020-12-12:/pycev-a-python-cev-reader.html</id><summary type="html">&lt;p class="first last"&gt;Another new project? Well, why not? This time, we'll be tackling reading CEV files from SEL in Python.&lt;/p&gt;
 </summary><content type="html">&lt;img alt="Introducing: pycev!" src="https://raw.githubusercontent.com/engineerjoe440/pycev/main/logo/pycev.png" style="width: 600px;" /&gt;
 &lt;p&gt;Wait...&lt;/p&gt;
 &lt;p&gt;Another new project?&lt;/p&gt;
@@ -1206,7 +1055,7 @@ so who knows whe this all will &lt;em&gt;actually&lt;/em&gt; happen. But here's 
 &lt;p&gt;If you're interested in checking in on the project, and would like to jump in and contribute,
 have a little look at the &lt;a class="reference external" href="https://github.com/engineerjoe440/pycev"&gt;repository&lt;/a&gt;, and feel free to open an &lt;a class="reference external" href="https://github.com/engineerjoe440/pycev/issues"&gt;issue&lt;/a&gt; to start a conversation!&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Python"></category><category term="Python"></category><category term="SEL"></category><category term="CEV"></category><category term="Event"></category><category term="Record"></category><category term="Files"></category><category term="Power System"></category><category term="Analysis"></category></entry><entry><title>Reading Data with selprotopy</title><link href="https://blog.stanleysolutionsnw.com/reading-data-with-selprotopy.html" rel="alternate"></link><published>2020-11-22T19:02:00-08:00</published><updated>2020-11-22T19:02:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2020-11-22:/reading-data-with-selprotopy.html</id><summary type="html">&lt;p class="first last"&gt;Finally reading some data from SEL relays using Python! Now to get the controls working...&lt;/p&gt;
+</content><category term="Python"></category><category term="python"></category><category term="sel"></category><category term="cev"></category><category term="event"></category><category term="record"></category><category term="files"></category><category term="power system"></category><category term="analysis"></category></entry><entry><title>Reading Data with selprotopy</title><link href="https://blog.stanleysolutionsnw.com/reading-data-with-selprotopy.html" rel="alternate"></link><published>2020-11-22T19:02:00-08:00</published><updated>2020-11-22T19:02:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2020-11-22:/reading-data-with-selprotopy.html</id><summary type="html">&lt;p class="first last"&gt;Finally reading some data from SEL relays using Python! Now to get the controls working...&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Still deep in the process of getting a fully functional SEL protocol binding suite in Python, but,
 hey! At least I can write a little update on what's been going on!&lt;/p&gt;
 &lt;p&gt;(if you haven't read my article on what &lt;cite&gt;selprotopy&lt;/cite&gt; is, take a look &lt;a class="reference external" href="https://blog.stanleysolutionsnw.com/sel-protocol-coming-to-python.html"&gt;here&lt;/a&gt;)&lt;/p&gt;
@@ -1241,7 +1090,7 @@ so I'm still not sure about this one)&lt;/li&gt;
 &lt;p&gt;Clearly some more work coming, so stay tuned!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="Python"></category><category term="Protocols"></category><category term="SEL"></category><category term="Python"></category><category term="Communications"></category><category term="Metering"></category></entry><entry><title>Introducing selprotopy</title><link href="https://blog.stanleysolutionsnw.com/sel-protocol-coming-to-python.html" rel="alternate"></link><published>2020-09-20T11:07:00-07:00</published><updated>2021-02-14T16:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2020-09-20:/sel-protocol-coming-to-python.html</id><summary type="html">&lt;p class="first last"&gt;The SEL Protocol binding suite for Python is finally coming...&lt;/p&gt;
+</content><category term="Python"></category><category term="protocols"></category><category term="sel"></category><category term="python"></category><category term="communications"></category><category term="metering"></category></entry><entry><title>Introducing selprotopy</title><link href="https://blog.stanleysolutionsnw.com/sel-protocol-coming-to-python.html" rel="alternate"></link><published>2020-09-20T11:07:00-07:00</published><updated>2021-02-14T16:00:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2020-09-20:/sel-protocol-coming-to-python.html</id><summary type="html">&lt;p class="first last"&gt;The SEL Protocol binding suite for Python is finally coming...&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;SEL Protocol is finally coming for Python. That's right, you've heard correctly; it's coming.&lt;/p&gt;
 &lt;img alt="The new... `selprotopy`!" src="https://raw.githubusercontent.com/engineerjoe440/sel-proto-py/master/logo/selprotopy.png" style="width: 350px;" /&gt;
 &lt;p&gt;But, what is SEL Protocol anyway?&lt;/p&gt;
@@ -1256,4 +1105,4 @@ Python. This means that users will be able to integrate solutions with SEL relay
 Python!&lt;/p&gt;
 &lt;p&gt;Obviously, there's a lot to come, so this is not much more than an early announcement.
 If you're interested in contributing, feel free to drop me a message! I'd love to interact!&lt;/p&gt;
-</content><category term="Python"></category><category term="Python"></category><category term="Protocols"></category><category term="SEL"></category></entry></feed>
+</content><category term="Python"></category><category term="python"></category><category term="protocols"></category><category term="sel"></category></entry></feed>
