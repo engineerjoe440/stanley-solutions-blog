@@ -23,6 +23,7 @@ if os.getenv("GITHUB_ACTIONS") is not None:
     SITEURL = 'https://blog.stanleysolutionsnw.com'
 else:
     SITEURL = 'localhost:8000'
+    RELATIVE_URLS = True
 
 
 THEME = 'themes/pelican-alchemy/alchemy'
@@ -40,11 +41,14 @@ DESCRIPTION = ('Electrical Engineering blog by Joe Stanley - Python,' +
 
 ISSO_URL = "https://blogcomments.stanleysolutionsnw.com"
 
+LISTMONK_URL = "https://listmonk.stanleysolutionsnw.com"
+LISTMONK_LIST_ID = "8a08bea9-66e2-4b36-9140-17f303bda981"
+
 PLUGINS=[
     'render_math',
     'photos',
     'sitemap',
-    'search',
+    #'search',
 ]
 
 PHOTO_LIBRARY = os.path.join(os.getcwd(), "content", "images")
@@ -91,6 +95,8 @@ STATIC_PATHS = [
     'extra',
     'html',
 ]
+
+DIRECT_TEMPLATES = ['index', 'tags', 'categories', 'authors', 'archives', 'subscribe']
 
 EXTRA_PATH_METADATA = {
     'extra/custom.css': {'path': 'custom.css'},
@@ -143,5 +149,3 @@ ICONS = (
 
 DEFAULT_PAGINATION = 10
 
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True

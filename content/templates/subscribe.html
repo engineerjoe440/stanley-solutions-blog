@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Subscribe {{ super() }}
+{% endblock %}
+
+{% block page_header %}
+  Subscribe
+{% endblock %}
+
+{% block content %}
+  <form method="post" action="{{ LISTMONK_URL }}/subscription/form" class="listmonk-form">
+    <div>
+        <h3>{{ SITENAME }} Newsletter</h3>
+        <input type="hidden" name="nonce" />
+        <p><input type="email" class="stork-input" name="email" required placeholder="E-mail" /></p>
+        <p><input type="text" class="stork-input" name="name" placeholder="Name (optional)" /></p>
+      
+        <p>
+          <input hidden id="8a08b" type="checkbox" name="l" checked value="{{ LISTMONK_LIST_ID }}" />
+        </p>
+        
+        <p><input type="submit" value="Subscribe" class="btn btn-success btn-lg" /></p>
+    </div>
+  </form>
+{% endblock %}

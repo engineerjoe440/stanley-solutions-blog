@@ -16,6 +16,7 @@ keymap = {}
 try:
     import win32api
     def usr_callback(prompt=False):
+        """Username Callback."""
         global keymap
         usr = win32api.GetUserName()
         usr_str = ' [{}]'.format(usr)
@@ -25,9 +26,10 @@ try:
             return usr
         else:
             return keymap['author']
-except:
+except ImportError:
     import pwd
     def usr_callback(prompt=False):
+        """Username Callback."""
         global keymap
         usr = pwd.getpwuid(os.getuid())[4].replace(',','')
         usr_str = ' [{}]'.format(usr)
@@ -39,6 +41,7 @@ except:
             return keymap['author']
 
 def tagerizer(prompt=False):
+    """Automatically Render the Tags."""
     global keymap
     if prompt:
         return ''
@@ -48,6 +51,7 @@ def tagerizer(prompt=False):
     return ', '.join(tags)
 
 def slugerizer(prompt=False):
+    """Automatically Render the Slugs."""
     global keymap
     tag = re.sub(r'[^\w\s]', '', keymap['title'].lower())
     tag = tag.replace(' ', '-')
@@ -68,7 +72,7 @@ prompts = [
 ]
 
 # Define the default RST file format
-rst_format = """{title}
+RST_FORMAT = """{title}
 {underline}
 
 :date: {year}-{month}-{day} {hour}:{minute}
@@ -83,7 +87,7 @@ rst_format = """{title}
 """
 
 # Define the default MD file format
-md_format = """Title: {title}
+MD_FORMAT = """Title: {title}
 Date: {year}-{month}-{day} {hour}:{minute}
 Modified: {year}-{month}-{day} {hour}:{minute}
 Tags: {tags}
@@ -104,7 +108,7 @@ parser.add_argument('-f','--filename',help=
 
 def main( parser, keymap ):
     args = parser.parse_args()
-    openafter   = args.open
+    open_after   = args.open
     filename    = args.filename
     # Welcome User
     print("Welcome! Let's start that new article you're planning!")
@@ -114,7 +118,7 @@ def main( parser, keymap ):
     while True:
         prompt_set = prompts[index]
         prompt_msg = prompt_set[1]
-        if prompt_set[2] != None:
+        if prompt_set[2] is not None:
             prompt_msg += prompt_set[2](prompt=True)
         response = input(prompt_msg)
         if response == '^':
@@ -122,9 +126,9 @@ def main( parser, keymap ):
             continue
         else:
             keymap[prompt_set[0]] = response
-            if prompt_set[2] != None:
+            if prompt_set[2] is not None:
                 keymap[prompt_set[0]] = prompt_set[2]() # Call the callback function
-            print("   "+prompt_set[0].title()+': "'+keymap[prompt_set[0]]+'"') 
+            print(f"   {prompt_set[0].title()}: \"{keymap[prompt_set[0]]}\"") 
             index += 1
         if index >= len(prompts):
             break
@@ -141,7 +145,7 @@ def main( parser, keymap ):
         file_type = 'md'
     # Determine Filename
     if filename in ['', None]:
-        filename = keymap['title'].lower().replace(' ','-') + '.{}'.format(file_type)
+        filename = f"{keymap['title'].lower().replace(' ','-')}.{file_type}"
         # Clean Filename
         filename = filename.replace('?','')
         filename = filename.replace('!','')
@@ -158,18 +162,18 @@ def main( parser, keymap ):
         filename = './content/' + os.path.basename(filename)
     # Write Contents
     print("Writing contents to:", filename)
-    with open(filename, 'w') as fObj:
+    with open(filename, 'w', encoding='utf-8') as fObj:
         if 'm' in file_type.lower():
-            fObj.write( md_format.format(**keymap) )
+            fObj.write( MD_FORMAT.format(**keymap) )
         else:
-            fObj.write( rst_format.format(**keymap) )
-    if not openafter:
+            fObj.write( RST_FORMAT.format(**keymap) )
+    if not open_after:
         response = ''
         while response.upper() not in ['Y','N']:
             response = input("Would you like to start writing now? [Y,n]  ")
         if response.upper() == 'Y':
-            openafter = True
-    if openafter:
+            open_after = True
+    if open_after:
         os.startfile(filename.replace('./',os.getcwd()+'/'))
 
 
