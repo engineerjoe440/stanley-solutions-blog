@@ -26,9 +26,9 @@ the HTTPS services. NGINX does the HTTP reverse proxying, and Certbot comes in c
 &lt;p&gt;Yep! That's right!&lt;/p&gt;
 &lt;p&gt;If you're not terribly familiar with Git, let me just say that you can clone either over HTTP(S) or SSH. In the following images, see how both GitLab and Gitea support
 HTTPS and SSH:&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/gitea-clone.png" align="left" style="width: 55%; margin: 2%;" alt="Gitea Clone"&gt;
-&lt;img src="https://blog.stanleysolutionsnw.com/images/gitlab-clone.png" align="right" style="width: 35%; margin: 2%;" alt="GitLab Clone"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/laughing-hysterically.gif" align="right" style="width: 20%" alt="Laughing Hysterically"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/gitea-clone.png" align="left" style="width: 55%; margin: 2%;" alt="Gitea Clone"&gt;
+&lt;img src="https://blog.stanleysolutionsnw.com/gitlab-clone.png" align="right" style="width: 35%; margin: 2%;" alt="GitLab Clone"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/laughing-hysterically.gif" align="right" style="width: 20%" alt="Laughing Hysterically"&gt;&lt;/p&gt;
 &lt;p&gt;SSH is often just a bit faster, and brings other perks, but it can't be proxied in quite the same way as HTTP traffic. That's because SSH doesn't use hostnames in headers
 in the way that HTTPS does. But, we can do some unique things to make some of this work to our liking.&lt;/p&gt;
 &lt;blockquote&gt;

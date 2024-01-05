@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Home-Improvement</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"></link><link href="https://blog.stanleysolutionsnw.com/feeds/home-improvement.atom.xml" rel="self"></link><id>https://blog.stanleysolutionsnw.com/</id><updated>2023-11-01T10:00:00-07:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>Custom Lightning on Demand</title><link href="https://blog.stanleysolutionsnw.com/custom-lightning-on-demand.html" rel="alternate"></link><published>2023-11-01T10:00:00-07:00</published><updated>2023-11-01T10:00:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-11-01:/custom-lightning-on-demand.html</id><summary type="html">&lt;p&gt;Clearly I haven't written in a while. I've been busy with all manner of projects, of late. However, since this will be mostly video and image posting, I thought it couldn't hurt to get a quick article up.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/IMG_2605.png" style="width: 40%; margin: 10px;" alt="Stanley on Spruce" align="right"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Home-Improvement</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"></link><link href="https://blog.stanleysolutionsnw.com/feeds/home-improvement.atom.xml" rel="self"></link><id>https://blog.stanleysolutionsnw.com/</id><updated>2023-11-01T10:00:00-07:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>Custom Lightning on Demand</title><link href="https://blog.stanleysolutionsnw.com/custom-lightning-on-demand.html" rel="alternate"></link><published>2023-11-01T10:00:00-07:00</published><updated>2023-11-01T10:00:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2023-11-01:/custom-lightning-on-demand.html</id><summary type="html">&lt;p&gt;Clearly I haven't written in a while. I've been busy with all manner of projects, of late. However, since this will be mostly video and image posting, I thought it couldn't hurt to get a quick article up.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/IMG_2605.png" style="width: 40%; margin: 10px;" alt="Stanley on Spruce" align="right"&gt;&lt;/p&gt;
 &lt;p&gt;And yet another halloween has come...&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;...and gone&lt;/em&gt;&lt;/p&gt;
@@ -7,7 +7,7 @@
 &lt;p&gt;Ah, but 'twas spooky!&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;This year, I added a new Shelly control to be able to support Home-Assistant based control of my front porch lights. Notably, it's really only the ability to turn them on or off, not changing any of the special effects settings. If you want to see what that's all about, go &lt;a href="https://blog.stanleysolutionsnw.com/spooky-scary-porch-projects.html"&gt;check out my article from last year&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/IMG_2596.png" style="width: 20%; margin: 10px;" alt="Shelly Control" align="left"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/IMG_2596.png" style="width: 20%; margin: 10px;" alt="Shelly Control" align="left"&gt;&lt;/p&gt;
 &lt;p&gt;Always fun, and now I think there's a few new tricks that I want to add to my bag.... Hmm... gonna have to start working on those soon.&lt;/p&gt;
 &lt;video id="halloween-effects-2023" class="video-js vjs-default-skin" controls
 preload="auto" width="683" height="384"
@@ -60,7 +60,7 @@ it certainly "checks out."&lt;/p&gt;
 &lt;h2&gt;Incorporating Into Home Assistant&lt;/h2&gt;
 &lt;p&gt;To go over the background, quickly:&lt;/p&gt;
 &lt;p&gt;My Home Assistant is being served from a Docker container on an old Compaq computer.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/2022-12-24_11-46.png" style="width: 60%; margin: 10px;" alt="My Old Compaq Computer" align="right"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/2022-12-24_11-46.png" style="width: 60%; margin: 10px;" alt="My Old Compaq Computer" align="right"&gt;&lt;/p&gt;
 &lt;p&gt;It's a 32-bit monster running Debian 11. Slow as heck, but it plugs along alright. I recently
 rebuilt the OS from the ground up to take advantage of a second hard-drive in the machine which,
 frankly, I'd forgotten about until recently. That's meant that I can shove the whole config back
@@ -201,8 +201,8 @@ data-setup="{}"&gt;
 &lt;hr&gt;
 &lt;h2&gt;UPDATE:&lt;/h2&gt;
 &lt;p&gt;A colleague shared this, and I thought it was too funny not to share...&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/2022-11-01_16-03-09.png" style="width: 100%" alt="A Good Laugh about a Lingering Problem..."&gt;&lt;/p&gt;</content><category term="Home-Improvement"></category><category term="Effects"></category><category term="Lighting"></category><category term="Lights-Alive"></category><category term="Halloween"></category><category term="Audio"></category><category term="Home-Automation"></category></entry><entry><title>Mount St. Helens Adventures</title><link href="https://blog.stanleysolutionsnw.com/mt-st-helens-adventures.html" rel="alternate"></link><published>2022-09-06T19:43:00-07:00</published><updated>2022-09-06T19:43:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2022-09-06:/mt-st-helens-adventures.html</id><summary type="html">&lt;p&gt;Ok, so I clearly wasn't alive when Mount St. Helens blew its lid in May of 1980; but that doesn't mean that I haven't had some adventures of my own with the eruption's aftermath! I spent this Labor Day with my mother, working on some improvements to the front porch celing; prepping it for some new tongue-and-groove Cedar boards, new lights, and even speakers. But before any of the new... we need to get rid of the old...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Before&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/front-porch-celing/ima_46ba6d7.jpeg" style="width: 30%; margin: 10px;" alt="ye olde celing" align="right"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/2022-11-01_16-03-09.png" style="width: 100%" alt="A Good Laugh about a Lingering Problem..."&gt;&lt;/p&gt;</content><category term="Home-Improvement"></category><category term="Effects"></category><category term="Lighting"></category><category term="Lights-Alive"></category><category term="Halloween"></category><category term="Audio"></category><category term="Home-Automation"></category></entry><entry><title>Mount St. Helens Adventures</title><link href="https://blog.stanleysolutionsnw.com/mt-st-helens-adventures.html" rel="alternate"></link><published>2022-09-06T19:43:00-07:00</published><updated>2022-09-06T19:43:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2022-09-06:/mt-st-helens-adventures.html</id><summary type="html">&lt;p&gt;Ok, so I clearly wasn't alive when Mount St. Helens blew its lid in May of 1980; but that doesn't mean that I haven't had some adventures of my own with the eruption's aftermath! I spent this Labor Day with my mother, working on some improvements to the front porch celing; prepping it for some new tongue-and-groove Cedar boards, new lights, and even speakers. But before any of the new... we need to get rid of the old...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Before&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/ima_46ba6d7.jpeg" style="width: 30%; margin: 10px;" alt="ye olde celing" align="right"&gt;&lt;/p&gt;
 &lt;p&gt;Well... before I could put up any new tongue-and-groove Cedar, I needed some help getting rid of the old lumber. I couldn't have done it without the
 help of my mother, either!!!&lt;/p&gt;
 &lt;p&gt;As much as she might've liked to have just put the Cedar boards right over what was already there, there was just &lt;em&gt;too much junk&lt;/em&gt; up there. In the
@@ -213,14 +213,14 @@ photo above, you can see the painted particle-board that was the celing previous
 &lt;p&gt;So, I recently was able to anchor a great deal on these Cedar boards (again, thank you to my mother). Trouble is, I didn't want to just put them over the
 &lt;em&gt;junk&lt;/em&gt; that was already there. So... we got to pulling those old boards down...&lt;/p&gt;
 &lt;h2&gt;During&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/front-porch-celing/ima_2c5d0b8.jpeg" style="width: 30%; margin: 10px;" alt="under the surface lies... more mess!"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/ima_2c5d0b8.jpeg" style="width: 30%; margin: 10px;" alt="under the surface lies... more mess!"&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;What's that, under there?&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;To quote the old Barnaked Ladies song: &lt;em&gt;"I just made you say underwear."&lt;/em&gt; Well under that gross particle board is some old (and quite rough) tongue-and-groove
 lumber of an unknown age. It's in pretty rough shape, rotten, dry, and falling apart in a number of places.&lt;/p&gt;
 &lt;p&gt;Those old boards were quite "fun" to pull, and they led to quite the disaster... Let me introduce you to my history lesson for the weekend.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/front-porch-celing/ima_2b4ed17.jpeg" style="width: 30%; margin: 10px;" alt="what's all that black stuff?" align="right"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/ima_2b4ed17.jpeg" style="width: 30%; margin: 10px;" alt="what's all that black stuff?" align="right"&gt;&lt;/p&gt;
 &lt;p&gt;Oh yes... see all that black powder, covering everything you see? It was covering us, too. You do not want to picture the color of my bathwater... let me just
 say that.&lt;/p&gt;
 &lt;p&gt;My mother and I were both a bit stumped by what the powder was, and why it was black... Well, after a bit of brainstorming, and chatting with some other folks
@@ -231,7 +231,7 @@ half-century. (Weird to think that 1980 is that far back, isn't it?) From our ow
 &lt;p&gt;Still... &lt;strong&gt;Woah.&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;After&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/front-porch-celing/ima_b58184b.jpeg" style="width: 30%; margin: 10px;" alt="clean, but not too clean" align="right"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/ima_b58184b.jpeg" style="width: 30%; margin: 10px;" alt="clean, but not too clean" align="right"&gt;&lt;/p&gt;
 &lt;p&gt;Now with all that nastiness cleaned out, we were able to get the whole porch cleaned up, ready for me to run my new wiring for lights, speakers, and special
 effects (more on that later). Now... I just need to get all of that done.&lt;/p&gt;
 &lt;hr&gt;
@@ -241,7 +241,7 @@ effects (more on that later). Now... I just need to get all of that done.&lt;/p&
 &lt;p&gt;My little "Cat Closet" helps to keep things somewhat isolated, but it produces a new challenge: all of that stink gets trapped &lt;strong&gt;&lt;em&gt;indefinitely&lt;/em&gt;&lt;/strong&gt;. That's... well, less than
 ideal in just about any situation. So I came up with a solution that I call &lt;a href="https://github.com/engineerjoe440/ScentAssist"&gt;&lt;code&gt;ScentAssist&lt;/code&gt;&lt;/a&gt;. In a nutshell, it's an automatic
 fan. Nothing crazy, but it's SUPER helpful, and pretty simple!&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/images/scentassist/ima_1a16017.jpeg" style="width: 100%;" align="right" alt="ScentAssist"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.stanleysolutionsnw.com/ima_1a16017.jpeg" style="width: 100%;" align="right" alt="ScentAssist"&gt;&lt;/p&gt;
 &lt;p&gt;So, with a system that's not really IoT, but is embedded, I wanted a very predictable routine configuration. I wanted the system to be predictable, and work without too much
 fuss.&lt;/p&gt;
 &lt;blockquote&gt;

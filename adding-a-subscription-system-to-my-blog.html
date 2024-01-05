@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Adding a Subscription System to my Blog | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://blog.stanleysolutionsnw.com/adding-a-subscription-system-to-my-blog.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/theme.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/custom.css">
+  <link rel="stylesheet" href="https://files.stork-search.net/dark.css">
+  <script src="https://files.stork-search.net/releases/v1.6.0/stork.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/blogging.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/blogging.rss.xml">  
+  <meta name="description" content="I've finally gotten around to getting some basic configurations with my Listmonk mailing list system going. I got started with configurations for the Idaho 4-H Roundup podcast (did I mention I've started a podcast?), but now I'm also getting one started for my blog site. Here's how I added the HTML to get it working here.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://blog.stanleysolutionsnw.com/">
+        <img class="img-fluid rounded" src=https://blog.stanleysolutionsnw.com/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://blog.stanleysolutionsnw.com/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">engineering and creativity - all under one hat</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/krnc/usb-manager" target="_blank">KRNC Barn Manager</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/schemdraw-markdown" target="_blank">Schemdraw-Markdown</a></li>
+            <li class=" list-inline-item text-muted">|</li>
+          <li class="list-inline-item"><a class="fas fa-comments" href="https://matrix.to/#/@engineerjoe440:stanleysolutionsnw.com" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-github" href="https://github.com/engineerjoe440/" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-gitlab" href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-coffee" href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-rss" href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml" target="_blank"></a></li>
+      </ul>
+    <div class="stork-wrapper-dark">
+      <input data-stork="sitesearch" class="stork-input" placeholder="search"/>
+      <div data-stork="sitesearch-output" class="stork-output"></div>
+    </div>
+    <script>
+      stork.register("sitesearch", "https://blog.stanleysolutionsnw.com/search-index.st");
+    </script>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Adding a Subscription System to my Blog
+</h1>
+      <hr>
+  <main>
+    <article class="article">
+      <header>
+        <ul class="list-inline">
+          <li class="list-inline-item text-muted" title="2024-01-04T20:52:00-08:00">
+            <i class="fas fa-clock"></i>
+            Thu 04 January 2024
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-folder-open"></i>
+            <a href="https://blog.stanleysolutionsnw.com/category/blogging.html">Blogging</a>
+          </li>
+            <li class="list-inline-item">
+              <i class="fas fa-tag"></i>
+                <a href="https://blog.stanleysolutionsnw.com/tag/blog.html">#blog</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/website.html">#website</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/html.html">#html</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/python.html">#python</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/pelican.html">#pelican</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/jinja2.html">#jinja2</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/static-sites.html">#static-sites</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/mailing-list.html">#mailing-list</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/listmonk.html">#listmonk</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/email.html">#email</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/newsletter.html">#newsletter</a>            </li>
+        </ul>
+      </header>
+      <div class="content">
+        <p>Okay, so really there isn't much to this. I ended up needing to do some troubleshooting, but most of that was because of my own misunderstanding.
+Ultimately, with my <a href="https://github.com/nairobilug/pelican-alchemy">Pelican-Alchemy</a> theme, there's an option to add a list of the direct templates which
+should be rendered as HTML pages for the Pelican site. After enough monkeying around, I found this option, and added my new <code>subscribe</code> option.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Default value is [&#39;index&#39;, &#39;tags&#39;, &#39;categories&#39;, &#39;authors&#39;, &#39;archives&#39;]</span>
+<span class="n">DIRECT_TEMPLATES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="s1">&#39;categories&#39;</span><span class="p">,</span> <span class="s1">&#39;authors&#39;</span><span class="p">,</span> <span class="s1">&#39;archives&#39;</span><span class="p">,</span> <span class="s1">&#39;subscribe&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+<p>That <code>subscribe</code> corresponds to the new <code>subscribe.html</code> file that I stored in my
+<a href="https://github.com/engineerjoe440/stanley-solutions-blog/tree/master/content/templates"><code>content/templates/</code></a> folder. That file is actually pretty simple:</p>
+<div class="highlight"><pre><span></span><code>{% extends &quot;base.html&quot; %}
+
+{% block title %}
+  Subscribe {{ super() }}
+{% endblock %}
+
+{% block page_header %}
+  Subscribe
+{% endblock %}
+
+{% block content %}
+  <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ LISTMONK_URL }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;listmonk-form&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>{{ SITENAME }} Newsletter<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nonce&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;stork-input&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">required</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;E-mail&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;stork-input&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Name (optional)&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">input</span> <span class="na">hidden</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;8a08b&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;l&quot;</span> <span class="na">checked</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ LISTMONK_LIST_ID }}&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Subscribe&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-success btn-lg&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+{% endblock %}
+</code></pre></div>
+
+<p>You can see that I made some customizing tweaks to allow me to use variables for the Listmonk URL and List ID. Those end up landing in the
+<code>pelicanconf.py</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="n">LISTMONK_URL</span> <span class="o">=</span> <span class="s2">&quot;https://listmonk.stanleysolutionsnw.com&quot;</span>
+<span class="n">LISTMONK_LIST_ID</span> <span class="o">=</span> <span class="s2">&quot;8a08bea9-66e2-4b36-9140-17f303bda981&quot;</span>
+</code></pre></div>
+
+<p>With the final addition to my customized <code>footer.html</code> as shown below, I'm up and running with a new subscribe page on the ol' website!</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>     &lt;li class=&quot;list-inline-item&quot;&gt;&lt;a href=&quot;{{ SITEURL }}/{{ TAGS_URL or TAGS_SAVE_AS or &#39;tags.html&#39; }}&quot;&gt;Tags&lt;/a&gt;&lt;/li&gt;
+<span class="w"> </span>   {% endif %}
+<span class="gi">+    &lt;li class=&quot;list-inline-item&quot;&gt;&lt;a href=&quot;{{ SITEURL }}/{{ SUBSCRIBE_URL or SUBSCRIBE_SAVE_AS or &#39;subscribe.html&#39; }}&quot;&gt;Subscribe&lt;/a&gt;&lt;/li&gt;</span>
+<span class="w"> </span> {% else %}
+</code></pre></div>
+
+<p><img src="https://blog.stanleysolutionsnw.com/images/add-subscription-to-blog.png" style="width: 100%" alt="Making Subscribing WAY Easier"></p>
+      </div>
+    </article>
+  </main>
+<!-- <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section> -->
+<script src="https://giscus.app/client.js"
+        data-repo="engineerjoe440/stanley-solutions-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyODk0MDQ2ODE="
+        data-category="Comments"
+        data-category-id="DIC_kwDOET_3Cc4CTonj"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/tags.html">Tags</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/subscribe.html">Subscribe</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
