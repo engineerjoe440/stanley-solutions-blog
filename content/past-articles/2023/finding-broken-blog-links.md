@@ -1,7 +1,7 @@
 Title: Finding Broken Blog Links
 Date: 2022-10-24 16:00
 Modified: 2022-10-24 16:00
-Tags: Python, Blogging, Automation, GitHub, Github-Actions, CI/CD, Continuous-Integration, Continuous-Deployment
+Tags: python, blogging, automation, github, github-actions, ci/cd, continuous-integration, continuous-deployment
 Category: Blogging
 Slug: finding-broken-blog-links
 Authors: Joe Stanley

@@ -1,7 +1,7 @@
 Title:Tech Podcasts Galore!
 Date: 2021-09-12 15:34
 Modified: 2021-09-12 15:34
-Tags: Tech, Podcasts, Media
+Tags: tech, podcasts, media
 Category: Audio
 Slug: tech-podcasts-galore
 Authors: Joe Stanley

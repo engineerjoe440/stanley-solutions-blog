@@ -3,7 +3,7 @@ Spam the VBAN for Non-Stop Audio
 
 :date: 2021-02-15 20:22
 :modified: 2021-02-15 20:43
-:tags: VBAN, Audio Network, Raspberry Pi, Python, Linux
+:tags: vban, audio network, raspberry pi, python, linux
 :category: Raspberry Pi
 :slug: spam-the-vban-for-non-stop-audio
 :authors: Joe Stanley

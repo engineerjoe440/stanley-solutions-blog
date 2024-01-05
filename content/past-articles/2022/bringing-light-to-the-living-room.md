@@ -1,7 +1,7 @@
 Title: Bringing Light to the... Living Room?
 Date: 2022-02-27 09:52
 Modified: 2022-02-27 09:52
-Tags: ESP8266, Tasmota, Smart-Home, Home-Assistant, MQTT, IOT, Lighting, Lights, Development
+Tags: esp8266, tasmota, smart-home, home-assistant, mqtt, iot, lighting, lights, development
 Category: Home-Improvement
 Slug: bringing-light-to-the-living-room
 Authors: Joe Stanley

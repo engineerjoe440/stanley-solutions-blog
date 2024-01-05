@@ -3,7 +3,7 @@ Hearing Fires While Seeing Smoke
 
 :date: 2021-07-12 20:18
 :modified: 2021-07-12 21:05
-:tags: Wildfire, IoT, MCU, Mesh, Radio, Smart-Sensor, Capstone, University
+:tags: wildfire, iot, mcu, mesh, radio, smart-sensor, capstone, university
 :category: Capstone
 :slug: hearing-fires-while-seeing-smoke
 :authors: Joe Stanley

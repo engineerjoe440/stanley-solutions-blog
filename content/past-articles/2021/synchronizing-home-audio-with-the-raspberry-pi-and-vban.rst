@@ -3,7 +3,7 @@ Synchronizing Home Audio with the Raspberry Pi and VBAN
 
 :date: 2020-12-19 19:44
 :modified: 2020-12-19 19:44
-:tags: Raspberry Pi, VBAN, Audio, Networking, Music, Home Automation
+:tags: raspberrypi, vban, audio, networking, music, home-automation
 :category: Raspberry Pi
 :slug: networked-audio-using-vban-and-rpi
 :authors: Joe Stanley

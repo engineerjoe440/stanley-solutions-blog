@@ -1,7 +1,7 @@
 Title: Reverse Proxying to two Git Servers
 Date: 2022-11-21 13:54
 Modified: 2022-11-21 13:54
-Tags: Git, Self-Hosting, NGINX, GitLab, Gitea, SSH, Proxy
+Tags: git, self-hosting, nginx, gitlab, gitea, ssh, proxy, networking
 Category: Self-Hosting
 Slug: reverse-proxying-to-two-git-servers
 Authors: Joe Stanley

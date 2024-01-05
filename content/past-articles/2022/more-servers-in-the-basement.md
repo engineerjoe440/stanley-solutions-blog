@@ -1,7 +1,7 @@
 Title: More Servers in the Basement?
 Date: 2022-04-03 21:09
 Modified: 2022-04-03 21:09
-Tags: Server, Web, Hosting, Self-Hosting, Hardware, Computing
+Tags: server, web, hosting, self-hosting, hardware, computing
 Category: Self-Hosting
 Slug: more-servers-in-the-basement
 Authors: Joe Stanley

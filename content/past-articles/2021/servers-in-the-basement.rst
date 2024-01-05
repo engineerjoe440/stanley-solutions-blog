@@ -3,7 +3,7 @@ Servers in the Basement...
 
 :date: 2021-02-14 19:23
 :modified: 2021-02-14 20:40
-:tags: SEL, CI/CD, Jenkins, Dev-Ops
+:tags: sel, ci/cd, jenkins, devops
 :category: DevOps
 :slug: jenkins-servers-in-the-basement
 :authors: Joe Stanley

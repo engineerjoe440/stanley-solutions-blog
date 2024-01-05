@@ -1,7 +1,7 @@
 Title:Just Some Thoghts on a Song
 Date: 2021-09-23 13:58
 Modified: 2021-10-16 12:35
-Tags: Music, Songs, Audio
+Tags: music, songs, audio
 Category: Audio
 Slug: just-some-thoghts-on-a-song
 Authors: Joe Stanley

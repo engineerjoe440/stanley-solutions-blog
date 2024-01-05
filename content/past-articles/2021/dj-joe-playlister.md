@@ -1,7 +1,7 @@
 Title: DJ Joe Playlister
 Date: 2021-10-16 12:03
 Modified: 2021-10-16 12:03
-Tags: Spotify, Apple-Music, Python, Web-Apps, DJ, Docker
+Tags: spotify, apple-music, python, web-apps, dj, docker
 Category: Python
 Slug: dj-joe-playlister
 Authors: Joe Stanley

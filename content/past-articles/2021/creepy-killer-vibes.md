@@ -1,7 +1,7 @@
 Title: Creepy, Killer Vibes?
 Date: 2021-12-07 21:36
 Modified: 2021-12-07 21:36
-Tags: Home-Renovation, Improvement, Renovation, Restoration
+Tags: home-renovation, improvement, renovation, restoration
 Category: Home-Improvement
 Slug: creepy-killer-vibes
 Authors: Joe Stanley

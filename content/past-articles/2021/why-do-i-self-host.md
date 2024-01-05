@@ -1,7 +1,7 @@
 Title: Why do I Self-Host?
 Date: 2021-09-28 21:53
 Modified: 2021-09-28 21:53
-Tags: Self Hosting, Servers, Computing, Hosting, Web, Services
+Tags: self-hosting, servers, computing, hosting, web, services
 Category: DevOps
 Slug: why-do-i-selfhost
 Authors: Joe Stanley

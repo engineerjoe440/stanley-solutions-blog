@@ -1,7 +1,7 @@
 Title: Making Configuration for a Python Application Simple!
 Date: 2023-01-17 14:23
 Modified: 2023-01-17 14:23
-Tags: Python, Toml, Configuration, Development, Environment-Variables, Dot-Files
+Tags: python, toml, configuration, development, environment-variables, dot-files
 Category: Python
 Slug: making-configuration-for-a-python-application-simple
 Authors: Joe Stanley
@@ -13,7 +13,7 @@ If you know me, you'll know that I often have *way too many projects* all in pro
 
 Well, as a result of this, lately, I've been able to capitalize on some common work. Primarily surrounding the configuration management for these apps.
 Configuration is a bit of a tricky subject, sometimes. Because often-times, it depends greatly on how the application will be hosted, how the configuration
-should be set-up. But also, different dev-ops folks will like different mechanisms to apply their config. After all, some folks like using nothing more than
+should be set-up. But also, different devops folks will like different mechanisms to apply their config. After all, some folks like using nothing more than
 environment variables for EVERYTHING. This makes configuring an app with tools like [`docker-compose`](https://docs.docker.com/get-started/08_using_compose/)
 a cinch. However, there are others who would rather set up their configuration with the file, itself. Thus, marrying the options can be a bit challenging at times.
 

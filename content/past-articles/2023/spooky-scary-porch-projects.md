@@ -1,7 +1,7 @@
 Title: Spooky Scary Porch Projects
 Date: 2022-11-01 18:41
 Modified: 2022-11-01 18:41
-Tags: Effects, Lighting, Lights-Alive, Halloween, Audio, Home-Automation
+Tags: effects, lighting, lights-alive, halloween, audio, home-automation
 Category: Home-Improvement
 Slug: spooky-scary-porch-projects
 Authors: Joe Stanley

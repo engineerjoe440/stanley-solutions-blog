@@ -3,7 +3,7 @@ Smart Christmas Trains for a Smart Home?
 
 :date: 2020-11-22 19:32
 :modified: 2020-11-22 19:32
-:tags: ESP32, IOT, Smart-Home, Automation, WIFI, Lionel, Vintage, Variac
+:tags: esp32, iot, smart-home, automation, wifi, lionel, vintage, variac
 :category: ESP32
 :slug: esp32-controlling-lionel-trains
 :authors: Joe Stanley

@@ -1,7 +1,7 @@
 Title: Python, Pianobar, and MQTT?
 Date: 2023-01-15 13:52
 Modified: 2023-01-15 13:52
-Tags: Python, Pianobar, MQTT, HTTP, Configuration, Pandora, Music, Streaming, Audio, Home-Automation, Home Networking
+Tags: python, pianobar, mqtt, http, configuration, pandora, music, streaming, audio, home-automation, networking
 Category: Python
 Slug: python-pianobar-and-mqtt
 Authors: Joe Stanley

@@ -1,7 +1,7 @@
 Title: Custom Lightning on Demand
 Date: 2023-11-01 10:00
 Modified: 2023-11-01 10:00
-Tags: Effects, Lighting, Lightning, Lights-Alive, Halloween, Audio, Home-Automation, Shelly, Home-Assistant, Hassio
+Tags: effects, lighting, lightning, lights-alive, halloween, audio, home-automation, shelly, home-assistant, hassio
 Category: Home-Improvement
 Slug: custom-lightning-on-demand
 Authors: Joe Stanley

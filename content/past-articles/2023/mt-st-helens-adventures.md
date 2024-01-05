@@ -1,7 +1,7 @@
 Title: Mount St. Helens Adventures
 Date: 2022-09-06 19:43
 Modified: 2022-09-06 19:43
-Tags: Home-Improvement, Home-Projects, Home-Renovation, Improvement, Renovation, Restoration
+Tags: home-improvement, home-projects, home-renovation, improvement, renovation, restoration
 Category: Home-Improvement
 Slug: mt-st-helens-adventures
 Authors: Joe Stanley

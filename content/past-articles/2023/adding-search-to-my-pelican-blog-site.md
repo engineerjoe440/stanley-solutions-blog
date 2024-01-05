@@ -1,10 +1,10 @@
 Title: Adding Search to my Pelican Blog Site
 Date: 2023-12-26 11:45
 Modified: 2023-12-26 11:45
-Tags: Blog, Search, Python, Stork, Static-Site
-Category: Python
+Tags: blog, search, python, stork, static-site, html, jinja2, website
+Category: Blogging
 Slug: adding-search-to-my-pelican-blog-site
-Authors: joestan
+Authors: Joe Stanley
 Summary: I'm quickly approaching the mark of 50 blog posts, which is wonderful! But it also means that finding that "thing" I wrote some time ago is becoming an increasing challenge. So... I need to add search to my blog site. But how? It's a static site, after all, there's not really a "backend" to do the search functionality for me... Luckily, there's some wonderful folks who've written tooling to add just this functionality. Here's how I added it to my blog site!
 
 Search is never easy, right? Especially when we're adding it to a static website, which by its very definition does not have any server-side tools to

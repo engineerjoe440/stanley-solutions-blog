@@ -1,7 +1,7 @@
 Title: Photos in the Nick of Time at STAC
 Date: 2022-07-02 11:25
 Modified: 2022-07-02 11:25
-Tags: Python, React.Js, 4H, Fastapi, Materialui, Linode
+Tags: python, react.js, 4-h, fastapi, materialui, linode
 Category: Youth
 Slug: photos-in-the-nick-of-time-at-stac
 Authors: Joe Stanley

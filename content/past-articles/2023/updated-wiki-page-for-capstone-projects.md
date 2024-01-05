@@ -1,7 +1,7 @@
 Title: Updated Wiki Page for Capstone Projects
 Date: 2023-01-22 11:42
 Modified: 2023-01-22 11:42
-Tags: Wiki, Wikijs, Markdown, Capstone, Self-Hosted, Container, Docker
+Tags: wiki, wikijs, markdown, capstone, self-hosted, container, docker
 Category: Capstone
 Slug: updated-wiki-page-for-capstone-projects
 Authors: Joe Stanley

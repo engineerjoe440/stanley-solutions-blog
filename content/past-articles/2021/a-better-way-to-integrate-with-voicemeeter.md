@@ -1,7 +1,7 @@
 Title: A Better Way to Integrate with VoiceMeeter?
 Date: 2021-09-12 17:07
 Modified: 2021-09-15 17:38
-Tags: Audio, Voicemeeter, Api, Sdk, Mixer, Python
+Tags: audio, voicemeeter, api, sdk, mixer, python
 Category: Python
 Slug: a-better-way-to-integrate-with-voicemeeter
 Authors: Joe Stanley

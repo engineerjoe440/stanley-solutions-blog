@@ -1,7 +1,7 @@
 Title: Error Pages for Education
 Date: 2022-03-29 17:04
 Modified: 2022-03-29 17:04
-Tags: Youth, 4-H, Education, Development, HTTP, HTML, Status-Codes
+Tags: youth, 4-h, education, development, http, html, status-codes
 Category: Youth
 Slug: error-pages-for-education
 Authors: Joe Stanley

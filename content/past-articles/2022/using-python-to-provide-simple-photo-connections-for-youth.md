@@ -1,7 +1,7 @@
 Title: Using Python to Provide Simple Photo Connections for Youth
 Date: 2022-02-13 20:44
 Modified: 2022-02-15 20:17
-Tags: Python, React.Js, Microservice, Docker, Lychee, Youth, Development, Fastapi
+Tags: python, react.js, microservice, docker, lychee, youth, development, fastapi
 Category: Youth
 Slug: using-python-to-provide-simple-photo-connections-for-youth
 Authors: Joe Stanley

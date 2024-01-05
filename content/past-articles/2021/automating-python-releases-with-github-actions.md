@@ -1,7 +1,7 @@
 Title: Automating Python Releases with GitHub Actions
 Date: 2021-11-25 14:01
 Modified: 2021-11-25 14:01
-Tags: Automation, Python, Github Actions, PyPI
+Tags: automation, python, github actions, pypi
 Category: Python
 Slug: automating-python-releases-with-github-actions
 Authors: Joe Stanley

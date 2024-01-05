@@ -3,7 +3,7 @@ CI/CD On Industrial Grade Hardware
 
 :date: 2021-02-07 16:19
 :modified: 2021-02-07 16:19
-:tags: SEL, Industrial, Rugged Computer, Ci/Cd, Development, Server
+:tags: sel, industrial, rugged computer, ci/cd, development, server
 :category: DevOps
 :slug: jenkins-on-sel-industrial-hardware
 :authors: Joe Stanley

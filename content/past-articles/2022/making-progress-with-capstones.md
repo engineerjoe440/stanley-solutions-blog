@@ -1,7 +1,7 @@
 Title: Making Progress with Capstones
 Date: 2022-05-24 15:25
 Modified: 2022-05-24 15:25
-Tags: Capstone, Wildfire, University, Research, Students, Biochar, Agriculture
+Tags: capstone, wildfire, university, research, students, biochar, agriculture
 Category: Capstone
 Slug: making-progress-with-capstones
 Authors: Joe Stanley

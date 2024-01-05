@@ -3,7 +3,7 @@ Introducing `selprotopy`
 
 :date: 2020-09-20 11:07
 :modified: 2021-02-14 16:00
-:tags: Python, Protocols, SEL
+:tags: python, protocols, sel
 :category: Python
 :slug: sel-protocol-coming-to-python
 :authors: Joe Stanley

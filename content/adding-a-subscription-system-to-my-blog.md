@@ -1,7 +1,7 @@
 Title: Adding a Subscription System to my Blog
 Date: 2024-01-04 20:52
 Modified: 2024-01-04 20:52
-Tags: blog, website, html, python, pelican, jinja2, static-sites, mailing-list, listmonk, email, newsletter
+Tags: blog, website, html, python, pelican, jinja2, static-site, mailing-list, listmonk, email, newsletter
 Category: Blogging
 Slug: adding-a-subscription-system-to-my-blog
 Authors: Joe Stanley

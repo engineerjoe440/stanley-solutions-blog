@@ -1,7 +1,7 @@
 Title: Making Drawing Circuits in Markdown a Cinch!
 Date: 2022-08-30 13:01
 Modified: 2022-08-30 13:01
-Tags: Markdown, Pelican, Blogging, Circuits, Schematics, Python
+Tags: markdown, pelican, blogging, circuits, schematics, python
 Category: Python
 Slug: making-drawing-circuits-in-markdown-a-cinch
 Authors: Joe Stanley

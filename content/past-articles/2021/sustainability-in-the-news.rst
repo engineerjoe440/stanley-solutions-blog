@@ -3,7 +3,7 @@ Sustainability in the News...
 
 :date: 2020-12-02 19:45
 :modified: 2020-12-02 19:45
-:tags: Concrete, Transistor, Recycle, Herbicide, Sustainability
+:tags: concrete, transistor, recycle, herbicide, sustainability
 :category: Sustainability
 :slug: sustainability-in-the-news-december-2020
 :authors: Joe Stanley

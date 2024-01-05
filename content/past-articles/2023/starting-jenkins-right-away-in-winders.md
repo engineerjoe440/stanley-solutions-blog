@@ -1,7 +1,7 @@
 Title: Starting Jenkins Right Away in Winders
 Date: 2022-10-24 16:25
 Modified: 2022-10-24 16:25
-Tags: DevOps, Jenkins, CI/CD, Continuous-Integration, Continuous-Deployment, Build-Systems, Automation, Windows
+Tags: devops, jenkins, ci/cd, continuous-integration, continuous-deployment, build-systems, automation, windows
 Category: DevOps
 Slug: starting-jenkins-right-away-in-winders
 Authors: Joe Stanley

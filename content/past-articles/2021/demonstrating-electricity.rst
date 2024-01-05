@@ -3,7 +3,7 @@ Demonstrating Electricity
 
 :date: 2021-06-25 19:03
 :modified: 2021-06-25 19:03
-:tags: Demo, Teaching, Electricity, Basic-Circuits, Youth, 4-H, 4H
+:tags: demo, teaching, electricity, basic-circuits, youth, 4-h
 :category: Teaching
 :slug: demonstrating-electricity
 :authors: Joe Stanley

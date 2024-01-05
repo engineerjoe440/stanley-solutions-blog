@@ -1,7 +1,7 @@
 Title: Adding PlantUML to Pelican Without Installing Java?
 Date: 2022-02-13 19:54
 Modified: 2022-02-13 20:32
-Tags: Python, Pelican, Blogging, Static-Sites, Html, Plantuml, Diagrams, Github-Actions
+Tags: python, pelican, blogging, static-sites, html, plantuml, diagrams, github-actions
 Category: Blogging
 Slug: adding-plantuml-to-pelican-without-installing-java
 Authors: Joe Stanley

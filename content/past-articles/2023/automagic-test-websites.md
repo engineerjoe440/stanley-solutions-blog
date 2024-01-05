@@ -1,7 +1,7 @@
 Title: Automagic Test Websites
 Date: 2022-03-22 18:32
 Modified: 2022-03-23 14:49
-Tags: Youth, 4-H, Education, Jenkins, NGINX, Docker, Docker-Compose, Development, CI, CI-CD, Self-Hosted, Gitlab
+Tags: youth, 4-h, education, jenkins, nginx, docker, docker-compose, development, ci, ci-cd, self-hosted, gitlab
 Category: Youth
 Slug: automagic-test-websites
 Authors: Joe Stanley

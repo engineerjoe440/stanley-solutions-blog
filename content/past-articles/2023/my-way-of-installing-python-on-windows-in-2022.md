@@ -1,7 +1,7 @@
 Title: My Way of Intalling Python on Windows in 2022
 Date: 2022-11-02 18:41
 Modified: 2022-11-02 18:41
-Tags: Python, Windows, Development, Installing
+Tags: python, windows, development, installing
 Category: Python
 Slug: my-way-of-installing-python-on-windows-in-2022
 Authors: Joe Stanley

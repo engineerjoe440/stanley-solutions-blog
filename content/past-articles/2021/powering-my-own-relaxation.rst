@@ -3,7 +3,7 @@ Powering My Own Relaxation
 
 :date: 2021-06-19 11:40
 :modified: 2021-06-19 11:40
-:tags: Ammo-Can, Power-Supply, Arm-Chair, Linux, Charger
+:tags: ammo-can, power-supply, arm-chair, linux, charger
 :category: Home-Projects
 :slug: powering-my-own-relaxation
 :authors: Joe Stanley

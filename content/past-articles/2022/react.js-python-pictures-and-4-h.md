@@ -1,7 +1,7 @@
 Title: React.js, Python, Pictures, and 4-H!
 Date: 2022-01-26 17:35
 Modified: 2022-01-26 17:35
-Tags: Python, React.Js, 4H, Fastapi, Materialui, Linode
+Tags: python, react.js, 4-h, fastapi, materialui, linode
 Category: Youth
 Slug: reactjs-python-pictures-and-4h
 Authors: Joe Stanley

@@ -1,7 +1,7 @@
 Title: Sensing Fire in a World Without Water
 Date: 2022-02-15 18:41
 Modified: 2022-02-15 18:41
-Tags: Capstone, Students, University, Research, University Of Idaho, Wildfire, Infrasound
+Tags: capstone, students, university, research, university of idaho, wildfire, infrasound
 Category: Capstone
 Slug: sensing-fire-in-a-world-without-water
 Authors: Joe Stanley

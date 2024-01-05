@@ -3,7 +3,7 @@ GitLab, Jenkins, Python, and the Raspberry Pi!
 
 :date: 2020-12-21 19:07
 :modified: 2021-01-04 21:07
-:tags: Python, Jenkins, Gitlab, Raspberry Pi, Dev Ops, GIT, CI/CD
+:tags: python, jenkins, gitlab, raspberry pi, dev ops, git, ci/cd
 :category: Python
 :slug: gitlab-jenkins-and-the-rpi
 :authors: Joe Stanley

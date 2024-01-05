@@ -3,7 +3,7 @@ Write a Good Framework - ONCE.
 
 :date: 2020-09-20 10:26
 :modified: 2020-09-20 10:26
-:tags: Python, IEC-61131, Development
+:tags: python, iec-61131, development
 :category: Development
 :slug: write-framework-once
 :authors: Joe Stanley

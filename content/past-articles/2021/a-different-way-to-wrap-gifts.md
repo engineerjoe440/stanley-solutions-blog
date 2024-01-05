@@ -1,7 +1,7 @@
 Title: A "Different" Way to Wrap Gifts
 Date: 2021-12-07 22:08
 Modified: 2021-12-07 22:08
-Tags: Arduino, ATMEGA328P, Christmas, DIY, C++, Platformio
+Tags: arduino, atmega328p, christmas, diy, c++, platformio
 Category: Arduino
 Slug: a-different-way-to-wrap-gifts
 Authors: Joe Stanley

@@ -1,7 +1,7 @@
 Title: Ideas for Swine Education
 Date: 2022-03-22 16:54
 Modified: 2022-03-22 16:54
-Tags: Youth, Swine, 4-H, Livestock, Education
+Tags: youth, swine, 4-h, livestock, education
 Category: Youth
 Slug: ideas-for-swine-education
 Authors: Joe Stanley

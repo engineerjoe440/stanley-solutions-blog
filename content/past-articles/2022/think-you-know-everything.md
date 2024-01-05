@@ -1,7 +1,7 @@
 Title: Think you Know Everything?
 Date: 2022-02-08 19:50
 Modified: 2022-02-09 07:54
-Tags: Analog, Logic, 4-H, Knowledge, Throwback
+Tags: analog, logic, 4-h, knowledge, throwback
 Category: Youth
 Slug: think-you-know-everything
 Authors: Joe Stanley

@@ -1,7 +1,7 @@
 Title: Making Feline Stink a Distant Memory
 Date: 2022-08-04 15:52
 Modified: 2022-08-04 15:52
-Tags: Arduino, Electro-Mechanical, Smart-Home, Development, PlatformIO, Pets, Exhaust
+Tags: arduino, electro-mechanical, smart-home, development, platformio, pets, exhaust
 Category: Home-Improvement
 Slug: making-feline-stink-a-distant-memory
 Authors: Joe Stanley

@@ -3,7 +3,7 @@ Reading Data with `selprotopy`
 
 :date: 2020-11-22 19:02
 :modified: 2020-11-22 19:02
-:tags: Protocols, SEL, Python, Communications, Metering
+:tags: protocols, sel, python, communications, metering
 :category: Python
 :slug: reading-data-with-selprotopy
 :authors: Joe Stanley

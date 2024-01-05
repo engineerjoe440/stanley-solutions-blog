@@ -1,7 +1,7 @@
 Title: RheoRailroad - A Digital Toy Train Set
 Date: 2022-08-23 17:00
 Modified: 2022-08-23 17:00
-Tags: Arduino, Electro-Mechanical, Smart-Home, Development, PlatformIO, Toy-Trains, Lionel, Model-Railroading, ESP8266
+Tags: arduino, electro-mechanical, smart-home, development, platformio, toy-trains, lionel, model-railroading, esp8266
 Category: Model-Railroading
 Slug: rheo-railroad-a-digital-toy-train
 Authors: Joe Stanley

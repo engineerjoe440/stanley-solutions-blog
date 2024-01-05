@@ -1,7 +1,7 @@
 Title: Dissecting Computers for the First Time?
 Date: 2023-03-19 12:13
 Modified: 2023-03-19 12:13
-Tags: 4H, Youth, Computers, Workshop, Teen, Learning, Education, Hands-On, Recycling, Technology, Linux
+Tags: 4-h, youth, computers, workshop, teen, learning, education, hands-on, recycling, technology, linux
 Category: Youth
 Slug: dissecting-computers-for-the-first-time
 Authors: Joe Stanley

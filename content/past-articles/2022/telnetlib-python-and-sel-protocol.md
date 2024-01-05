@@ -1,7 +1,7 @@
 Title: Telnetlib, Python, and SEL Protocol
 Date: 2022-01-26 16:32
 Modified: 2022-01-26 16:32
-Tags: Python, SEL, Communications, Telnet, Libraries, Monkey-Patch
+Tags: python, sel, communications, telnet, libraries, monkey-patch
 Category: Python
 Slug: telnetlib-python-and-sel-protocol
 Authors: Joe Stanley

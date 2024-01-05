@@ -1,7 +1,7 @@
 Title: Finding Fire and Making It
 Date: 2021-11-25 15:25
 Modified: 2021-11-25 15:25
-Tags: Capstone, Wildfire, University, Research, Students, Biochar, Agriculture
+Tags: capstone, wildfire, university, research, students, biochar, agriculture
 Category: Capstone
 Slug: finding-fire-and-making-it
 Authors: Joe Stanley

@@ -1,7 +1,7 @@
 Title: What is Tasmota, Anyway?
 Date: 2022-03-23 22:34
 Modified: 2022-03-23 22:34
-Tags: Tasmota, IOT, Smart-Home, Open-Source, ESP8266, ESP32, Home-Automation, Wifi
+Tags: tasmota, iot, smart-home, open-source, esp8266, esp32, home-automation, wifi
 Category: IoT
 Slug: what-is-tasmota-anyway
 Authors: Joe Stanley

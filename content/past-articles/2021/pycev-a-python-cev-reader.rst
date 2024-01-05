@@ -3,7 +3,7 @@
 
 :date: 2020-12-12 10:59
 :modified: 2020-12-12 10:59
-:tags: Python, SEL, CEV, Event, Record, Files, Power System, Analysis
+:tags: python, sel, cev, event, record, files, power system, analysis
 :category: Python
 :slug: pycev-a-python-cev-reader
 :authors: Joe Stanley

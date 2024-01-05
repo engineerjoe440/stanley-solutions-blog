@@ -1,7 +1,7 @@
 Title: How Many Protocols Does it Take to Open a Door?
 Date: 2023-12-25 14:45
 Modified: 2023-12-25 14:45
-Tags: Home-Automation, Home-Assistant, Mqtt, SEL, Sel-Protocol, Open-Source, Relay, Automation
+Tags: home-automation, home-assistant, mqtt, sel, sel-protocol, open-source, relay, automation
 Category: Home-Automation
 Slug: how-many-protocols-does-it-take-to-open-a-door
 Authors: Joe Stanley

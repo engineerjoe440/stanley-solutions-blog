@@ -1,7 +1,7 @@
 Title: Scraping the ISP Router to Support Self-Hosting
 Date: 2022-08-26 16:27
 Modified: 2022-08-26 16:27
-Tags: Self-Hosting, Isp, Router, Networks, Ethernet, Servers
+Tags: self-hosting, isp, router, networks, ethernet, servers, networking
 Category: Self-Hosting
 Slug: scraping-the-isp-router-to-support-selfhosting
 Authors: Joe Stanley
