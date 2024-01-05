@@ -3,8 +3,8 @@ A Picture is Worth a Thousand Words
 
 :date: 2020-08-21 08:49
 :modified: 2020-09-01 11:42
-:tags: iec61131-3, automation
-:category: IEC-61131-3
+:tags: iec-61131, automation
+:category: iec-61131
 :slug: making-bitmap-images-from-bytes
 :authors: Joe Stanley
 :summary: Making images and plotting might just be possible in real-time-controllers.

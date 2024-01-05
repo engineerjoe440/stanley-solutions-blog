@@ -3,8 +3,8 @@ IEC 61131-3 Syntax Highlighting with highlight.js
 
 :date: 2020-09-01 23:00
 :modified: 2020-09-01 23:38
-:tags: iec-61131-3, documentation
-:category: IEC-61131-3
+:tags: iec-61131, documentation
+:category: iec-61131
 :slug: iec-61131-syntax-highlighting
 :authors: Joe Stanley
 :summary: Adding context to 61131 code snippets with `highlight.js`.

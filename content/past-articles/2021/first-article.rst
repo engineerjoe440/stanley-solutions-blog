@@ -3,7 +3,7 @@ We're going live.
 
 :date: 2020-08-21 08:35
 :modified: 2020-08-21 08:35
-:tags: automation, python, iec61131-3
+:tags: automation, python, iec-61131
 :category: automation
 :slug: we're-going-live
 :authors: Joe Stanley
