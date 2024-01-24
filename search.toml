@@ -3,14 +3,14 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
-path = "quick-n-simple-photo-converter.html"
-url = "/quick-n-simple-photo-converter.html"
-title = "Quick-n-Simple Photo Converter (for HEIC format)"
-
-[[input.files]]
 path = "the-4-h-lineup-for-spring-2024.html"
 url = "/the-4-h-lineup-for-spring-2024.html"
 title = "The 4-H Lineup (for Spring, 2024)"
+
+[[input.files]]
+path = "quick-n-simple-photo-converter.html"
+url = "/quick-n-simple-photo-converter.html"
+title = "Quick-n-Simple Photo Converter (for HEIC format)"
 
 [[input.files]]
 path = "adding-a-subscription-system-to-my-blog.html"
