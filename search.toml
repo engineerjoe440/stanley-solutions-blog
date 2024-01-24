@@ -3,6 +3,11 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
+path = "quick-n-simple-photo-converter.html"
+url = "/quick-n-simple-photo-converter.html"
+title = "Quick-n-Simple Photo Converter (for HEIC format)"
+
+[[input.files]]
 path = "adding-a-subscription-system-to-my-blog.html"
 url = "/adding-a-subscription-system-to-my-blog.html"
 title = "Adding a Subscription System to my Blog"
