@@ -8,6 +8,11 @@ url = "/quick-n-simple-photo-converter.html"
 title = "Quick-n-Simple Photo Converter (for HEIC format)"
 
 [[input.files]]
+path = "the-4-h-lineup-for-spring-2024.html"
+url = "/the-4-h-lineup-for-spring-2024.html"
+title = "The 4-H Lineup (for Spring, 2024)"
+
+[[input.files]]
 path = "adding-a-subscription-system-to-my-blog.html"
 url = "/adding-a-subscription-system-to-my-blog.html"
 title = "Adding a Subscription System to my Blog"
