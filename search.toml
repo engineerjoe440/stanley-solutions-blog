@@ -3,11 +3,6 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
-path = "electronics-dissection-amping-up.html"
-url = "/electronics-dissection-amping-up.html"
-title = "Electronics Dissection - Amping Up"
-
-[[input.files]]
 path = "tx-rx-swapping-made-ez.html"
 url = "/tx-rx-swapping-made-ez.html"
 title = "TX/RX Swapping Made EZ"
