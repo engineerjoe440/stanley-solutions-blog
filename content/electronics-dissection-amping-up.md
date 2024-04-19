@@ -7,7 +7,7 @@ Slug: electronics-dissection-amping-up
 Authors: Joe Stanley
 Summary: Stand back... electronics are flying EVERYWHERE! Here's some info on those electronics dissection activities that I've been hosting around Idaho.
 
-<img src="{attach}/images/electronics-dissection/ElectronicsDissection.png" style="width: 40%; margin: 10px;" align="left" alt="Latah County">
+<img src="{attach}/images/electronics-dissection/ElectronicsDissection.png" style="width: 50%; margin: 10px;" align="left" alt="Latah County">
 
 This seems to have become my M.O... Gathering all sorts of electronics *junk* and ripping it apart with 4-H'ers.
 
