@@ -7,11 +7,6 @@ Slug: electronics-dissection-amping-up
 Authors: Joe Stanley
 Summary: Stand back... electronics are flying EVERYWHERE! Here's some info on those electronics dissection activities that I've been hosting around Idaho.
 
-
-<img src="{attach}/images/electronics-dissection/ElectronicsDissection.png" style="width: 40%; margin: 10px;" alt="Latah County">
-
-<img src="{attach}/images/electronics-dissection/2024-04-02_20-34-57_Electronic+Dissection+Day.png" style="width: 40%; margin: 10px;" alt="Southern District">
-
 This seems to have become my M.O... Gathering all sorts of electronics *junk* and ripping it apart with 4-H'ers.
 
 Not such a bad thing, come to think of it.
@@ -35,6 +30,10 @@ things that are still useful. While sluggish, those old computers could be used 
 3. Can you think of other cool things to do with them? Leave me an idea in the comments...
 
 But now... the dissection? That's a blast!!!
+
+<img src="{attach}/images/electronics-dissection/ElectronicsDissection.png" style="width: 40%; margin: 10px;" alt="Latah County">
+
+<img src="{attach}/images/electronics-dissection/2024-04-02_20-34-57_Electronic+Dissection+Day.png" style="width: 40%; margin: 10px;" alt="Southern District">
 
 <img src="{attach}/images/electronics-dissection/tearinitup.png" style="width: 100%; margin: 10px;" alt="Tearin' it Up...">
 
