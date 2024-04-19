@@ -9,8 +9,6 @@ Summary: Stand back... electronics are flying EVERYWHERE! Here's some info on th
 
 <img src="{attach}/images/electronics-dissection/ElectronicsDissection.png" style="width: 40%; margin: 10px;" align="left" alt="Latah County">
 
-<img src="{attach}/images/electronics-dissection/2024-04-02_20-34-57_Electronic+Dissection+Day.png" style="width: 40%; margin: 10px;" align="left" alt="Southern District">
-
 This seems to have become my M.O... Gathering all sorts of electronics *junk* and ripping it apart with 4-H'ers.
 
 Not such a bad thing, come to think of it.
@@ -23,6 +21,8 @@ Truly, I think this workshop could actually be broken into two activities. The f
 might otherwise be thought of as dead. The second part, then, being the dissection (read: *destruction*). That way, we're more effectively utilizing resources, and
 turning computers back into *slightly* more useful machines for those who wish to use them. Why would we want to do that? Well, there's no good sense in throwing out
 things that are still useful. While sluggish, those old computers could be used for a number of other things, like...
+
+<img src="{attach}/images/electronics-dissection/2024-04-02_20-34-57_Electronic+Dissection+Day.png" style="width: 40%; margin: 10px;" align="left" alt="Southern District">
 
 1. Portable internet access machines.
     - Use them for 4-H meetings to access [ZSuite](https://www.zsuite.org/).
