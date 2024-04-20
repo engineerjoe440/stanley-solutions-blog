@@ -3,6 +3,11 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
+path = "first-time-as-a-guest-lecturer.html"
+url = "/first-time-as-a-guest-lecturer.html"
+title = "First Time as a Guest Lecturer?"
+
+[[input.files]]
 path = "electronics-dissection-amping-up.html"
 url = "/electronics-dissection-amping-up.html"
 title = "Electronics Dissection - Amping Up"
