@@ -61,7 +61,7 @@ PHOTO_INLINE_GALLERY_TEMPLATE = "inline_gallery"
 
 MARKDOWN = {
     'extensions': [
-        'markdown-customblocks',
+        'customblocks',
     ],
     'extension_configs': {
         'markdown.extensions.codehilite': {'css_class': 'highlight'},

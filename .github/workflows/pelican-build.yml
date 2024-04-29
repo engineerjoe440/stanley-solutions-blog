@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-delpoy:
-    name: Build
+    name: Pelican-Generate-HTML
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
