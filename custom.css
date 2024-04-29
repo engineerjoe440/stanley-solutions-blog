@@ -1,3 +1,6 @@
+/* 
+ * Presently not using Isso, but might again someday...
+ */
 #isso-thread .text-wrapper, #isso-thread .textarea {
     color: black;
 }
@@ -12,4 +15,23 @@
 
 .isso-comment .h3, .isso-comment .h4, .isso-comment .h5 {
     color: #CCD7EB;
+}
+
+/* 
+ * Styles for a video wrapper.
+ * To be used by generators like vimeo, youtube...
+ */
+.videowrapper {
+    position:relative;
+    overflow:hidden;
+    height:0;
+    width:100%;
+    padding-bottom:56.25%;
+}
+.videowrapper iframe {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
 }
