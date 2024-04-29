@@ -24,3 +24,4 @@ This blog is just a plain-and-simple static-site. It's built using some of the f
 * [Github Actions](./.github/workflows/pelican-build.yml)
 * [Giscus](https://giscus.app/)
 * [Pelican Search](https://github.com/pelican-plugins/search)
+* [Customblocks for Markdown](https://github.com/vokimon/markdown-customblocks/)

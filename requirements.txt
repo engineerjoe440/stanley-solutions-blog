@@ -7,3 +7,4 @@ pelican-render-math
 pelican-sitemap
 pelican-photos
 pelican-search
+markdown-customblocks
