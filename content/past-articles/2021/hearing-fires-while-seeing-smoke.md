@@ -7,10 +7,6 @@ Slug: hearing-fires-while-seeing-smoke
 Authors: Joe Stanley
 Summary: While most of North Idaho is seeing (and smelling) plenty of smoke, I'm looking back over a successful Capstone project and more to come...
 
-<a href="https://www.instagram.com/p/COLV2C5ppJ1/?utm_source=ig_web_copy_link&img_index=1">
- <img src="https://scontent-sea1-1.cdninstagram.com/v/t51.29350-15/178456129_1774122162748564_5944175005716387489_n.jpg" width="100%" alt="Team">
-</a>
-
 
 If you've talked to me at all in the past nine months or so, you probably already know that I had the great privilege of sponsoring an Engineering
 Capstone project at the University of Idaho. Now, admittedly, it's something of a selfish endeavor as I have far too many "fun things" that I'd like
