@@ -45,9 +45,8 @@ def tagerizer(prompt=False):
     global keymap
     if prompt:
         return ''
-    tags = re.split(r', ?',keymap['tags'])
-    for i,tag in enumerate(tags):
-        tags[i] = tag.lower()
+    tags = [t.lower() for t in re.split(r', ?',keymap['tags'])]
+    tags.sort()
     return ', '.join(tags)
 
 def slugerizer(prompt=False):
