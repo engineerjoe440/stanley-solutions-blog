@@ -7,9 +7,33 @@ Slug: making-portable-digital-learning
 Authors: Joe Stanley
 Summary: With all of these 4-H activities that I've been helping with, I've been in my car. A lot. That means that I don't always have access to great internet, great resources, and I can't always connect home to my servers, there. I've decided to combat that by building a single, portable network. A network in a box, if you will. Here's how I did it.
 
-
 That's right! I've been build a portable network and server system. It's all built into an ammo can. It's set up so that
 I can drag around all kinds of services with me, and I can easily set up my own WiFi network for 4-H users to access.
+
+Many of the locations I visit to support 4-H's hands-on-learning don't offer great networks, and in some cases, the
+lesson(s) warrant use of some technology or service that requires accounts and special access. That puts all sorts of
+undue challenges on me and others to put things together beforehand and waste some valuable time getting things working.
+
+A few years ago (yes, it's been that long), I had an idea to put a few Raspberry Pi's and a little network switch in an
+ammo can so that I could pack the whole thing around and use it for different programming/hacking exercises with 4-H
+youth. That quickly evolved into what I now call the Port-A-Server. My portable network and server infrastructure in a
+box!
+
+This thing comes packed. Here's the BOM (discounting fasteners and cabling, of course).
+
+| **Quantity** | **Device**                                                    |
+|--------------|---------------------------------------------------------------|
+| 2            | Raspberry Pi 3B+                                              |
+| 2            | Raspberry Pi 4B+                                              |
+| 1            | Raspberry Pi CM4 in a Dual NIC Enclosure                      |
+| 1            | ZimaBoard x86 Single Board Computer                           |
+| 1            | gl.iNet Travel Router                                         |
+| 3            | Small 1Gbps Network Switches                                  |
+
+The whole thing runs off a single power supply which means ONE CABLE, and it's even got a couple power ports on the side.
+Just a few months ago, I even ported through some ports to access the HDMI outputs from a couple of the crucial devices,
+and USB for a bunch of things. With that gl.iNet router, I'm able to use its USB port to connect to my cellphone to use
+cellular tethering. That means that in spots where WiFi isn't available, but cellular is, I'm set!
 
 ::uml:: format="svg" alt="Portable 'Network in a Box'" title="Porta-Network" width="100%"
 !theme blueprint
