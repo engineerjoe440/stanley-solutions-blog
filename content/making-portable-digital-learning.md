@@ -22,7 +22,7 @@ box!
 This thing comes packed. Here's the BOM (discounting fasteners and cabling, of course).
 
 | **Quantity** | **Device**                                                    |
-|--------------|---------------------------------------------------------------|
+|-------------:|---------------------------------------------------------------|
 | 2            | Raspberry Pi 3B+                                              |
 | 2            | Raspberry Pi 4B+                                              |
 | 1            | Raspberry Pi CM4 in a Dual NIC Enclosure                      |
@@ -85,10 +85,11 @@ nwdiag {
   }
 ::end-uml::
 
-
-
 <iframe src='https://immich.stanleysolutionsnw.com/share/9yb9_5eOa4VWItFhjnzxuNnbU_7B63HkToT5a_Q5li4Oyy77o91bW0Gx6_hUbGITCYs'
 width='100%' height='600px' frameborder='0'>
 </iframe>
+
+Now, this is all pretty slick, but what's a metal box full of computers without some kind of applications that they can
+be used for? Good question! So how about we talk about the applications that are running on this system.
 
 ### More to come...
