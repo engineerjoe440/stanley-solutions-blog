@@ -1,6 +1,6 @@
 Title: Making Portable Digital Learning
 Date: 2024-09-03 16:41
-Modified: 2024-09-03 16:41
+Modified: 2024-09-26 15:42
 Tags: server, portable, learning, education, rpi, raspberry-pi, linux, open-source, gl.inet, python, nginx
 Category: Self-Hosted
 Slug: making-portable-digital-learning
@@ -92,4 +92,37 @@ width='100%' height='600px' frameborder='0'>
 Now, this is all pretty slick, but what's a metal box full of computers without some kind of applications that they can
 be used for? Good question! So how about we talk about the applications that are running on this system.
 
-### More to come...
+For starters, I'm running the venerable [PiHole](https://pi-hole.net/) for network-wide advertisement blocking, and some
+small allowance of security. In addition to that, I'm using NGINX alongside the gl.iNet router to provide convenient
+hostname access to the various applications. The CorePi device provides PiHole and NGINX services.
+
+Beyond the networking applications, I also use a new Python-backed app that I've been building;
+[WordWall](https://github.com/engineerjoe440/wordwall). WordWall is a pretty simple little application which drives a
+collaborative word cloud application that I can use for some of the trainings I provide. As a matter of fact, I need to
+share more about that training in a separate post.
+
+> Someday... Someday...
+
+Now, for a portable network, I really need some simple little file-sharing tool. So I've got that too! I'm using
+[miniserve](https://github.com/svenstaro/miniserve) a simple little CLI application that I wrapped in a small `systemd`
+unit file. That unit file helps make sure that the file system gets cleared before the application gets started, and
+afterwards too. That makes it so any shared files are temporary only.
+
+```systemd
+[Unit]
+Description=todo
+```
+
+I'm also going to be setting up a couple typing-games as little applications that some of the 4-H kids can play. I keep
+hearing that kids aren't building great typing skills on their own. So... I aim to do what little I can to help work
+that out.
+
+Lastly, I'm also planning to set up a little self-hosted Kahoot alternative to use with quiz games for internet-deprived
+classrooms. That application is [ClassQuiz](https://classquiz.de/), it's a pretty neat Python-backed application in its
+own right. I really can't wait to start using it for some of my activities. I haven't fully wrapped up deploying this
+application. It's going to require some SSL certificate management, but I need to figure some of that out. Hopefully
+I'll be back to write more about that... later.
+
+But this leaves me to question how I'm going to keep track of all my configuration files. Hmm... Well, I think that
+calls for `git`, more specifically... [Gitea](https://about.gitea.com/) That ought to make my version control for these
+little applications pretty slick-n-easy.
