@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Basic Auth without the Hubub in NGINX | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://blog.stanleysolutionsnw.com/basic-auth-without-the-hubub-in-nginx.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/theme.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/custom.css">
+  <link rel="stylesheet" href="https://files.stork-search.net/dark.css">
+  <script src="https://files.stork-search.net/releases/v1.6.0/stork.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/development.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/development.rss.xml">  
+  <meta name="description" content="Today I learned that it IS possible to make a relatively simple static site that has some automatic authentication built in to NGINX that will use a custom HTML file for the login page as opposed to the basic-auth prompt that gets so annoying.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://blog.stanleysolutionsnw.com/">
+        <img class="img-fluid rounded" src=https://blog.stanleysolutionsnw.com/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://blog.stanleysolutionsnw.com/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">engineering and creativity - all under one hat</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/krnc/usb-manager" target="_blank">KRNC Barn Manager</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/schemdraw-markdown" target="_blank">Schemdraw-Markdown</a></li>
+            <li class=" list-inline-item text-muted">|</li>
+          <li class="list-inline-item"><a class="fas fa-comments" href="https://matrix.to/#/@engineerjoe440:stanleysolutionsnw.com" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-github" href="https://github.com/engineerjoe440/" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-gitlab" href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-coffee" href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-rss" href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml" target="_blank"></a></li>
+      </ul>
+    <div class="stork-wrapper-dark">
+      <input data-stork="sitesearch" class="stork-input" placeholder="search"/>
+      <div data-stork="sitesearch-output" class="stork-output"></div>
+    </div>
+    <script>
+      stork.register("sitesearch", "https://blog.stanleysolutionsnw.com/search-index.st");
+    </script>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Basic Auth without the Hubub in NGINX
+</h1>
+      <hr>
+  <main>
+    <article class="article">
+      <header>
+        <ul class="list-inline">
+          <li class="list-inline-item text-muted" title="2024-11-08T20:49:00-08:00">
+            <i class="fas fa-clock"></i>
+            Fri 08 November 2024
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-folder-open"></i>
+            <a href="https://blog.stanleysolutionsnw.com/category/development.html">development</a>
+          </li>
+            <li class="list-inline-item">
+              <i class="fas fa-tag"></i>
+                <a href="https://blog.stanleysolutionsnw.com/tag/auth.html">#auth</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/html.html">#html</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/http.html">#http</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/nginx.html">#nginx</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/proxy.html">#proxy</a>            </li>
+        </ul>
+      </header>
+      <div class="content">
+        <p>Okay... As I write this, I'm falling asleep. Hah! So I'll make this quick.</p>
+<p>I wanted a website that:</p>
+<ul>
+<li>was a static site (no ORM, database, etc.)</li>
+<li>had some basic authentication (yeah, BasicAuth is fine)</li>
+<li>had a custom login page with my own styled HTML/CSS</li>
+</ul>
+<p>Now, I've known that NGINX allows users to configure basic auth for some time.
+I've done that, before. But I didn't know how to get it to do the custom HTML in
+conjunction with that. Here's what I did.</p>
+<p>I set up a route that would allow any login, or static file to be served without
+authentication.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">^/(login|css|fonts|img|js|404.html)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">root</span><span class="w"> </span><span class="s">/home/.../public/</span><span class="p">;</span><span class="w">         </span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+
+<p>And I had the main part of the website set up to use basic auth. Even had the
+<code>401</code> redirect in there to manage spitting users out in the right spot. But that
+used the annoying "basic auth popup" that I was trying to avoid.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">root</span><span class="w"> </span><span class="s">/home/.../public/</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">auth_basic</span><span class="w"> </span><span class="s">&quot;Restricted&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">auth_basic_user_file</span><span class="w"> </span><span class="s">/home/.../.htpasswd</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_intercept_errors</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">error_page</span><span class="w"> </span><span class="mi">401</span><span class="w">  </span><span class="s">/login/</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+
+<blockquote>
+<p>What to do, what to do...</p>
+</blockquote>
+<p>After I don't even know how much searching, it dawned on me that I could use an
+<code>if</code> statement to do a redirect, and after a little more tweaking, and learning
+how to "hack" together a logical "AND" between three <code>if</code> statements, I was able
+to come up with this:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$http_authorization</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;&quot;)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">set</span><span class="w"> </span><span class="nv">$temp_cache</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$request_uri</span><span class="w"> </span><span class="s">!~*</span><span class="w"> </span><span class="s">^/(login|css|fonts|img|js|404.html))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">set</span><span class="w"> </span><span class="nv">$temp_cache</span><span class="w"> </span><span class="mi">1</span><span class="nv">$temp_cache</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$temp_cache</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">11</span><span class="s">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">return</span><span class="w"> </span><span class="mi">302</span><span class="w"> </span><span class="s">https://</span><span class="nv">$host/login/</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+
+<p>If there's no authorization header and the request URI isn't the login or static
+file, then set a redirect to the <code>/login</code> page. TADA!</p>
+<div class="highlight"><pre><span></span><code><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span><span class="w"> </span><span class="c1"># managed by Certbot</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">k3b4h.idaho4h.org</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">client_max_body_size</span><span class="w"> </span><span class="s">512M</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">client_body_timeout</span><span class="w"> </span><span class="s">300s</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$http_authorization</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;&quot;)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">set</span><span class="w"> </span><span class="nv">$temp_cache</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kn">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$request_uri</span><span class="w"> </span><span class="s">!~*</span><span class="w"> </span><span class="s">^/(login|css|fonts|img|js|404.html))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">set</span><span class="w"> </span><span class="nv">$temp_cache</span><span class="w"> </span><span class="mi">1</span><span class="nv">$temp_cache</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kn">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$temp_cache</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">11</span><span class="s">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">return</span><span class="w"> </span><span class="mi">302</span><span class="w"> </span><span class="s">https://</span><span class="nv">$host/login/</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">root</span><span class="w"> </span><span class="s">/home/.../public/</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">auth_basic</span><span class="w"> </span><span class="s">&quot;Restricted&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">auth_basic_user_file</span><span class="w"> </span><span class="s">/home/.../.htpasswd</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_intercept_errors</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">error_page</span><span class="w"> </span><span class="mi">401</span><span class="w">  </span><span class="s">/login/</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">^/(login|css|fonts|img|js|404.html)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">root</span><span class="w"> </span><span class="s">/home/.../public/</span><span class="p">;</span><span class="w">         </span>
+<span class="w">    </span><span class="p">}</span>
+
+
+<span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/etc/...fullchain.pem</span><span class="p">;</span><span class="w"> </span><span class="c1"># managed by Certbot</span>
+<span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/etc/...privkey.pem</span><span class="p">;</span><span class="w"> </span><span class="c1"># managed by Certbot</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Now... I've yet to get some javascript cobbled together to actually set the
+authorization header. That's next, but I <em>think</em> that should be manageable.</p>
+<blockquote>
+<p>God, I hope so.</p>
+</blockquote>
+<p>Good night!</p>
+      </div>
+    </article>
+  </main>
+<!-- <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section> -->
+<script src="https://giscus.app/client.js"
+        data-repo="engineerjoe440/stanley-solutions-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyODk0MDQ2ODE="
+        data-category="Comments"
+        data-category-id="DIC_kwDOET_3Cc4CTonj"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/tags.html">Tags</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/subscribe.html">Subscribe</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>

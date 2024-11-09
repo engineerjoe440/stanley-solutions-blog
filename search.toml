@@ -3,6 +3,11 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
+path = "basic-auth-without-the-hubub-in-nginx.html"
+url = "/basic-auth-without-the-hubub-in-nginx.html"
+title = "Basic Auth without the Hubub in NGINX"
+
+[[input.files]]
 path = "making-portable-digital-learning.html"
 url = "/making-portable-digital-learning.html"
 title = "Making Portable Digital Learning"
