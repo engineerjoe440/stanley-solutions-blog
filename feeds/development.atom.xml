@@ -88,7 +88,13 @@ authorization header. That's next, but I &lt;em&gt;think&lt;/em&gt; that should 
 &lt;blockquote&gt;
 &lt;p&gt;God, I hope so.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Good night!&lt;/p&gt;</content><category term="development"></category><category term="auth"></category><category term="html"></category><category term="http"></category><category term="nginx"></category><category term="proxy"></category></entry><entry><title>Write a Good Framework - ONCE.</title><link href="https://blog.stanleysolutionsnw.com/write-framework-once.html" rel="alternate"></link><published>2020-09-20T10:26:00-07:00</published><updated>2020-09-20T10:26:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2020-09-20:/write-framework-once.html</id><summary type="html">&lt;p class="first last"&gt;We all want that next great application; NOW. And we KNOW that we can just hash out this great new thing. But where does that leave us the next time we want to do the same sort of thing?&lt;/p&gt;
+&lt;p&gt;Good night!&lt;/p&gt;
+&lt;h2&gt;Update:&lt;/h2&gt;
+&lt;p&gt;Dangit. That won't work at all. Seems that while it does everything that I want
+in terms of the visual component, it won't let me actually set the authorization
+header for the browser to retain it for subsequent navigation.&lt;/p&gt;
+&lt;p&gt;Maybe there's a workaround for it, but I haven't found one yet. I'll have to
+keep thinking/looking.&lt;/p&gt;</content><category term="development"></category><category term="auth"></category><category term="html"></category><category term="http"></category><category term="nginx"></category><category term="proxy"></category></entry><entry><title>Write a Good Framework - ONCE.</title><link href="https://blog.stanleysolutionsnw.com/write-framework-once.html" rel="alternate"></link><published>2020-09-20T10:26:00-07:00</published><updated>2020-09-20T10:26:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2020-09-20:/write-framework-once.html</id><summary type="html">&lt;p class="first last"&gt;We all want that next great application; NOW. And we KNOW that we can just hash out this great new thing. But where does that leave us the next time we want to do the same sort of thing?&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;C'mon, every developer has had that epiphany moment:&lt;/p&gt;
 &lt;blockquote&gt;
 &amp;quot;I know, I can just write this thing now, and I'll have exactly what I need, and I'll
