@@ -106,3 +106,12 @@ authorization header. That's next, but I *think* that should be manageable.
 > God, I hope so.
 
 Good night!
+
+## Update:
+
+Dangit. That won't work at all. Seems that while it does everything that I want
+in terms of the visual component, it won't let me actually set the authorization
+header for the browser to retain it for subsequent navigation.
+
+Maybe there's a workaround for it, but I haven't found one yet. I'll have to
+keep thinking/looking.
