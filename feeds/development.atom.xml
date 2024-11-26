@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - development</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"></link><link href="https://blog.stanleysolutionsnw.com/feeds/development.atom.xml" rel="self"></link><id>https://blog.stanleysolutionsnw.com/</id><updated>2024-11-08T20:49:00-08:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>Basic Auth without the Hubub in NGINX</title><link href="https://blog.stanleysolutionsnw.com/basic-auth-without-the-hubub-in-nginx.html" rel="alternate"></link><published>2024-11-08T20:49:00-08:00</published><updated>2024-11-08T20:49:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2024-11-08:/basic-auth-without-the-hubub-in-nginx.html</id><summary type="html">&lt;p&gt;Today I learned that it IS possible to make a relatively simple static site that has some automatic authentication built in to NGINX that will use a custom HTML file for the login page as opposed to the basic-auth prompt that gets so annoying.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Okay... As I write this, I'm falling asleep. Hah! So I'll make this quick.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - development</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"></link><link href="https://blog.stanleysolutionsnw.com/feeds/development.atom.xml" rel="self"></link><id>https://blog.stanleysolutionsnw.com/</id><updated>2024-11-26T10:35:00-08:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>A Collaborative Word Cloud for Teaching</title><link href="https://blog.stanleysolutionsnw.com/a-collaborative-wordcloud-for-teaching.html" rel="alternate"></link><published>2024-11-26T10:35:00-08:00</published><updated>2024-11-26T10:35:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2024-11-26:/a-collaborative-wordcloud-for-teaching.html</id><summary type="html">&lt;p&gt;A few months ago I wrapped up some work on a fun little project I developed for some teaching exercises. Let me tell you about it!&lt;/p&gt;</summary><content type="html">&lt;p&gt;It started back in June when I was frantically preparing some exercises to teach and prepare a group of the College Staff to support Idaho's
+&lt;a href="https://www.uidaho.edu/extension/4h/events/stac"&gt;State Teen Association Convention&lt;/a&gt;. I was trying to prepare some training to align the team.
+That's not something I've done before, and I can't make any claims that it's perfect, but I think it was well received.&lt;/p&gt;
+&lt;p&gt;Let me explain what that exercise really was...&lt;/p&gt;
+&lt;p&gt;I used a handful of different materials to try making it both fun and engaging. Some of those materials were from National 4-H's
+&lt;a href="https://www.4-h.org/wp-content/uploads/2024/04/09105552/4H-Harmony-Guide-2024.pdf"&gt;"Meet Up Buddy"&lt;/a&gt; card activity. Some were of my own
+creation to encourage the College Staff to think about how to prioritize things when time constraints pressed them. My alignment training
+was where we started, it was basically a challenge to the participants. Here's how I set it up, though, maybe not in so many well-placed words.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;4-H is full of projects. So many things for youth to engage with and to find their spark. While this is wonderful, it does pose a bit of a
+challenge. Before I explain, I want you to think about all the words that come to mind when you think of 4-H.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;At this point, I'd share a QR code with them that they could use to navigate to the game page. The game page provides participants with a
+text box where they can enter each word that they think about. When they enter a word, a new text box appears so they can enter another word.
+As they'd enter words, my system keeps track of them (hidden, of course) and begins to create a word cloud with all of their entries.&lt;/p&gt;
+&lt;p&gt;When I decide that they've had enough time (normally it looks like they've run out of ideas for words), then I shut down the entry system and
+reveal the word cloud generated from all of their entries. At the end of it all, we're left with something like this:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="college staff word cloud" src="https://immich.stanleysolutionsnw.com/api/assets/5692b76b-9049-4ebc-b0b8-4812c751716a/thumbnail?size=preview&amp;amp;key=klMHZEmZIUXG5UF9NeiFfKmLCZOcCm99k9mdI6Rw_U9TbJhC6zepXq-tEantGNrj748"&gt;&lt;/p&gt;
+&lt;p&gt;That gives us something to talk about.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Look at this. These are all the things that our little group thinks about when we think about 4-H. But what do we share?&lt;/p&gt;
+&lt;p&gt;Often, we're working in our own little silos, not terribly focussed on the same things that other leaders are focussed on. That can make
+working with other leaders difficult. We're each moving in our own direction, and sometimes, that feels like pulling a ball of yarn from
+different ends; just making the knot perpetually tighter.&lt;/p&gt;
+&lt;p&gt;But this shows us something. Even when we are moving in different directions, it's possible to find some common ground. These are the first
+things that &lt;em&gt;you&lt;/em&gt; thought of when I asked you to think about 4-H. These are the inately tied to your path in 4-H, and see how we have
+something common shared between us?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;At that point, I'd talk about why I think it's good to get a common understanding of what is shared between the group, and how I like to think
+about using this commonality with people to find shared ground on certain topics. To move forward together on what we see as the shared pathway.&lt;/p&gt;
+&lt;p&gt;It worked pretty well for our little team, I was able to refer back to it a number of times, and it made working with the team all the more
+pleasant and constructive.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;The exercise wasn't purely without its challenges, however. In fact, we discovered that the web-service that I'd chosen to use only allowed
+something like 10 players, and each player could only enter 15 words. Not exactly the sort of restrictions you want to run into during an
+exercise. Add to that, the fact that you've got to have a solid internet connection, which is not always easy in 4-H programming in the state
+of Idaho.&lt;/p&gt;
+&lt;p&gt;That's why I returned to my recent build, the &lt;a href="/making-portable-digital-learning.html"&gt;PortaServer&lt;/a&gt;. My little (not so little, actually) ammo
+can with a stack of mini computers. I could serve my own system there, and since I run the network, I could also make the address very easy
+to access.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Enter: &lt;a href="https://github.com/engineerjoe440/wordwall"&gt;WordWall&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It's pretty simple in concept. A little more effort in practice, but that's alright. I made a Python FastAPI server with a tiny, ephemeral
+SQLite database backing it to run all the management of adding, removing, and sharing words. Tie that with a Material-UI based React frontend,
+and I've got a relatively simple little service that I can run on my own system.&lt;/p&gt;
+&lt;p&gt;Now, I've got something I can take with me, wherever I travel to align 4-H leaders, youth, or others.&lt;/p&gt;</content><category term="development"></category><category term="python"></category><category term="react"></category><category term="teaching"></category><category term="youth"></category><category term="software"></category><category term="development"></category><category term="fastapi"></category><category term="material-ui"></category></entry><entry><title>Basic Auth without the Hubub in NGINX</title><link href="https://blog.stanleysolutionsnw.com/basic-auth-without-the-hubub-in-nginx.html" rel="alternate"></link><published>2024-11-08T20:49:00-08:00</published><updated>2024-11-08T20:49:00-08:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2024-11-08:/basic-auth-without-the-hubub-in-nginx.html</id><summary type="html">&lt;p&gt;Today I learned that it IS possible to make a relatively simple static site that has some automatic authentication built in to NGINX that will use a custom HTML file for the login page as opposed to the basic-auth prompt that gets so annoying.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Okay... As I write this, I'm falling asleep. Hah! So I'll make this quick.&lt;/p&gt;
 &lt;p&gt;I wanted a website that:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;was a static site (no ORM, database, etc.)&lt;/li&gt;

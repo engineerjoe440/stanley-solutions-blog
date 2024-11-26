@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  A Collaborative Word Cloud for Teaching | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://blog.stanleysolutionsnw.com/a-collaborative-wordcloud-for-teaching.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/theme.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/custom.css">
+  <link rel="stylesheet" href="https://files.stork-search.net/dark.css">
+  <script src="https://files.stork-search.net/releases/v1.6.0/stork.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/development.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/development.rss.xml">  
+  <meta name="description" content="A few months ago I wrapped up some work on a fun little project I developed for some teaching exercises. Let me tell you about it!">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://blog.stanleysolutionsnw.com/">
+        <img class="img-fluid rounded" src=https://blog.stanleysolutionsnw.com/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://blog.stanleysolutionsnw.com/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">engineering and creativity - all under one hat</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/krnc/usb-manager" target="_blank">KRNC Barn Manager</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/schemdraw-markdown" target="_blank">Schemdraw-Markdown</a></li>
+            <li class=" list-inline-item text-muted">|</li>
+          <li class="list-inline-item"><a class="fas fa-comments" href="https://matrix.to/#/@engineerjoe440:stanleysolutionsnw.com" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-github" href="https://github.com/engineerjoe440/" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-gitlab" href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-coffee" href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-rss" href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml" target="_blank"></a></li>
+      </ul>
+    <div class="stork-wrapper-dark">
+      <input data-stork="sitesearch" class="stork-input" placeholder="search"/>
+      <div data-stork="sitesearch-output" class="stork-output"></div>
+    </div>
+    <script>
+      stork.register("sitesearch", "https://blog.stanleysolutionsnw.com/search-index.st");
+    </script>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  A Collaborative Word Cloud for Teaching
+</h1>
+      <hr>
+  <main>
+    <article class="article">
+      <header>
+        <ul class="list-inline">
+          <li class="list-inline-item text-muted" title="2024-11-26T10:35:00-08:00">
+            <i class="fas fa-clock"></i>
+            Tue 26 November 2024
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-folder-open"></i>
+            <a href="https://blog.stanleysolutionsnw.com/category/development.html">development</a>
+          </li>
+            <li class="list-inline-item">
+              <i class="fas fa-tag"></i>
+                <a href="https://blog.stanleysolutionsnw.com/tag/python.html">#python</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/react.html">#react</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/teaching.html">#teaching</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/youth.html">#youth</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/software.html">#software</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/development.html">#development</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/fastapi.html">#fastapi</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/material-ui.html">#material-ui</a>            </li>
+        </ul>
+      </header>
+      <div class="content">
+        <p>It started back in June when I was frantically preparing some exercises to teach and prepare a group of the College Staff to support Idaho's
+<a href="https://www.uidaho.edu/extension/4h/events/stac">State Teen Association Convention</a>. I was trying to prepare some training to align the team.
+That's not something I've done before, and I can't make any claims that it's perfect, but I think it was well received.</p>
+<p>Let me explain what that exercise really was...</p>
+<p>I used a handful of different materials to try making it both fun and engaging. Some of those materials were from National 4-H's
+<a href="https://www.4-h.org/wp-content/uploads/2024/04/09105552/4H-Harmony-Guide-2024.pdf">"Meet Up Buddy"</a> card activity. Some were of my own
+creation to encourage the College Staff to think about how to prioritize things when time constraints pressed them. My alignment training
+was where we started, it was basically a challenge to the participants. Here's how I set it up, though, maybe not in so many well-placed words.</p>
+<blockquote>
+<p>4-H is full of projects. So many things for youth to engage with and to find their spark. While this is wonderful, it does pose a bit of a
+challenge. Before I explain, I want you to think about all the words that come to mind when you think of 4-H.</p>
+</blockquote>
+<p>At this point, I'd share a QR code with them that they could use to navigate to the game page. The game page provides participants with a
+text box where they can enter each word that they think about. When they enter a word, a new text box appears so they can enter another word.
+As they'd enter words, my system keeps track of them (hidden, of course) and begins to create a word cloud with all of their entries.</p>
+<p>When I decide that they've had enough time (normally it looks like they've run out of ideas for words), then I shut down the entry system and
+reveal the word cloud generated from all of their entries. At the end of it all, we're left with something like this:</p>
+<p><img alt="college staff word cloud" src="https://immich.stanleysolutionsnw.com/api/assets/5692b76b-9049-4ebc-b0b8-4812c751716a/thumbnail?size=preview&amp;key=klMHZEmZIUXG5UF9NeiFfKmLCZOcCm99k9mdI6Rw_U9TbJhC6zepXq-tEantGNrj748"></p>
+<p>That gives us something to talk about.</p>
+<blockquote>
+<p>Look at this. These are all the things that our little group thinks about when we think about 4-H. But what do we share?</p>
+<p>Often, we're working in our own little silos, not terribly focussed on the same things that other leaders are focussed on. That can make
+working with other leaders difficult. We're each moving in our own direction, and sometimes, that feels like pulling a ball of yarn from
+different ends; just making the knot perpetually tighter.</p>
+<p>But this shows us something. Even when we are moving in different directions, it's possible to find some common ground. These are the first
+things that <em>you</em> thought of when I asked you to think about 4-H. These are the inately tied to your path in 4-H, and see how we have
+something common shared between us?</p>
+</blockquote>
+<p>At that point, I'd talk about why I think it's good to get a common understanding of what is shared between the group, and how I like to think
+about using this commonality with people to find shared ground on certain topics. To move forward together on what we see as the shared pathway.</p>
+<p>It worked pretty well for our little team, I was able to refer back to it a number of times, and it made working with the team all the more
+pleasant and constructive.</p>
+<hr>
+<p>The exercise wasn't purely without its challenges, however. In fact, we discovered that the web-service that I'd chosen to use only allowed
+something like 10 players, and each player could only enter 15 words. Not exactly the sort of restrictions you want to run into during an
+exercise. Add to that, the fact that you've got to have a solid internet connection, which is not always easy in 4-H programming in the state
+of Idaho.</p>
+<p>That's why I returned to my recent build, the <a href="/making-portable-digital-learning.html">PortaServer</a>. My little (not so little, actually) ammo
+can with a stack of mini computers. I could serve my own system there, and since I run the network, I could also make the address very easy
+to access.</p>
+<blockquote>
+<p>Enter: <a href="https://github.com/engineerjoe440/wordwall">WordWall</a></p>
+</blockquote>
+<p>It's pretty simple in concept. A little more effort in practice, but that's alright. I made a Python FastAPI server with a tiny, ephemeral
+SQLite database backing it to run all the management of adding, removing, and sharing words. Tie that with a Material-UI based React frontend,
+and I've got a relatively simple little service that I can run on my own system.</p>
+<p>Now, I've got something I can take with me, wherever I travel to align 4-H leaders, youth, or others.</p>
+      </div>
+    </article>
+  </main>
+<!-- <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section> -->
+<script src="https://giscus.app/client.js"
+        data-repo="engineerjoe440/stanley-solutions-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyODk0MDQ2ODE="
+        data-category="Comments"
+        data-category-id="DIC_kwDOET_3Cc4CTonj"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/tags.html">Tags</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/subscribe.html">Subscribe</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
