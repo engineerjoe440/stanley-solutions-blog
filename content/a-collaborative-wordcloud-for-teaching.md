@@ -28,7 +28,7 @@ As they'd enter words, my system keeps track of them (hidden, of course) and beg
 When I decide that they've had enough time (normally it looks like they've run out of ideas for words), then I shut down the entry system and
 reveal the word cloud generated from all of their entries. At the end of it all, we're left with something like this:
 
-![college staff word cloud](https://immich.stanleysolutionsnw.com/api/assets/5692b76b-9049-4ebc-b0b8-4812c751716a/thumbnail?size=preview&key=klMHZEmZIUXG5UF9NeiFfKmLCZOcCm99k9mdI6Rw_U9TbJhC6zepXq-tEantGNrj748)
+<img src="https://immich.stanleysolutionsnw.com/api/assets/5692b76b-9049-4ebc-b0b8-4812c751716a/thumbnail?size=preview&key=klMHZEmZIUXG5UF9NeiFfKmLCZOcCm99k9mdI6Rw_U9TbJhC6zepXq-tEantGNrj748" style="width: 100%;" alt="college staff word cloud">
 
 That gives us something to talk about.
 
