@@ -138,6 +138,7 @@ LINKS = (
     ('PyCEV', 'https://engineerjoe440.github.io/pycev'),
     ('KRNC Barn Manager', 'https://gitlab.stanleysolutionsnw.com/krnc/usb-manager'),
     ('Schemdraw-Markdown', 'https://github.com/engineerjoe440/schemdraw-markdown'),
+    ('WordWall', 'https://github.com/engineerjoe440/wordwall'),
 )
 
 # Icons
