@@ -10,6 +10,7 @@ import os
 import re
 import time
 import argparse
+import subprocess
 
 keymap = {}
 
@@ -173,7 +174,11 @@ def main( parser, keymap ):
         if response.upper() == 'Y':
             open_after = True
     if open_after:
-        os.startfile(filename.replace('./',os.getcwd()+'/'))
+        subprocess.run(
+            ["code", "--reuse-window", filename.replace('./',os.getcwd()+'/')],
+            shell=True,
+            check=False,
+        )
 
 
 if __name__ == '__main__':
