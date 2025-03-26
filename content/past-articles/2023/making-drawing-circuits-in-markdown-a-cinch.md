@@ -50,8 +50,8 @@ Want to see it in action? Here's a few samples:
 ```
 </details>
 
-
 #### Something a bit Juicier:
+
 Example [from Schemdraw Docs](https://schemdraw.readthedocs.io/en/latest/gallery/analog.html#discharging-capacitor)
 
 ::schemdraw:: alt="Analog Circuit" color="white"
@@ -59,9 +59,9 @@ Example [from Schemdraw Docs](https://schemdraw.readthedocs.io/en/latest/gallery
     elm.Line().right(drawing.unit*.75)
     (S1 := elm.SwitchSpdt2(action='close').up().anchor('b').label('$t=0$', loc='rgt'))
     elm.Line().right(drawing.unit*.75).at(S1.c)
-    elm.Resistor().down().label('$100\Omega$').label(['+','$v_o$','-'], loc='bot')
+    elm.Resistor().down().label('$100\\Omega$').label(['+','$v_o$','-'], loc='bot')
     elm.Line().to(V1.start)
-    elm.Capacitor().at(S1.a).toy(V1.start).label('1$\mu$F').dot()
+    elm.Capacitor().at(S1.a).toy(V1.start).label('1$\\mu$F').dot()
 ::end-schemdraw::
 
 <details>
@@ -72,9 +72,9 @@ Example [from Schemdraw Docs](https://schemdraw.readthedocs.io/en/latest/gallery
     elm.Line().right(drawing.unit*.75)
     (S1 := elm.SwitchSpdt2(action='close').up().anchor('b').label('$t=0$', loc='rgt'))
     elm.Line().right(drawing.unit*.75).at(S1.c)
-    elm.Resistor().down().label('$100\Omega$').label(['+','$v_o$','-'], loc='bot')
+    elm.Resistor().down().label('$100\\Omega$').label(['+','$v_o$','-'], loc='bot')
     elm.Line().to(V1.start)
-    elm.Capacitor().at(S1.a).toy(V1.start).label('1$\mu$F').dot()
+    elm.Capacitor().at(S1.a).toy(V1.start).label('1$\\mu$F').dot()
 ::end-schemdraw::
 ```
 </details>
