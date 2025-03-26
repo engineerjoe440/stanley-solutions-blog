@@ -37,6 +37,11 @@ any system-level packages.
 
 > Now, to cut to the chase...
 
+#### 0. Install Python
+
+The rest of these instructions really rely on Python already being installed. If you haven't done that, yet, now's the
+time to remedy the situation!
+
 #### 1. Install `pipx`
 
 Pipx is not a default package that's included with Python installations. So that's the first thing we'll need to install.
