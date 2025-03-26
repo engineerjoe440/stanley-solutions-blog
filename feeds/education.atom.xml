@@ -25,6 +25,9 @@ any system-level packages.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Now, to cut to the chase...&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h4&gt;0. Install Python&lt;/h4&gt;
+&lt;p&gt;The rest of these instructions really rely on Python already being installed. If you haven't done that, yet, now's the
+time to remedy the situation!&lt;/p&gt;
 &lt;h4&gt;1. Install &lt;code&gt;pipx&lt;/code&gt;&lt;/h4&gt;
 &lt;p&gt;Pipx is not a default package that's included with Python installations. So that's the first thing we'll need to install.
 I could give specific directions, but instead, I'll refer you directly to &lt;a href="https://pipx.pypa.io/latest/installation/"&gt;their thorough documentation&lt;/a&gt;.
