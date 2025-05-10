@@ -3,6 +3,11 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
+path = "complex-calculated-coffee.html"
+url = "/complex-calculated-coffee.html"
+title = "Complex, Calculated Coffee!"
+
+[[input.files]]
 path = "jupyter-lab-setup-for-electrical-engineers.html"
 url = "/jupyter-lab-setup-for-electrical-engineers.html"
 title = "Jupyter Lab Setup for Electrical Engineers"
