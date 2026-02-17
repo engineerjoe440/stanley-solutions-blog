@@ -34,12 +34,12 @@ can enjoy the little sampling of these great pieces of work that I've collected 
 
 ### Interview with the Nels Anderson; the 2026 KYG Special Guest Presenter
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CNa7d3AI4gk?si=JUl3ZEcii_8jTafd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" src="https://www.youtube.com/embed/CNa7d3AI4gk?si=JUl3ZEcii_8jTafd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Recap of the 2026 Idaho 4-H Know Your Government (KYG) Conference
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UHiCnTu6z1o?si=ERLaHSl9qpKVzIuV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" src="https://www.youtube.com/embed/UHiCnTu6z1o?si=ERLaHSl9qpKVzIuV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Stream of the *Entire* Special Performance Event
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pSDshEusczQ?si=VquKLXk531P691FT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" src="https://www.youtube.com/embed/pSDshEusczQ?si=VquKLXk531P691FT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
