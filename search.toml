@@ -3,6 +3,11 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
+path = "digital-media-with-idaho-4h-youth.html"
+url = "/digital-media-with-idaho-4h-youth.html"
+title = "Digital Media with Idaho 4-H Youth"
+
+[[input.files]]
 path = "complex-calculated-coffee.html"
 url = "/complex-calculated-coffee.html"
 title = "Complex, Calculated Coffee!"
