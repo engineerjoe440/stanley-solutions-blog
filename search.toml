@@ -3,6 +3,11 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
+path = "smello-world-with-http.html"
+url = "/smello-world-with-http.html"
+title = "Smello World? For HTTP Requests"
+
+[[input.files]]
 path = "digital-media-with-idaho-4h-youth.html"
 url = "/digital-media-with-idaho-4h-youth.html"
 title = "Digital Media with Idaho 4-H Youth"
