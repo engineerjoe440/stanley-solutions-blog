@@ -103,7 +103,7 @@ happening in the Python ecosystem. New PEPs, new projects, news, news, news!
 ### Github and Other Resources
 
 What would this list be without an "awesome list"? They've become popular on Github, so I better list the one for Pyton:
-https://github.com/vinta/awesome-python There's plenty of good stuff in there, so go take a look!
+[https://github.com/vinta/awesome-python](https://github.com/vinta/awesome-python) There's plenty of good stuff in there, so go take a look!
 
 ---
 
