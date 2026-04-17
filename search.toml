@@ -3,6 +3,11 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
+path = "triggering-reaper-recording-from-python.html"
+url = "/triggering-reaper-recording-from-python.html"
+title = "Triggering REAPER Recording from Python"
+
+[[input.files]]
 path = "more-python-nonsense.html"
 url = "/more-python-nonsense.html"
 title = "More Python Nonsense"

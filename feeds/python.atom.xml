@@ -1,5 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"/><link href="https://blog.stanleysolutionsnw.com/feeds/python.atom.xml" rel="self"/><id>https://blog.stanleysolutionsnw.com/</id><updated>2026-04-14T12:07:00-07:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>More Python Nonsense</title><link href="https://blog.stanleysolutionsnw.com/more-python-nonsense.html" rel="alternate"/><published>2026-04-14T12:07:00-07:00</published><updated>2026-04-14T12:07:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2026-04-14:/more-python-nonsense.html</id><summary type="html">&lt;p&gt;You asked... so here it is! A whole bunch of random Python goodies. Things to help you get started, to learn about the language, to go deeper... and more!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Python is my favorite programming language. There's no doubt about that! I've built a lot of random things with it;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Python</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"/><link href="https://blog.stanleysolutionsnw.com/feeds/python.atom.xml" rel="self"/><id>https://blog.stanleysolutionsnw.com/</id><updated>2026-04-15T21:44:00-07:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>Triggering REAPER Recording from Python</title><link href="https://blog.stanleysolutionsnw.com/triggering-reaper-recording-from-python.html" rel="alternate"/><published>2026-04-15T21:44:00-07:00</published><updated>2026-04-15T21:44:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2026-04-15:/triggering-reaper-recording-from-python.html</id><summary type="html">&lt;p&gt;Python, REAPER, and a Stream Deck? What do those things have in common? Is this one of those weird games? Not really. This is how I hooked up a Stream-Deck controller to control my REAPER audio software.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Did you think you needed new ways of controlling your &lt;a href="https://www.reaper.fm/"&gt;REAPER audio software&lt;/a&gt;. I knew it! I knew it. Well, today is your lucky day.&lt;/p&gt;
+&lt;p&gt;I did this a while back, and it was great... until I updated my Ubuntu installation, and started using a newer version of Python. Best I can tell, REAPER doesn't
+actually support Python 3.11 or newer. &lt;em&gt;Somebody want to prove me wrong? Leave a comment! I'd love to hear a better way to do this.&lt;/em&gt; This left me flailing; looking
+for a better solution so I could still have a big "Record" button on my Stream-Deck.&lt;/p&gt;
+&lt;p&gt;This is all because REAPER has this cool system that allows you to interact with the software through a scripting interface, and even drive some actions directly
+through Python. Very cool for geeks like me!&lt;/p&gt;
+&lt;p&gt;Now... this would've taken me quite a while, so I had a friend help me with some of the research. As this whole thing breaks down, you ultimately need to do the
+following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;code&gt;pyenv&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Install &lt;strong&gt;Python 3.10&lt;/strong&gt; with shared-library support&lt;/li&gt;
+&lt;li&gt;Configure REAPER to use that Python version&lt;/li&gt;
+&lt;li&gt;Install &lt;code&gt;reapy-next&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Create a working &lt;strong&gt;toggle recording&lt;/strong&gt; script&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;1. Install &lt;code&gt;pyenv&lt;/code&gt;&lt;/h2&gt;
+&lt;h3&gt;Install dependencies&lt;/h3&gt;
+&lt;p&gt;Here's a list of packages that will likely be needed to help get your &lt;code&gt;pyenv&lt;/code&gt; system up and running.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;apt&lt;span class="w"&gt; &lt;/span&gt;update
+sudo&lt;span class="w"&gt; &lt;/span&gt;apt&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;-y&lt;span class="w"&gt; &lt;/span&gt;build-essential&lt;span class="w"&gt; &lt;/span&gt;libssl-dev&lt;span class="w"&gt; &lt;/span&gt;zlib1g-dev&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;libbz2-dev&lt;span class="w"&gt; &lt;/span&gt;libreadline-dev&lt;span class="w"&gt; &lt;/span&gt;libsqlite3-dev&lt;span class="w"&gt; &lt;/span&gt;curl&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;libncursesw5-dev&lt;span class="w"&gt; &lt;/span&gt;xz-utils&lt;span class="w"&gt; &lt;/span&gt;tk-dev&lt;span class="w"&gt; &lt;/span&gt;libxml2-dev&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;libxmlsec1-dev&lt;span class="w"&gt; &lt;/span&gt;libffi-dev&lt;span class="w"&gt; &lt;/span&gt;liblzma-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;Install &lt;code&gt;pyenv&lt;/code&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl&lt;span class="w"&gt; &lt;/span&gt;https://pyenv.run&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;Add &lt;code&gt;pyenv&lt;/code&gt; to your shell&lt;/h3&gt;
+&lt;p&gt;Add these lines to &lt;code&gt;~/.bashrc&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;&lt;span class="s2"&gt;/.pyenv/bin:&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;eval&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;pyenv&lt;span class="w"&gt; &lt;/span&gt;init&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;eval&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;pyenv&lt;span class="w"&gt; &lt;/span&gt;virtualenv-init&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Reload your shell:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;2. Install Python 3.10 with shared-library support&lt;/h2&gt;
+&lt;p&gt;REAPER &lt;strong&gt;requires&lt;/strong&gt; the Python shared library (&lt;code&gt;libpython3.10.so&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Install Python 3.10:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;env&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;PYTHON_CONFIGURE_OPTS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;--enable-shared&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;pyenv&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;.10.13
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Set it as your working version:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pyenv&lt;span class="w"&gt; &lt;/span&gt;shell&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;.10.13
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Verify the &lt;code&gt;.so&lt;/code&gt; exists:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;find&lt;span class="w"&gt; &lt;/span&gt;~/.pyenv/versions/3.10.13&lt;span class="w"&gt; &lt;/span&gt;-name&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;libpython3.10*.so&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Expected output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;~/.pyenv/versions/3.10.13/lib/libpython3.10.so
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;3. Install &lt;code&gt;reapy-next&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;reapy-next&lt;/code&gt; is the Python package that provides a whole slew of functionality
+for interacting with REAPER through a Python lens. And hey, let's be honest... I'm basically blind to anything &lt;em&gt;other&lt;/em&gt;
+than Python.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;reapy-next
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2&gt;4. Configure REAPER to use &lt;code&gt;pyenv&lt;/code&gt; Python 3.10&lt;/h2&gt;
+&lt;p&gt;REAPER must be pointed at:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Python &lt;strong&gt;interpreter&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;The Python &lt;strong&gt;shared library (.so)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Open:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Options → Preferences → Plug-ins → ReaScript&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Set:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python interpreter:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/home/joestan/.pyenv/versions/3.10.13/lib
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Python library (.so):&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;libpython3.10.so
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Restart REAPER.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;5. Ensure REAPER actually uses Python 3.10&lt;/h2&gt;
+&lt;p&gt;With REAPER open, run the following terminal command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;~/.pyenv/versions/3.10.13/bin/python3&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;import reapy; reapy.configure_reaper()&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That command should immediately return without any error. If it hangs, and a message appears in REAPER regarding some
+Python 3.12 path that cannot be found, it's time to get to &lt;code&gt;grep&lt;/code&gt;in'.&lt;/p&gt;
+&lt;h3&gt;5.1 Fix REAPER config files&lt;/h3&gt;
+&lt;p&gt;If you saw Python 3.12 above, it's time to fix your &lt;code&gt;reaper.ini&lt;/code&gt;. I had to do some searching to actually find that.&lt;/p&gt;
+&lt;p&gt;Run the following command to find any locations that are still referencing Python 3.12&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;grep&lt;span class="w"&gt; &lt;/span&gt;-Rni&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;python3.12&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;~/.config/REAPER
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then go pop those files open and change those full Python paths to the &lt;code&gt;pyenv&lt;/code&gt; equivalents shown above.&lt;/p&gt;
+&lt;p&gt;Restart REAPER again.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;6. Install the &lt;code&gt;ReaCmd&lt;/code&gt; Package&lt;/h2&gt;
+&lt;p&gt;That's right. You guessed it.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I wrote another Python package.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But this one's small! You can snag it from &lt;a href="https://github.com/engineerjoe440/ReaCmd"&gt;GitHub&lt;/a&gt;. To make it easy, just
+install that package in your &lt;code&gt;pyenv&lt;/code&gt; environment:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;~/.pyenv/versions/3.10.13/bin/python3&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;git+https://github.com/engineerjoe440/ReaCmd.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now you should have a script accessible to actually operate the record-toggle operation.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;~/.pyenv/versions/3.10.13/bin/rea-record
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Voila&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;Done.&lt;/h1&gt;
+&lt;p&gt;You now have:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A working pyenv Python 3.10 installation&lt;/li&gt;
+&lt;li&gt;REAPER correctly embedding Python 3.10&lt;/li&gt;
+&lt;li&gt;A working &lt;code&gt;reapy-next&lt;/code&gt; client script that toggles recording&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I hope you find this helpful. I'm sure I'll be coming back to that to fix my system again in the future!&lt;/p&gt;</content><category term="Python"/><category term="audio"/><category term="daw"/><category term="python"/><category term="reaper"/><category term="scripting"/><category term="stream-deck"/><category term="ubuntu"/><category term="linux"/></entry><entry><title>More Python Nonsense</title><link href="https://blog.stanleysolutionsnw.com/more-python-nonsense.html" rel="alternate"/><published>2026-04-14T12:07:00-07:00</published><updated>2026-04-14T12:07:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2026-04-14:/more-python-nonsense.html</id><summary type="html">&lt;p&gt;You asked... so here it is! A whole bunch of random Python goodies. Things to help you get started, to learn about the language, to go deeper... and more!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Python is my favorite programming language. There's no doubt about that! I've built a lot of random things with it;
 everything from helper scripts, to web-scrapers, to websites, and beyond.&lt;/p&gt;
 &lt;p&gt;I've had some questions, recently about where I get my Python resources, so I thought I'd share some of that goodness...&lt;/p&gt;
 &lt;h3&gt;Podcasts&lt;/h3&gt;

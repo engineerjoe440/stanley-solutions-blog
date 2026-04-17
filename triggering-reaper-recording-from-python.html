@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Triggering REAPER Recording from Python | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://blog.stanleysolutionsnw.com/triggering-reaper-recording-from-python.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/theme.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/custom.css">
+  <link rel="stylesheet" href="https://files.stork-search.net/dark.css">
+  <script src="https://files.stork-search.net/releases/v1.6.0/stork.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/python.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/python.rss.xml">  
+  <meta name="description" content="Python, REAPER, and a Stream Deck? What do those things have in common? Is this one of those weird games? Not really. This is how I hooked up a Stream-Deck controller to control my REAPER audio software.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://blog.stanleysolutionsnw.com/">
+        <img class="img-fluid rounded" src=https://blog.stanleysolutionsnw.com/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://blog.stanleysolutionsnw.com/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">engineering and creativity - all under one hat</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/krnc/usb-manager" target="_blank">KRNC Barn Manager</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/schemdraw-markdown" target="_blank">Schemdraw-Markdown</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/wordwall" target="_blank">WordWall</a></li>
+            <li class=" list-inline-item text-muted">|</li>
+          <li class="list-inline-item"><a class="fas fa-comments" href="https://matrix.to/#/@engineerjoe440:stanleysolutionsnw.com" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-github" href="https://github.com/engineerjoe440/" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-gitlab" href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-coffee" href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-rss" href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml" target="_blank"></a></li>
+      </ul>
+    <div class="stork-wrapper-dark">
+      <input data-stork="sitesearch" class="stork-input" placeholder="search"/>
+      <div data-stork="sitesearch-output" class="stork-output"></div>
+    </div>
+    <script>
+      stork.register("sitesearch", "https://blog.stanleysolutionsnw.com/search-index.st");
+    </script>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Triggering REAPER Recording from Python
+</h1>
+      <hr>
+  <main>
+    <article class="article">
+      <header>
+        <ul class="list-inline">
+          <li class="list-inline-item text-muted" title="2026-04-15T21:44:00-07:00">
+            <i class="fas fa-clock"></i>
+            Wed 15 April 2026
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-folder-open"></i>
+            <a href="https://blog.stanleysolutionsnw.com/category/python.html">Python</a>
+          </li>
+            <li class="list-inline-item">
+              <i class="fas fa-tag"></i>
+                <a href="https://blog.stanleysolutionsnw.com/tag/audio.html">#audio</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/daw.html">#daw</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/python.html">#python</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/reaper.html">#reaper</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/scripting.html">#scripting</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/stream-deck.html">#stream-deck</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/ubuntu.html">#ubuntu</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/linux.html">#linux</a>            </li>
+        </ul>
+      </header>
+      <div class="content">
+        <p>Did you think you needed new ways of controlling your <a href="https://www.reaper.fm/">REAPER audio software</a>. I knew it! I knew it. Well, today is your lucky day.</p>
+<p>I did this a while back, and it was great... until I updated my Ubuntu installation, and started using a newer version of Python. Best I can tell, REAPER doesn't
+actually support Python 3.11 or newer. <em>Somebody want to prove me wrong? Leave a comment! I'd love to hear a better way to do this.</em> This left me flailing; looking
+for a better solution so I could still have a big "Record" button on my Stream-Deck.</p>
+<p>This is all because REAPER has this cool system that allows you to interact with the software through a scripting interface, and even drive some actions directly
+through Python. Very cool for geeks like me!</p>
+<p>Now... this would've taken me quite a while, so I had a friend help me with some of the research. As this whole thing breaks down, you ultimately need to do the
+following:</p>
+<ol>
+<li>Install <code>pyenv</code></li>
+<li>Install <strong>Python 3.10</strong> with shared-library support</li>
+<li>Configure REAPER to use that Python version</li>
+<li>Install <code>reapy-next</code></li>
+<li>Create a working <strong>toggle recording</strong> script</li>
+</ol>
+<hr>
+<h2>1. Install <code>pyenv</code></h2>
+<h3>Install dependencies</h3>
+<p>Here's a list of packages that will likely be needed to help get your <code>pyenv</code> system up and running.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev<span class="w"> </span>zlib1g-dev<span class="w"> </span>
+<span class="w">  </span>libbz2-dev<span class="w"> </span>libreadline-dev<span class="w"> </span>libsqlite3-dev<span class="w"> </span>curl<span class="w"> </span>
+<span class="w">  </span>libncursesw5-dev<span class="w"> </span>xz-utils<span class="w"> </span>tk-dev<span class="w"> </span>libxml2-dev<span class="w"> </span>
+<span class="w">  </span>libxmlsec1-dev<span class="w"> </span>libffi-dev<span class="w"> </span>liblzma-dev
+</code></pre></div>
+
+<h3>Install <code>pyenv</code></h3>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>https://pyenv.run<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</code></pre></div>
+
+<h3>Add <code>pyenv</code> to your shell</h3>
+<p>Add these lines to <code>~/.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.pyenv/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>pyenv<span class="w"> </span>init<span class="w"> </span>-<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>pyenv<span class="w"> </span>virtualenv-init<span class="w"> </span>-<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>Reload your shell:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+
+<hr>
+<h2>2. Install Python 3.10 with shared-library support</h2>
+<p>REAPER <strong>requires</strong> the Python shared library (<code>libpython3.10.so</code>).</p>
+<p>Install Python 3.10:</p>
+<div class="highlight"><pre><span></span><code>env<span class="w"> </span><span class="nv">PYTHON_CONFIGURE_OPTS</span><span class="o">=</span><span class="s2">&quot;--enable-shared&quot;</span><span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.10.13
+</code></pre></div>
+
+<p>Set it as your working version:</p>
+<div class="highlight"><pre><span></span><code>pyenv<span class="w"> </span>shell<span class="w"> </span><span class="m">3</span>.10.13
+</code></pre></div>
+
+<p>Verify the <code>.so</code> exists:</p>
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>~/.pyenv/versions/3.10.13<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;libpython3.10*.so&quot;</span>
+</code></pre></div>
+
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>~/.pyenv/versions/3.10.13/lib/libpython3.10.so
+</code></pre></div>
+
+<hr>
+<h2>3. Install <code>reapy-next</code></h2>
+<p><code>reapy-next</code> is the Python package that provides a whole slew of functionality
+for interacting with REAPER through a Python lens. And hey, let's be honest... I'm basically blind to anything <em>other</em>
+than Python.</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>reapy-next
+</code></pre></div>
+
+<hr>
+<h2>4. Configure REAPER to use <code>pyenv</code> Python 3.10</h2>
+<p>REAPER must be pointed at:</p>
+<ul>
+<li>The Python <strong>interpreter</strong></li>
+<li>The Python <strong>shared library (.so)</strong></li>
+</ul>
+<p>Open:</p>
+<blockquote>
+<p><strong>Options → Preferences → Plug-ins → ReaScript</strong></p>
+</blockquote>
+<p>Set:</p>
+<p><strong>Python interpreter:</strong></p>
+<div class="highlight"><pre><span></span><code>/home/joestan/.pyenv/versions/3.10.13/lib
+</code></pre></div>
+
+<p><strong>Python library (.so):</strong></p>
+<div class="highlight"><pre><span></span><code>libpython3.10.so
+</code></pre></div>
+
+<p>Restart REAPER.</p>
+<hr>
+<h2>5. Ensure REAPER actually uses Python 3.10</h2>
+<p>With REAPER open, run the following terminal command:</p>
+<div class="highlight"><pre><span></span><code>~/.pyenv/versions/3.10.13/bin/python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import reapy; reapy.configure_reaper()&quot;</span>
+</code></pre></div>
+
+<p>That command should immediately return without any error. If it hangs, and a message appears in REAPER regarding some
+Python 3.12 path that cannot be found, it's time to get to <code>grep</code>in'.</p>
+<h3>5.1 Fix REAPER config files</h3>
+<p>If you saw Python 3.12 above, it's time to fix your <code>reaper.ini</code>. I had to do some searching to actually find that.</p>
+<p>Run the following command to find any locations that are still referencing Python 3.12</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-Rni<span class="w"> </span><span class="s2">&quot;python3.12&quot;</span><span class="w"> </span>~/.config/REAPER
+</code></pre></div>
+
+<p>Then go pop those files open and change those full Python paths to the <code>pyenv</code> equivalents shown above.</p>
+<p>Restart REAPER again.</p>
+<hr>
+<h2>6. Install the <code>ReaCmd</code> Package</h2>
+<p>That's right. You guessed it.</p>
+<blockquote>
+<p>I wrote another Python package.</p>
+</blockquote>
+<p>But this one's small! You can snag it from <a href="https://github.com/engineerjoe440/ReaCmd">GitHub</a>. To make it easy, just
+install that package in your <code>pyenv</code> environment:</p>
+<div class="highlight"><pre><span></span><code>~/.pyenv/versions/3.10.13/bin/python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/engineerjoe440/ReaCmd.git
+</code></pre></div>
+
+<p>Now you should have a script accessible to actually operate the record-toggle operation.</p>
+<div class="highlight"><pre><span></span><code>~/.pyenv/versions/3.10.13/bin/rea-record
+</code></pre></div>
+
+<p><em>Voila</em></p>
+<hr>
+<h1>Done.</h1>
+<p>You now have:</p>
+<ul>
+<li>A working pyenv Python 3.10 installation</li>
+<li>REAPER correctly embedding Python 3.10</li>
+<li>A working <code>reapy-next</code> client script that toggles recording</li>
+</ul>
+<p>I hope you find this helpful. I'm sure I'll be coming back to that to fix my system again in the future!</p>
+      </div>
+    </article>
+  </main>
+<!-- <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section> -->
+<script src="https://giscus.app/client.js"
+        data-repo="engineerjoe440/stanley-solutions-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyODk0MDQ2ODE="
+        data-category="Comments"
+        data-category-id="DIC_kwDOET_3Cc4CTonj"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/tags.html">Tags</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/subscribe.html">Subscribe</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
