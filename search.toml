@@ -3,6 +3,11 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
+path = "running-virtualdj-on-linux.html"
+url = "/running-virtualdj-on-linux.html"
+title = "Running VirtualDJ on Linux"
+
+[[input.files]]
 path = "triggering-reaper-recording-from-python.html"
 url = "/triggering-reaper-recording-from-python.html"
 title = "Triggering REAPER Recording from Python"

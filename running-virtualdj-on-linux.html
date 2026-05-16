@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Running VirtualDJ on Linux | Stanley Solutions Blog
+</title>
+  <link rel="canonical" href="https://blog.stanleysolutionsnw.com/running-virtualdj-on-linux.html">
+
+
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/pygments/monokai.min.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/theme/css/theme.css">
+  <link rel="stylesheet" href="https://blog.stanleysolutionsnw.com/custom.css">
+  <link rel="stylesheet" href="https://files.stork-search.net/dark.css">
+  <script src="https://files.stork-search.net/releases/v1.6.0/stork.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Full RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml">  <link rel="alternate" type="application/atom+xml" title="Categories Atom Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/linux.atom.xml">  <link rel="alternate" type="application/rss+xml" title="Categories RSS Feed"
+        href="https://blog.stanleysolutionsnw.com/feeds/linux.rss.xml">  
+  <meta name="description" content="I'm a Linux fan. There's no doubt about that. I've gone so far as to run Virtual DJ software for my mobile DJ work. I use Virtual DJ; I have since I used a free version with my first DJ controller, so I still use it now on Linux.">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="https://blog.stanleysolutionsnw.com/">
+        <img class="img-fluid rounded" src=https://blog.stanleysolutionsnw.com/logo.png alt="Stanley Solutions Blog">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="https://blog.stanleysolutionsnw.com/">Stanley Solutions Blog</a></h1>
+      <p class="text-muted">engineering and creativity - all under one hat</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://stanleysolutionsnw.com" target="_blank">Stanley Solutions Website</a></li>
+          <li class="list-inline-item"><a href="https://electricpy.readthedocs.io/en/latest/" target="_blank">ElectricPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/selprotopy" target="_blank">SELProtoPy</a></li>
+          <li class="list-inline-item"><a href="https://engineerjoe440.github.io/pycev" target="_blank">PyCEV</a></li>
+          <li class="list-inline-item"><a href="https://gitlab.stanleysolutionsnw.com/krnc/usb-manager" target="_blank">KRNC Barn Manager</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/schemdraw-markdown" target="_blank">Schemdraw-Markdown</a></li>
+          <li class="list-inline-item"><a href="https://github.com/engineerjoe440/wordwall" target="_blank">WordWall</a></li>
+            <li class=" list-inline-item text-muted">|</li>
+          <li class="list-inline-item"><a class="fas fa-comments" href="https://matrix.to/#/@engineerjoe440:stanleysolutionsnw.com" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-github" href="https://github.com/engineerjoe440/" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fab fa-gitlab" href="https://gitlab.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-coffee" href="https://gitea.stanleysolutionsnw.com/engineerjoe440" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-calendar" href="https://calendar.google.com/calendar/embed?src=engineerjoe440%40gmail.com&ctz=America%2FLos_Angeles" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="fas fa-rss" href="https://blog.stanleysolutionsnw.com/feeds/all.rss.xml" target="_blank"></a></li>
+      </ul>
+    <div class="stork-wrapper-dark">
+      <input data-stork="sitesearch" class="stork-input" placeholder="search"/>
+      <div data-stork="sitesearch-output" class="stork-output"></div>
+    </div>
+    <script>
+      stork.register("sitesearch", "https://blog.stanleysolutionsnw.com/search-index.st");
+    </script>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Running VirtualDJ on Linux
+</h1>
+      <hr>
+  <main>
+    <article class="article">
+      <header>
+        <ul class="list-inline">
+          <li class="list-inline-item text-muted" title="2026-05-11T15:56:00-07:00">
+            <i class="fas fa-clock"></i>
+            Mon 11 May 2026
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-folder-open"></i>
+            <a href="https://blog.stanleysolutionsnw.com/category/linux.html">Linux</a>
+          </li>
+            <li class="list-inline-item">
+              <i class="fas fa-tag"></i>
+                <a href="https://blog.stanleysolutionsnw.com/tag/audio.html">#audio</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/dj.html">#dj</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/dj-software.html">#dj-software</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/linux.html">#linux</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/software.html">#software</a>,                 <a href="https://blog.stanleysolutionsnw.com/tag/virtualdj.html">#virtualdj</a>            </li>
+        </ul>
+      </header>
+      <div class="content">
+        <p>Audio on Linux continues to get better and better. And many of us who follow Linux or gaming developments are familiar with
+the fact that systems are getting more comprehensive for running Windows software on Linux.</p>
+<p>I've been a mobile DJ for a few years now. My first gig was back in 2014. Funny, now, how that's more than 10 years ago, and I was
+worried that I wouldn't get enough clients... Anyway...</p>
+<p>I picked up a Numark Mixtrack II controller pretty early on. That controller set me down a path. Before that, I'd used MIXXX to
+play music and allow me to run two decks and do the basics. MIXXX works on Windows, Mac, and Linux, and at the time, I was just
+running on my Windows laptop. At the time, I would occasionally encounter a software crash, or some other issues. So when I
+started getting the controller working, I started exploring the "Virtual DJ" software that was included, free, with the controller.
+Turns out, I really came to like the software, and I started getting powered up with the new software. I ended up purchasing the
+Virtual DJ 8 version for my controller.</p>
+<p>Now.. a couple years back, I decided to switch over to Linux as my primary setup. I chose to use Kubuntu to give me the best of both
+worlds... Total Kustomization (miss-spelling intentional), Kontrol, and well... the stability of Ubuntu.</p>
+<p>It was around this time that I needed to jump in to DJ a youth event when I didn't have any of my own equipment with me. I barely
+had my old laptop to have access to my music. At that time, I'd just started playing around with <a href="https://usebottles.com/">Bottles</a>
+which makes working with <a href="https://www.winehq.org/">Wine</a> on Linux super easy. At that time, I'd tried loading Virtual DJ's 32-bit
+build, and found that it was moderately successful. To add to this, there's nothing like a deadline to make things happen. So, time
+to try things out. I was nervous that things might not work, but I was the "backup DJ", anyway, so I felt like any issues I might
+have would probably be forgiven.</p>
+<p>Turns out, the whole thing worked pretty well! Later that year, I went for a new laptop, and it's been working even better ever
+since! This was all back in 2022, so I've been using this setup for 4 years, now. I've been pretty happy.</p>
+<hr>
+<p>So what's needed to get this whole thing set up, anyway?</p>
+<ol>
+<li>Install <a href="https://usebottles.com/">Bottles</a></li>
+<li>Set up a Bottle (wine environment) for Virtual DJ to run within. The bottle specifics really aren't too specific from my testing. But I found that the Soda 9.0.1 runner works well.</li>
+<li>Download the 32-bit Virtual DJ installer from here:</li>
+<li>Run the installer in your new Bottle.</li>
+<li>Create a link to your music source so that it can all be easily explored from the comfort of your VirtualDJ software. See the following command that I use.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-s<span class="w"> </span>/data/OneDrive/Audio/<span class="w"> </span>/home/joe/.var/app/com.usebottles.bottles/data/bottles/bottles/VirtualDJ/drive_c/users/joe/Desktop/
+</code></pre></div>
+
+<blockquote>
+<p>ℹ️ <strong>Obvious Information</strong> This command is tailored to my particular installation. It's probably not something that will work
+directly on your system. You'll need to modify a couple things:</p>
+<ul>
+<li><code>joe</code> My system username. You'll need to swap that out.</li>
+<li><code>VirtualDJ</code> The name of the specific Bottle for which the folder link should be made.</li>
+</ul>
+</blockquote>
+<hr>
+<p>I have had a few issues with this setup. The main issue I've run into is that occasionally, after a Bottles upgrade, some issues
+appear where I can't launch the Virtual DJ app, anymore. The solution is always to blow away the Bottle (delete it), and
+re-install it.</p>
+<p>The other issue is that the files are not always easily accessed. So sometimes that requires a little tweaking.</p>
+<hr>
+<p>I've really enjoyed this setup, even if it gives me a little gruff every once in a while. But I wouldn't encourage a first-time
+Linux user to set this up without really trying things out, first.</p>
+      </div>
+    </article>
+  </main>
+<!-- <script data-isso="https://blogcomments.stanleysolutionsnw.com/" src="https://blogcomments.stanleysolutionsnw.com/js/embed.min.js"></script>
+<section class="comments" id="comments">
+    <h3 class="panel">Comments</h3>
+        <section id="isso-thread"></section> -->
+<script src="https://giscus.app/client.js"
+        data-repo="engineerjoe440/stanley-solutions-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyODk0MDQ2ODE="
+        data-category="Comments"
+        data-category-id="DIC_kwDOET_3Cc4CTonj"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/tags.html">Tags</a></li>
+    <li class="list-inline-item"><a href="https://blog.stanleysolutionsnw.com/subscribe.html">Subscribe</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>

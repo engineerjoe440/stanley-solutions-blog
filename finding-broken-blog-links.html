@@ -142,7 +142,7 @@ another GitHub Action. If you'd like to go see it's source, you can check it out
 <li>Videos (posters with <code>&lt;video&gt;</code> tags and video files with <code>&lt;source&gt;</code> tags)</li>
 </ul>
 <p>This, with a little help from one of those other resources I mentioned, helped me to make a handy-dandy little function to find broken links on a page.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_broken_resources</span><span class="p">(</span><span class="n">html_text</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">find_broken_resources</span><span class="p">(</span><span class="n">html_text</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find broken resources on a single page:</span>
 <span class="sd">    * images (&lt;img&gt; tag)</span>
@@ -156,7 +156,7 @@ another GitHub Action. If you'd like to go see it's source, you can check it out
     <span class="n">root_domain</span> <span class="o">=</span> <span class="s2">&quot;stanleysolutionsnw.com&quot;</span>
 
     <span class="c1"># Internal function for validating HTTP status code.</span>
-    <span class="k">def</span> <span class="nf">_validate_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Broken Link!</span><span class="se">\n</span><span class="s2">    &quot;</span> <span class="o">+</span> <span class="n">url</span><span class="p">)</span>
@@ -196,7 +196,7 @@ another GitHub Action. If you'd like to go see it's source, you can check it out
 <p>But that only finds broken resources on a single page. How am I going to do the whole website?</p>
 <h4>Checking Each URL from the Sitemap</h4>
 <p>So, there's a function for that, I got this one started up so that it could find all of the pages from the sitemap, and use that to parse each page.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check_sitemap_urls</span><span class="p">(</span><span class="n">sitemap</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">check_sitemap_urls</span><span class="p">(</span><span class="n">sitemap</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Attempts to resolve all urls in a sitemap and returns the results</span>
 
 <span class="sd">    Args:</span>

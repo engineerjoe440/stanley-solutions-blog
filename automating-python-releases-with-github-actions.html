@@ -122,19 +122,19 @@ the most-up-to-date version. So I built a simple little script:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Release Versioning Support Script</span>
 <span class="c1"># Joe Stanley | 2021</span>
 
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">USERNAME</span> <span class="o">=</span> <span class="s1">&#39;engineerjoe440&#39;</span>
 <span class="n">REPO</span> <span class="o">=</span> <span class="s1">&#39;electricpy&#39;</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">electricpy</span> <span class="k">as</span> <span class="nn">ep</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">electricpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ep</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
-    <span class="kn">import</span> <span class="nn">electricpy</span> <span class="k">as</span> <span class="nn">ep</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">electricpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ep</span>
 
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://api.github.com/repos/</span><span class="si">{</span><span class="n">USERNAME</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">REPO</span><span class="si">}</span><span class="s2">/releases/latest&quot;</span><span class="p">)</span>
 <span class="k">try</span><span class="p">:</span>

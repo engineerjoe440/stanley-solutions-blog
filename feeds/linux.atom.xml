@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stanley Solutions Blog - Linux</title><link href="https://blog.stanleysolutionsnw.com/" rel="alternate"/><link href="https://blog.stanleysolutionsnw.com/feeds/linux.atom.xml" rel="self"/><id>https://blog.stanleysolutionsnw.com/</id><updated>2026-05-11T15:56:00-07:00</updated><subtitle>engineering and creativity - all under one hat</subtitle><entry><title>Running VirtualDJ on Linux</title><link href="https://blog.stanleysolutionsnw.com/running-virtualdj-on-linux.html" rel="alternate"/><published>2026-05-11T15:56:00-07:00</published><updated>2026-05-11T15:56:00-07:00</updated><author><name>Joe Stanley</name></author><id>tag:blog.stanleysolutionsnw.com,2026-05-11:/running-virtualdj-on-linux.html</id><summary type="html">&lt;p&gt;I'm a Linux fan. There's no doubt about that. I've gone so far as to run Virtual DJ software for my mobile DJ work. I use Virtual DJ; I have since I used a free version with my first DJ controller, so I still use it now on Linux.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Audio on Linux continues to get better and better. And many of us who follow Linux or gaming developments are familiar with
+the fact that systems are getting more comprehensive for running Windows software on Linux.&lt;/p&gt;
+&lt;p&gt;I've been a mobile DJ for a few years now. My first gig was back in 2014. Funny, now, how that's more than 10 years ago, and I was
+worried that I wouldn't get enough clients... Anyway...&lt;/p&gt;
+&lt;p&gt;I picked up a Numark Mixtrack II controller pretty early on. That controller set me down a path. Before that, I'd used MIXXX to
+play music and allow me to run two decks and do the basics. MIXXX works on Windows, Mac, and Linux, and at the time, I was just
+running on my Windows laptop. At the time, I would occasionally encounter a software crash, or some other issues. So when I
+started getting the controller working, I started exploring the "Virtual DJ" software that was included, free, with the controller.
+Turns out, I really came to like the software, and I started getting powered up with the new software. I ended up purchasing the
+Virtual DJ 8 version for my controller.&lt;/p&gt;
+&lt;p&gt;Now.. a couple years back, I decided to switch over to Linux as my primary setup. I chose to use Kubuntu to give me the best of both
+worlds... Total Kustomization (miss-spelling intentional), Kontrol, and well... the stability of Ubuntu.&lt;/p&gt;
+&lt;p&gt;It was around this time that I needed to jump in to DJ a youth event when I didn't have any of my own equipment with me. I barely
+had my old laptop to have access to my music. At that time, I'd just started playing around with &lt;a href="https://usebottles.com/"&gt;Bottles&lt;/a&gt;
+which makes working with &lt;a href="https://www.winehq.org/"&gt;Wine&lt;/a&gt; on Linux super easy. At that time, I'd tried loading Virtual DJ's 32-bit
+build, and found that it was moderately successful. To add to this, there's nothing like a deadline to make things happen. So, time
+to try things out. I was nervous that things might not work, but I was the "backup DJ", anyway, so I felt like any issues I might
+have would probably be forgiven.&lt;/p&gt;
+&lt;p&gt;Turns out, the whole thing worked pretty well! Later that year, I went for a new laptop, and it's been working even better ever
+since! This was all back in 2022, so I've been using this setup for 4 years, now. I've been pretty happy.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;So what's needed to get this whole thing set up, anyway?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="https://usebottles.com/"&gt;Bottles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Set up a Bottle (wine environment) for Virtual DJ to run within. The bottle specifics really aren't too specific from my testing. But I found that the Soda 9.0.1 runner works well.&lt;/li&gt;
+&lt;li&gt;Download the 32-bit Virtual DJ installer from here:&lt;/li&gt;
+&lt;li&gt;Run the installer in your new Bottle.&lt;/li&gt;
+&lt;li&gt;Create a link to your music source so that it can all be easily explored from the comfort of your VirtualDJ software. See the following command that I use.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ln&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;/data/OneDrive/Audio/&lt;span class="w"&gt; &lt;/span&gt;/home/joe/.var/app/com.usebottles.bottles/data/bottles/bottles/VirtualDJ/drive_c/users/joe/Desktop/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ℹ️ &lt;strong&gt;Obvious Information&lt;/strong&gt; This command is tailored to my particular installation. It's probably not something that will work
+directly on your system. You'll need to modify a couple things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;joe&lt;/code&gt; My system username. You'll need to swap that out.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VirtualDJ&lt;/code&gt; The name of the specific Bottle for which the folder link should be made.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;I have had a few issues with this setup. The main issue I've run into is that occasionally, after a Bottles upgrade, some issues
+appear where I can't launch the Virtual DJ app, anymore. The solution is always to blow away the Bottle (delete it), and
+re-install it.&lt;/p&gt;
+&lt;p&gt;The other issue is that the files are not always easily accessed. So sometimes that requires a little tweaking.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I've really enjoyed this setup, even if it gives me a little gruff every once in a while. But I wouldn't encourage a first-time
+Linux user to set this up without really trying things out, first.&lt;/p&gt;</content><category term="Linux"/><category term="audio"/><category term="dj"/><category term="dj-software"/><category term="linux"/><category term="software"/><category term="virtualdj"/></entry></feed>
